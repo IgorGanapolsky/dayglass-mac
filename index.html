@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dayglass Pro — 100% On-Device Screen &amp; Meeting Memory for Mac</title>
+  <style>
+    :root {
+      --bg: #090a0f;
+      --surface: #12141d;
+      --surface2: #191c28;
+      --border: #262a3b;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.16);
+      --green: #34d399;
+      --purple: #818cf8;
+      --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font);
+      background: radial-gradient(circle at 50% 0%, #15192b 0%, var(--bg) 60%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 0; border-bottom: 1px solid var(--border);
+    }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; color: var(--text); text-decoration: none; }
+    .brand-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+    .nav-links { display: flex; gap: 20px; align-items: center; font-size: 14px; }
+    .nav-links a { color: var(--muted); text-decoration: none; }
+    .nav-links a:hover { color: var(--text); }
+    .hero { text-align: center; padding: 72px 0 48px; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 600;
+      background: var(--accent-glow); color: var(--accent); border: 1px solid rgba(56, 189, 248, 0.3);
+      margin-bottom: 20px;
+    }
+    h1 { font-size: 46px; font-weight: 800; letter-spacing: -1.2px; line-height: 1.12; margin-bottom: 18px; }
+    .hero p { font-size: 18px; color: var(--muted); max-width: 680px; margin: 0 auto 32px; }
+    .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px 24px; border-radius: 10px; font-size: 15px; font-weight: 600;
+      text-decoration: none; cursor: pointer; border: 1px solid var(--border);
+      transition: all 0.15s ease;
+    }
+    .btn-primary { background: var(--accent); color: #090a0f; border-color: var(--accent); }
+    .btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
+    .btn-secondary { background: var(--surface2); color: var(--text); }
+    .btn-secondary:hover { border-color: var(--accent); }
+    .pricing-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 22px; margin: 40px 0 64px;
+    }
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px; display: flex; flex-direction: column;
+      position: relative;
+    }
+    .card.featured {
+      border-color: var(--accent);
+      box-shadow: 0 0 32px rgba(56, 189, 248, 0.12);
+    }
+    .badge {
+      position: absolute; top: 16px; right: 16px;
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 999px;
+      background: var(--accent-glow); color: var(--accent);
+    }
+    .plan-name { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .price { font-size: 38px; font-weight: 800; margin: 8px 0; }
+    .price span { font-size: 14px; font-weight: 400; color: var(--muted); }
+    .tagline { font-size: 13px; color: var(--muted); margin-bottom: 20px; min-height: 40px; }
+    .features { list-style: none; margin-bottom: 28px; flex: 1; }
+    .features li {
+      font-size: 13.5px; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .features li::before { content: "✓"; color: var(--green); font-weight: 700; }
+    .compare { margin: 32px 0 72px; }
+    .compare h2 { text-align: center; font-size: 28px; margin-bottom: 24px; }
+    table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 14px; overflow: hidden; border: 1px solid var(--border); }
+    th, td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--border); font-size: 14px; }
+    th { background: var(--surface2); font-weight: 700; }
+    footer { border-top: 1px solid var(--border); padding: 32px 0; text-align: center; color: var(--muted); font-size: 13px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="/" class="brand"><span class="brand-dot"></span> Dayglass</a>
+      <div class="nav-links">
+        <a href="#pricing">Pricing</a>
+        <a href="#compare">vs Screenpipe &amp; Fathom</a>
+        <a href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked')">Download .DMG (v2.0)</a>
+        <a href="/">Open Studio App</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="pill">Apple Silicon Native &bull; SubQ Snap 384K Decision Engine &bull; ThumbGate Guardrails</div>
+      <h1>Your Mac's Screen &amp; Meeting Memory.<br/>100% On-Device. Zero Cloud Leakage.</h1>
+      <p>
+        Dayglass captures every window via Apple Vision Neural Engine OCR and records both sides of
+        Zoom, Teams, and Meet calls via ScreenCaptureKit—without bots joining your calls or cloud servers reading your screen.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#pricing" onclick="trackPricingEvent('hero_cta_clicked')">Start Dayglass Pro ($19/mo)</a>
+        <a class="btn btn-secondary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked')">⬇ Download Dayglass.dmg for macOS</a>
+      </div>
+    </section>
+
+    <section id="pricing" class="pricing-grid">
+      <div class="card">
+        <span class="badge">Free</span>
+        <div class="plan-name">Dayglass Community</div>
+        <div class="price">$0 <span>/ forever</span></div>
+        <div class="tagline">Local Apple Vision OCR, SQLite FTS5 search, and 32K Jev fast routing.</div>
+        <ul class="features">
+          <li>On-device Apple Vision OCR (`dayglass-ocr`)</li>
+          <li>Instant SQLite FTS5 screen &amp; audio search</li>
+          <li>32K Jev System-One fast query routing</li>
+          <li>7-day rolling local history</li>
+          <li>Consent-first ThumbGate answer feedback</li>
+        </ul>
+        <a class="btn btn-secondary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {plan: 'free'})">Download Free .DMG</a>
+      </div>
+
+      <div class="card featured">
+        <span class="badge">Most Popular</span>
+        <div class="plan-name">Dayglass Pro Subscription</div>
+        <div class="price">$19 <span>/ mo &bull; or $149/yr</span></div>
+        <div class="tagline">384K SubQ Snap cross-app memory, autonomous meeting dossiers, briefings, and MCP server.</div>
+        <ul class="features">
+          <li><strong>384,000-token SubQ Snap</strong> coarse episode memory (12&times; Jev window)</li>
+          <li>Bot-free dual-source meeting audio (Mic + AirPods/Headphones via ScreenCaptureKit)</li>
+          <li>Autonomous Meeting Dossiers + Evidence-Verified Action Items</li>
+          <li>Pre-Meeting Briefing Cards &amp; 1-Click Follow-Up Drafts</li>
+          <li>Starred Focus Sessions (&#8984;&#8963;B) &rarr; Reusable `SKILL.md` &amp; SOPs</li>
+          <li>Built-in MCP Server for Claude Desktop &amp; Cursor</li>
+          <li>Automatic ThumbGate Prevention Rules from your feedback</li>
+        </ul>
+        <div style="display: flex; gap: 8px;">
+          <button class="btn btn-primary" style="flex: 1;" onclick="beginStripeCheckout('pro_monthly', 19)">Subscribe $19/mo</button>
+          <button class="btn btn-secondary" style="flex: 1;" onclick="beginStripeCheckout('pro_annual', 149)">$149/yr (-35%)</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="badge">Lifetime</span>
+        <div class="plan-name">Mac App Store &amp; Founder Lifetime</div>
+        <div class="price">$249 <span>/ one-time</span></div>
+        <div class="tagline">Own Dayglass Pro forever with a cryptographic offline founder key or StoreKit receipt.</div>
+        <ul class="features">
+          <li>All Dayglass Pro features unlocked forever</li>
+          <li>100% offline cryptographic license (`DGPRO-MAS-...`)</li>
+          <li>Zero recurring subscription fees</li>
+          <li>Priority ThumbGate feature &amp; bug triage</li>
+          <li>Commercial workstation use included</li>
+        </ul>
+        <button class="btn btn-secondary" onclick="beginStripeCheckout('lifetime_mas', 249)">Buy Founder Lifetime ($249)</button>
+      </div>
+    </section>
+
+    <section id="compare" class="compare">
+      <h2>How Dayglass Beats Screenpipe &amp; Fathom on Mac</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Capability</th>
+            <th>Dayglass Pro</th>
+            <th>Screenpipe</th>
+            <th>Fathom</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Bot-Free Headphone Call Recording</strong></td>
+            <td><strong>Yes</strong> (macOS `ScreenCaptureKit` + Mic)</td>
+            <td>Yes</td>
+            <td>No (joins call as visible bot)</td>
+          </tr>
+          <tr>
+            <td><strong>Decision Context Window</strong></td>
+            <td><strong>384,000 tokens</strong> (SubQ Snap coarse episodes)</td>
+            <td>Snippet / RAG chunks</td>
+            <td>Single meeting only</td>
+          </tr>
+          <tr>
+            <td><strong>Starred Session &rarr; Agent `SKILL.md`</strong></td>
+            <td><strong>Built-in (`dayglass star analyze`)</strong></td>
+            <td>Manual pipe</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td><strong>ThumbGate Self-Improving Guardrails</strong></td>
+            <td><strong>Built-in (learns from every 👎)</strong></td>
+            <td>No</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td><strong>100% Sovereign Local Data</strong></td>
+            <td><strong>Yes (`~/.dayglass/dayglass.sqlite`)</strong></td>
+            <td>Local + paid cloud pipes</td>
+            <td>Cloud-only</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer>
+      Dayglass &bull; 100% Local Screen &amp; Meeting Intelligence for macOS &bull; <a href="/" style="color: var(--accent);">Back to App</a>
+    </footer>
+  </div>
+
+  <script>
+    let checkoutStarted = false;
+    let checkoutUrls = {
+      pro_monthly: "https://buy.stripe.com/fZucN59eA1eScSd5e33sJ0U",
+      pro_annual: "https://buy.stripe.com/aFa28r62o8Hk19v49Z3sJ0W",
+      lifetime_mas: "https://buy.stripe.com/4gM5kD1M82iW2dz9uj3sJ0V"
+    };
+
+    const POSTHOG_KEY = "phc_ub5A4JPFsB2dm54Vaq2dWGeDh9zouzLL4Vb6TcicJxvf";
+    const DISTINCT_ID = localStorage.getItem("dg_distinct_id") || ("dg-web-" + Math.random().toString(36).slice(2, 12));
+    localStorage.setItem("dg_distinct_id", DISTINCT_ID);
+
+    function trackPricingEvent(eventName, properties = {}) {
+      const params = new URLSearchParams(window.location.search);
+      const utm_source = params.get('utm_source') || 'direct';
+      const utm_medium = params.get('utm_medium') || '';
+      const utm_campaign = params.get('utm_campaign') || '';
+      const referrer = document.referrer || '';
+      // 1. Direct PostHog capture (works on static GitHub Pages & in-app)
+      fetch('https://us.i.posthog.com/capture/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          api_key: POSTHOG_KEY,
+          event: eventName,
+          distinct_id: DISTINCT_ID,
+          properties: { ...properties, utm_source, utm_medium, utm_campaign, referrer, surface: window.location.host }
+        }),
+        keepalive: true
+      }).catch(() => {});
+      // 2. Local Dayglass SQLite server (when opened on 127.0.0.1:3333)
+      fetch('/api/analytics/track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          event: eventName,
+          properties,
+          utm_source,
+          utm_medium,
+          utm_campaign,
+          referrer,
+        }),
+        keepalive: true
+      }).catch(() => {});
+    }
+
+    async function initPricingAnalytics() {
+      trackPricingEvent('pricing_page_viewed');
+      try {
+        const res = await fetch('/api/billing/status');
+        if (res.ok) {
+          const d = await res.json();
+          if (d.checkout_urls) checkoutUrls = d.checkout_urls;
+        }
+      } catch (e) {}
+    }
+
+    function beginStripeCheckout(plan, priceUsd) {
+      checkoutStarted = true;
+      trackPricingEvent('checkout_initiated', { plan, price_usd: priceUsd });
+      const base = checkoutUrls[plan] || checkoutUrls.pro_monthly;
+      const params = new URLSearchParams(window.location.search);
+      const utm = params.get('utm_source') || 'pricing_page';
+      const camp = params.get('utm_campaign') || 'oct2026_launch';
+      const sep = base.includes('?') ? '&' : '?';
+      window.open(`${base}${sep}utm_source=${encodeURIComponent(utm)}&utm_campaign=${encodeURIComponent(camp)}`, '_blank', 'noopener');
+    }
+
+    window.addEventListener('pagehide', () => {
+      if (checkoutStarted) {
+        trackPricingEvent('checkout_abandoned', { abandonment_stage: 'pricing_checkout_opened_not_completed' });
+      }
+    });
+
+    initPricingAnalytics();
+  </script>
+</body>
+</html>
