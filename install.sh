@@ -5,7 +5,7 @@ set -euo pipefail
 
 VERSION="2.0.0"
 DMG_URL="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v${VERSION}/Dayglass.dmg"
-EXPECTED_SHA256="0c2d815e3fbfabbf3e0f550a27687d027d8a414ba466aa84fa3d4086e233e03b"
+EXPECTED_SHA256="a0af2446b6bbc5f69554950f3fe43f3f3c908ddedc66afcae8b206e3bb39f913"
 APP_DEST="${DAYGLASS_INSTALL_APP_DIR:-/Applications/Dayglass.app}"
 TMP_DMG="$(mktemp /tmp/Dayglass-installer-XXXXXX.dmg)"
 MOUNT_DIR="$(mktemp -d /tmp/Dayglass-mount-XXXXXX)"

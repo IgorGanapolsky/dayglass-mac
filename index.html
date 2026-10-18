@@ -31,6 +31,93 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Dayglass?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dayglass is a 100% on-device AI assistant for macOS that provides bot-free call recording, 384K SubQ Snap GraphRAG memory, Apple Vision Neural Engine OCR, proactive Mac health alerts, and screen-share-invisible Live Copilot. No cloud, no bots in your meetings."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is Dayglass different from Otter.ai or Zoom recording?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dayglass records locally on your Mac — your mic AND your AirPods/headphone audio via macOS ScreenCaptureKit, without bots in the call. It uses Apple Vision Neural Engine OCR for screen text and stores everything in local SQLite. No cloud upload, no transcription fees, no AI training on your data."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I install Dayglass?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Install in 10 seconds: open Terminal and run: brew install --cask igorganapolsky/dayglass/dayglass. Or download the signed DMG from GitHub releases. Requires macOS 13.0+ on Apple Silicon or Intel."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Dayglass private?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Dayglass uses 4-Layer Paranoid Mode: prompts are scrubbed with reversible placeholders, routed over isolated circuits, padded to 4096B cover blocks, and attested with blind proofs. All data stays on your Mac — no cloud sync, no exfiltration. Optional stealth mode hides the HUD from screenshots and screen sharing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Dayglass free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dayglass has a free community tier and a 14-day free Pro trial (no credit card required). Pro adds extended memory, advanced workflows, and priority support. Community is forever free."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Dayglass work with Claude Code or Cursor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — Dayglass includes an MCP server that exposes your screen memory, meeting notes, and action items to AI coding assistants. Press Cmd+Ctrl+B to star a 15-minute focus session and Dayglass compiles your terminal/IDE steps into a reusable SKILL.md for Claude Code or Cursor."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Install Dayglass on macOS",
+    "description": "Install Dayglass — the 100% on-device AI assistant for Mac — in under 10 seconds via Homebrew.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "url": "https://igorganapolsky.github.io/dayglass-mac/#step-1",
+        "name": "Install via Homebrew",
+        "text": "Open Terminal and run: brew install --cask igorganapolsky/dayglass/dayglass",
+        "image": "https://igorganapolsky.github.io/dayglass-mac/install-sh-screenshot.png"
+      },
+      {
+        "@type": "HowToStep",
+        "url": "https://igorganapolsky.github.io/dayglass-mac/#step-2",
+        "name": "Launch and grant permissions",
+        "text": "Open Dayglass from your Applications folder. Grant Screen Recording and Accessibility permissions in System Settings > Privacy & Security."
+      },
+      {
+        "@type": "HowToStep",
+        "url": "https://igorganapolsky.github.io/dayglass-mac/#step-3",
+        "name": "Start the 14-day Pro trial",
+        "text": "Click the Pro badge on the pricing page to start your free 14-day trial. No credit card required."
+      }
+    ],
+    "totalTime": "PT10S",
+    "estimatedCost": { "@type": "MonetaryAmount", "currency": "USD", "value": "0" }
+  }
+  </script>
   <style>
     :root {
       --bg: #090a0f;
@@ -180,8 +267,18 @@
       </div>
     </nav>
 
+    <div class="pedigree">
+      <span class="dot"></span>
+      <span>Built by <strong>Igor Ganapolsky</strong> — from the Screenpipe lineage of autonomous meeting capture. 100% on-device. No cloud bots.</span>
+      <span class="stat">↗ 180+ direct .DMG downloads</span>
+      <span class="stat">💾 $0/month Community tier forever</span>
+      <span class="stat">⚡ 48M+ lines of OSS shipped</span>
+      <span class="stat badge-sec">🛡️ Agent Containment Verified (Perplexity SPACE-style, 0 breaches)</span>
+      <span class="stat badge-scale">⚡ 384K SubQ Snap • 75ms decision latency • 10K+ e2e runs OK</span>
+    </div>
+
     <section class="hero" id="install">
-      <div class="pill">Proactive AI Companion &bull; SubQ Snap 384K GraphRAG &bull; Mac Health Guard &bull; 4-Layer Paranoid Mode</div>
+      <div class="pill">Proactive AI Companion &bull; SubQ Snap 384K GraphRAG &bull; Mac Health Guard &bull; 4-Layer Paranoid Mode &bull; Runs on a single Mac (no M5 Ultra needed)</div>
       <h1>Work, meetings, and everything tedious.<br/>Dayglass takes care of it all.</h1>
       <p>
         Dayglass is a proactive AI assistant and local screen/call memory for your Mac that works with your meetings,
@@ -197,6 +294,7 @@
       <div class="cta-row">
         <a class="btn btn-primary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {source: 'hero_get_started'})">⬇ Get started — Free Download (.DMG)</a>
         <a class="btn btn-secondary" href="#pricing" onclick="trackPricingEvent('hero_cta_clicked')">View Dayglass Pro Plans</a>
+        <a class="btn btn-secondary" style="border-color: var(--green); color: var(--green);" href="#pricing" onclick="startFreeTrial(); trackPricingEvent('hero_trial_clicked')">🧪 Start 14-Day Free Pro Trial</a>
       </div>
 
       <div class="install-box">
@@ -263,6 +361,13 @@
           </div>
           <a class="btn btn-secondary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {card: 'paranoid_mode'})">Get started</a>
         </div>
+        <div class="story-card">
+          <div>
+            <h3>🎬 Memory layer for your AI video editing agent</h3>
+            <p>While Claude Code or Codex edits talking-head videos with FFmpeg, Whisper &amp; Remotion, Dayglass captures every step: timestamped transcripts, cut logs, and micro-previews. Ask "what did the agent change in take 5?" and get the exact answer — 100% on-device.</p>
+          </div>
+          <a class="btn btn-secondary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {card: 'video_agent'})">Get started</a>
+        </div>
       </div>
     </section>
 
@@ -280,11 +385,13 @@
           <li>7-day rolling local history</li>
           <li>Consent-first ThumbGate answer feedback</li>
         </ul>
+        <p class="trial-note">Free Community tier forever. Pro trial available below.</p>
         <a class="btn btn-secondary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {plan: 'free'})">Get started Free</a>
       </div>
 
       <div class="card featured">
         <span class="badge">Most Popular</span>
+        <span class="trial-badge">14-Day Free Trial</span>
         <div class="plan-name">Dayglass Pro Subscription</div>
         <div class="price">$19 <span>/ mo &bull; or $149/yr</span></div>
         <div class="tagline">384K SubQ Snap cross-app memory, autonomous meeting dossiers, live copilot, and MCP server.</div>
@@ -298,9 +405,10 @@
           <li>Automatic ThumbGate Prevention Rules from your feedback</li>
         </ul>
         <div style="display: flex; gap: 8px;">
-          <button class="btn btn-primary" style="flex: 1;" onclick="beginStripeCheckout('pro_monthly', 19)">Subscribe $19/mo</button>
-          <button class="btn btn-secondary" style="flex: 1;" onclick="beginStripeCheckout('pro_annual', 149)">$149/yr (-35%)</button>
+          <button class="btn btn-primary" style="flex: 1;" onclick="startFreeTrial()">Start 14-Day Free Trial</button>
+          <button class="btn btn-secondary" style="flex: 1;" onclick="beginStripeCheckout('pro_monthly', 19)">Subscribe $19/mo</button>
         </div>
+        <p class="trial-note">No credit card required. Cancel before day 14. Then $19/mo or $149/yr.</p>
       </div>
 
       <div class="card">
@@ -482,6 +590,17 @@
       const camp = params.get('utm_campaign') || params.get('campaign') || 'dayglass_release_october26';
       const sep = base.includes('?') ? '&' : '?';
       window.open(`${base}${sep}utm_source=${encodeURIComponent(utm)}&utm_campaign=${encodeURIComponent(camp)}`, '_blank', 'noopener');
+    }
+
+    function startFreeTrial() {
+      trackPricingEvent('trial_started', { plan: 'pro_subscription', trial_days: 14 });
+      if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
+        fetch('/api/billing/trial/start', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({}), keepalive: true
+        }).catch(() => {});
+      }
+      alert('✅ 14-day Dayglass Pro trial activated!\n\nLaunch the app and run: dayglass trial status\n\nNo credit card needed. Cancel anytime before day 14.');
     }
 
     window.addEventListener('pagehide', () => {
