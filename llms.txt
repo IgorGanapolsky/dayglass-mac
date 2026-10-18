@@ -1,0 +1,9 @@
+# Dayglass v2.0 for macOS
+
+> 100% On-Device Screen & Meeting Memory for Mac with Apple Vision Neural Engine OCR, ScreenCaptureKit bot-free headphone call recording, 384K SubQ Snap 3-Way Hybrid GraphRAG, Cluely-style screen-share-invisible live copilot, and Vitalik 4-layer Paranoid Mode.
+
+- Homepage: https://igorganapolsky.github.io/dayglass-mac/
+- 1-Line Installer: `curl -fsSL https://igorganapolsky.github.io/dayglass-mac/install.sh | bash`
+- Homebrew Cask: `brew install --cask igorganapolsky/dayglass/dayglass`
+- Direct DMG Download: https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg
+- Plans: Community ($0 forever), Pro Monthly ($19/mo), Pro Annual ($149/yr), Founder Lifetime ($249 one-time)

@@ -4,6 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dayglass Pro — 100% On-Device Screen &amp; Meeting Memory for Mac</title>
+  <meta name="description" content="Native macOS screen &amp; meeting memory with Apple Vision Neural Engine OCR, ScreenCaptureKit bot-free headphone call recording, 384K SubQ Snap GraphRAG, Cluely live copilot, and 4-layer Paranoid Mode. Install via Homebrew or 1-line curl." />
+  <link rel="canonical" href="https://igorganapolsky.github.io/dayglass-mac/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://igorganapolsky.github.io/dayglass-mac/" />
+  <meta property="og:title" content="Dayglass v2.0 for macOS — 100% On-Device Screen &amp; Meeting Memory" />
+  <meta property="og:description" content="Bot-free AirPods/Mic call capture via ScreenCaptureKit, 384K SubQ Snap 2-Hop GraphRAG, Cluely stealth live copilot, and Vitalik 4-layer Paranoid Mode. Zero cloud leakage." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dayglass v2.0 for macOS — 100% On-Device Screen &amp; Meeting Memory" />
+  <meta name="twitter:description" content="Install in 10s: brew install --cask igorganapolsky/dayglass/dayglass. 384K SubQ Snap GraphRAG + bot-free call capture + 4-layer Paranoid Mode." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Dayglass",
+    "operatingSystem": "macOS 13.0+",
+    "applicationCategory": "ProductivityApplication",
+    "softwareVersion": "2.0.0",
+    "downloadUrl": "https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg",
+    "installUrl": "https://igorganapolsky.github.io/dayglass-mac/install.sh",
+    "offers": [
+      { "@type": "Offer", "name": "Dayglass Community", "price": "0", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Dayglass Pro Monthly", "price": "19.00", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Dayglass Pro Annual", "price": "149.00", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Dayglass Founder Lifetime", "price": "249.00", "priceCurrency": "USD" }
+    ]
+  }
+  </script>
   <style>
     :root {
       --bg: #090a0f;
@@ -17,6 +44,7 @@
       --green: #34d399;
       --purple: #818cf8;
       --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", system-ui, sans-serif;
+      --mono: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -29,14 +57,14 @@
     .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
     nav {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 20px 0; border-bottom: 1px solid var(--border);
+      padding: 20px 0; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 12px;
     }
     .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; color: var(--text); text-decoration: none; }
     .brand-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
-    .nav-links { display: flex; gap: 20px; align-items: center; font-size: 14px; }
+    .nav-links { display: flex; gap: 20px; align-items: center; font-size: 14px; flex-wrap: wrap; }
     .nav-links a { color: var(--muted); text-decoration: none; }
     .nav-links a:hover { color: var(--text); }
-    .hero { text-align: center; padding: 72px 0 48px; }
+    .hero { text-align: center; padding: 64px 0 36px; }
     .pill {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 600;
@@ -44,8 +72,8 @@
       margin-bottom: 20px;
     }
     h1 { font-size: 46px; font-weight: 800; letter-spacing: -1.2px; line-height: 1.12; margin-bottom: 18px; }
-    .hero p { font-size: 18px; color: var(--muted); max-width: 680px; margin: 0 auto 32px; }
-    .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .hero p { font-size: 18px; color: var(--muted); max-width: 720px; margin: 0 auto 28px; }
+    .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       padding: 12px 24px; border-radius: 10px; font-size: 15px; font-weight: 600;
@@ -56,6 +84,30 @@
     .btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
     .btn-secondary { background: var(--surface2); color: var(--text); }
     .btn-secondary:hover { border-color: var(--accent); }
+    .install-box {
+      max-width: 780px; margin: 0 auto 20px; text-align: left;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+      padding: 20px 24px; box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+    }
+    .install-box-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--accent); margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;
+    }
+    .cmd-row {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      background: #07080d; border: 1px solid var(--border); border-radius: 10px;
+      padding: 10px 14px; margin-bottom: 10px; font-family: var(--mono); font-size: 13px; color: #e2e8f0;
+      overflow-x: auto;
+    }
+    .cmd-row:last-child { margin-bottom: 0; }
+    .cmd-label { color: var(--muted); font-size: 11px; font-family: var(--font); font-weight: 600; min-width: 115px; }
+    .cmd-code { flex: 1; white-space: nowrap; color: var(--green); }
+    .copy-btn {
+      background: var(--surface2); color: var(--text); border: 1px solid var(--border);
+      border-radius: 6px; padding: 5px 10px; font-size: 12px; font-weight: 600; cursor: pointer;
+      white-space: nowrap;
+    }
+    .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
     .pricing-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 22px; margin: 40px 0 64px;
@@ -96,25 +148,45 @@
 <body>
   <div class="container">
     <nav>
-      <a href="/" class="brand"><span class="brand-dot"></span> Dayglass</a>
+      <a href="#install" class="brand" id="navBrandLink"><span class="brand-dot"></span> Dayglass</a>
       <div class="nav-links">
+        <a href="#install">Install (Brew / CLI / DMG)</a>
         <a href="#pricing">Pricing</a>
         <a href="#compare">vs Screenpipe &amp; Fathom</a>
         <a href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked')">Download .DMG (v2.0)</a>
-        <a href="/">Open Studio App</a>
+        <a href="https://github.com/IgorGanapolsky/dayglass-mac" target="_blank" rel="noopener">GitHub</a>
       </div>
     </nav>
 
-    <section class="hero">
-      <div class="pill">Apple Silicon Native &bull; SubQ Snap 384K Decision Engine &bull; ThumbGate Guardrails</div>
+    <section class="hero" id="install">
+      <div class="pill">Apple Silicon Native &bull; SubQ Snap 384K 2-Hop GraphRAG &bull; 4-Layer Paranoid Mode</div>
       <h1>Your Mac's Screen &amp; Meeting Memory.<br/>100% On-Device. Zero Cloud Leakage.</h1>
       <p>
-        Dayglass captures every window via Apple Vision Neural Engine OCR and records both sides of
-        Zoom, Teams, and Meet calls via ScreenCaptureKit—without bots joining your calls or cloud servers reading your screen.
+        Dayglass captures every window via Apple Vision Neural Engine OCR, records both sides of
+        Zoom, Teams, and Meet calls via ScreenCaptureKit (even on AirPods), gives you a screen-share-invisible
+        live meeting copilot, and scrubs PII with Vitalik-style 4-layer Paranoid Mode.
       </p>
+
+      <div class="install-box">
+        <div class="install-box-title">
+          <span>⚡ Install Dayglass v2.0 on macOS (Apple Silicon &amp; Intel, macOS 13+)</span>
+          <span style="color: var(--green);">Gatekeeper-Ready &bull; Signed Bundle</span>
+        </div>
+        <div class="cmd-row">
+          <span class="cmd-label">1-Line Install:</span>
+          <code class="cmd-code" id="cmdCurl">curl -fsSL https://igorganapolsky.github.io/dayglass-mac/install.sh | bash</code>
+          <button class="copy-btn" onclick="copyInstallCmd('cmdCurl', 'curl_install_copied')">Copy</button>
+        </div>
+        <div class="cmd-row">
+          <span class="cmd-label">Homebrew Cask:</span>
+          <code class="cmd-code" id="cmdBrew">brew install --cask igorganapolsky/dayglass/dayglass</code>
+          <button class="copy-btn" onclick="copyInstallCmd('cmdBrew', 'brew_install_copied')">Copy</button>
+        </div>
+      </div>
+
       <div class="cta-row">
-        <a class="btn btn-primary" href="#pricing" onclick="trackPricingEvent('hero_cta_clicked')">Start Dayglass Pro ($19/mo)</a>
-        <a class="btn btn-secondary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked')">⬇ Download Dayglass.dmg for macOS</a>
+        <a class="btn btn-primary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {source: 'hero'})">⬇ Download Dayglass.dmg (v2.0.0)</a>
+        <a class="btn btn-secondary" href="#pricing" onclick="trackPricingEvent('hero_cta_clicked')">Upgrade to Dayglass Pro ($19/mo)</a>
       </div>
     </section>
 
@@ -138,12 +210,12 @@
         <span class="badge">Most Popular</span>
         <div class="plan-name">Dayglass Pro Subscription</div>
         <div class="price">$19 <span>/ mo &bull; or $149/yr</span></div>
-        <div class="tagline">384K SubQ Snap cross-app memory, autonomous meeting dossiers, briefings, and MCP server.</div>
+        <div class="tagline">384K SubQ Snap cross-app memory, autonomous meeting dossiers, live copilot, and MCP server.</div>
         <ul class="features">
-          <li><strong>384,000-token SubQ Snap</strong> coarse episode memory (12&times; Jev window)</li>
+          <li><strong>384,000-token SubQ Snap</strong> 3-Way Hybrid GraphRAG (BM25 + 256d Dense + 2-Hop Graph)</li>
           <li>Bot-free dual-source meeting audio (Mic + AirPods/Headphones via ScreenCaptureKit)</li>
-          <li>Autonomous Meeting Dossiers + Evidence-Verified Action Items</li>
-          <li>Pre-Meeting Briefing Cards &amp; 1-Click Follow-Up Drafts</li>
+          <li>Cluely-style Screen-Share-Invisible Live Meeting Copilot (`Cmd+Shift+Space`)</li>
+          <li>Vitalik 4-Layer Paranoid Mode (local reversible PII rewriter + 4KB cover traffic + zkAPI proofs)</li>
           <li>Starred Focus Sessions (&#8984;&#8963;B) &rarr; Reusable `SKILL.md` &amp; SOPs</li>
           <li>Built-in MCP Server for Claude Desktop &amp; Cursor</li>
           <li>Automatic ThumbGate Prevention Rules from your feedback</li>
@@ -171,14 +243,14 @@
     </section>
 
     <section id="compare" class="compare">
-      <h2>How Dayglass Beats Screenpipe &amp; Fathom on Mac</h2>
+      <h2>How Dayglass Beats Screenpipe, Fathom &amp; Cluely on Mac</h2>
       <table>
         <thead>
           <tr>
             <th>Capability</th>
             <th>Dayglass Pro</th>
             <th>Screenpipe</th>
-            <th>Fathom</th>
+            <th>Fathom / Cluely</th>
           </tr>
         </thead>
         <tbody>
@@ -186,13 +258,25 @@
             <td><strong>Bot-Free Headphone Call Recording</strong></td>
             <td><strong>Yes</strong> (macOS `ScreenCaptureKit` + Mic)</td>
             <td>Yes</td>
-            <td>No (joins call as visible bot)</td>
+            <td>Fathom joins as bot / Cluely cloud-metered</td>
           </tr>
           <tr>
             <td><strong>Decision Context Window</strong></td>
-            <td><strong>384,000 tokens</strong> (SubQ Snap coarse episodes)</td>
+            <td><strong>384,000 tokens</strong> (3-Way RRF Hybrid GraphRAG)</td>
             <td>Snippet / RAG chunks</td>
             <td>Single meeting only</td>
+          </tr>
+          <tr>
+            <td><strong>Screen-Share-Invisible Live Copilot</strong></td>
+            <td><strong>Yes (`NSWindowSharingNone` HUD)</strong></td>
+            <td>No</td>
+            <td>Yes ($20–$60/mo cloud)</td>
+          </tr>
+          <tr>
+            <td><strong>4-Layer Paranoid Privacy Proxy</strong></td>
+            <td><strong>Yes (PII rewriter + 4KB cover + zkAPI)</strong></td>
+            <td>No</td>
+            <td>No</td>
           </tr>
           <tr>
             <td><strong>Starred Session &rarr; Agent `SKILL.md`</strong></td>
@@ -217,7 +301,9 @@
     </section>
 
     <footer>
-      Dayglass &bull; 100% Local Screen &amp; Meeting Intelligence for macOS &bull; <a href="/" style="color: var(--accent);">Back to App</a>
+      Dayglass v2.0.0 &bull; 100% Local Screen &amp; Meeting Intelligence for macOS &bull;
+      <a href="https://github.com/IgorGanapolsky/dayglass-mac/releases/tag/v2.0.0" style="color: var(--accent);">Release Notes &amp; SHA-256</a> &bull;
+      <a href="https://github.com/IgorGanapolsky/homebrew-dayglass" style="color: var(--accent);">Homebrew Tap</a>
     </footer>
   </div>
 
@@ -233,13 +319,30 @@
     const DISTINCT_ID = localStorage.getItem("dg_distinct_id") || ("dg-web-" + Math.random().toString(36).slice(2, 12));
     localStorage.setItem("dg_distinct_id", DISTINCT_ID);
 
+    if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
+      const brand = document.getElementById("navBrandLink");
+      if (brand) brand.setAttribute("href", "/");
+    }
+
+    function copyInstallCmd(elementId, eventName) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      navigator.clipboard.writeText(el.innerText.trim()).catch(() => {});
+      trackPricingEvent(eventName);
+      const btn = el.nextElementSibling;
+      if (btn) {
+        const orig = btn.innerText;
+        btn.innerText = "Copied ✓";
+        setTimeout(() => { btn.innerText = orig; }, 1800);
+      }
+    }
+
     function trackPricingEvent(eventName, properties = {}) {
       const params = new URLSearchParams(window.location.search);
       const utm_source = params.get('utm_source') || 'direct';
       const utm_medium = params.get('utm_medium') || '';
       const utm_campaign = params.get('utm_campaign') || '';
       const referrer = document.referrer || '';
-      // 1. Direct PostHog capture (works on static GitHub Pages & in-app)
       fetch('https://us.i.posthog.com/capture/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -251,31 +354,34 @@
         }),
         keepalive: true
       }).catch(() => {});
-      // 2. Local Dayglass SQLite server (when opened on 127.0.0.1:3333)
-      fetch('/api/analytics/track', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          event: eventName,
-          properties,
-          utm_source,
-          utm_medium,
-          utm_campaign,
-          referrer,
-        }),
-        keepalive: true
-      }).catch(() => {});
+      if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
+        fetch('/api/analytics/track', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            event: eventName,
+            properties,
+            utm_source,
+            utm_medium,
+            utm_campaign,
+            referrer,
+          }),
+          keepalive: true
+        }).catch(() => {});
+      }
     }
 
     async function initPricingAnalytics() {
       trackPricingEvent('pricing_page_viewed');
-      try {
-        const res = await fetch('/api/billing/status');
-        if (res.ok) {
-          const d = await res.json();
-          if (d.checkout_urls) checkoutUrls = d.checkout_urls;
-        }
-      } catch (e) {}
+      if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
+        try {
+          const res = await fetch('/api/billing/status');
+          if (res.ok) {
+            const d = await res.json();
+            if (d.checkout_urls) checkoutUrls = d.checkout_urls;
+          }
+        } catch (e) {}
+      }
     }
 
     function beginStripeCheckout(plan, priceUsd) {
