@@ -3,7 +3,7 @@
 **Your Mac's Screen & Meeting Memory — 100% On-Device. Zero Cloud Bots.**
 
 - **Website & Pricing**: [https://igorganapolsky.github.io/dayglass-mac/](https://igorganapolsky.github.io/dayglass-mac/)
-- **Direct Download (`.dmg`)**: [Download Dayglass v2.0.0 for macOS](https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg) (`SHA-256: 7d3befbe7cef9a0920cfea92e9c881b390a5be24d179dc8d6df7bd6540cd106e`)
+- **Direct Download (`.dmg`)**: [Download Dayglass v2.0.0 for macOS](https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg) (`SHA-256: 0c2d815e3fbfabbf3e0f550a27687d027d8a414ba466aa84fa3d4086e233e03b`)
 
 ## Install in 10 Seconds
 

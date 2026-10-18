@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dayglass Pro — 100% On-Device Screen &amp; Meeting Memory for Mac</title>
-  <meta name="description" content="Native macOS screen &amp; meeting memory with Apple Vision Neural Engine OCR, ScreenCaptureKit bot-free headphone call recording, 384K SubQ Snap GraphRAG, Cluely live copilot, and 4-layer Paranoid Mode. Install via Homebrew or 1-line curl." />
+  <title>Proactive AI Assistant &amp; Local Memory for Mac | Dayglass v2.0</title>
+  <meta name="description" content="Meet Dayglass, the proactive 100% on-device AI assistant for your Mac. Bot-free call recording, 384K SubQ Snap GraphRAG, screen-share-invisible Live Copilot, Mac Health Alerts, Folder Manager, and 4-layer Paranoid Mode." />
   <link rel="canonical" href="https://igorganapolsky.github.io/dayglass-mac/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://igorganapolsky.github.io/dayglass-mac/" />
-  <meta property="og:title" content="Dayglass v2.0 for macOS — 100% On-Device Screen &amp; Meeting Memory" />
-  <meta property="og:description" content="Bot-free AirPods/Mic call capture via ScreenCaptureKit, 384K SubQ Snap 2-Hop GraphRAG, Cluely stealth live copilot, and Vitalik 4-layer Paranoid Mode. Zero cloud leakage." />
+  <meta property="og:title" content="Proactive AI Assistant &amp; Local Memory for Mac | Dayglass v2.0" />
+  <meta property="og:description" content="Work, meetings, Mac health, and everything tedious. Dayglass takes care of it all — 100% on-device with Apple Vision OCR, ScreenCaptureKit, 384K GraphRAG, and 4-Layer Paranoid Mode." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Dayglass v2.0 for macOS — 100% On-Device Screen &amp; Meeting Memory" />
-  <meta name="twitter:description" content="Install in 10s: brew install --cask igorganapolsky/dayglass/dayglass. 384K SubQ Snap GraphRAG + bot-free call capture + 4-layer Paranoid Mode." />
+  <meta name="twitter:title" content="Proactive AI Assistant &amp; Local Memory for Mac | Dayglass v2.0" />
+  <meta name="twitter:description" content="Install in 10s: brew install --cask igorganapolsky/dayglass/dayglass. Proactive Mac Health Alerts, Folder Manager, 384K SubQ Snap GraphRAG &amp; Bot-Free Call Capture." />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -41,6 +41,7 @@
       --muted: #94a3b8;
       --accent: #38bdf8;
       --accent-glow: rgba(56, 189, 248, 0.16);
+      --pink: #f472b6;
       --green: #34d399;
       --purple: #818cf8;
       --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", system-ui, sans-serif;
@@ -49,7 +50,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: var(--font);
-      background: radial-gradient(circle at 50% 0%, #15192b 0%, var(--bg) 60%);
+      background: radial-gradient(circle at 50% 0%, #19152b 0%, var(--bg) 62%);
       color: var(--text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -60,7 +61,7 @@
       padding: 20px 0; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 12px;
     }
     .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; color: var(--text); text-decoration: none; }
-    .brand-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+    .brand-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--pink); box-shadow: 0 0 12px var(--pink); }
     .nav-links { display: flex; gap: 20px; align-items: center; font-size: 14px; flex-wrap: wrap; }
     .nav-links a { color: var(--muted); text-decoration: none; }
     .nav-links a:hover { color: var(--text); }
@@ -72,8 +73,16 @@
       margin-bottom: 20px;
     }
     h1 { font-size: 46px; font-weight: 800; letter-spacing: -1.2px; line-height: 1.12; margin-bottom: 18px; }
-    .hero p { font-size: 18px; color: var(--muted); max-width: 720px; margin: 0 auto 28px; }
-    .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
+    .hero p { font-size: 18px; color: var(--muted); max-width: 720px; margin: 0 auto 24px; }
+    .spec-pills {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+      font-size: 12px; color: var(--muted); margin-bottom: 28px;
+    }
+    .spec-pill {
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+      padding: 4px 12px; border-radius: 999px;
+    }
+    .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; }
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       padding: 12px 24px; border-radius: 10px; font-size: 15px; font-weight: 600;
@@ -108,6 +117,19 @@
       white-space: nowrap;
     }
     .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+    /* Eney-Style Proactive Story Grid */
+    .story-section { margin: 48px 0; }
+    .story-section h2 { text-align: center; font-size: 30px; font-weight: 800; margin-bottom: 10px; }
+    .story-section .sub { text-align: center; color: var(--muted); font-size: 15px; margin-bottom: 32px; }
+    .story-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 20px;
+    }
+    .story-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+      padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px;
+    }
+    .story-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .story-card p { font-size: 14px; color: var(--muted); }
     .pricing-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 22px; margin: 40px 0 64px;
@@ -150,27 +172,37 @@
     <nav>
       <a href="#install" class="brand" id="navBrandLink"><span class="brand-dot"></span> Dayglass</a>
       <div class="nav-links">
+        <a href="#workflows">Workflows</a>
         <a href="#install">Install (Brew / CLI / DMG)</a>
         <a href="#pricing">Pricing</a>
-        <a href="#compare">vs Screenpipe &amp; Fathom</a>
-        <a href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked')">Download .DMG (v2.0)</a>
-        <a href="https://github.com/IgorGanapolsky/dayglass-mac" target="_blank" rel="noopener">GitHub</a>
+        <a href="#compare">vs Eney, Screenpipe &amp; Fathom</a>
+        <a href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked')">Get started (.DMG)</a>
       </div>
     </nav>
 
     <section class="hero" id="install">
-      <div class="pill">Apple Silicon Native &bull; SubQ Snap 384K 2-Hop GraphRAG &bull; 4-Layer Paranoid Mode</div>
-      <h1>Your Mac's Screen &amp; Meeting Memory.<br/>100% On-Device. Zero Cloud Leakage.</h1>
+      <div class="pill">Proactive AI Companion &bull; SubQ Snap 384K GraphRAG &bull; Mac Health Guard &bull; 4-Layer Paranoid Mode</div>
+      <h1>Work, meetings, and everything tedious.<br/>Dayglass takes care of it all.</h1>
       <p>
-        Dayglass captures every window via Apple Vision Neural Engine OCR, records both sides of
-        Zoom, Teams, and Meet calls via ScreenCaptureKit (even on AirPods), gives you a screen-share-invisible
-        live meeting copilot, and scrubs PII with Vitalik-style 4-layer Paranoid Mode.
+        Dayglass is a proactive AI assistant and local screen/call memory for your Mac that works with your meetings,
+        calendar, files, and everyday apps. It spots what needs attention—from live call talking points to Mac fan/swap culprits—and takes action 100% on-device.
       </p>
+      <div class="spec-pills">
+        <span class="spec-pill">💻 Macs macOS 13+</span>
+        <span class="spec-pill">⚡ M-series Apple Silicon</span>
+        <span class="spec-pill">🔒 100% On-Device SQLite + Vision OCR</span>
+        <span class="spec-pill">✨ Free Community + Pro plans*</span>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {source: 'hero_get_started'})">⬇ Get started — Free Download (.DMG)</a>
+        <a class="btn btn-secondary" href="#pricing" onclick="trackPricingEvent('hero_cta_clicked')">View Dayglass Pro Plans</a>
+      </div>
 
       <div class="install-box">
         <div class="install-box-title">
-          <span>⚡ Install Dayglass v2.0 on macOS (Apple Silicon &amp; Intel, macOS 13+)</span>
-          <span style="color: var(--green);">Gatekeeper-Ready &bull; Signed Bundle</span>
+          <span>⚡ Or Install in 10 Seconds via Terminal / Homebrew</span>
+          <span style="color: var(--green);">Auto-Clears Gatekeeper Quarantine &bull; SHA-256 Verified</span>
         </div>
         <div class="cmd-row">
           <span class="cmd-label">1-Line Install:</span>
@@ -183,10 +215,54 @@
           <button class="copy-btn" onclick="copyInstallCmd('cmdBrew', 'brew_install_copied')">Copy</button>
         </div>
       </div>
+    </section>
 
-      <div class="cta-row">
-        <a class="btn btn-primary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {source: 'hero'})">⬇ Download Dayglass.dmg (v2.0.0)</a>
-        <a class="btn btn-secondary" href="#pricing" onclick="trackPricingEvent('hero_cta_clicked')">Upgrade to Dayglass Pro ($19/mo)</a>
+    <section class="story-section" id="workflows">
+      <h2>Everyday tasks, handled across your Mac</h2>
+      <div class="sub">From live call copilot hints to fixing an overheating Mac or sorting Downloads, skip straight to done.</div>
+      <div class="story-grid">
+        <div class="story-card">
+          <div>
+            <h3>🩺 Mac health alerts &amp; fan guard</h3>
+            <p>Keeps an eye on storage, swap memory, CPU culprits (like idle Ollama models or crash-looping agents), crashes, and uptime—and frees gigabytes of RAM in one click.</p>
+          </div>
+          <a class="btn btn-secondary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {card: 'mac_health'})">Get started</a>
+        </div>
+        <div class="story-card">
+          <div>
+            <h3>👻 Point at anything. Live Copilot takes it from there.</h3>
+            <p>Press ⌘⇧Space for a screen-share-invisible HUD (`NSWindowSharingNone`) that gives you exact talking points, live answers, and follow-up questions mid-call.</p>
+          </div>
+          <a class="btn btn-secondary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {card: 'live_copilot'})">Get started</a>
+        </div>
+        <div class="story-card">
+          <div>
+            <h3>🎧 Catch up without bots joining your call</h3>
+            <p>Records both your mic and AirPods/headphones via macOS ScreenCaptureKit, then connects decisions across a 384,000-token SubQ Snap 3-Way Hybrid GraphRAG memory.</p>
+          </div>
+          <a class="btn btn-secondary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {card: 'call_capture'})">Get started</a>
+        </div>
+        <div class="story-card">
+          <div>
+            <h3>📁 Bring order to Mac clutter</h3>
+            <p>Folder Manager watches your Downloads and Desktop, grouping installers, screenshots, PDFs, and code archives into clean folders in a single click.</p>
+          </div>
+          <a class="btn btn-secondary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {card: 'folder_manager'})">Get started</a>
+        </div>
+        <div class="story-card">
+          <div>
+            <h3>⭐ Turn 15-minute focus into reusable SKILL.md</h3>
+            <p>Press ⌘⌃B while you work. Dayglass captures your terminal commands and IDE steps and compiles them into a ready-to-use Claude Code / Cursor `SKILL.md`.</p>
+          </div>
+          <a class="btn btn-secondary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {card: 'starred_skill'})">Get started</a>
+        </div>
+        <div class="story-card">
+          <div>
+            <h3>🛡️ Vitalik 4-Layer Paranoid Mode</h3>
+            <p>Every prompt is scrubbed locally with reversible placeholders (`[EMAIL_1]`, `[PATH_1]`), routed over isolated circuits, padded to 4,096B cover blocks, and attested with zkAPI blind proofs.</p>
+          </div>
+          <a class="btn btn-secondary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {card: 'paranoid_mode'})">Get started</a>
+        </div>
       </div>
     </section>
 
@@ -195,15 +271,16 @@
         <span class="badge">Free</span>
         <div class="plan-name">Dayglass Community</div>
         <div class="price">$0 <span>/ forever</span></div>
-        <div class="tagline">Local Apple Vision OCR, SQLite FTS5 search, and 32K Jev fast routing.</div>
+        <div class="tagline">Local Apple Vision OCR, SQLite FTS5 search, Mac Health Alerts, and 32K Jev fast routing.</div>
         <ul class="features">
           <li>On-device Apple Vision OCR (`dayglass-ocr`)</li>
+          <li>Proactive Mac Health Alerts &amp; Folder Manager</li>
           <li>Instant SQLite FTS5 screen &amp; audio search</li>
           <li>32K Jev System-One fast query routing</li>
           <li>7-day rolling local history</li>
           <li>Consent-first ThumbGate answer feedback</li>
         </ul>
-        <a class="btn btn-secondary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {plan: 'free'})">Download Free .DMG</a>
+        <a class="btn btn-secondary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.0.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {plan: 'free'})">Get started Free</a>
       </div>
 
       <div class="card featured">
@@ -243,66 +320,60 @@
     </section>
 
     <section id="compare" class="compare">
-      <h2>How Dayglass Beats Screenpipe, Fathom &amp; Cluely on Mac</h2>
+      <h2>How Dayglass Beats Eney, Screenpipe, Fathom &amp; Cluely on Mac</h2>
       <table>
         <thead>
           <tr>
             <th>Capability</th>
             <th>Dayglass Pro</th>
-            <th>Screenpipe</th>
-            <th>Fathom / Cluely</th>
+            <th>Eney by MacPaw</th>
+            <th>Screenpipe / Fathom</th>
           </tr>
         </thead>
         <tbody>
           <tr>
+            <td><strong>Proactive Mac Health &amp; Culprit Guard</strong></td>
+            <td><strong>Yes</strong> (Swap/CPU culprit + 1-click fix)</td>
+            <td>Yes ($14.99–$49.99/mo credit cap)</td>
+            <td>No</td>
+          </tr>
+          <tr>
             <td><strong>Bot-Free Headphone Call Recording</strong></td>
             <td><strong>Yes</strong> (macOS `ScreenCaptureKit` + Mic)</td>
-            <td>Yes</td>
-            <td>Fathom joins as bot / Cluely cloud-metered</td>
+            <td>No</td>
+            <td>Screenpipe Yes / Fathom joins as bot</td>
           </tr>
           <tr>
             <td><strong>Decision Context Window</strong></td>
             <td><strong>384,000 tokens</strong> (3-Way RRF Hybrid GraphRAG)</td>
-            <td>Snippet / RAG chunks</td>
-            <td>Single meeting only</td>
+            <td>10k–50k metered credits</td>
+            <td>Snippet / single meeting</td>
           </tr>
           <tr>
             <td><strong>Screen-Share-Invisible Live Copilot</strong></td>
             <td><strong>Yes (`NSWindowSharingNone` HUD)</strong></td>
+            <td>Visible companion orb</td>
             <td>No</td>
-            <td>Yes ($20–$60/mo cloud)</td>
           </tr>
           <tr>
             <td><strong>4-Layer Paranoid Privacy Proxy</strong></td>
             <td><strong>Yes (PII rewriter + 4KB cover + zkAPI)</strong></td>
-            <td>No</td>
-            <td>No</td>
-          </tr>
-          <tr>
-            <td><strong>Starred Session &rarr; Agent `SKILL.md`</strong></td>
-            <td><strong>Built-in (`dayglass star analyze`)</strong></td>
-            <td>Manual pipe</td>
+            <td>Cloud AI processing</td>
             <td>No</td>
           </tr>
           <tr>
-            <td><strong>ThumbGate Self-Improving Guardrails</strong></td>
-            <td><strong>Built-in (learns from every 👎)</strong></td>
-            <td>No</td>
-            <td>No</td>
-          </tr>
-          <tr>
-            <td><strong>100% Sovereign Local Data</strong></td>
-            <td><strong>Yes (`~/.dayglass/dayglass.sqlite`)</strong></td>
-            <td>Local + paid cloud pipes</td>
-            <td>Cloud-only</td>
+            <td><strong>1-Command Install (No Setapp Required)</strong></td>
+            <td><strong>Yes (`brew`, `curl | bash`, `.dmg`)</strong></td>
+            <td>Setapp exclusive</td>
+            <td>Manual build / Cloud signup</td>
           </tr>
         </tbody>
       </table>
     </section>
 
     <footer>
-      Dayglass v2.0.0 &bull; 100% Local Screen &amp; Meeting Intelligence for macOS &bull;
-      <a href="https://github.com/IgorGanapolsky/dayglass-mac/releases/tag/v2.0.0" style="color: var(--accent);">Release Notes &amp; SHA-256</a> &bull;
+      Dayglass v2.0.0 &bull; 100% Local Screen, Meeting &amp; Mac Health Intelligence &bull;
+      <a href="https://github.com/IgorGanapolsky/dayglass-mac/releases/tag/v2.0.0" style="color: var(--accent);">Release v2.0.0</a> &bull;
       <a href="https://github.com/IgorGanapolsky/homebrew-dayglass" style="color: var(--accent);">Homebrew Tap</a>
     </footer>
   </div>
@@ -339,10 +410,15 @@
 
     function trackPricingEvent(eventName, properties = {}) {
       const params = new URLSearchParams(window.location.search);
-      const utm_source = params.get('utm_source') || 'direct';
-      const utm_medium = params.get('utm_medium') || '';
-      const utm_campaign = params.get('utm_campaign') || '';
+      // Support both standard UTM and Eney-style attribution params (source, medium, campaign, adcontent, lnd_product, lp_path)
+      const utm_source = params.get('utm_source') || params.get('source') || 'direct';
+      const utm_medium = params.get('utm_medium') || params.get('medium') || '';
+      const utm_campaign = params.get('utm_campaign') || params.get('campaign') || '';
+      const adcontent = params.get('adcontent') || '';
+      const lnd_product = params.get('lnd_product') || 'dayglass';
+      const lp_path = params.get('lp_path') || window.location.pathname;
       const referrer = document.referrer || '';
+
       fetch('https://us.i.posthog.com/capture/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -350,7 +426,20 @@
           api_key: POSTHOG_KEY,
           event: eventName,
           distinct_id: DISTINCT_ID,
-          properties: { ...properties, utm_source, utm_medium, utm_campaign, referrer, surface: window.location.host }
+          properties: {
+            ...properties,
+            utm_source,
+            utm_medium,
+            utm_campaign,
+            source: utm_source,
+            medium: utm_medium,
+            campaign: utm_campaign,
+            adcontent,
+            lnd_product,
+            lp_path,
+            referrer,
+            surface: window.location.host
+          }
         }),
         keepalive: true
       }).catch(() => {});
@@ -360,7 +449,7 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             event: eventName,
-            properties,
+            properties: { ...properties, adcontent, lnd_product, lp_path },
             utm_source,
             utm_medium,
             utm_campaign,
@@ -389,8 +478,8 @@
       trackPricingEvent('checkout_initiated', { plan, price_usd: priceUsd });
       const base = checkoutUrls[plan] || checkoutUrls.pro_monthly;
       const params = new URLSearchParams(window.location.search);
-      const utm = params.get('utm_source') || 'pricing_page';
-      const camp = params.get('utm_campaign') || 'oct2026_launch';
+      const utm = params.get('utm_source') || params.get('source') || 'pricing_page';
+      const camp = params.get('utm_campaign') || params.get('campaign') || 'dayglass_release_october26';
       const sep = base.includes('?') ? '&' : '?';
       window.open(`${base}${sep}utm_source=${encodeURIComponent(utm)}&utm_campaign=${encodeURIComponent(camp)}`, '_blank', 'noopener');
     }
