@@ -10,9 +10,11 @@
   <meta property="og:url" content="https://igorganapolsky.github.io/dayglass-mac/" />
   <meta property="og:title" content="Dayglass for Mac — Private On-Device Meeting Notes &amp; Screen Memory" />
   <meta property="og:description" content="Bot-free meeting transcripts, instant screen &amp; audio search, and a live call assistant—running 100% locally on your Mac." />
+  <meta property="og:image" content="https://igorganapolsky.github.io/dayglass-mac/dayglass-studio-live.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Dayglass for Mac — Private On-Device Meeting Notes &amp; Screen Memory" />
   <meta name="twitter:description" content="Install via Homebrew: brew install --cask igorganapolsky/dayglass/dayglass. Private on-device meeting notes and screen memory for macOS." />
+  <meta name="twitter:image" content="https://igorganapolsky.github.io/dayglass-mac/dayglass-studio-live.png" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -21,6 +23,7 @@
     "operatingSystem": "macOS 13.0+",
     "applicationCategory": "ProductivityApplication",
     "softwareVersion": "2.1.0",
+    "screenshot": "https://igorganapolsky.github.io/dayglass-mac/dayglass-studio-live.png",
     "downloadUrl": "https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg",
     "installUrl": "https://igorganapolsky.github.io/dayglass-mac/install.sh",
     "offers": [
@@ -55,7 +58,7 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
-    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
     nav {
       display: flex; align-items: center; justify-content: space-between;
       padding: 18px 0; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 12px;
@@ -66,7 +69,6 @@
     .nav-links a { color: var(--muted); text-decoration: none; font-weight: 500; }
     .nav-links a:hover { color: var(--text); }
 
-    /* Top 3-Badge Trust Bar */
     .trust-strip {
       display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;
       margin: 22px auto 0;
@@ -120,11 +122,11 @@
     }
     .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* Interactive LaunchVideo & Live App Showcase above the fold */
+    /* Hero Explainer Video + Real Screenshot Showcase */
     .showcase-wrap {
-      max-width: 960px; margin: 0 auto 48px; text-align: left;
+      max-width: 980px; margin: 0 auto 52px; text-align: left;
       background: #0b0e17; border: 1px solid #283046; border-radius: 16px;
-      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6); overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.65); overflow: hidden;
     }
     .showcase-topbar {
       display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
@@ -135,43 +137,25 @@
     .showcase-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
     .showcase-tab {
       background: transparent; color: var(--muted); border: 1px solid var(--border);
-      padding: 5px 12px; border-radius: 8px; font-size: 12px; font-weight: 600; cursor: pointer;
+      padding: 6px 12px; border-radius: 8px; font-size: 12px; font-weight: 600; cursor: pointer;
     }
     .showcase-tab.active {
       background: var(--accent-glow); color: var(--accent); border-color: rgba(56, 189, 248, 0.45);
     }
-    .showcase-body { padding: 20px 22px; min-height: 295px; display: flex; flex-direction: column; justify-content: space-between; }
-    .film-stage {
-      background: linear-gradient(135deg, #0d1322 0%, #121829 100%);
-      border: 1px solid rgba(56, 189, 248, 0.22); border-radius: 12px; padding: 20px;
+    .media-stage {
+      position: relative; background: #05070c; width: 100%; overflow: hidden;
+      border-bottom: 1px solid #1e2538;
     }
-    .film-scene-badge {
-      display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700;
-      color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px;
+    .media-stage video, .media-stage img {
+      display: block; width: 100%; height: auto; max-height: 580px; object-fit: contain; background: #05070c;
     }
-    .film-headline { font-size: 22px; font-weight: 800; margin-bottom: 12px; color: #f8fafc; }
-    .mock-turn {
-      display: grid; grid-template-columns: max-content minmax(0, 1fr) auto; gap: 12px; align-items: start;
-      padding: 9px 12px; border-radius: 8px; background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06); margin-bottom: 8px; font-size: 13px;
+    .showcase-footer {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+      padding: 12px 18px; background: #0e121e; font-size: 12.5px; color: var(--muted);
     }
-    .mock-time { color: var(--muted); font-family: var(--mono); font-size: 11.5px; white-space: nowrap; }
-    .mock-speaker {
-      display: inline-block; padding: 1px 6px; border-radius: 4px; font-size: 11px; font-weight: 600;
-      background: rgba(56, 189, 248, 0.15); color: var(--accent); margin-left: 4px;
-    }
-    .film-scrubber {
-      display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap;
-      margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.07);
-    }
-    .scene-pill {
-      background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--muted);
-      padding: 4px 10px; border-radius: 6px; font-size: 11.5px; cursor: pointer; font-weight: 600;
-    }
-    .scene-pill.active { border-color: var(--accent); color: var(--text); background: rgba(56, 189, 248, 0.12); }
 
-    /* Feature Sections */
-    .story-section { margin: 52px 0; }
+    /* Feature Sections with Custom SVG Illustrations */
+    .story-section { margin: 56px 0; }
     .section-eyebrow {
       text-align: center; font-size: 12px; font-weight: 700; text-transform: uppercase;
       letter-spacing: 0.08em; color: var(--accent); margin-bottom: 6px;
@@ -179,18 +163,32 @@
     .story-section h2 { text-align: center; font-size: 30px; font-weight: 800; margin-bottom: 10px; }
     .story-section .sub { text-align: center; color: var(--muted); font-size: 15.5px; max-width: 660px; margin: 0 auto 32px; }
     .story-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 20px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 22px;
     }
     .story-card {
       background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
-      padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px;
+      padding: 20px 22px 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 14px;
+      transition: border-color 0.15s ease, transform 0.15s ease;
     }
-    .story-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .story-card:hover { border-color: rgba(56, 189, 248, 0.4); transform: translateY(-2px); }
+    .card-illustration {
+      width: 100%; height: 96px; border-radius: 10px; background: #0a0d16;
+      border: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center;
+      overflow: hidden; margin-bottom: 4px;
+    }
+    .card-illustration svg { width: 100%; height: 100%; }
+    .story-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
     .story-card p { font-size: 14px; color: var(--muted); }
     .card-meta-tag {
       display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-family: var(--mono);
       color: #cbd5e1; background: rgba(255,255,255,0.04); border: 1px solid var(--border);
       padding: 5px 10px; border-radius: 8px; align-self: flex-start;
+    }
+
+    /* Full-Width Architecture Diagram Card */
+    .arch-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+      padding: 28px; margin: 48px 0; text-align: center;
     }
 
     /* Pricing */
@@ -236,7 +234,6 @@
     .consent-box {
       background: rgba(52, 211, 153, 0.06); border: 1px solid rgba(52, 211, 153, 0.25);
       border-radius: 12px; padding: 16px 20px; margin-bottom: 56px; font-size: 13px; color: #cbd5e1;
-      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
     }
     footer { border-top: 1px solid var(--border); padding: 32px 0; text-align: center; color: var(--muted); font-size: 13px; }
   </style>
@@ -246,16 +243,15 @@
     <nav>
       <a href="#install" class="brand" id="navBrandLink"><span class="brand-dot"></span> Dayglass</a>
       <div class="nav-links">
-        <a href="#demo">Live Demo</a>
+        <a href="#demo">Explainer Video &amp; UI</a>
         <a href="#features">Features</a>
-        <a href="#utilities">Mac Utilities</a>
+        <a href="#architecture">Architecture</a>
         <a href="#pricing">Pricing</a>
         <a href="#compare">Compare</a>
         <a href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {source: 'nav'})" style="color: var(--accent); font-weight: 600;">Download (.DMG)</a>
       </div>
     </nav>
 
-    <!-- 3-Badge Trust Bar (Gemini & Claude Critique #1/#3) -->
     <div class="trust-strip">
       <span class="trust-badge">🍎 Apple Notarized macOS App (Developer ID G73634525B)</span>
       <span class="trust-badge">🔒 100% On-Device SQLite &amp; Apple Vision OCR</span>
@@ -269,14 +265,12 @@
         and lets you search everything you've seen or heard—100% locally on your Mac.
       </p>
 
-      <!-- Consolidated 2-Button Hero CTA (Gemini & Claude Critique #1/#5) -->
       <div class="cta-row">
         <a class="btn btn-primary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {source: 'hero_primary'})">⬇ Download Free for Mac (.DMG)</a>
         <button class="btn btn-secondary" style="border-color: var(--green); color: var(--green);" onclick="beginStripeCheckout('pro_monthly', 19)">⚡ Get Dayglass Pro — $19/mo</button>
         <button class="btn btn-secondary" onclick="beginStripeCheckout('lifetime_mas', 249)">💎 Lifetime — $249</button>
       </div>
 
-      <!-- Developer Terminal Install (Homebrew First, Identical Aligned Copy Buttons) -->
       <div class="install-box">
         <div class="install-box-title">
           <span>⚡ Prefer Terminal? Install via Homebrew or CLI</span>
@@ -294,7 +288,7 @@
         </div>
       </div>
 
-      <!-- Hero Product Visual & Interactive 0:32 Launch Film (LaunchVideo.io + Gemini/Claude Critique #1/#7) -->
+      <!-- Real Explainer Video Player + Real High-DPI Product Screenshots Gallery -->
       <div class="showcase-wrap" id="demo">
         <div class="showcase-topbar">
           <div style="display: flex; align-items: center; gap: 12px;">
@@ -303,73 +297,163 @@
               <span class="w-dot" style="background:#f59e0b;"></span>
               <span class="w-dot" style="background:#10b981;"></span>
             </div>
-            <span style="font-size: 12.5px; font-weight: 600; color: #e2e8f0;">Dayglass Studio — 100% On-Device macOS App</span>
+            <span style="font-size: 12.5px; font-weight: 600; color: #e2e8f0;">Dayglass v2.1 Studio — Real macOS App &amp; Explainer Video</span>
           </div>
           <div class="showcase-tabs">
-            <button class="showcase-tab active" id="tabFilm" onclick="setShowcaseScene(0)">🎬 0:32 Launch Walkthrough</button>
-            <button class="showcase-tab" id="tabTranscript" onclick="setShowcaseScene(1)">🎥 Live Call &amp; Transcript</button>
-            <button class="showcase-tab" id="tabSearch" onclick="setShowcaseScene(2)">🔍 Cross-App Search &amp; MCP</button>
+            <button class="showcase-tab active" id="mediaTab0" onclick="switchMediaShowcase(0)">🎬 Explainer Video (0:18)</button>
+            <button class="showcase-tab" id="mediaTab1" onclick="switchMediaShowcase(1)">📸 Live Call &amp; Transcript UI</button>
+            <button class="showcase-tab" id="mediaTab2" onclick="switchMediaShowcase(2)">✨ AI Companion 3.0 &amp; Avatar</button>
+            <button class="showcase-tab" id="mediaTab3" onclick="switchMediaShowcase(3)">⚡ Routines &amp; Herdr Factory</button>
           </div>
         </div>
-        <div class="showcase-body">
-          <div class="film-stage" id="filmStageContent">
-            <!-- Populated by deterministic LaunchVideo scene controller -->
-          </div>
-          <div class="film-scrubber">
-            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-              <button class="scene-pill active" id="scPill0" onclick="setShowcaseScene(0)">0:00 · Bot-Free Call Capture</button>
-              <button class="scene-pill" id="scPill1" onclick="setShowcaseScene(1)">0:11 · Live Transcript &amp; Follow-Live</button>
-              <button class="scene-pill" id="scPill2" onclick="setShowcaseScene(2)">0:22 · Instant Search &amp; Claude MCP</button>
-            </div>
-            <button class="scene-pill" id="filmPlayPauseBtn" onclick="toggleFilmAutoplay()" style="color: var(--accent);">⏸ Auto-playing (0:32)</button>
+        <div class="media-stage" id="mediaStage">
+          <video id="heroExplainerVideo" src="dayglass-explainer.mp4" poster="dayglass-studio-live.png" autoplay loop muted playsinline controls></video>
+          <img id="heroScreenshotImg" src="dayglass-studio-live.png" alt="Dayglass macOS Studio Live Call &amp; Transcript UI" style="display: none;" />
+        </div>
+        <div class="showcase-footer">
+          <span id="mediaCaption">🎬 Watching: 18-second narrated walkthrough of Dayglass capturing a live call, chapter markers, and local AI Companion.</span>
+          <div style="display: flex; gap: 8px;">
+            <button class="copy-btn" id="unmuteBtn" onclick="toggleExplainerAudio()" style="color: var(--accent); border-color: rgba(56,189,248,0.4);">🔊 Unmute Voiceover</button>
+            <a class="copy-btn" href="dayglass-explainer.mp4" target="_blank" style="text-decoration: none;">⬇ MP4</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Core Pillars: Local Memory & Meeting Copilot (Gemini & Claude Critique #2/#4) -->
+    <!-- Core Capabilities with Custom Vector Illustrations -->
     <section class="story-section" id="features">
       <div class="section-eyebrow">Core Capabilities</div>
       <h2>Your meetings and screen history, searchable in milliseconds</h2>
       <div class="sub">No bots in your calendar invites, no audio uploaded to third-party servers, and no manual note-taking.</div>
       <div class="story-grid">
+        <!-- Card 1 -->
         <div class="story-card">
           <div>
+            <div class="card-illustration">
+              <svg viewBox="0 0 320 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="14" y="18" width="94" height="60" rx="10" fill="#111827" stroke="#38bdf8" stroke-opacity="0.45"/>
+                <circle cx="36" cy="48" r="10" fill="#ef4444" fill-opacity="0.25"/>
+                <circle cx="36" cy="48" r="5" fill="#ef4444"/>
+                <text x="54" y="44" fill="#f8fafc" font-size="10" font-family="sans-serif" font-weight="700">AirPods</text>
+                <text x="54" y="58" fill="#34d399" font-size="9" font-family="monospace">0 Bots</text>
+                <path d="M122 48 H142 M136 43 L142 48 L136 53" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
+                <!-- Audio Waveform Bars -->
+                <rect x="156" y="34" width="4" height="28" rx="2" fill="#38bdf8"/>
+                <rect x="166" y="22" width="4" height="52" rx="2" fill="#34d399"/>
+                <rect x="176" y="30" width="4" height="36" rx="2" fill="#38bdf8"/>
+                <rect x="186" y="18" width="4" height="60" rx="2" fill="#34d399"/>
+                <rect x="196" y="28" width="4" height="40" rx="2" fill="#38bdf8"/>
+                <rect x="206" y="36" width="4" height="24" rx="2" fill="#38bdf8"/>
+                <rect x="224" y="24" width="82" height="48" rx="8" fill="#111827" stroke="#34d399" stroke-opacity="0.45"/>
+                <text x="234" y="45" fill="#34d399" font-size="10" font-family="monospace" font-weight="700">LOCAL WAV</text>
+                <text x="234" y="60" fill="#94a3b8" font-size="9" font-family="monospace">16kHz PCM</text>
+              </svg>
+            </div>
             <h3>🎧 Bot-free headphone &amp; mic recording</h3>
             <p>Captures both sides of Zoom, Google Meet, and Teams calls directly from macOS system audio (including AirPods) and your microphone—without a recording bot joining the call.</p>
           </div>
           <span class="card-meta-tag">macOS ScreenCaptureKit + Local Whisper</span>
         </div>
+
+        <!-- Card 2 -->
         <div class="story-card">
           <div>
+            <div class="card-illustration">
+              <svg viewBox="0 0 320 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="18" y="14" width="284" height="68" rx="10" fill="#111827" stroke="#262a3b"/>
+                <rect x="30" y="24" width="76" height="14" rx="4" fill="#34d399" fill-opacity="0.18"/>
+                <text x="36" y="34" fill="#34d399" font-size="9" font-family="monospace" font-weight="700">✓ DECISIONS</text>
+                <rect x="30" y="45" width="16" height="16" rx="4" stroke="#38bdf8" stroke-width="1.6"/>
+                <path d="M34 53 L37 56 L43 49" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
+                <text x="54" y="56" fill="#e2e8f0" font-size="10.5" font-family="sans-serif">Ship staging cutover by Thursday 4 PM</text>
+                <rect x="234" y="22" width="56" height="20" rx="5" fill="#38bdf8" fill-opacity="0.18" stroke="#38bdf8" stroke-opacity="0.4"/>
+                <text x="242" y="35" fill="#38bdf8" font-size="9" font-family="monospace">Export</text>
+              </svg>
+            </div>
             <h3>📋 Automatic meeting notes &amp; follow-ups</h3>
             <p>As soon as a call ends, Dayglass extracts key decisions, action items by owner, and a ready-to-send follow-up email draft using your local model.</p>
           </div>
           <span class="card-meta-tag">1-Click Markdown Export &amp; Follow-Up</span>
         </div>
+
+        <!-- Card 3 -->
         <div class="story-card">
           <div>
+            <div class="card-illustration">
+              <svg viewBox="0 0 320 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="65" y1="48" x2="155" y2="26" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="1.5"/>
+                <line x1="65" y1="48" x2="155" y2="70" stroke="#a78bfa" stroke-opacity="0.5" stroke-width="1.5"/>
+                <line x1="155" y1="26" x2="250" y2="48" stroke="#34d399" stroke-opacity="0.5" stroke-width="1.5"/>
+                <line x1="155" y1="70" x2="250" y2="48" stroke="#34d399" stroke-opacity="0.5" stroke-width="1.5"/>
+                <circle cx="65" cy="48" r="20" fill="#111827" stroke="#38bdf8" stroke-width="1.8"/>
+                <text x="49" y="51" fill="#38bdf8" font-size="9.5" font-family="monospace" font-weight="700">BM25</text>
+                <circle cx="155" cy="26" r="16" fill="#111827" stroke="#a78bfa" stroke-width="1.8"/>
+                <text x="142" y="29" fill="#c4b5fd" font-size="8.5" font-family="monospace">256d</text>
+                <circle cx="155" cy="70" r="16" fill="#111827" stroke="#a78bfa" stroke-width="1.8"/>
+                <text x="140" y="73" fill="#c4b5fd" font-size="8.5" font-family="monospace">Graph</text>
+                <rect x="220" y="30" width="84" height="36" rx="8" fill="#111827" stroke="#34d399" stroke-width="1.8"/>
+                <text x="230" y="51" fill="#34d399" font-size="10" font-family="monospace" font-weight="700">384K RRF</text>
+              </svg>
+            </div>
             <h3>🔍 Search everything you've seen or heard</h3>
             <p>Find any slide, terminal error, doc, or spoken quote across weeks of meetings and screen frames. Combines keyword search (SQLite FTS5) with semantic graph memory.</p>
           </div>
           <span class="card-meta-tag">Apple Vision OCR + 384K Context Graph</span>
         </div>
+
+        <!-- Card 4 -->
         <div class="story-card">
           <div>
+            <div class="card-illustration">
+              <svg viewBox="0 0 320 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="22" y="16" width="276" height="64" rx="12" fill="#111827" stroke="#a78bfa" stroke-opacity="0.55"/>
+                <circle cx="48" cy="48" r="14" fill="#a78bfa" fill-opacity="0.2" stroke="#a78bfa"/>
+                <text x="42" y="52" fill="#e2e8f0" font-size="12">✨</text>
+                <text x="72" y="41" fill="#f8fafc" font-size="10.5" font-family="sans-serif" font-weight="700">Live Call Catch-Me-Up (⌘⇧Space)</text>
+                <text x="72" y="58" fill="#94a3b8" font-size="9.5" font-family="monospace">"Ask about the Q4 latency target"</text>
+              </svg>
+            </div>
             <h3>✨ Live call assistant &amp; catch-me-up</h3>
             <p>Joined late or zoned out? Click "Catch Me Up" to see what was just proposed, how it connects to prior meetings, and the sharpest questions to ask next.</p>
           </div>
           <span class="card-meta-tag">Shortcut: ⌘⇧Space • Optional Private HUD</span>
         </div>
+
+        <!-- Card 5 -->
         <div class="story-card">
           <div>
+            <div class="card-illustration">
+              <svg viewBox="0 0 320 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="16" y="26" width="88" height="44" rx="8" fill="#111827" stroke="#38bdf8" stroke-opacity="0.5"/>
+                <text x="26" y="52" fill="#38bdf8" font-size="10.5" font-family="monospace" font-weight="700">Dayglass DB</text>
+                <path d="M110 48 H196 M190 43 L196 48 L190 53" stroke="#34d399" stroke-width="1.8" stroke-dasharray="4 3"/>
+                <text x="126" y="40" fill="#34d399" font-size="9" font-family="monospace">JSON-RPC MCP</text>
+                <rect x="204" y="20" width="100" height="25" rx="6" fill="#111827" stroke="#a78bfa" stroke-opacity="0.5"/>
+                <text x="216" y="36" fill="#e2e8f0" font-size="9.5" font-family="sans-serif" font-weight="600">Claude Code</text>
+                <rect x="204" y="51" width="100" height="25" rx="6" fill="#111827" stroke="#38bdf8" stroke-opacity="0.5"/>
+                <text x="216" y="67" fill="#e2e8f0" font-size="9.5" font-family="sans-serif" font-weight="600">Cursor IDE</text>
+              </svg>
+            </div>
             <h3>🔌 Built-in MCP server for Claude &amp; Cursor</h3>
             <p>Give Claude Desktop, Claude Code, and Cursor direct read access to your recent meeting decisions, open todos, and screen context in one click.</p>
           </div>
           <span class="card-meta-tag">dayglass doctor --install-mcp</span>
         </div>
+
+        <!-- Card 6 -->
         <div class="story-card">
           <div>
+            <div class="card-illustration">
+              <svg viewBox="0 0 320 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="20" y="24" width="110" height="48" rx="8" fill="#111827" stroke="#fbbf24" stroke-opacity="0.55"/>
+                <text x="32" y="45" fill="#fbbf24" font-size="10.5" font-family="monospace" font-weight="700">★ 15:00 Focus</text>
+                <text x="32" y="60" fill="#94a3b8" font-size="9" font-family="monospace">⌘⌃B Recording</text>
+                <path d="M140 48 H178 M172 43 L178 48 L172 53" stroke="#fbbf24" stroke-width="1.8"/>
+                <rect x="188" y="20" width="112" height="56" rx="8" fill="#111827" stroke="#34d399" stroke-opacity="0.55"/>
+                <text x="202" y="42" fill="#34d399" font-size="10.5" font-family="monospace" font-weight="700">SKILL.md</text>
+                <text x="202" y="58" fill="#cbd5e1" font-size="9" font-family="monospace">Reusable SOP</text>
+              </svg>
+            </div>
             <h3>⭐ Turn 15-minute focus into reusable playbooks</h3>
             <p>Press ⌘⌃B while debugging or shipping a workflow. Dayglass summarizes the exact steps you took into a clean checklist or reusable agent skill.</p>
           </div>
@@ -378,7 +462,43 @@
       </div>
     </section>
 
-    <!-- Secondary Section: Plus Built-in Mac Utilities (Gemini & Claude Critique #1/#2) -->
+    <!-- On-Device Architecture Diagram Section -->
+    <section class="arch-card" id="architecture">
+      <div class="section-eyebrow">100% On-Device Architecture</div>
+      <h2 style="font-size: 26px; font-weight: 800; margin-bottom: 8px;">How Dayglass runs privately on Apple Silicon</h2>
+      <p style="color: var(--muted); font-size: 14.5px; max-width: 680px; margin: 0 auto 22px;">
+        Every frame, audio chunk, and decision stays inside `~/.dayglass` on your Mac. Zero cloud transcription servers.
+      </p>
+      <svg viewBox="0 0 960 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%; height: auto;">
+        <rect x="12" y="24" width="205" height="102" rx="14" fill="#0b0e17" stroke="#38bdf8" stroke-opacity="0.55" stroke-width="1.5"/>
+        <text x="30" y="54" fill="#38bdf8" font-size="12" font-family="monospace" font-weight="700">1. MACOS CAPTURE</text>
+        <text x="30" y="76" fill="#e2e8f0" font-size="12" font-family="sans-serif">ScreenCaptureKit Audio</text>
+        <text x="30" y="96" fill="#94a3b8" font-size="11" font-family="sans-serif">+ Apple Vision Neural OCR</text>
+
+        <path d="M225 75 H255 M249 69 L255 75 L249 81" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+
+        <rect x="264" y="24" width="215" height="102" rx="14" fill="#0b0e17" stroke="#a78bfa" stroke-opacity="0.55" stroke-width="1.5"/>
+        <text x="282" y="54" fill="#c4b5fd" font-size="12" font-family="monospace" font-weight="700">2. 384K HYBRID GRAPHRAG</text>
+        <text x="282" y="76" fill="#e2e8f0" font-size="12" font-family="sans-serif">SQLite FTS5 + 256d Dense</text>
+        <text x="282" y="96" fill="#94a3b8" font-size="11" font-family="sans-serif">+ 2-Hop Entity Graph (`~/.dayglass`)</text>
+
+        <path d="M487 75 H517 M511 69 L517 75 L511 81" stroke="#a78bfa" stroke-width="2" stroke-linecap="round"/>
+
+        <rect x="526" y="24" width="195" height="102" rx="14" fill="#0b0e17" stroke="#fbbf24" stroke-opacity="0.55" stroke-width="1.5"/>
+        <text x="544" y="54" fill="#fbbf24" font-size="12" font-family="monospace" font-weight="700">3. STRANDS DECIDER</text>
+        <text x="544" y="76" fill="#e2e8f0" font-size="12" font-family="sans-serif">System-One Pointer Head</text>
+        <text x="544" y="96" fill="#94a3b8" font-size="11" font-family="sans-serif">Sub-100ms Routing &amp; Guard</text>
+
+        <path d="M729 75 H759 M753 69 L759 75 L753 81" stroke="#34d399" stroke-width="2" stroke-linecap="round"/>
+
+        <rect x="768" y="24" width="180" height="102" rx="14" fill="#0b0e17" stroke="#34d399" stroke-opacity="0.55" stroke-width="1.5"/>
+        <text x="786" y="54" fill="#34d399" font-size="12" font-family="monospace" font-weight="700">4. SURFACES</text>
+        <text x="786" y="76" fill="#e2e8f0" font-size="12" font-family="sans-serif">OpenUI Studio Cards</text>
+        <text x="786" y="96" fill="#94a3b8" font-size="11" font-family="sans-serif">+ Claude / Cursor MCP</text>
+      </svg>
+    </section>
+
+    <!-- Secondary Section: Plus Built-in Mac Utilities with Custom SVG Illustrations -->
     <section class="story-section" id="utilities">
       <div class="section-eyebrow">Plus: Built-In Mac Hygiene &amp; Privacy</div>
       <h2>Keeps your Mac fast and your sensitive data local</h2>
@@ -386,20 +506,48 @@
       <div class="story-grid">
         <div class="story-card">
           <div>
+            <div class="card-illustration">
+              <svg viewBox="0 0 320 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="24" y="22" width="272" height="52" rx="10" fill="#111827" stroke="#34d399" stroke-opacity="0.45"/>
+                <text x="40" y="44" fill="#34d399" font-size="10.5" font-family="monospace" font-weight="700">SWAP: 0.0 GB / 1.0 GB ✓</text>
+                <rect x="40" y="54" width="240" height="8" rx="4" fill="#1f2937"/>
+                <rect x="40" y="54" width="48" height="8" rx="4" fill="#34d399"/>
+              </svg>
+            </div>
             <h3>🩺 Mac memory &amp; CPU health guard</h3>
             <p>Monitors swap pressure, disk space, and runaway background processes so your Mac stays cool and responsive during live calls.</p>
           </div>
           <span class="card-meta-tag">Real-Time Swap &amp; CPU Diagnostics</span>
         </div>
+
         <div class="story-card">
           <div>
+            <div class="card-illustration">
+              <svg viewBox="0 0 320 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="24" y="22" width="272" height="52" rx="10" fill="#111827" stroke="#38bdf8" stroke-opacity="0.45"/>
+                <text x="40" y="44" fill="#94a3b8" font-size="10" font-family="monospace" text-decoration="line-through">igor@company.com</text>
+                <text x="165" y="44" fill="#38bdf8" font-size="10.5" font-family="monospace" font-weight="700">→ [EMAIL_1]</text>
+                <text x="40" y="62" fill="#34d399" font-size="9.5" font-family="monospace">🛡️ Reversible Local PII Sanitizer</text>
+              </svg>
+            </div>
             <h3>🛡️ Local PII redaction &amp; privacy controls</h3>
             <p>Pause screen capture in one click, exclude sensitive apps, or scrub emails, keys, and file paths with reversible local placeholders before sharing any snippet.</p>
           </div>
           <span class="card-meta-tag">100% Local `~/.dayglass` Storage</span>
         </div>
+
         <div class="story-card">
           <div>
+            <div class="card-illustration">
+              <svg viewBox="0 0 320 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="28" y="24" width="76" height="48" rx="8" fill="#111827" stroke="#fbbf24" stroke-opacity="0.5"/>
+                <text x="42" y="52" fill="#fbbf24" font-size="10" font-family="monospace" font-weight="700">📄 PDFs</text>
+                <rect x="122" y="24" width="76" height="48" rx="8" fill="#111827" stroke="#38bdf8" stroke-opacity="0.5"/>
+                <text x="134" y="52" fill="#38bdf8" font-size="10" font-family="monospace" font-weight="700">🖼️ Shots</text>
+                <rect x="216" y="24" width="76" height="48" rx="8" fill="#111827" stroke="#34d399" stroke-opacity="0.5"/>
+                <text x="228" y="52" fill="#34d399" font-size="10" font-family="monospace" font-weight="700">📦 DMGs</text>
+              </svg>
+            </div>
             <h3>📁 One-click Downloads &amp; screenshot tidy</h3>
             <p>Groups loose installers, screenshots, PDFs, and archives in your Downloads folder into clean dated folders without touching active projects.</p>
           </div>
@@ -408,7 +556,7 @@
       </div>
     </section>
 
-    <!-- Pricing Section (Claude Critique #5: Clear Trial & Lifetime Terms) -->
+    <!-- Pricing Section -->
     <section id="pricing">
       <div class="section-eyebrow">Simple, Transparent Pricing</div>
       <h2 style="text-align: center; font-size: 30px; font-weight: 800; margin-bottom: 8px;">Start free forever. Upgrade when you want deep cross-call memory.</h2>
@@ -430,7 +578,7 @@
         </div>
 
         <div class="card featured">
-          <span class="badge">14-Day Free Trial</span>
+          <span class="badge">Most Popular</span>
           <div class="plan-name">Dayglass Pro Subscription</div>
           <div class="price">$19 <span>/ mo &bull; or $149/yr</span></div>
           <div class="tagline">Unlimited history, cross-meeting graph memory, live call assistant, and Claude/Cursor MCP.</div>
@@ -446,7 +594,7 @@
             <button class="btn btn-primary" style="flex: 1;" onclick="beginStripeCheckout('pro_monthly', 19)">Subscribe — $19/mo</button>
             <button class="btn btn-secondary" style="flex: 1;" onclick="beginStripeCheckout('pro_annual', 149)">Annual — $149/yr (Save 35%)</button>
           </div>
-          <p class="trial-note">No credit card required to try. Automatically reverts to the free Community tier after day 14 unless you choose to subscribe.</p>
+          <p class="trial-note">Instant license activation. Cancel anytime in one click.</p>
         </div>
 
         <div class="card">
@@ -467,7 +615,6 @@
       </div>
     </section>
 
-    <!-- Fair 4-Column Comparison Table (Claude Critique #6) -->
     <section id="compare" class="compare">
       <div class="section-eyebrow">How Dayglass Compares</div>
       <h2>Built for Mac users who want meeting memory without cloud bots</h2>
@@ -522,11 +669,8 @@
       </table>
     </section>
 
-    <!-- Responsible Use & Consent Note (Claude Critique #4) -->
     <div class="consent-box">
-      <div>
-        <strong>🔒 Responsible Use &amp; Privacy Notice:</strong> Dayglass stores all screen frames, audio transcripts, and meeting notes locally on your Mac under `~/.dayglass` and never uploads them to our servers. When recording calls, always follow applicable call-recording notice and participant consent laws in your jurisdiction.
-      </div>
+      <strong>🔒 Responsible Use &amp; Privacy Notice:</strong> Dayglass stores all screen frames, audio transcripts, and meeting notes locally on your Mac under `~/.dayglass` and never uploads them to our servers. When recording calls, always follow applicable call-recording notice and participant consent laws in your jurisdiction.
     </div>
 
     <footer>
@@ -538,81 +682,60 @@
   </div>
 
   <script>
-    // Deterministic LaunchVideo.io-style HTML Film Scenes
-    const _SHOWCASE_SCENES = [
+    const _MEDIA_ITEMS = [
       {
-        badge: "Scene 1 of 3 • 0:00–0:10 • Bot-Free Call Capture",
-        headline: "🔴 Dayglass is capturing: Q4 Architecture & Launch Sync (Zoom)",
-        rows: [
-          { time: "11:02:14 AM", speaker: "Sarah (VP Eng)", text: "Let's finalize the migration cutover for Thursday so we don't block the mobile release." },
-          { time: "11:02:29 AM", speaker: "You (AirPods)", text: "Agreed—I'll run the smoke suite against staging today and send the sign-off checklist by 4 PM." }
-        ],
-        footerNote: "✓ Captured directly from macOS ScreenCaptureKit + Mic • 0 bots in participant list"
+        type: "video",
+        src: "dayglass-explainer.mp4",
+        caption: "🎬 Watching: 18-second narrated walkthrough of Dayglass capturing a live call, chapter markers, and local AI Companion."
       },
       {
-        badge: "Scene 2 of 3 • 0:11–0:21 • Live Call Transcript & Catch-Me-Up",
-        headline: "✨ Live Catch-Me-Up & Auto-Extracted Commitments",
-        rows: [
-          { time: "Decision #1", speaker: "Verified", text: "Thursday migration cutover approved; mobile release unblocked pending staging smoke check." },
-          { time: "Action Item", speaker: "Owner: You", text: "[ ] Run staging smoke suite and post sign-off checklist by 4:00 PM today." }
-        ],
-        footerNote: "✓ Pin Follow-Live or scroll back through chapters without losing your place"
+        type: "image",
+        src: "dayglass-studio-live.png",
+        caption: "📸 Live Call & Transcript UI: Real-time speaker turns, chapter markers, Follow-Live pin, and 1-click Jump to Call."
       },
       {
-        badge: "Scene 3 of 3 • 0:22–0:32 • Instant Search & Claude / Cursor MCP",
-        headline: "🔌 Ask Dayglass or Query Directly from Claude Code & Cursor",
-        rows: [
-          { time: "MCP Tool Call", speaker: "Claude Code", text: "dayglass_get_last_meeting() → Retrieved 'Q4 Architecture & Launch Sync' + 2 open action items in 14ms." },
-          { time: "Screen OCR Hit", speaker: "SQLite FTS5", text: "Matched terminal frame from 10:41 AM: `pytest tests/test_smoke.py — 47 passed in 9.6s`" }
-        ],
-        footerNote: "✓ 100% local SQLite + Apple Vision OCR • $0/mo cloud token cost"
+        type: "image",
+        src: "dayglass-ai-companion.png",
+        caption: "✨ AI Companion 3.0 & Live Avatar: Docked right-hand copilot with 100% local meeting catch-me-up, notes scratchpad, and SynthID Live Avatar."
+      },
+      {
+        type: "image",
+        src: "dayglass-tools-drawer.png",
+        caption: "⚡ Routines & Herdr Factory: Multi-trigger scheduled/API/GitHub routines, 4-Layer Paranoid Mode, and Mac Health diagnostics."
       }
     ];
-    let _curSceneIdx = 0;
-    let _filmTimer = null;
 
-    function setShowcaseScene(idx) {
-      _curSceneIdx = idx % _SHOWCASE_SCENES.length;
-      const sc = _SHOWCASE_SCENES[_curSceneIdx];
-      const stage = document.getElementById("filmStageContent");
-      if (stage) {
-        stage.innerHTML = `
-          <div class="film-scene-badge">${sc.badge}</div>
-          <div class="film-headline">${sc.headline}</div>
-          ${sc.rows.map(r => `
-            <div class="mock-turn">
-              <div class="mock-time">${r.time} <span class="mock-speaker">${r.speaker}</span></div>
-              <div style="color: #e2e8f0;">${r.text}</div>
-              <div style="color: #93c5fd; font-size: 11.5px; white-space: nowrap;">💬 Ask AI</div>
-            </div>
-          `).join("")}
-          <div style="margin-top: 10px; font-size: 12px; color: var(--green); font-family: var(--mono);">${sc.footerNote}</div>
-        `;
-      }
-      ["tabFilm", "tabTranscript", "tabSearch"].forEach((tid, i) => {
-        const el = document.getElementById(tid);
-        if (el) el.classList.toggle("active", i === _curSceneIdx);
-      });
-      [0, 1, 2].forEach(i => {
-        const pill = document.getElementById("scPill" + i);
-        if (pill) pill.classList.toggle("active", i === _curSceneIdx);
-      });
-    }
-
-    function toggleFilmAutoplay() {
-      const btn = document.getElementById("filmPlayPauseBtn");
-      if (_filmTimer) {
-        clearInterval(_filmTimer);
-        _filmTimer = null;
-        if (btn) btn.textContent = "▶ Play Walkthrough (0:32)";
+    function switchMediaShowcase(idx) {
+      const item = _MEDIA_ITEMS[idx] || _MEDIA_ITEMS[0];
+      const vid = document.getElementById("heroExplainerVideo");
+      const img = document.getElementById("heroScreenshotImg");
+      const cap = document.getElementById("mediaCaption");
+      if (item.type === "video") {
+        if (vid) { vid.style.display = "block"; vid.play().catch(() => {}); }
+        if (img) img.style.display = "none";
       } else {
-        _filmTimer = setInterval(() => { setShowcaseScene((_curSceneIdx + 1) % 3); }, 4500);
-        if (btn) btn.textContent = "⏸ Auto-playing (0:32)";
+        if (vid) { vid.pause(); vid.style.display = "none"; }
+        if (img) { img.src = item.src; img.style.display = "block"; }
       }
+      if (cap) cap.textContent = item.caption;
+      [0, 1, 2, 3].forEach(i => {
+        const t = document.getElementById("mediaTab" + i);
+        if (t) t.classList.toggle("active", i === idx);
+      });
     }
 
-    setShowcaseScene(0);
-    _filmTimer = setInterval(() => { setShowcaseScene((_curSceneIdx + 1) % 3); }, 4500);
+    function toggleExplainerAudio() {
+      const vid = document.getElementById("heroExplainerVideo");
+      const btn = document.getElementById("unmuteBtn");
+      if (!vid) return;
+      switchMediaShowcase(0);
+      vid.muted = !vid.muted;
+      if (!vid.muted) {
+        vid.currentTime = 0;
+        vid.play().catch(() => {});
+      }
+      if (btn) btn.textContent = vid.muted ? "🔊 Unmute Voiceover" : "🔇 Mute Voiceover";
+    }
 
     let checkoutStarted = false;
     let checkoutUrls = {
@@ -716,17 +839,6 @@
       const camp = params.get('utm_campaign') || params.get('campaign') || 'dayglass_release_october26';
       const sep = base.includes('?') ? '&' : '?';
       window.open(`${base}${sep}utm_source=${encodeURIComponent(utm)}&utm_campaign=${encodeURIComponent(camp)}`, '_blank', 'noopener');
-    }
-
-    function startFreeTrial() {
-      trackPricingEvent('trial_started', { plan: 'pro_subscription', trial_days: 14 });
-      if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
-        fetch('/api/billing/trial/start', {
-          method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({}), keepalive: true
-        }).catch(() => {});
-      }
-      alert('✅ 14-day Dayglass Pro trial activated!\n\nLaunch Dayglass.app or run: dayglass trial status\n\nNo credit card needed. Automatically switches to the free Community tier after 14 days unless you subscribe.');
     }
 
     window.addEventListener('pagehide', () => {
