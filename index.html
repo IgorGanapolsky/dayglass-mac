@@ -272,7 +272,8 @@
       <!-- Consolidated 2-Button Hero CTA (Gemini & Claude Critique #1/#5) -->
       <div class="cta-row">
         <a class="btn btn-primary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {source: 'hero_primary'})">⬇ Download Free for Mac (.DMG)</a>
-        <button class="btn btn-secondary" style="border-color: var(--green); color: var(--green);" onclick="startFreeTrial(); trackPricingEvent('hero_trial_clicked')">Start 14-Day Free Pro Trial</button>
+        <button class="btn btn-secondary" style="border-color: var(--green); color: var(--green);" onclick="beginStripeCheckout('pro_monthly', 19)">⚡ Get Dayglass Pro — $19/mo</button>
+        <button class="btn btn-secondary" onclick="beginStripeCheckout('lifetime_mas', 249)">💎 Lifetime — $249</button>
       </div>
 
       <!-- Developer Terminal Install (Homebrew First, Identical Aligned Copy Buttons) -->
@@ -442,8 +443,8 @@
             <li>Starred Focus Sessions (⌘⌃B) &amp; Local PII Redaction</li>
           </ul>
           <div style="display: flex; gap: 8px;">
-            <button class="btn btn-primary" style="flex: 1;" onclick="startFreeTrial()">Start 14-Day Free Trial</button>
-            <button class="btn btn-secondary" style="flex: 1;" onclick="beginStripeCheckout('pro_monthly', 19)">Subscribe $19/mo</button>
+            <button class="btn btn-primary" style="flex: 1;" onclick="beginStripeCheckout('pro_monthly', 19)">Subscribe — $19/mo</button>
+            <button class="btn btn-secondary" style="flex: 1;" onclick="beginStripeCheckout('pro_annual', 149)">Annual — $149/yr (Save 35%)</button>
           </div>
           <p class="trial-note">No credit card required to try. Automatically reverts to the free Community tier after day 14 unless you choose to subscribe.</p>
         </div>
