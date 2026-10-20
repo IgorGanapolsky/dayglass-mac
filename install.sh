@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# Dayglass v2.0.0 — 1-Command macOS Installer
+# Dayglass v2.1.0 — 1-Command macOS Installer
 # Usage: curl -fsSL https://igorganapolsky.github.io/dayglass-mac/install.sh | bash
 set -euo pipefail
 
-VERSION="2.0.0"
+VERSION="2.1.0"
 DMG_URL="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v${VERSION}/Dayglass.dmg"
-EXPECTED_SHA256="55ac559a09acadb5c6febffe796a565db8c9f81099428244e188e876e2c04bc5"
+EXPECTED_SHA256="769a66d2b6580f2ec36f348ec8524c1d7876ad55aecb9c25fe0b9b89c0abc877"
 APP_DEST="${DAYGLASS_INSTALL_APP_DIR:-/Applications/Dayglass.app}"
 TMP_DMG="$(mktemp /tmp/Dayglass-installer-XXXXXX.dmg)"
 MOUNT_DIR="$(mktemp -d /tmp/Dayglass-mount-XXXXXX)"
