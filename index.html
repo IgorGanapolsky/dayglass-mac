@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dayglass for Mac — Private On-Device Meeting Notes &amp; Screen Memory</title>
-  <meta name="description" content="Remember every meeting and screen on your Mac with zero cloud bots. Dayglass records calls from your headphones or mic, writes structured meeting notes, and lets you search everything locally on macOS." />
+  <title>Dayglass for Mac — Private meeting notes. No bot.</title>
+  <meta name="description" content="Bot-free meeting notes that stay on your Mac. Dayglass records Zoom, Meet, and Teams from your AirPods or speakers and writes the decisions on your laptop. Free for up to 5 meetings a week." />
   <link rel="canonical" href="https://igorganapolsky.github.io/dayglass-mac/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://igorganapolsky.github.io/dayglass-mac/" />
-  <meta property="og:title" content="Dayglass for Mac — Private On-Device Meeting Notes &amp; Screen Memory" />
-  <meta property="og:description" content="Bot-free meeting transcripts, instant screen &amp; audio search, and a live call assistant—running 100% locally on your Mac." />
-  <meta property="og:image" content="https://igorganapolsky.github.io/dayglass-mac/dayglass-studio-live.png" />
+  <meta property="og:title" content="Dayglass for Mac — Private meeting notes. No bot." />
+  <meta property="og:description" content="Bot-free meeting notes that stay on your Mac. Free for up to 5 meetings a week." />
+  <meta property="og:image" content="https://igorganapolsky.github.io/dayglass-mac/dayglass-notes-sample.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Dayglass for Mac — Private On-Device Meeting Notes &amp; Screen Memory" />
-  <meta name="twitter:description" content="Install via Homebrew: brew install --cask igorganapolsky/dayglass/dayglass. Private on-device meeting notes and screen memory for macOS." />
-  <meta name="twitter:image" content="https://igorganapolsky.github.io/dayglass-mac/dayglass-studio-live.png" />
+  <meta name="twitter:title" content="Dayglass for Mac — Private meeting notes. No bot." />
+  <meta name="twitter:description" content="Bot-free meeting notes that stay on your Mac. Install with Homebrew or the free DMG." />
+  <meta name="twitter:image" content="https://igorganapolsky.github.io/dayglass-mac/dayglass-notes-sample.png" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -23,9 +23,8 @@
     "operatingSystem": "macOS 13.0+",
     "applicationCategory": "ProductivityApplication",
     "softwareVersion": "2.1.0",
-    "screenshot": "https://igorganapolsky.github.io/dayglass-mac/dayglass-studio-live.png",
+    "screenshot": "https://igorganapolsky.github.io/dayglass-mac/dayglass-notes-sample.png",
     "downloadUrl": "https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg",
-    "installUrl": "https://igorganapolsky.github.io/dayglass-mac/install.sh",
     "offers": [
       { "@type": "Offer", "name": "Dayglass Community (Free — 5 Meetings/Wk)", "price": "0", "priceCurrency": "USD" },
       { "@type": "Offer", "name": "Dayglass Pro Monthly", "price": "19.00", "priceCurrency": "USD", "url": "https://buy.stripe.com/fZucN59eA1eScSd5e33sJ0U" },
@@ -295,13 +294,13 @@
     <div class="trust-strip">
       <span class="trust-badge">🎧 Zero Meeting Bots in Your Calls</span>
       <span class="trust-badge">🔒 100% Local on Your Mac (`~/.dayglass`)</span>
-      <span class="trust-badge">🔌 Built-In MCP for Claude Code &amp; Cursor</span>
+      <span class="trust-badge">💬 1-click consent note for the other people on the call</span>
     </div>
 
     <section class="hero" id="install">
-      <h1 id="heroHeadline">Private meeting notes and screen memory for Mac—with zero cloud bots.</h1>
+      <h1 id="heroHeadline">Private meeting notes for Mac. No bot. Nothing leaves your laptop.</h1>
       <p id="heroSubheadline">
-        Dayglass records both sides of Zoom, Meet, and Teams calls directly from your AirPods or speakers, writes structured meeting notes on your Mac, and feeds your call decisions straight into Claude Code &amp; Cursor via local MCP. Free for up to 5 meetings/week.
+        Dayglass records both sides of a Zoom, Meet, or Teams call from your AirPods or speakers, then writes the decisions and action items on your Mac. Free for up to 5 meetings/week.
       </p>
 
       <div class="cta-row">
@@ -335,19 +334,20 @@
         </div>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
           <div style="background: #0b0d14; border: 1px solid var(--border); border-radius: 10px; padding: 14px;">
-            <div style="font-size: 11.5px; font-weight: 700; color: var(--accent); text-transform: uppercase; margin-bottom: 8px;">📋 Decisions &amp; Action Items</div>
+            <div style="font-size: 11.5px; font-weight: 700; color: var(--accent); text-transform: uppercase; margin-bottom: 8px;">Decisions</div>
             <ul style="list-style: none; font-size: 13px; color: var(--text); line-height: 1.65;">
-              <li>✓ <strong>Decision:</strong> Keep SQLite WAL mode on local disk; skip cloud vector DB.</li>
-              <li>☐ <strong>@Igor:</strong> Ship webhook retry PR before Thursday 4 PM cutover.</li>
-              <li>☐ <strong>@Sarah:</strong> Send updated SOC2 architecture diagram to design partner.</li>
+              <li>✓ Keep the notes database on the laptop.</li>
+              <li>✓ Skip a cloud vector database.</li>
+              <li>✓ Send the follow-up the same day.</li>
             </ul>
           </div>
           <div style="background: #0b0d14; border: 1px solid var(--border); border-radius: 10px; padding: 14px;">
-            <div style="font-size: 11.5px; font-weight: 700; color: var(--purple); text-transform: uppercase; margin-bottom: 8px;">🔌 Instant Context in Claude Code &amp; Cursor</div>
-            <div style="font-family: var(--mono); font-size: 12px; color: #cbd5e1; line-height: 1.6;">
-              <div style="color: var(--muted);">&gt; Claude, implement the retry policy we agreed on in today's rollout call.</div>
-              <div style="color: var(--green); margin-top: 6px;">✓ Read <code>dayglass_get_last_meeting</code> (Q4 Rollout Sync, 14:02): applying exponential backoff (3 retries, 2s base) to <code>webhook_dispatcher.py</code>.</div>
-            </div>
+            <div style="font-size: 11.5px; font-weight: 700; color: var(--purple); text-transform: uppercase; margin-bottom: 8px;">Action items</div>
+            <ul style="list-style: none; font-size: 13px; color: var(--text); line-height: 1.65;">
+              <li>☐ <strong>Alex:</strong> Ship the retry change before Thursday 4 PM.</li>
+              <li>☐ <strong>Mina:</strong> Send the updated diagram to the design partner.</li>
+              <li>☐ <strong>Sam:</strong> Confirm the Thursday review.</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -360,25 +360,18 @@
               <span class="w-dot" style="background:#f59e0b;"></span>
               <span class="w-dot" style="background:#10b981;"></span>
             </div>
-            <span style="font-size: 12.5px; font-weight: 600; color: #e2e8f0;">Dayglass v2.1 Studio — Real macOS App &amp; Explainer Video</span>
+            <span style="font-size: 12.5px; font-weight: 600; color: #e2e8f0;">Sample note — fictional</span>
           </div>
           <div class="showcase-tabs">
-            <button class="showcase-tab active" id="mediaTab0" onclick="switchMediaShowcase(0)">🎬 Explainer Video (0:18)</button>
-            <button class="showcase-tab" id="mediaTab1" onclick="switchMediaShowcase(1)">📸 Live Call &amp; Transcript UI</button>
-            <button class="showcase-tab" id="mediaTab2" onclick="switchMediaShowcase(2)">✨ AI Companion 3.0 &amp; Avatar</button>
-            <button class="showcase-tab" id="mediaTab3" onclick="switchMediaShowcase(3)">⚡ Routines &amp; Agent Factory</button>
+            <button class="showcase-tab active" id="mediaTab0" onclick="switchMediaShowcase(0)">Sample note</button>
           </div>
         </div>
         <div class="media-stage" id="mediaStage">
-          <video id="heroExplainerVideo" src="dayglass-explainer.mp4" poster="dayglass-studio-live.png" autoplay loop muted playsinline controls></video>
-          <img id="heroScreenshotImg" src="dayglass-studio-live.png" alt="Dayglass macOS Studio Live Call &amp; Transcript UI" style="display: none;" />
+          <video id="heroExplainerVideo" poster="dayglass-notes-sample.png" muted playsinline style="display:none"></video>
+          <img id="heroScreenshotImg" src="dayglass-notes-sample.png" alt="Fictional Dayglass meeting note with decisions and action items, stored on the Mac" />
         </div>
         <div class="showcase-footer">
-          <span id="mediaCaption">🎬 Watching: 18-second narrated walkthrough of Dayglass capturing a live call, chapter markers, and local AI Companion.</span>
-          <div style="display: flex; gap: 8px;">
-            <button class="copy-btn" id="unmuteBtn" onclick="toggleExplainerAudio()" style="color: var(--accent); border-color: rgba(56,189,248,0.4);">🔊 Unmute Voiceover</button>
-            <a class="copy-btn" href="dayglass-explainer.mp4" target="_blank" style="text-decoration: none;">⬇ MP4</a>
-          </div>
+          <span id="mediaCaption">Sample note, written on the Mac after the call. The names in this example are fictional.</span>
         </div>
       </div>
     </section>
@@ -616,7 +609,7 @@
 
         <div class="card featured">
           <span class="badge">Most Popular</span>
-          <div class="plan-name">Dayglass Pro</div>
+          <div class="plan-name">Dayglass Pro Subscription</div>
           <div class="price">$19 <span>/ mo &bull; or $149/yr</span></div>
           <div class="tagline">Unlimited meetings, unlimited cross-call &amp; screen history, live call catch-me-up, and Claude/Cursor MCP.</div>
           <ul class="features">
@@ -776,24 +769,9 @@
   <script>
     const _MEDIA_ITEMS = [
       {
-        type: "video",
-        src: "dayglass-explainer.mp4",
-        caption: "🎬 Watching: 18-second narrated walkthrough of Dayglass capturing a live call, chapter markers, and local AI Companion."
-      },
-      {
         type: "image",
-        src: "dayglass-studio-live.png",
-        caption: "📸 Live Call & Transcript UI: Real-time speaker turns, chapter markers, Follow-Live pin, and 1-click Jump to Call."
-      },
-      {
-        type: "image",
-        src: "dayglass-ai-companion.png",
-        caption: "✨ AI Companion 3.0 & Live Avatar: Docked right-hand copilot with 100% local meeting catch-me-up, notes scratchpad, and SynthID Live Avatar."
-      },
-      {
-        type: "image",
-        src: "dayglass-tools-drawer.png",
-        caption: "⚡ Routines & Herdr Factory: Multi-trigger scheduled/API/GitHub routines, 4-Layer Paranoid Mode, and Mac Health diagnostics."
+        src: "dayglass-notes-sample.png",
+        caption: "Sample note, written on the Mac after the call. The names in this example are fictional."
       }
     ];
 
@@ -843,16 +821,16 @@
 
     const _AB_VARIANTS = {
       variant_a_bot_free_airpods: {
-        h1: "Private meeting notes and screen memory for Mac—with zero cloud bots.",
-        sub: "Dayglass records both sides of Zoom, Meet, and Teams calls directly from your AirPods or speakers, writes structured meeting notes on your Mac (~93 MB idle daemon RAM), and gives Claude Code & Cursor local context via MCP. Free for up to 5 meetings/week."
+        h1: "Private meeting notes for Mac. No bot. Nothing leaves your laptop.",
+        sub: "Dayglass records both sides of a Zoom, Meet, or Teams call from your AirPods or speakers, then writes the decisions and action items on your Mac. Free for up to 5 meetings/week."
       },
       variant_b_zoom_ai_companion_local: {
-        h1: "Bot-free macOS meeting notes + instant screen recall—100% on your Mac.",
-        sub: "Get clean decisions, action items by owner, and live call catch-me-up without a recording bot joining your call. Stored locally in ~/.dayglass with ~93 MB idle capture RAM. Free for up to 5 meetings/week."
+        h1: "Private meeting notes for Mac. No bot. Nothing leaves your laptop.",
+        sub: "Dayglass records both sides of a Zoom, Meet, or Teams call from your AirPods or speakers, then writes the decisions and action items on your Mac. Free for up to 5 meetings/week."
       },
       variant_c_384k_mcp_memory: {
-        h1: "Never re-explain a meeting or terminal error to Claude Code & Cursor again.",
-        sub: "Dayglass captures your meetings (via AirPods/mic with zero cloud bots) and screen history locally on macOS (~93 MB idle daemon RAM), then streams decisions and open todos straight to your IDE via MCP."
+        h1: "Private meeting notes for Mac. No bot. Nothing leaves your laptop.",
+        sub: "Dayglass records both sides of a Zoom, Meet, or Teams call from your AirPods or speakers, then writes the decisions and action items on your Mac. Free for up to 5 meetings/week."
       }
     };
     const _AB_KEYS = Object.keys(_AB_VARIANTS);
@@ -1034,8 +1012,8 @@
 
     function startRoiCheckout() {
       const team = Number(document.getElementById('roiTeamSize')?.value || 1);
-      const hrs = Number(document.getElementById('roiHoursPerWeek')?.value || 5);
-      const rate = Number(document.getElementById('roiHourlyRate')?.value || 120);
+      const hrs = Number(document.getElementById('roiHoursPerWeek')?.value || 2);
+      const rate = Number(document.getElementById('roiHourlyRate')?.value || 75);
       trackPricingEvent('roi_calculator_interacted', {
         team_size: team,
         hours_per_week: hrs,
