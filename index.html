@@ -28,9 +28,51 @@
     "installUrl": "https://igorganapolsky.github.io/dayglass-mac/install.sh",
     "offers": [
       { "@type": "Offer", "name": "Dayglass Community", "price": "0", "priceCurrency": "USD" },
-      { "@type": "Offer", "name": "Dayglass Pro Monthly", "price": "19.00", "priceCurrency": "USD" },
-      { "@type": "Offer", "name": "Dayglass Pro Annual", "price": "149.00", "priceCurrency": "USD" },
-      { "@type": "Offer", "name": "Dayglass Lifetime", "price": "249.00", "priceCurrency": "USD" }
+      { "@type": "Offer", "name": "AI Agent Cost & Local Memory Playbook", "price": "9.99", "priceCurrency": "USD", "url": "https://iganapolsky.gumroad.com/l/odrkon" },
+      { "@type": "Offer", "name": "Dayglass Pro Monthly", "price": "19.00", "priceCurrency": "USD", "url": "https://buy.stripe.com/fZucN59eA1eScSd5e33sJ0U" },
+      { "@type": "Offer", "name": "Corporate-Expensable Production Harness & MCP Kit", "price": "49.00", "priceCurrency": "USD", "url": "https://iganapolsky.gumroad.com/l/vcrho" },
+      { "@type": "Offer", "name": "Dayglass Pro Annual", "price": "149.00", "priceCurrency": "USD", "url": "https://buy.stripe.com/aFa28r62o8Hk19v49Z3sJ0W" },
+      { "@type": "Offer", "name": "Dayglass Lifetime", "price": "249.00", "priceCurrency": "USD", "url": "https://buy.stripe.com/4gM5kD1M82iW2dz9uj3sJ0V" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does Dayglass record Zoom, Teams, and Google Meet calls on AirPods without a bot joining the call?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dayglass uses macOS native ScreenCaptureKit to capture system/headphone output and microphone audio directly on your Mac in ~93 MB RAM. No virtual audio drivers (like BlackHole) and no third-party cloud bots ever join your meeting."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where are my screen captures, audio transcripts, and meeting notes stored?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "100% locally on your Mac inside ~/.dayglass using SQLite FTS5 and Apple Vision Neural Engine OCR. Zero screen frames or audio recordings are uploaded to cloud servers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I expense Dayglass on a corporate card under the $50 no-approval threshold?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. In addition to Dayglass Pro ($19/mo, $149/yr, or $249 Lifetime), engineers can grab the $49 one-time Corporate-Expensable Production Harness & MCP Rule-Pack or the $9.99 AI Agent Cost Playbook with an instant receipt."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Dayglass connect to Claude Code, Cursor, Poolside, and Oh-My-Pi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dayglass includes a built-in local MCP server (python3 -m dayglass mcp) that exposes your 384,000-token SubQ Snap meeting dossiers, screen OCR, action items, and Gold Semantic Layer directly to your coding agents."
+        }
+      }
     ]
   }
   </script>
@@ -613,6 +655,17 @@
           <p class="trial-note">One-time payment. No subscription.</p>
         </div>
       </div>
+      <div style="margin-top: 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px 22px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+        <div style="max-width: 620px;">
+          <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--amber); margin-bottom: 4px;">⚡ Instant One-Time Packs (&lt;$50 Corporate Card No-Approval)</div>
+          <div style="font-size: 15px; font-weight: 700; color: var(--text);">Need a one-time expensable receipt under $50 or the standalone Agent Architecture Playbook?</div>
+          <div style="font-size: 13.5px; color: var(--muted);">Instant download with receipt — zero recurring subscription or procurement review required.</div>
+        </div>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <button class="btn btn-secondary" onclick="beginExternalPackCheckout('playbook_999', 9.99, 'https://iganapolsky.gumroad.com/l/odrkon')">📘 $9.99 Agent Cost Playbook</button>
+          <button class="btn btn-primary" onclick="beginExternalPackCheckout('corporate_bundle_49', 49, 'https://iganapolsky.gumroad.com/l/vcrho')">🧰 $49 Production MCP &amp; Harness Kit</button>
+        </div>
+      </div>
     </section>
 
     <section id="compare" class="compare">
@@ -667,6 +720,25 @@
           </tr>
         </tbody>
       </table>
+    </section>
+
+    <section id="faq" class="story-section" style="margin-top: 44px;">
+      <div class="section-eyebrow">Frequently Asked Questions</div>
+      <h2>Everything you need to know before installing</h2>
+      <div class="story-grid" style="margin-top: 20px;">
+        <div class="story-card">
+          <h3>How does Dayglass record AirPods calls without a bot?</h3>
+          <p>Dayglass uses native macOS <code>ScreenCaptureKit</code> to record both your microphone and headphone/system audio directly on Apple Silicon (~93 MB RAM). No cloud bot ever joins your Zoom, Teams, or Meet call.</p>
+        </div>
+        <div class="story-card">
+          <h3>Does any screen or audio data leave my Mac?</h3>
+          <p>Never. All Apple Vision OCR frames, audio transcripts, and 384K SubQ Snap GraphRAG indices live in <code>~/.dayglass</code> on your local disk. Built-in 4-Layer Paranoid Mode scrubs PII automatically.</p>
+        </div>
+        <div class="story-card">
+          <h3>Can I expense a one-time purchase under $50?</h3>
+          <p>Yes — Dayglass Pro is <strong>$19/mo</strong> ($149/yr or $249 Lifetime), and we also offer the <strong>$49 one-time Production MCP &amp; Harness Kit</strong> and <strong>$9.99 Agent Cost Playbook</strong> for instant &lt;$50 corporate-card expensing.</p>
+        </div>
+      </div>
     </section>
 
     <div class="consent-box">
@@ -877,6 +949,16 @@
       window.open(`${base}${sep}client_reference_id=${encodeURIComponent(clientRef)}&utm_source=${encodeURIComponent(utm)}&utm_campaign=${encodeURIComponent(camp)}`, '_blank', 'noopener');
     }
 
+    function beginExternalPackCheckout(packId, priceUsd, baseUrl) {
+      checkoutStarted = true;
+      checkoutPlan = packId;
+      trackPricingEvent('checkout_initiated', { plan: packId, price_usd: priceUsd, ab_variant: AB_VARIANT });
+      const params = new URLSearchParams(window.location.search);
+      const utm = params.get('utm_source') || params.get('source') || 'pricing_page';
+      const camp = params.get('utm_campaign') || params.get('campaign') || 'dayglass_release_october26';
+      const sep = baseUrl.includes('?') ? '&' : '?';
+      window.open(`${baseUrl}${sep}utm_source=${encodeURIComponent(utm)}&utm_campaign=${encodeURIComponent(camp)}&ab_variant=${encodeURIComponent(AB_VARIANT)}`, '_blank', 'noopener');
+    }
     window.addEventListener('pagehide', () => {
       if (checkoutStarted && !licenseActivatedInModal) {
         trackPricingEvent('checkout_abandoned', { abandonment_stage: 'stripe_redirect_opened_not_completed', plan: checkoutPlan });
