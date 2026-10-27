@@ -673,7 +673,7 @@
             <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent);">📊 Put a Number on the Boring Work (ROI Calculator)</div>
             <div style="font-size: 18px; font-weight: 800; color: var(--text);">Estimate your meeting-prep, follow-up &amp; AI context savings (at 80% automation efficiency)</div>
           </div>
-          <span id="roiMultipleBadge" style="background: rgba(52, 211, 153, 0.16); border: 1px solid rgba(52, 211, 153, 0.45); color: var(--green); padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 700;">109.5× ROI vs $19/mo Pro &bull; Payback in &lt;1 day</span>
+          <span id="roiMultipleBadge" style="background: rgba(52, 211, 153, 0.16); border: 1px solid rgba(52, 211, 153, 0.45); color: var(--green); padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 700;">109.5× estimated return vs $19/mo · estimated payback under 1 day</span>
         </div>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; align-items: end;">
           <div>
@@ -692,6 +692,8 @@
             <div style="font-size: 11.5px; color: var(--muted); font-weight: 600;">Estimated Savings (80% Automated)</div>
             <div id="roiMonthlySavings" style="font-size: 24px; font-weight: 800; color: var(--green); font-family: var(--mono);">$2,080/mo</div>
             <div id="roiAnnualSavings" style="font-size: 12px; color: var(--muted);">$24,960/yr saved &bull; 17.3 hrs/mo back</div>
+            <button id="roiCheckout" class="btn btn-primary" type="button" style="margin-top: 10px;" onclick="startRoiCheckout()">Start Pro at $19/mo</button>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 6px;">Estimate only. It uses the hours and rate you set, at 80% of that time.</div>
           </div>
         </div>
       </div>
@@ -1009,7 +1011,23 @@
       if (rEl) rEl.textContent = '$' + rate + '/hr';
       if (mEl) mEl.textContent = '$' + monthlyUsd.toLocaleString() + '/mo';
       if (aEl) aEl.textContent = '$' + annualUsd.toLocaleString() + '/yr saved • ' + monthlyHrs.toFixed(1) + ' hrs/mo back';
-      if (bEl) bEl.textContent = mult + '× ROI vs $' + proCost + '/mo Pro • Payback in <1 day';
+      const paybackDays = (proCost / Math.max(1, monthlyUsd)) * 30;
+      const paybackLabel = paybackDays < 1
+        ? 'estimated payback under 1 day'
+        : 'estimated payback in ' + paybackDays.toFixed(1) + ' days';
+      if (bEl) bEl.textContent = mult + '× estimated return vs $' + proCost + '/mo · ' + paybackLabel;
+    }
+
+    function startRoiCheckout() {
+      const team = Number(document.getElementById('roiTeamSize')?.value || 1);
+      const hrs = Number(document.getElementById('roiHoursPerWeek')?.value || 5);
+      const rate = Number(document.getElementById('roiHourlyRate')?.value || 120);
+      trackPricingEvent('roi_calculator_interacted', {
+        team_size: team,
+        hours_per_week: hrs,
+        hourly_rate: rate,
+      });
+      beginStripeCheckout('pro_monthly', 19);
     }
 
     window.addEventListener('pagehide', () => {
