@@ -1,0 +1,79 @@
+{
+  "ok": true,
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
+  "name": "io.github.igorganapolsky/dayglass",
+  "title": "Dayglass \u2014 100% On-Device macOS Screen & Meeting Memory + OpenUI MCP Server",
+  "version": "2.1.0",
+  "description": "Local macOS ScreenCaptureKit AirPods call recorder, Apple Vision Neural Engine OCR, 384K SubQ Snap hybrid GraphRAG, and 34-tool MCP server for Claude Code, Cursor, Poolside, and OMP.",
+  "homepage": "https://igorganapolsky.github.io/dayglass-mac/",
+  "repository": {
+    "url": "https://github.com/IgorGanapolsky/dayglass-mac",
+    "source": "github"
+  },
+  "install": {
+    "homebrew_cask": "brew install --cask igorganapolsky/dayglass/dayglass",
+    "curl_installer": "curl -fsSL https://igorganapolsky.github.io/dayglass-mac/install.sh | bash",
+    "dmg_url": "https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg",
+    "mcp_command": "python3 -m dayglass mcp"
+  },
+  "target_directories": [
+    {
+      "name": "PulseMCP",
+      "submit_url": "https://www.pulsemcp.com/submit"
+    },
+    {
+      "name": "Smithery",
+      "submit_url": "https://smithery.ai/new"
+    },
+    {
+      "name": "Glama",
+      "submit_url": "https://glama.ai/mcp/servers"
+    },
+    {
+      "name": "MCPMarket",
+      "submit_url": "https://mcpmarket.com/submit"
+    }
+  ],
+  "monetization_tiers": {
+    "tier1_playbook_999": {
+      "id": "tier1_playbook_999",
+      "name": "2026 AI Agent Cost & Local Memory Playbook",
+      "price_usd": 9.99,
+      "billing_type": "one_time",
+      "url": "https://iganapolsky.gumroad.com/l/odrkon",
+      "sales_needed_for_100_per_day": 11
+    },
+    "tier2_pro_monthly_19": {
+      "id": "tier2_pro_monthly_19",
+      "name": "Dayglass Pro Monthly Subscription",
+      "price_usd": 19.0,
+      "billing_type": "subscription_monthly",
+      "url": "https://buy.stripe.com/fZucN59eA1eScSd5e33sJ0U",
+      "sales_needed_for_100_per_day": 6
+    },
+    "tier3_corporate_bundle_49": {
+      "id": "tier3_corporate_bundle_49",
+      "name": "Corporate-Expensable (<$50 No-Approval) Production MCP & Harness Kit",
+      "price_usd": 49.0,
+      "billing_type": "one_time_corporate_expensable",
+      "url": "https://iganapolsky.gumroad.com/l/vcrho",
+      "sales_needed_for_100_per_day": 2
+    },
+    "tier4_pro_annual_149": {
+      "id": "tier4_pro_annual_149",
+      "name": "Dayglass Pro Annual Subscription (Save 35%)",
+      "price_usd": 149.0,
+      "billing_type": "subscription_annual",
+      "url": "https://buy.stripe.com/aFa28r62o8Hk19v49Z3sJ0W",
+      "sales_needed_for_100_per_day": 1
+    },
+    "tier5_lifetime_249": {
+      "id": "tier5_lifetime_249",
+      "name": "Dayglass Pro Lifetime (Mac App Store / Direct License)",
+      "price_usd": 249.0,
+      "billing_type": "one_time_lifetime",
+      "url": "https://buy.stripe.com/4gM5kD1M82iW2dz9uj3sJ0V",
+      "sales_needed_for_100_per_day": 1
+    }
+  }
+}
