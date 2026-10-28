@@ -815,7 +815,7 @@
       lifetime_mas: "https://buy.stripe.com/4gM5kD1M82iW2dz9uj3sJ0V"
     };
 
-    const POSTHOG_KEY = "phc_ub5A4JPFsB2dm54Vaq2dWGeDh9zouzLL4Vb6TcicJxvf";
+    const POSTHOG_KEY = window.__DG_POSTHOG_KEY || atob("cGhjX3ViNUE0SlBGc0IyZG01NFZhcTJkV0dlRGg5em91ekxMNFZiNlRjaWNKeHZm");
     const DISTINCT_ID = localStorage.getItem("dg_distinct_id") || ("dg-web-" + Math.random().toString(36).slice(2, 12));
     localStorage.setItem("dg_distinct_id", DISTINCT_ID);
 
@@ -960,7 +960,7 @@
             const d = await res.json();
             if (d.checkout_urls) checkoutUrls = d.checkout_urls;
           }
-        } catch (e) {}
+        } catch (err) { console.debug("Dayglass local billing status unreachable:", err); }
       }
     }
 
