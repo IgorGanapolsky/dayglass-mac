@@ -26,8 +26,10 @@
     "screenshot": "https://igorganapolsky.github.io/dayglass-mac/dayglass-notes-sample.png",
     "downloadUrl": "https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg",
     "offers": [
-      { "@type": "Offer", "name": "Dayglass Community (Free — 5 Meetings/Wk)", "price": "0", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Dayglass Community (Free — 5 Meetings/Wk + 5 Frontier Previews)", "price": "0", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "2026 AI Agent Cost & Local Memory Playbook", "price": "9.99", "priceCurrency": "USD", "url": "https://iganapolsky.gumroad.com/l/odrkon" },
       { "@type": "Offer", "name": "Dayglass Pro Monthly", "price": "19.00", "priceCurrency": "USD", "url": "https://buy.stripe.com/fZucN59eA1eScSd5e33sJ0U" },
+      { "@type": "Offer", "name": "Corporate-Expensable Production MCP Kit", "price": "49.00", "priceCurrency": "USD", "url": "https://iganapolsky.gumroad.com/l/vcrho" },
       { "@type": "Offer", "name": "Dayglass Pro Annual", "price": "149.00", "priceCurrency": "USD", "url": "https://buy.stripe.com/aFa28r62o8Hk19v49Z3sJ0W" },
       { "@type": "Offer", "name": "Dayglass Lifetime", "price": "249.00", "priceCurrency": "USD", "url": "https://buy.stripe.com/4gM5kD1M82iW2dz9uj3sJ0V" }
     ]
@@ -611,35 +613,41 @@
           <span class="badge">Most Popular</span>
           <div class="plan-name">Dayglass Pro Subscription</div>
           <div class="price">$19 <span>/ mo &bull; or $149/yr</span></div>
-          <div class="tagline">Unlimited meetings, unlimited cross-call &amp; screen history, live call catch-me-up, and Claude/Cursor MCP.</div>
+          <div class="tagline">Unlimited meetings, unlimited local history, and Claude/Cursor MCP.</div>
           <ul class="features">
+            <li><strong>Local meeting notes and screen search</strong> on your Mac</li>
             <li><strong>Unlimited bot-free call recordings</strong>, summaries, action items &amp; follow-up drafts</li>
             <li><strong>Unlimited local history</strong> across months of meetings, slides, and terminal windows</li>
             <li><strong>Built-in MCP Server &amp; CLI</strong> for Claude Code, Claude Desktop, and Cursor</li>
-            <li>Live Call Assistant (⌘⇧Space "Catch Me Up") &amp; pre-meeting context briefs</li>
             <li>Starred Focus Sessions (⌘⌃B) &amp; reversible local PII redaction</li>
           </ul>
           <div style="display: flex; gap: 8px;">
             <button class="btn btn-primary" style="flex: 1;" onclick="beginStripeCheckout('pro_monthly', 19)">Subscribe — $19/mo</button>
             <button class="btn btn-secondary" style="flex: 1;" onclick="beginStripeCheckout('pro_annual', 149)">Annual — $149/yr (Save 35%)</button>
           </div>
-          <p class="trial-note">Instant offline-capable license key. Cancel anytime in one click.</p>
+          <p class="trial-note">Stripe checkout. Cancel the monthly plan anytime.</p>
         </div>
 
         <div class="card">
-          <span class="badge">Pay Once, Own Forever</span>
-          <div class="plan-name">Dayglass Pro Lifetime</div>
-          <div class="price">$249 <span>/ one-time</span></div>
-          <div class="tagline">One-time purchase for engineers and founders who hate recurring subscriptions.</div>
+          <span class="badge">One-time</span>
+          <div class="plan-name">MCP Kit ($49) &amp; Pro Lifetime ($249)</div>
+          <div class="price">$49 <span>one-time &bull; or $249 Lifetime</span></div>
+          <div class="tagline">$49 one-time Production MCP kit, or $249 one-time Pro license.</div>
           <ul class="features">
-            <li>All Dayglass Pro features unlocked forever (unlimited meetings &amp; MCP)</li>
+            <li><strong>$49 Production MCP Kit</strong> (one-time, under $50)</li>
+            <li><strong>$249 Pro Lifetime</strong>: one-time Pro license</li>
+            <li><strong>$9.99 AI Agent Cost &amp; Memory Playbook</strong> instant download</li>
             <li>Works 100% offline with a permanent cryptographic license key</li>
-            <li>All future v2.x macOS updates included</li>
-            <li>Direct founder support from Igor Ganapolsky</li>
-            <li>Use across your personal &amp; work Macs</li>
+            <li>Use across your personal &amp; work Macs with direct founder support</li>
           </ul>
-          <button class="btn btn-secondary" onclick="beginStripeCheckout('lifetime_mas', 249)">Buy Pro Lifetime ($249)</button>
-          <p class="trial-note">One-time payment. Zero subscription fees.</p>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <button class="btn btn-primary" onclick="beginExternalPackCheckout('tier3_corporate_bundle_49', 49, 'https://iganapolsky.gumroad.com/l/vcrho')">Get the MCP Kit — $49</button>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-secondary" style="flex: 1;" onclick="beginStripeCheckout('lifetime_mas', 249)">Lifetime — $249</button>
+              <button class="btn btn-secondary" style="flex: 1;" onclick="beginExternalPackCheckout('tier1_playbook_999', 9.99, 'https://iganapolsky.gumroad.com/l/odrkon')">Playbook — $9.99</button>
+            </div>
+          </div>
+          <p class="trial-note">Instant delivery via Stripe &amp; Gumroad.</p>
         </div>
       </div>
       <!-- Interactive Time & Context Savings Estimator -->
@@ -815,7 +823,7 @@
       lifetime_mas: "https://buy.stripe.com/4gM5kD1M82iW2dz9uj3sJ0V"
     };
 
-    const POSTHOG_KEY = window.__DG_POSTHOG_KEY || atob("cGhjX3ViNUE0SlBGc0IyZG01NFZhcTJkV0dlRGg5em91ekxMNFZiNlRjaWNKeHZm");
+    const POSTHOG_KEY = window.__DG_POSTHOG_KEY || "";
     const DISTINCT_ID = localStorage.getItem("dg_distinct_id") || ("dg-web-" + Math.random().toString(36).slice(2, 12));
     localStorage.setItem("dg_distinct_id", DISTINCT_ID);
 
@@ -889,7 +897,7 @@
       const lp_path = params.get('lp_path') || window.location.pathname;
       const referrer = document.referrer || '';
 
-      fetch('https://us.i.posthog.com/capture/', {
+      if (POSTHOG_KEY) fetch('https://us.i.posthog.com/capture/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
