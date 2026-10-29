@@ -29,6 +29,7 @@
       { "@type": "Offer", "name": "Dayglass Community (Free — 5 Meetings/Wk + 5 Frontier Previews)", "price": "0", "priceCurrency": "USD" },
       { "@type": "Offer", "name": "2026 AI Agent Cost & Local Memory Playbook", "price": "9.99", "priceCurrency": "USD", "url": "https://iganapolsky.gumroad.com/l/odrkon" },
       { "@type": "Offer", "name": "Dayglass Pro Monthly", "price": "19.00", "priceCurrency": "USD", "url": "https://iganapolsky.gumroad.com/l/dayglass-pro" },
+      { "@type": "Offer", "name": "Dayglass Ultra Monthly", "price": "249.00", "priceCurrency": "USD", "url": "https://iganapolsky.gumroad.com/l/dayglass-ultra" },
       { "@type": "Offer", "name": "Corporate-Expensable Production MCP Kit", "price": "49.00", "priceCurrency": "USD", "url": "https://iganapolsky.gumroad.com/l/vcrho" },
       { "@type": "Offer", "name": "Dayglass Pro Annual", "price": "149.00", "priceCurrency": "USD", "url": "https://buy.stripe.com/aFa28r62o8Hk19v49Z3sJ0W" },
       { "@type": "Offer", "name": "Dayglass Lifetime", "price": "249.00", "priceCurrency": "USD", "url": "https://buy.stripe.com/4gM5kD1M82iW2dz9uj3sJ0V" }
@@ -625,17 +626,33 @@
             <button class="btn btn-primary" style="flex: 1;" onclick="beginStripeCheckout('pro_monthly', 19)">Subscribe — $19/mo</button>
             <button class="btn btn-secondary" style="flex: 1;" onclick="beginStripeCheckout('pro_annual', 149)">Annual — $149/yr (Save 35%)</button>
           </div>
-          <p class="trial-note">The $19/month covers ongoing managed AI. Cancel anytime.</p>
+          <p class="trial-note">The $19/month is the Mac app and on-device memory. It does not cover the $200/month Google AI Ultra seat. Cancel anytime.</p>
+        </div>
+
+        <div class="card featured">
+          <span class="badge">Covers the Ultra seat</span>
+          <div class="plan-name">Dayglass Ultra</div>
+          <div class="price">$249 <span>/ month</span></div>
+          <div class="tagline">This subscription covers the $200/month Google AI Ultra seat. Meeting notes stay on your Mac.</div>
+          <ul class="features">
+            <li><strong>Google AI Ultra</strong> for Dayglass AI</li>
+            <li>Meeting notes stay on your Mac</li>
+            <li>The $19/month plan does not cover this seat</li>
+            <li>The $249 one-time lifetime license does not include this seat</li>
+            <li>Cancel anytime</li>
+          </ul>
+          <button class="btn btn-primary" onclick="beginStripeCheckout('pro_ai_ultra', 249)">Subscribe — $249/mo</button>
+          <p class="trial-note">$249/month is the plan that covers the Google AI Ultra seat.</p>
         </div>
 
         <div class="card">
           <span class="badge">One-time</span>
-          <div class="plan-name">MCP Kit ($49) &amp; Pro Lifetime ($249)</div>
-          <div class="price">$49 <span>one-time &bull; or $249 Lifetime</span></div>
-          <div class="tagline">$49 one-time Production MCP kit, or $249 one-time app license. The $249 does not include managed cloud AI.</div>
+          <div class="plan-name">MCP Kit ($49) &amp; Pro Lifetime ($249 once)</div>
+          <div class="price">$49 <span>one-time &bull; or $249 once</span></div>
+          <div class="tagline">$49 one-time Production MCP kit, or $249 one-time app license. The one-time license does not include the Google AI Ultra seat.</div>
           <ul class="features">
             <li><strong>$49 Production MCP Kit</strong> (one-time, under $50)</li>
-            <li><strong>$249 Pro Lifetime</strong>: one-time app license. Managed cloud AI stays on the $19/month subscription.</li>
+            <li><strong>$249 once</strong>: one-time app license. The Google AI Ultra seat stays on the $249/month subscription.</li>
             <li><strong>$9.99 AI Agent Cost &amp; Memory Playbook</strong> instant download</li>
             <li>Works 100% offline with a permanent cryptographic license key</li>
             <li>Use across your personal &amp; work Macs with direct founder support</li>
@@ -819,6 +836,7 @@
     let checkoutPlan = '';
     let checkoutUrls = {
       pro_monthly: "https://iganapolsky.gumroad.com/l/dayglass-pro",
+      pro_ai_ultra: "https://iganapolsky.gumroad.com/l/dayglass-ultra",
       pro_annual: "https://buy.stripe.com/aFa28r62o8Hk19v49Z3sJ0W",
       lifetime_mas: "https://buy.stripe.com/4gM5kD1M82iW2dz9uj3sJ0V"
     };
