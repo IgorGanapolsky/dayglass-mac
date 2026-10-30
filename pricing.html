@@ -986,7 +986,7 @@
             const d = await res.json();
             if (d.checkout_urls) checkoutUrls = d.checkout_urls;
           }
-        } catch (err) { console.debug("Dayglass local billing status unreachable:", err); }
+        } catch (err) { console.error("Dayglass local billing status unreachable:", err); }
       }
     }
 
