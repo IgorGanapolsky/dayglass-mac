@@ -42,11 +42,6 @@ echo "==> [4/4] Clearing macOS Gatekeeper quarantine & registering LaunchService
 xattr -dr com.apple.quarantine "${APP_DEST}" 2>/dev/null || true
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -f "${APP_DEST}" 2>/dev/null || true
 
-# Anonymous install telemetry ping to PostHog
-curl -fsS -m 3 -X POST "https://us.i.posthog.com/capture/" \
-  -H "Content-Type: application/json" \
-  -d "{\"api_key\":\"phc_ub5A4JPFsB2dm54Vaq2dWGeDh9zouzLL4Vb6TcicJxvf\",\"event\":\"app_installed_via_script\",\"distinct_id\":\"dg-cli-$(uuidgen | tr '[:upper:]' '[:lower:]' | cut -c1-12)\",\"properties\":{\"version\":\"${VERSION}\",\"arch\":\"$(uname -m)\",\"utm_source\":\"install_sh\"}}" >/dev/null 2>&1 || true
-
 echo ""
 echo "✅ Dayglass v${VERSION} installed at ${APP_DEST}"
 if [[ "${DAYGLASS_NO_OPEN:-0}" != "1" ]]; then
