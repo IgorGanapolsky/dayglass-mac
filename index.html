@@ -862,11 +862,13 @@
     const _AB_KEYS = Object.keys(_AB_VARIANTS);
     const _urlParams = new URLSearchParams(window.location.search);
     const _forcedVariant = _urlParams.get("variant") || _urlParams.get("ab_variant") || _urlParams.get("adcontent");
-    let _hash = 0;
-    for (let i = 0; i < DISTINCT_ID.length; i++) _hash = ((_hash << 5) - _hash + DISTINCT_ID.charCodeAt(i)) | 0;
     const AB_VARIANT = (_forcedVariant && _AB_VARIANTS[_forcedVariant])
       ? _forcedVariant
-      : (localStorage.getItem("dg_ab_variant") || _AB_KEYS[Math.abs(_hash) % _AB_KEYS.length]);
+      : (localStorage.getItem("dg_ab_variant") || (() => {
+          let _hash = 0;
+          for (let i = 0; i < DISTINCT_ID.length; i++) _hash = ((_hash << 5) - _hash + DISTINCT_ID.charCodeAt(i)) | 0;
+          return _AB_KEYS[Math.abs(_hash) % _AB_KEYS.length];
+        })());
     localStorage.setItem("dg_ab_variant", AB_VARIANT);
     (function applyAbVariant() {
       const v = _AB_VARIANTS[AB_VARIANT];
