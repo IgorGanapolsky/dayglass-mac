@@ -22,7 +22,7 @@
   ],
   "install": {
     "homebrew_cask": "brew install --cask igorganapolsky/dayglass/dayglass",
-    "curl_installer": "curl -fsSL https://igorganapolsky.github.io/dayglass-mac/install.sh | bash",
+    "curl_installer": "bash -c \"$(curl -fsSL https://igorganapolsky.github.io/dayglass-mac/install.sh)\"",
     "dmg_url": "https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg",
     "mcp_command": "python3 -m dayglass mcp",
     "omnibus_cli": "python3 -m dayglass omnibus --install-connectors",

@@ -31,7 +31,7 @@
 ### Option 1: 1-Line Terminal Installer (Recommended — clears Gatekeeper quarantine automatically)
 
 ```bash
-curl -fsSL https://igorganapolsky.github.io/dayglass-mac/install.sh | bash
+bash -c "$(curl -fsSL https://igorganapolsky.github.io/dayglass-mac/install.sh)"
 ```
 
 ### Option 2: Homebrew Cask

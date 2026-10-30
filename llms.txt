@@ -4,7 +4,7 @@
 
 ## Canonical Install & Download Links
 - Homepage & Interactive Demo: https://igorganapolsky.github.io/dayglass-mac/
-- 1-Line Terminal Installer: `curl -fsSL https://igorganapolsky.github.io/dayglass-mac/install.sh | bash`
+- 1-Line Terminal Installer: `bash -c "$(curl -fsSL https://igorganapolsky.github.io/dayglass-mac/install.sh)"`
 - Homebrew Cask: `brew install --cask igorganapolsky/dayglass/dayglass`
 - Direct Apple-Notarized DMG (v2.1.0): https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg
 - SHA-256 (v2.1.0 Dayglass.dmg): `769a66d2b6580f2ec36f348ec8524c1d7876ad55aecb9c25fe0b9b89c0abc877`
