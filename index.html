@@ -296,7 +296,7 @@
         <a href="#trust">Trust &amp; Privacy</a>
         <a href="#pricing">Pricing</a>
         <a href="#compare">vs. Granola</a>
-        <a href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {source: 'nav'})" style="color: var(--accent); font-weight: 600;">Download Free (.DMG)</a>
+        <a href="https://iganapolsky.gumroad.com/l/dayglass-pro?wanted=true" onclick="trackPricingEvent('checkout_initiated', {plan: 'pro_monthly', price_usd: 19, source: 'nav'})" style="color: var(--accent); font-weight: 600;">Pro $19/mo</a>
       </div>
     </nav>
 
@@ -314,8 +314,8 @@
       </p>
 
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {source: 'hero_primary'})">⬇ Download Free for Mac (.DMG)</a>
-        <a class="btn btn-secondary" href="#pricing" style="border-color: var(--green); color: var(--green);">See Free vs. Pro Pricing</a>
+        <a class="btn btn-primary" id="heroPrimaryCta" href="https://iganapolsky.gumroad.com/l/dayglass-pro?wanted=true" onclick="trackPricingEvent('checkout_initiated', {plan: 'pro_monthly', price_usd: 19, source: 'hero_primary'})">Pro — $19/month</a>
+        <a class="btn btn-secondary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {source: 'hero_secondary'})">Download the Mac app</a>
       </div>
 
       <div class="install-box">
@@ -629,7 +629,7 @@
             <li><strong>Built-in MCP Server &amp; CLI</strong> so Claude, Cursor, and the other agents on your Mac can read a meeting while it is still in progress</li>
             <li>Starred Focus Sessions (⌘⌃B) &amp; reversible local PII redaction</li>
           </ul>
-          <button class="btn btn-primary" onclick="beginStripeCheckout('pro_monthly', 19)">Subscribe — $19/mo</button>
+          <a class="btn btn-primary" href="https://iganapolsky.gumroad.com/l/dayglass-pro?wanted=true" onclick="trackPricingEvent('checkout_initiated', {plan: 'pro_monthly', price_usd: 19, source: 'pricing'})">Subscribe — $19/mo</a>
           <p class="trial-note">Unlimited meetings and local history on your Mac. Cancel anytime.</p>
         </div>
 
@@ -643,7 +643,7 @@
             <li>The Mac app and on-device meeting notes</li>
             <li>Cancel anytime</li>
           </ul>
-          <button class="btn btn-primary" onclick="beginStripeCheckout('pro_ai_ultra', 249)">Subscribe — $249/mo</button>
+          <a class="btn btn-primary" href="https://iganapolsky.gumroad.com/l/dayglass-ultra?wanted=true" onclick="trackPricingEvent('checkout_initiated', {plan: 'pro_ai_ultra', price_usd: 249, source: 'pricing'})">Subscribe — $249/mo</a>
           <p class="trial-note">$249 a month. The $19 plan is the Mac app and on-device memory.</p>
         </div>
 
@@ -837,8 +837,8 @@
     let checkoutPlan = '';
     let licenseActivatedInModal = false;
     let checkoutUrls = {
-      pro_monthly: "https://iganapolsky.gumroad.com/l/dayglass-pro",
-      pro_ai_ultra: "https://iganapolsky.gumroad.com/l/dayglass-ultra"
+      pro_monthly: "https://iganapolsky.gumroad.com/l/dayglass-pro?wanted=true",
+      pro_ai_ultra: "https://iganapolsky.gumroad.com/l/dayglass-ultra?wanted=true"
     };
 
     const POSTHOG_KEY = window.__DG_POSTHOG_KEY || "";
@@ -883,7 +883,7 @@
       const h1 = document.getElementById("heroHeadline");
       const sub = document.getElementById("heroSubheadline");
       if (h1) h1.textContent = v.h1;
-      if (sub) sub.textContent = v.sub;
+      if (sub) sub.textContent = v.sub + " Pro is $19 a month.";
     })();
 
     if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
@@ -1020,7 +1020,7 @@
       const camp = params.get('utm_campaign') || params.get('campaign') || 'dayglass_v2_2_viral';
       const clientRef = `${DISTINCT_ID}__${AB_VARIANT}__${utm}`.replace(/[^a-zA-Z0-9_-]/g, '_').slice(0, 190);
       const sep = base.includes('?') ? '&' : '?';
-      window.open(`${base}${sep}client_reference_id=${encodeURIComponent(clientRef)}&utm_source=${encodeURIComponent(utm)}&utm_medium=${encodeURIComponent(med)}&utm_campaign=${encodeURIComponent(camp)}&utm_content=${encodeURIComponent(AB_VARIANT)}&ab_variant=${encodeURIComponent(AB_VARIANT)}`, '_blank', 'noopener');
+      window.location.assign(`${base}${sep}client_reference_id=${encodeURIComponent(clientRef)}&utm_source=${encodeURIComponent(utm)}&utm_medium=${encodeURIComponent(med)}&utm_campaign=${encodeURIComponent(camp)}&utm_content=${encodeURIComponent(AB_VARIANT)}&ab_variant=${encodeURIComponent(AB_VARIANT)}`);
     }
 
     function beginExternalPackCheckout(packId, priceUsd, baseUrl) {
