@@ -62,7 +62,15 @@
         "name": "How does Dayglass compare to Granola, MacWhisper, and Screenpipe?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Like Granola, Dayglass captures calls without a meeting bot, but Dayglass stores and summarizes everything 100% locally on your Mac, adds searchable screen OCR across slides and terminal windows, and includes a built-in MCP server for Claude Code and Cursor. The Free tier includes up to 5 bot-free meeting recordings and summaries per week."
+          "text": "Like Granola, Dayglass captures calls without a meeting bot, but Dayglass stores and summarizes everything 100% locally on your Mac, adds searchable screen OCR across slides and terminal windows, and includes a built-in MCP server so Claude, Cursor, and the other agents on your Mac can read the meeting while it is still in progress. The Free tier includes up to 5 bot-free meeting recordings and summaries per week."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Claude and other agents see a meeting while it is still in progress?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Dayglass keeps the call on your Mac. Claude, Cursor, and the other agents you run there call dayglass_get_live_meeting and get the speaker-tagged transcript, the people on the call, and the shared screen while the meeting continues."
         }
       },
       {
@@ -298,12 +306,13 @@
       <span class="trust-badge">🎧 Zero Meeting Bots in Your Calls</span>
       <span class="trust-badge">🔒 100% Local on Your Mac (`~/.dayglass`)</span>
       <span class="trust-badge">💬 1-click consent note for the other people on the call</span>
+      <span class="trust-badge">🔌 Live meeting, readable by Claude and your other agents</span>
     </div>
 
     <section class="hero" id="install">
       <h1 id="heroHeadline">Private meeting notes for Mac. No bot. Nothing leaves your laptop.</h1>
       <p id="heroSubheadline">
-        Dayglass records both sides of a Zoom, Meet, or Teams call from your AirPods or speakers, then writes the decisions and action items on your Mac. Free for up to 5 meetings/week.
+        Dayglass records both sides of a Zoom, Meet, or Teams call from your AirPods or speakers, then writes the decisions and action items on your Mac. While the meeting is still going, Claude, Cursor, and the other agents on that Mac read the live transcript. Free for up to 5 meetings/week.
       </p>
 
       <div class="cta-row">
@@ -493,8 +502,8 @@
                 <text x="216" y="67" fill="#e2e8f0" font-size="9.5" font-family="sans-serif" font-weight="600">Cursor IDE</text>
               </svg>
             </div>
-            <h3>🔌 Built-in MCP server for Claude &amp; Cursor</h3>
-            <p>Give Claude Desktop, Claude Code, and Cursor direct read access to your recent meeting decisions, open todos, and screen context in one click.</p>
+            <h3>🔌 Live meeting for Claude and your other agents</h3>
+            <p>When a meeting is in progress, Claude Desktop, Claude Code, Cursor, and the other agents on your Mac read who is talking and what was just said. They use the local tool <code>dayglass_get_live_meeting</code>. The transcript stays on the Mac.</p>
           </div>
           <span class="card-meta-tag">dayglass doctor --install-mcp</span>
         </div>
@@ -619,7 +628,7 @@
             <li><strong>Local meeting notes and screen search</strong> on your Mac</li>
             <li><strong>Unlimited bot-free call recordings</strong>, summaries, action items &amp; follow-up drafts</li>
             <li><strong>Unlimited local history</strong> across months of meetings, slides, and terminal windows</li>
-            <li><strong>Built-in MCP Server &amp; CLI</strong> for Claude Code, Claude Desktop, and Cursor</li>
+            <li><strong>Built-in MCP Server &amp; CLI</strong> so Claude, Cursor, and the other agents on your Mac can read a meeting while it is still in progress</li>
             <li>Starred Focus Sessions (⌘⌃B) &amp; reversible local PII redaction</li>
           </ul>
           <div style="display: flex; gap: 8px;">
@@ -742,7 +751,7 @@
           </tr>
           <tr>
             <td><strong>Built-In Claude Code &amp; Cursor MCP</strong></td>
-            <td><strong>Yes (1-click local MCP server)</strong></td>
+            <td><strong>Yes. Live transcript while the call is in progress</strong></td>
             <td>No local MCP server</td>
             <td>No</td>
             <td>No local MCP server</td>
@@ -773,8 +782,12 @@
           <p>Never. All Apple Vision OCR frames, audio transcripts, and meeting notes live in <code>~/.dayglass/dayglass.sqlite</code> on your local disk. Password managers, banking tabs, and private windows are automatically skipped.</p>
         </div>
         <div class="story-card">
+          <h3>Can Claude and other agents see a meeting while it is still in progress?</h3>
+          <p>Yes. Dayglass keeps the call on your Mac. Claude, Cursor, and the other agents you run there call <code>dayglass_get_live_meeting</code> and get the speaker-tagged transcript, the people on the call, and the shared screen while the meeting continues.</p>
+        </div>
+        <div class="story-card">
           <h3>Why choose Dayglass over Granola or MacWhisper?</h3>
-          <p>Granola is great for bot-free meeting notes, and MacWhisper is great for transcribing audio files. Dayglass combines <strong>100% local bot-free meeting notes</strong> with <strong>searchable screen OCR</strong> (slides, docs, terminal errors) and a <strong>built-in MCP server</strong> so Claude Code and Cursor automatically know what was decided in your meetings.</p>
+          <p>Granola is great for bot-free meeting notes, and MacWhisper is great for transcribing audio files. Dayglass combines <strong>100% local bot-free meeting notes</strong> with <strong>searchable screen OCR</strong> (slides, docs, terminal errors) and a <strong>built-in MCP server</strong> so Claude, Cursor, and the other agents on your Mac can read the meeting while it is still in progress.</p>
         </div>
       </div>
     </section>
@@ -848,15 +861,15 @@
     const _AB_VARIANTS = {
       variant_a_bot_free_airpods: {
         h1: "Private meeting notes for Mac. No bot. Nothing leaves your laptop.",
-        sub: "Dayglass records both sides of a Zoom, Meet, or Teams call from your AirPods or speakers, then writes the decisions and action items on your Mac. Free for up to 5 meetings/week."
+        sub: "Dayglass records both sides of a Zoom, Meet, or Teams call from your AirPods or speakers, then writes the decisions and action items on your Mac. While the meeting is still going, Claude, Cursor, and the other agents on that Mac read the live transcript. Free for up to 5 meetings/week."
       },
       variant_b_zoom_ai_companion_local: {
         h1: "Private meeting notes for Mac. No bot. Nothing leaves your laptop.",
-        sub: "Dayglass records both sides of a Zoom, Meet, or Teams call from your AirPods or speakers, then writes the decisions and action items on your Mac. Free for up to 5 meetings/week."
+        sub: "Dayglass records both sides of a Zoom, Meet, or Teams call from your AirPods or speakers, then writes the decisions and action items on your Mac. While the meeting is still going, Claude, Cursor, and the other agents on that Mac read the live transcript. Free for up to 5 meetings/week."
       },
       variant_c_384k_mcp_memory: {
         h1: "Private meeting notes for Mac. No bot. Nothing leaves your laptop.",
-        sub: "Dayglass records both sides of a Zoom, Meet, or Teams call from your AirPods or speakers, then writes the decisions and action items on your Mac. Free for up to 5 meetings/week."
+        sub: "Dayglass records both sides of a Zoom, Meet, or Teams call from your AirPods or speakers, then writes the decisions and action items on your Mac. While the meeting is still going, Claude, Cursor, and the other agents on that Mac read the live transcript. Free for up to 5 meetings/week."
       }
     };
     const _AB_KEYS = Object.keys(_AB_VARIANTS);
