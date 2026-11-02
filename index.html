@@ -24,7 +24,7 @@
     "applicationCategory": "ProductivityApplication",
     "softwareVersion": "2.1.0",
     "screenshot": "https://igorganapolsky.github.io/dayglass-mac/dayglass-notes-sample.png",
-    "downloadUrl": "https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg",
+    "downloadUrl": "https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.2.0/Dayglass.dmg",
     "offers": [
       { "@type": "Offer", "name": "Dayglass Community (Free — 5 Meetings/Wk + 5 Frontier Previews)", "price": "0", "priceCurrency": "USD" },
       { "@type": "Offer", "name": "2026 AI Agent Cost & Local Memory Playbook", "price": "9.99", "priceCurrency": "USD", "url": "https://iganapolsky.gumroad.com/l/odrkon" },
@@ -296,7 +296,7 @@
         <a href="#trust">Trust &amp; Privacy</a>
         <a href="#pricing">Pricing</a>
         <a href="#compare">vs. Granola</a>
-        <a href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {source: 'nav'})" style="color: var(--accent); font-weight: 600;">Download Free (.DMG)</a>
+        <a href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.2.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {source: 'nav'})" style="color: var(--accent); font-weight: 600;">Download Free (.DMG)</a>
       </div>
     </nav>
 
@@ -314,14 +314,14 @@
       </p>
 
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {source: 'hero_primary'})">⬇ Download Free for Mac (.DMG)</a>
+        <a class="btn btn-primary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.2.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {source: 'hero_primary'})">⬇ Download Free for Mac (.DMG)</a>
         <a class="btn btn-secondary" href="#pricing" style="border-color: var(--green); color: var(--green);">See Free vs. Pro Pricing</a>
       </div>
 
       <div class="install-box">
         <div class="install-box-title">
           <span>🍺 Prefer Homebrew? Install the Apple-Notarized Cask</span>
-          <span style="color: var(--green);">v2.1.0 &bull; ~93 MB Idle Daemon RAM &bull; macOS 13+ (Apple Silicon)</span>
+          <span style="color: var(--green);">v2.2.0 &bull; ~93 MB Idle Daemon RAM &bull; macOS 13+ (Apple Silicon)</span>
         </div>
         <div class="cmd-row" style="margin-bottom: 0;">
           <span class="cmd-label">Homebrew:</span>
@@ -431,7 +431,7 @@
                 <text x="36" y="34" fill="#34d399" font-size="9" font-family="monospace" font-weight="700">✓ DECISIONS</text>
                 <rect x="30" y="45" width="16" height="16" rx="4" stroke="#38bdf8" stroke-width="1.6"/>
                 <path d="M34 53 L37 56 L43 49" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
-                <text x="54" y="56" fill="#e2e8f0" font-size="10.5" font-family="sans-serif">Ship staging cutover by Thursday 4 PM</text>
+                <text x="54" y="56" fill="#e2e8f0" font-size="10.5" font-family="sans-serif">Ship staging rollout by Thursday 4 PM</text>
                 <rect x="234" y="22" width="56" height="20" rx="5" fill="#38bdf8" fill-opacity="0.18" stroke="#38bdf8" stroke-opacity="0.4"/>
                 <text x="242" y="35" fill="#38bdf8" font-size="9" font-family="monospace">Export</text>
               </svg>
@@ -613,7 +613,7 @@
             <li>1-click call consent chat snippet &amp; private-window auto-skip</li>
             <li>100% local storage in <code>~/.dayglass</code></li>
           </ul>
-          <a class="btn btn-secondary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {plan: 'free'})">Download Free (.DMG)</a>
+          <a class="btn btn-secondary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.2.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {plan: 'free'})">Download Free (.DMG)</a>
           <p class="trial-note">Free forever on macOS 13+ (5 meetings/wk included).</p>
         </div>
 
@@ -785,8 +785,8 @@
     </div>
 
     <footer>
-      Dayglass v2.1.0 for macOS &bull; Signed &amp; Notarized by Apple (Developer ID G73634525B) &bull;
-      <a href="https://github.com/IgorGanapolsky/dayglass-mac/releases/tag/v2.1.0" style="color: var(--accent);">Release Notes (v2.1.0)</a> &bull;
+      Dayglass v2.2.0 for macOS &bull; Signed &amp; Notarized by Apple (Developer ID G73634525B) &bull;
+      <a href="https://github.com/IgorGanapolsky/dayglass-mac/releases/tag/v2.2.0" style="color: var(--accent);">Release Notes (v2.2.0)</a> &bull;
       <a href="https://github.com/IgorGanapolsky/homebrew-dayglass" style="color: var(--accent);">Homebrew Tap</a> &bull;
       <a href="https://igorganapolsky.github.io/dayglass-mac/llms.txt" style="color: var(--accent);">llms.txt</a>
     </footer>
@@ -835,8 +835,11 @@
 
     let checkoutStarted = false;
     let checkoutPlan = '';
+    let licenseActivatedInModal = false;
     let checkoutUrls = {
       pro_monthly: "https://iganapolsky.gumroad.com/l/dayglass-pro",
+      pro_annual: "https://buy.stripe.com/aFa28r62o8Hk19v49Z3sJ0W",
+      lifetime_mas: "https://buy.stripe.com/4gM5kD1M82iW2dz9uj3sJ0V",
       pro_ai_ultra: "https://iganapolsky.gumroad.com/l/dayglass-ultra"
     };
 
@@ -845,17 +848,26 @@
     localStorage.setItem("dg_distinct_id", DISTINCT_ID);
 
     const _AB_VARIANTS = {
-      variant_a_bot_free_airpods: {
-        h1: "Private meeting notes for Mac. No bot. Nothing leaves your laptop.",
-        sub: "Dayglass records both sides of a Zoom, Meet, or Teams call from your AirPods or speakers, then writes the decisions and action items on your Mac. While the meeting is still going, Claude, Cursor, and the other agents on that Mac read the live transcript. Free for up to 5 meetings/week."
+      A: {
+        name: "bot_free_privacy",
+        badge: "v2.2.0 · Native Swift Menu Bar + Studio · 100% On-Device on Apple Silicon",
+        h1: "Private meeting notes. No bot in the call. Zero Cloud Upload. Zero Whisper Hallucination.",
+        sub: "No 'Otter.ai has joined the meeting.' Dayglass captures Zoom, Meet, and Teams straight from your AirPods or Mac speakers and writes clean decisions, action items, and follow-up emails on your laptop.",
+        cta: " Download Free for Mac (.dmg)"
       },
-      variant_b_zoom_ai_companion_local: {
-        h1: "Private meeting notes for Mac. No bot. Nothing leaves your laptop.",
-        sub: "Dayglass records both sides of a Zoom, Meet, or Teams call from your AirPods or speakers, then writes the decisions and action items on your Mac. While the meeting is still going, Claude, Cursor, and the other agents on that Mac read the live transcript. Free for up to 5 meetings/week."
+      B: {
+        name: "total_screen_memory",
+        badge: "v2.2.0 · Continuous Screen OCR + Meeting Memory · 100% Local SQLite",
+        h1: "Your Mac Never Forgets a Meeting, Screen, or Promise.",
+        sub: "Instant Cmd+Shift+Space recall across every Zoom/Teams call, Slack thread, terminal window, and browser tab on your Mac — indexed 100% locally on Apple Silicon.",
+        cta: " Get Total Mac Memory Free (.dmg)"
       },
-      variant_c_384k_mcp_memory: {
-        h1: "Private meeting notes for Mac. No bot. Nothing leaves your laptop.",
-        sub: "Dayglass records both sides of a Zoom, Meet, or Teams call from your AirPods or speakers, then writes the decisions and action items on your Mac. While the meeting is still going, Claude, Cursor, and the other agents on that Mac read the live transcript. Free for up to 5 meetings/week."
+      C: {
+        name: "live_meeting_copilot",
+        badge: "v2.2.0 · Real-Time Stealth Meeting Copilot · Invisible on Screen Share",
+        h1: 'Never Say "Let Me Get Back to You" on a Live Call Again.',
+        sub: "Press Cmd+Shift+Space mid-call: Dayglass reads the live transcript + what's on your screen and gives you the exact answer and follow-up draft in under 2 seconds.",
+        cta: " Download Live Copilot Free (.dmg)"
       }
     };
     const _AB_KEYS = Object.keys(_AB_VARIANTS);
@@ -954,25 +966,34 @@
           keepalive: true
         }).catch(() => {});
       } else {
-        fetch('https://thumbgate.ai/v1/telemetry/ping', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            event: 'dayglass_' + eventName,
-            page: '/dayglass-mac/',
-            source: utm_source,
-            visitorId: DISTINCT_ID,
-            props: {
-              ...properties,
-              ab_variant: AB_VARIANT,
-              utm_source,
-              utm_medium,
-              utm_campaign,
-              lnd_product
-            }
-          }),
-          keepalive: true
-        }).catch(() => {});
+        const pingPayload = JSON.stringify({
+          event: 'dayglass_' + eventName,
+          page: '/dayglass-mac/',
+          source: utm_source,
+          visitorId: DISTINCT_ID,
+          props: {
+            ...properties,
+            ab_variant: AB_VARIANT,
+            utm_source,
+            utm_medium,
+            utm_campaign,
+            lnd_product
+          }
+        });
+        let sent = false;
+        try {
+          if (navigator.sendBeacon) {
+            sent = navigator.sendBeacon('https://thumbgate.ai/v1/telemetry/ping', new Blob([pingPayload], { type: 'application/json' }));
+          }
+        } catch (_) {}
+        if (!sent) {
+          fetch('https://thumbgate.ai/v1/telemetry/ping', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: pingPayload,
+            keepalive: true
+          }).catch(() => {});
+        }
       }
     }
 
@@ -997,10 +1018,11 @@
       if (!base) return;
       const params = new URLSearchParams(window.location.search);
       const utm = params.get('utm_source') || params.get('source') || 'pricing_page';
-      const camp = params.get('utm_campaign') || params.get('campaign') || 'dayglass_release_october26';
+      const med = params.get('utm_medium') || params.get('medium') || 'web';
+      const camp = params.get('utm_campaign') || params.get('campaign') || 'dayglass_v2_2_viral';
       const clientRef = `${DISTINCT_ID}__${AB_VARIANT}__${utm}`.replace(/[^a-zA-Z0-9_-]/g, '_').slice(0, 190);
       const sep = base.includes('?') ? '&' : '?';
-      window.open(`${base}${sep}client_reference_id=${encodeURIComponent(clientRef)}&utm_source=${encodeURIComponent(utm)}&utm_campaign=${encodeURIComponent(camp)}`, '_blank', 'noopener');
+      window.open(`${base}${sep}client_reference_id=${encodeURIComponent(clientRef)}&utm_source=${encodeURIComponent(utm)}&utm_medium=${encodeURIComponent(med)}&utm_campaign=${encodeURIComponent(camp)}&utm_content=${encodeURIComponent(AB_VARIANT)}&ab_variant=${encodeURIComponent(AB_VARIANT)}`, '_blank', 'noopener');
     }
 
     function beginExternalPackCheckout(packId, priceUsd, baseUrl) {
@@ -1009,9 +1031,11 @@
       trackPricingEvent('checkout_initiated', { plan: packId, price_usd: priceUsd, ab_variant: AB_VARIANT });
       const params = new URLSearchParams(window.location.search);
       const utm = params.get('utm_source') || params.get('source') || 'pricing_page';
-      const camp = params.get('utm_campaign') || params.get('campaign') || 'dayglass_release_october26';
+      const med = params.get('utm_medium') || params.get('medium') || 'web';
+      const camp = params.get('utm_campaign') || params.get('campaign') || 'dayglass_v2_2_viral';
+      const clientRef = `${DISTINCT_ID}__${AB_VARIANT}__${utm}`.replace(/[^a-zA-Z0-9_-]/g, '_').slice(0, 190);
       const sep = baseUrl.includes('?') ? '&' : '?';
-      window.open(`${baseUrl}${sep}utm_source=${encodeURIComponent(utm)}&utm_campaign=${encodeURIComponent(camp)}&ab_variant=${encodeURIComponent(AB_VARIANT)}`, '_blank', 'noopener');
+      window.open(`${baseUrl}${sep}client_reference_id=${encodeURIComponent(clientRef)}&utm_source=${encodeURIComponent(utm)}&utm_medium=${encodeURIComponent(med)}&utm_campaign=${encodeURIComponent(camp)}&utm_content=${encodeURIComponent(AB_VARIANT)}&ab_variant=${encodeURIComponent(AB_VARIANT)}`, '_blank', 'noopener');
     }
     function updateRoiCalculator() {
       const team = Number(document.getElementById('roiTeamSize')?.value || 1);
