@@ -10,19 +10,17 @@
 
 ---
 
-## ⚡ Pricing & Instant Checkout (100% Offline License Key)
+## Pricing
 
-| Tier | Price | What Is Included & How AI Costs Are Covered | Instant 1-Click Checkout (Stripe & Gumroad) |
+| Tier | Price | What is included | Checkout |
 | :--- | :--- | :--- | :--- |
-| **Dayglass Community (Free Trial)** | **$0 install** | Local Apple Vision OCR & SQLite FTS5 keyword search + **3 Free AI Preview Turns** (`$0.05` hard cap). **Paywall locks AI Copilot, Ask AI & AI Summaries after 3 turns.** | [Download Free `.DMG`](https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg) |
-| **AI Agent Cost & Memory Playbook** | **$9.99 one-time** | Complete architecture guide + local SQLite/MCP setup | [Gumroad ($9.99) →](https://iganapolsky.gumroad.com/l/odrkon?wanted=true&utm_source=github_readme&utm_campaign=dayglass_v2_1) |
-| **Dayglass Pro Monthly** | **$19 / month** | Unlimited AirPods call recording, 384K SubQ Snap GraphRAG, Claude/Cursor MCP & **On-Device AI (Ollama / Apple Silicon MLX / BYOK)**. *Does not include managed $200/mo Google AI Ultra cloud seat.* | [Stripe ($19/mo) →](https://buy.stripe.com/fZucN59eA1eScSd5e33sJ0U?utm_source=github_readme&utm_campaign=dayglass_v2_1) · [Gumroad ($19/mo) →](https://iganapolsky.gumroad.com/l/dayglass-pro?wanted=true&utm_source=github_readme&utm_campaign=dayglass_v2_1) |
-| **Corporate-Expense Production Kit** | **$49 one-time** | **<$50 No-Approval Card Threshold** — Production MCP, DPO/AKV & 40 PreToolUse Rule-Pack | [Gumroad ($49) →](https://iganapolsky.gumroad.com/l/vcrho?wanted=true&utm_source=github_readme&utm_campaign=dayglass_v2_1) |
-| **Dayglass Pro Annual** | **$149 / year** | Save 35% on Dayglass Pro (App + Unlimited Local Memory, MCP & On-Device AI / BYOK) | [Stripe Annual ($149/yr) →](https://buy.stripe.com/aFa28r62o8Hk19v49Z3sJ0W?utm_source=github_readme&utm_campaign=dayglass_v2_1) |
-| **Dayglass Pro Lifetime** | **$249 one-time** | Own the Dayglass Mac app + On-Device AI & BYOK forever (`$0` cloud cost). *Managed Google AI Ultra seat not included.* | [Stripe Lifetime ($249) →](https://buy.stripe.com/4gM5kD1M82iW2dz9uj3sJ0V?utm_source=github_readme&utm_campaign=dayglass_v2_1) |
-| **Dayglass Ultra (Managed Cloud AI)** | **$249 / month** | **Full Dayglass Pro + Managed Google AI Ultra Seat ($200/mo Gemini 4 Carbon & Claude Opus 5.5 frontier quota included).** | [Gumroad Ultra ($249/mo) →](https://iganapolsky.gumroad.com/l/dayglass-ultra?wanted=true&utm_source=github_readme&utm_campaign=dayglass_v2_1) |
+| **Dayglass Community (Free Trial)** | **$0 install** | Local Apple Vision OCR and SQLite search, plus 3 free AI preview turns. After that, the AI routes stay closed until a license is already on the Mac. | [Download Free `.DMG`](https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg) |
+| **AI Agent Cost & Memory Playbook** | **$9.99 one-time** | Architecture guide and local SQLite/MCP setup | [Gumroad ($9.99) →](https://iganapolsky.gumroad.com/l/odrkon?wanted=true&utm_source=github_readme&utm_campaign=dayglass_v2_1) |
+| **Dayglass Pro Monthly** | **$19 / month** | Unlimited AirPods call recording, local history, and Claude/Cursor MCP on your Mac. | [Gumroad ($19/mo) →](https://iganapolsky.gumroad.com/l/dayglass-pro?wanted=true&utm_source=github_readme&utm_campaign=dayglass_v2_1) |
+| **Corporate-Expense Production Kit** | **$49 one-time** | Production MCP kit, under a $50 card limit | [Gumroad ($49) →](https://iganapolsky.gumroad.com/l/vcrho?wanted=true&utm_source=github_readme&utm_campaign=dayglass_v2_1) |
+| **Dayglass Ultra** | **$249 / month** | The Mac app plus managed cloud AI. The $19 plan is the Mac app and on-device memory. | [Gumroad Ultra ($249/mo) →](https://iganapolsky.gumroad.com/l/dayglass-ultra?wanted=true&utm_source=github_readme&utm_campaign=dayglass_v2_1) |
 
-> **Binary Distribution & Paywall Architecture:** This repository (`IgorGanapolsky/dayglass-mac`) distributes the signed macOS `.dmg` binary, Homebrew cask, and public docs only—core Dayglass source code lives in a private repository and zero cloud API keys are bundled in the app. Unlicensed installs get **3 free AI preview turns**, after which `/api/copilot/assist`, `/api/copilot/takeover`, `/api/ask`, and `/api/ask/stream` enforce a hard cryptographic license gate (`DGPRO-...` HMAC-SHA256 key, Stripe session/subscription ID, or Gumroad license key).
+> This repository distributes the signed macOS `.dmg`, the Homebrew cask, and these docs. The app source stays private. A Gumroad payment does not write a license onto the Mac by itself.
 
 ---
 
