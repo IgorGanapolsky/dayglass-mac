@@ -10,7 +10,7 @@
 - SHA-256 (v2.1.0 Dayglass.dmg): `769a66d2b6580f2ec36f348ec8524c1d7876ad55aecb9c25fe0b9b89c0abc877`
 
 ## Plans & Direct Checkout Links
-- Dayglass Community ($0 forever): https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg
+- Dayglass Community ($0 install, 5 meetings a week): https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg
 - AI Agent Cost & Local Memory Playbook ($9.99 one-time): https://iganapolsky.gumroad.com/l/odrkon
 - Dayglass Pro Monthly ($19/mo): https://iganapolsky.gumroad.com/l/dayglass-pro
 - Corporate-Expensable Production Harness & MCP Rule-Pack ($49 one-time, <$50 no-approval corporate card limit): https://iganapolsky.gumroad.com/l/vcrho
