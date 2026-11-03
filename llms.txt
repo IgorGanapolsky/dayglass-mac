@@ -13,7 +13,6 @@
 - Dayglass Community ($0 install, 5 meetings a week): https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg
 - AI Agent Cost & Local Memory Playbook ($9.99 one-time): https://iganapolsky.gumroad.com/l/odrkon
 - Dayglass Pro Monthly ($19/mo): https://iganapolsky.gumroad.com/l/dayglass-pro
-- Corporate-Expensable Production Harness & MCP Rule-Pack ($49 one-time, <$50 no-approval corporate card limit): https://iganapolsky.gumroad.com/l/vcrho
 - Dayglass Ultra ($249/mo): https://iganapolsky.gumroad.com/l/dayglass-ultra
 
 ## Why Developers & Executives Choose Dayglass Over Cloud Bots (Fathom, Otter, Screenpipe, MacPaw Eney)

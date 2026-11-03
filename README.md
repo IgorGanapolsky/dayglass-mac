@@ -17,7 +17,6 @@
 | **Dayglass Community (Free Trial)** | **$0 install** | Local Apple Vision OCR and SQLite search, plus 3 free AI preview turns. After that, the AI routes stay closed until a license is already on the Mac. | [Download Free `.DMG`](https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg) |
 | **AI Agent Cost & Memory Playbook** | **$9.99 one-time** | Architecture guide and local SQLite/MCP setup | [Gumroad ($9.99) →](https://iganapolsky.gumroad.com/l/odrkon?wanted=true&utm_source=github_readme&utm_campaign=dayglass_v2_1) |
 | **Dayglass Pro Monthly** | **$19 / month** | Unlimited AirPods call recording, local history, and Claude/Cursor MCP on your Mac. | [Gumroad ($19/mo) →](https://iganapolsky.gumroad.com/l/dayglass-pro?wanted=true&utm_source=github_readme&utm_campaign=dayglass_v2_1) |
-| **Corporate-Expense Production Kit** | **$49 one-time** | Production MCP kit, under a $50 card limit | [Gumroad ($49) →](https://iganapolsky.gumroad.com/l/vcrho?wanted=true&utm_source=github_readme&utm_campaign=dayglass_v2_1) |
 | **Dayglass Ultra** | **$249 / month** | The Mac app plus managed cloud AI. The $19 plan is the Mac app and on-device memory. | [Gumroad Ultra ($249/mo) →](https://iganapolsky.gumroad.com/l/dayglass-ultra?wanted=true&utm_source=github_readme&utm_campaign=dayglass_v2_1) |
 
 > This repository distributes the signed macOS `.dmg`, the Homebrew cask, and these docs. The app source stays private. A Gumroad payment does not write a license onto the Mac by itself.
