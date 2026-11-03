@@ -63,14 +63,6 @@
       "url": "https://iganapolsky.gumroad.com/l/dayglass-pro",
       "sales_needed_for_100_per_day": 6
     },
-    "tier3_corporate_bundle_49": {
-      "id": "tier3_corporate_bundle_49",
-      "name": "Corporate-Expensable (<$50 No-Approval) Production MCP & Harness Kit",
-      "price_usd": 49.0,
-      "billing_type": "one_time_corporate_expensable",
-      "url": "https://iganapolsky.gumroad.com/l/vcrho",
-      "sales_needed_for_100_per_day": 2
-    },
     "tier_ultra_249": {
       "id": "tier_ultra_249",
       "name": "Dayglass Ultra",
