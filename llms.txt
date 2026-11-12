@@ -13,7 +13,7 @@
 - Free trial ($0, no card): first 10 meetings with everything included. After that capture, transcripts, search and export stay free; Ask AI on older history, AI briefs and the Claude/Cursor live link need Pro. Download: https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg
 - Pro: $149/year (save 35%) or $19/month. Pricing page: https://igorganapolsky.github.io/dayglass-mac/#pricing
 - Lifetime: $249 once (founding price $199 for the first 100 buyers).
-- 14-day money-back guarantee, just email us.
+- 14-day money-back guarantee. Just email igor@dayglass.io.
 
 ## Why Developers & Executives Choose Dayglass Over Cloud Bots (Fathom, Otter, Screenpipe, MacPaw Eney)
 - Bot-Free AirPods & Headphone Call Recording: Uses native macOS `ScreenCaptureKit` (~93 MB RAM vs 4.58 GB Electron bloat). No virtual audio driver (BlackHole) and no cloud bot joining Zoom, Microsoft Teams, or Google Meet calls.

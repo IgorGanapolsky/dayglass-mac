@@ -18,7 +18,7 @@
 | **Pro** | **$149/year** (save 35%) or **$19/month** | Everything, on every meeting: the Claude Code/Cursor live link over MCP, Ask AI on older history, AI briefs, unlimited meetings. | [Pricing page](https://igorganapolsky.github.io/dayglass-mac/#pricing) |
 | **Lifetime** | **$249 once** (founding price $199 for the first 100 buyers) | Everything in Pro, no subscription. | [Pricing page](https://igorganapolsky.github.io/dayglass-mac/#pricing) |
 
-14-day money-back guarantee, just email us.
+14-day money-back guarantee. Just email igor@dayglass.io.
 
 > This repository distributes the signed macOS `.dmg`, the Homebrew cask, and these docs. The app source stays private.
 
