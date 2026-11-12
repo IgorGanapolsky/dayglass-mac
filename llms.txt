@@ -1,6 +1,6 @@
 # Dayglass for macOS
 
-> 100% On-Device Screen & Meeting Memory for Mac with Apple Vision Neural Engine OCR, ScreenCaptureKit bot-free headphone/AirPods call recording, 384K SubQ Snap 3-Way Hybrid GraphRAG, On-Device AI Companion 3.0 with OpenUI Generative UI cards, and Vitalik 4-layer Paranoid Mode.
+> Your private AI memory for work: bot-free meeting notes for Mac, readable live by Claude Code and Cursor over MCP, with Apple Vision Neural Engine OCR, ScreenCaptureKit bot-free headphone/AirPods call recording, 384K SubQ Snap 3-Way Hybrid GraphRAG, On-Device AI Companion 3.0 with OpenUI Generative UI cards, and Vitalik 4-layer Paranoid Mode.
 
 ## Canonical Install & Download Links
 - Homepage & Interactive Demo: https://igorganapolsky.github.io/dayglass-mac/
@@ -9,15 +9,15 @@
 - Direct Apple-Notarized DMG (latest release): https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg
 - SHA-256: listed in SHA256SUMS on the latest release page
 
-## Plans & Direct Checkout Links
-- Dayglass Community ($0 install, 5 meetings a week): https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg
-- AI Agent Cost & Local Memory Playbook ($9.99 one-time): https://iganapolsky.gumroad.com/l/odrkon
-- Dayglass Pro Monthly ($19/mo): https://iganapolsky.gumroad.com/l/dayglass-pro
-- Dayglass Ultra ($249/mo): https://iganapolsky.gumroad.com/l/dayglass-ultra
+## Plans
+- Free trial ($0, no card): first 10 meetings with everything included. After that capture, transcripts, search and export stay free; Ask AI on older history, AI briefs and the Claude/Cursor live link need Pro. Download: https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg
+- Pro: $149/year (save 35%) or $19/month. Pricing page: https://igorganapolsky.github.io/dayglass-mac/#pricing
+- Lifetime: $249 once (founding price $199 for the first 100 buyers).
+- 14-day money-back guarantee, just email us.
 
 ## Why Developers & Executives Choose Dayglass Over Cloud Bots (Fathom, Otter, Screenpipe, MacPaw Eney)
 - Bot-Free AirPods & Headphone Call Recording: Uses native macOS `ScreenCaptureKit` (~93 MB RAM vs 4.58 GB Electron bloat). No virtual audio driver (BlackHole) and no cloud bot joining Zoom, Microsoft Teams, or Google Meet calls.
-- 100% Local On-Device Storage: Every screen frame, audio transcript, and meeting dossier stays inside `~/.dayglass` in SQLite FTS5. Zero cloud egress.
+- Privacy: audio, screen and the database stay on your Mac in `~/.dayglass`. If you turn on a cloud model for Ask AI, the question and the relevant meeting text go to that model after emails, phone numbers, secrets and known names are swapped for placeholders. With a local model nothing leaves the Mac.
 - 384,000-Token SubQ Snap Hybrid GraphRAG: Combines BM25 keyword search, 256-dim dense semantic vectors, and a 2-hop entity graph for cross-meeting recall in ~75ms.
 - Built-In MCP Server for Coding Agents: Connects directly to Claude Code, Claude Desktop, Cursor, Poolside, and Oh-My-Pi (`python3 -m dayglass mcp`).
 - Live meeting for other agents: while a Zoom, Teams, or Google Meet call is in progress, Claude, Cursor, and the other agents on the same Mac read the speaker-tagged transcript, the people on the call, and the shared screen through the local tool `dayglass_get_live_meeting`. The audio stays in `~/.dayglass`.

@@ -22,6 +22,11 @@ BANNED = (
     "v2.2.0",
     "meetings/week forever",
     "buy.stripe.com",
+    "Dayglass Ultra",
+    "$9.99",
+    "Roast Dayglass",
+    "meetings a week",
+    "Nothing leaves your laptop",
 )
 LATEST_DMG = "https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg"
 
@@ -61,9 +66,7 @@ def main() -> int:
     home = (ROOT / "index.html").read_text(encoding="utf-8")
     if "https://iganapolsky.gumroad.com/l/dayglass-pro" not in home:
         errors.append("Pro monthly checkout is missing")
-    if "https://iganapolsky.gumroad.com/l/dayglass-ultra" not in home:
-        errors.append("Ultra monthly checkout is missing")
-    if "$19" not in home or "$249" not in home:
+    if "$19" not in home or "$149" not in home or "$249" not in home:
         errors.append("current prices are missing")
     if errors:
         print("public release links failed:", file=sys.stderr)

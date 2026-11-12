@@ -1,6 +1,6 @@
 # Dayglass for macOS
 
-**Your Mac's Screen & Meeting Memory — 100% On-Device. Zero Cloud Bots.**
+**Your private AI memory for work. Bot-free meeting notes that Claude Code and Cursor can read while the call is live.**
 
 ![Dayglass Studio Live](https://igorganapolsky.github.io/dayglass-mac/dayglass-studio-live.png)
 
@@ -12,14 +12,15 @@
 
 ## Pricing
 
-| Tier | Price | What is included | Checkout |
+| Plan | Price | What is included | Get it |
 | :--- | :--- | :--- | :--- |
-| **Dayglass Community (Free Trial)** | **$0 install** | Local Apple Vision OCR and SQLite search, plus 3 free AI preview turns. After that, the AI routes stay closed until a license is already on the Mac. | [Download Free `.DMG`](https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg) |
-| **AI Agent Cost & Memory Playbook** | **$9.99 one-time** | Architecture guide and local SQLite/MCP setup | [Gumroad ($9.99) →](https://iganapolsky.gumroad.com/l/odrkon?wanted=true&utm_source=github_readme&utm_campaign=dayglass_v2_1) |
-| **Dayglass Pro Monthly** | **$19 / month** | Unlimited AirPods call recording, local history, and Claude/Cursor MCP on your Mac. | [Gumroad ($19/mo) →](https://iganapolsky.gumroad.com/l/dayglass-pro?wanted=true&utm_source=github_readme&utm_campaign=dayglass_v2_1) |
-| **Dayglass Ultra** | **$249 / month** | The Mac app plus managed cloud AI. The $19 plan is the Mac app and on-device memory. | [Gumroad Ultra ($249/mo) →](https://iganapolsky.gumroad.com/l/dayglass-ultra?wanted=true&utm_source=github_readme&utm_campaign=dayglass_v2_1) |
+| **Free trial** | **$0, no card** | Your first 10 meetings with everything included. After that, capture, transcripts, search and export stay free. Ask AI on older history, AI briefs and the Claude/Cursor live link need Pro. | [Download Free `.DMG`](https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg) |
+| **Pro** | **$149/year** (save 35%) or **$19/month** | Everything, on every meeting: the Claude Code/Cursor live link over MCP, Ask AI on older history, AI briefs, unlimited meetings. | [Pricing page](https://igorganapolsky.github.io/dayglass-mac/#pricing) |
+| **Lifetime** | **$249 once** (founding price $199 for the first 100 buyers) | Everything in Pro, no subscription. | [Pricing page](https://igorganapolsky.github.io/dayglass-mac/#pricing) |
 
-> This repository distributes the signed macOS `.dmg`, the Homebrew cask, and these docs. The app source stays private. A Gumroad payment does not write a license onto the Mac by itself.
+14-day money-back guarantee, just email us.
+
+> This repository distributes the signed macOS `.dmg`, the Homebrew cask, and these docs. The app source stays private.
 
 ---
 
@@ -51,9 +52,13 @@ brew install --cask igorganapolsky/dayglass/dayglass
 ## What's Inside Dayglass
 
 - **384,000-Token SubQ Snap 3-Way Hybrid GraphRAG** (BM25 + 256d Dense Semantic + 2-Hop Episode Graph in local SQLite)
-- **Bot-Free Dual-Source Call Recording** via macOS `ScreenCaptureKit` (records both your Mic and AirPods/Headphones without joining Zoom/Teams/Meet as a bot)
+- **Bot-free call recording** via macOS `ScreenCaptureKit` (records both your Mic and AirPods/Headphones without joining Zoom/Teams/Meet as a bot)
 - **On-Device AI Companion 3.0 & OpenUI Generative UI Cards** (answers *"is what they're pitching useful?"* in real time during calls)
 - **Vitalik Buterin 4-Layer Paranoid Mode** (local reversible PII prompt rewriter, per-session circuit isolation, 4KB cover traffic padding, and SHA-256 zkAPI blind proofs)
 - **Starred Focus Sessions (`Cmd+Ctrl+B`)** -> compiles 15-minute work windows into reusable `SKILL.md` agent skills
 - **1-Click MCP Server** for Claude Desktop, Claude Code, Cursor, Poolside, and Oh-My-Pi
 - **Live meeting for other agents:** while a Zoom, Teams, or Meet call is in progress, Claude, Cursor, and the other agents on your Mac read the speaker-tagged transcript through the local tool `dayglass_get_live_meeting`. The audio stays in `~/.dayglass`.
+
+## Privacy
+
+Audio, screen and the database stay on your Mac. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model, after emails, phone numbers, secrets and known names are swapped out for placeholders. With a local model nothing leaves the Mac.
