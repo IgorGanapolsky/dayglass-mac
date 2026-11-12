@@ -23,7 +23,7 @@ BANNED = (
     "meetings/week forever",
     "buy.stripe.com",
 )
-PUBLISHED_DMG = "v2.1.0/Dayglass.dmg"
+LATEST_DMG = "https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg"
 
 
 def _head(url: str) -> int:
@@ -45,15 +45,15 @@ def main() -> int:
                 errors.append(f"{name} contains retired release copy")
                 break
         for url in re.findall(
-            r"https://github\.com/IgorGanapolsky/dayglass-mac/releases/download/[^\"'\s)]+",
+            r"https://github\.com/IgorGanapolsky/dayglass-mac/releases/(?:download|latest/download)/[^\"'\s)]+",
             text,
         ):
             downloads.add(url)
     if not downloads:
         errors.append("no download URLs found")
     for url in sorted(downloads):
-        if PUBLISHED_DMG not in url:
-            errors.append("a download URL is not the published v2.1.0 disk image")
+        if url != LATEST_DMG:
+            errors.append("a download URL is not the latest-release disk image")
             continue
         status = _head(url)
         if status not in (200, 302):

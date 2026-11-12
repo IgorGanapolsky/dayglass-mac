@@ -3,7 +3,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
   "name": "io.github.igorganapolsky/dayglass",
   "title": "Dayglass \u2014 100% On-Device macOS Screen & Meeting Memory + OpenUI MCP Server",
-  "version": "2.1.0",
+  "version": "2.4.0",
   "description": "Local macOS ScreenCaptureKit AirPods call recorder, Apple Vision Neural Engine OCR, 384K SubQ Snap hybrid GraphRAG, and Universal 8-AI Omnibus & MCP Server for Cursor, Gemini, Claude, ChatGPT, Grok, Meta Muse Spark, Codex, and OMP.",
   "homepage": "https://igorganapolsky.github.io/dayglass-mac/",
   "repository": {
@@ -23,7 +23,7 @@
   "install": {
     "homebrew_cask": "brew install --cask igorganapolsky/dayglass/dayglass",
     "curl_installer": "curl -fsSL https://igorganapolsky.github.io/dayglass-mac/install.sh | bash",
-    "dmg_url": "https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg",
+    "dmg_url": "https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg",
     "mcp_command": "python3 -m dayglass mcp",
     "omnibus_cli": "python3 -m dayglass omnibus --install-connectors",
     "openapi_spec": "http://127.0.0.1:3333/api/connector/openapi.json"

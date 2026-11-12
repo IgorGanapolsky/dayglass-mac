@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# Dayglass v2.1.0 — 1-Command macOS Installer
+# Dayglass — 1-Command macOS Installer
 # Usage: curl -fsSL https://igorganapolsky.github.io/dayglass-mac/install.sh | bash
 set -euo pipefail
 
-VERSION="2.1.0"
-DMG_URL="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v${VERSION}/Dayglass.dmg"
-EXPECTED_SHA256="769a66d2b6580f2ec36f348ec8524c1d7876ad55aecb9c25fe0b9b89c0abc877"
+BASE_URL="https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download"
+DMG_URL="${BASE_URL}/Dayglass.dmg"
+VERSION="latest"
 APP_DEST="${DAYGLASS_INSTALL_APP_DIR:-/Applications/Dayglass.app}"
 TMP_DMG="$(mktemp /tmp/Dayglass-installer-XXXXXX.dmg)"
 MOUNT_DIR="$(mktemp -d /tmp/Dayglass-mount-XXXXXX)"
@@ -21,10 +21,15 @@ if [[ "$(uname -s)" != "Darwin" ]]; then
   exit 1
 fi
 
-echo "==> [1/4] Downloading Dayglass v${VERSION} for macOS..."
+echo "==> [1/4] Downloading the latest Dayglass for macOS..."
 curl -fL --progress-bar "${DMG_URL}" -o "${TMP_DMG}"
 
 echo "==> [2/4] Verifying SHA-256 checksum..."
+EXPECTED_SHA256="$(curl -fsSL "${BASE_URL}/SHA256SUMS" | awk '$2=="Dayglass.dmg"{print $1}')"
+if [[ -z "${EXPECTED_SHA256}" ]]; then
+  echo "Error: could not read SHA256SUMS for the latest release." >&2
+  exit 1
+fi
 ACTUAL_SHA256="$(shasum -a 256 "${TMP_DMG}" | awk '{print $1}')"
 if [[ "${ACTUAL_SHA256}" != "${EXPECTED_SHA256}" ]]; then
   echo "Error: SHA-256 mismatch! Expected ${EXPECTED_SHA256}, got ${ACTUAL_SHA256}" >&2
@@ -48,7 +53,7 @@ curl -fsS -m 3 -X POST "https://us.i.posthog.com/capture/" \
   -d "{\"api_key\":\"phc_ub5A4JPFsB2dm54Vaq2dWGeDh9zouzLL4Vb6TcicJxvf\",\"event\":\"app_installed_via_script\",\"distinct_id\":\"dg-cli-$(uuidgen | tr '[:upper:]' '[:lower:]' | cut -c1-12)\",\"properties\":{\"version\":\"${VERSION}\",\"arch\":\"$(uname -m)\",\"utm_source\":\"install_sh\"}}" >/dev/null 2>&1 || true
 
 echo ""
-echo "✅ Dayglass v${VERSION} installed at ${APP_DEST}"
+echo "✅ Dayglass installed at ${APP_DEST}"
 if [[ "${DAYGLASS_NO_OPEN:-0}" != "1" ]]; then
   echo "==> Launching Dayglass.app..."
   open "${APP_DEST}" || true

@@ -22,9 +22,8 @@
     "name": "Dayglass",
     "operatingSystem": "macOS 13.0+",
     "applicationCategory": "ProductivityApplication",
-    "softwareVersion": "2.1.0",
-    "screenshot": "https://igorganapolsky.github.io/dayglass-mac/dayglass-notes-sample.png",
-    "downloadUrl": "https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg",
+        "screenshot": "https://igorganapolsky.github.io/dayglass-mac/dayglass-notes-sample.png",
+    "downloadUrl": "https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg",
     "offers": [
       { "@type": "Offer", "name": "Dayglass Community (Free — 5 Meetings/Wk + 5 Frontier Previews)", "price": "0", "priceCurrency": "USD" },
       { "@type": "Offer", "name": "2026 AI Agent Cost & Local Memory Playbook", "price": "9.99", "priceCurrency": "USD", "url": "https://iganapolsky.gumroad.com/l/odrkon" },
@@ -315,14 +314,14 @@
 
       <div class="cta-row">
         <a class="btn btn-primary" id="heroPrimaryCta" href="https://iganapolsky.gumroad.com/l/dayglass-pro?wanted=true" onclick="trackPricingEvent('checkout_initiated', {plan: 'pro_monthly', price_usd: 19, source: 'hero_primary'})">Pro — $19/month</a>
-        <a class="btn btn-secondary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {source: 'hero_secondary'})">Download the Mac app</a>
+        <a class="btn btn-secondary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {source: 'hero_secondary'})">Download the Mac app</a>
       </div>
       <p style="margin: -8px 0 22px; font-size: 14px;"><a href="#critique">What would stop you from paying $19 a month?</a></p>
 
       <div class="install-box">
         <div class="install-box-title">
           <span>🍺 Prefer Homebrew? Install the Apple-Notarized Cask</span>
-          <span style="color: var(--green);">v2.1.0 &bull; ~93 MB Idle Daemon RAM &bull; macOS 13+ (Apple Silicon)</span>
+          <span style="color: var(--green);">~93 MB Idle Daemon RAM &bull; macOS 13+ (Apple Silicon)</span>
         </div>
         <div class="cmd-row" style="margin-bottom: 0;">
           <span class="cmd-label">Homebrew:</span>
@@ -614,7 +613,7 @@
             <li>1-click call consent chat snippet &amp; private-window auto-skip</li>
             <li>100% local storage in <code>~/.dayglass</code></li>
           </ul>
-          <a class="btn btn-secondary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {plan: 'free'})">Download Free (.DMG)</a>
+          <a class="btn btn-secondary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {plan: 'free'})">Download Free (.DMG)</a>
           <p class="trial-note">Free install on macOS 13+. Stops at 5 meetings a week.</p>
         </div>
 
@@ -786,7 +785,7 @@
     <section id="critique" class="story-section" style="margin-top: 44px;">
       <div class="section-eyebrow">Tell us what is wrong</div>
       <h2>What would stop you from paying $19 a month?</h2>
-      <p style="color: var(--muted); max-width: 68ch;">A reply on the public thread is the feedback we count. The download is the v2.1.0 Mac app. Pro is $19 a month. Ultra is $249 a month and is the cloud seat.</p>
+      <p style="color: var(--muted); max-width: 68ch;">A reply on the public thread is the feedback we count. The download is the latest Mac app. Pro is $19 a month. Ultra is $249 a month and is the cloud seat.</p>
       <ul style="color: var(--muted); line-height: 1.6;">
         <li>What broke on your Mac?</li>
         <li>Why wouldn't you pay $19 a month?</li>
@@ -798,8 +797,8 @@
     </section>
 
     <footer>
-      Dayglass v2.1.0 for macOS &bull; Signed &amp; Notarized by Apple (Developer ID G73634525B) &bull;
-      <a href="https://github.com/IgorGanapolsky/dayglass-mac/releases/tag/v2.1.0" style="color: var(--accent);">Release Notes (v2.1.0)</a> &bull;
+      Dayglass for macOS &bull; Signed &amp; Notarized by Apple (Developer ID G73634525B) &bull;
+      <a href="https://github.com/IgorGanapolsky/dayglass-mac/releases/latest" style="color: var(--accent);">Release Notes</a> &bull;
       <a href="https://github.com/IgorGanapolsky/homebrew-dayglass" style="color: var(--accent);">Homebrew Tap</a> &bull;
       <a href="https://igorganapolsky.github.io/dayglass-mac/llms.txt" style="color: var(--accent);">llms.txt</a>
     </footer>
@@ -861,21 +860,21 @@
     const _AB_VARIANTS = {
       A: {
         name: "bot_free_privacy",
-        badge: "v2.1.0 · Native Swift Menu Bar + Studio · 100% On-Device on Apple Silicon",
+        badge: "Native Swift Menu Bar + Studio · 100% On-Device on Apple Silicon",
         h1: "Private meeting notes. No bot in the call. Zero Cloud Upload. Zero Whisper Hallucination.",
         sub: "No 'Otter.ai has joined the meeting.' Dayglass captures Zoom, Meet, and Teams straight from your AirPods or Mac speakers and writes clean decisions, action items, and follow-up emails on your laptop.",
         cta: " Download Free for Mac (.dmg)"
       },
       B: {
         name: "total_screen_memory",
-        badge: "v2.1.0 · Continuous Screen OCR + Meeting Memory · 100% Local SQLite",
+        badge: "Continuous Screen OCR + Meeting Memory · 100% Local SQLite",
         h1: "Your Mac Never Forgets a Meeting, Screen, or Promise.",
         sub: "Instant Cmd+Shift+Space recall across every Zoom/Teams call, Slack thread, terminal window, and browser tab on your Mac — indexed 100% locally on Apple Silicon.",
         cta: " Get Total Mac Memory Free (.dmg)"
       },
       C: {
         name: "live_meeting_copilot",
-        badge: "v2.1.0 · Real-Time Stealth Meeting Copilot · Invisible on Screen Share",
+        badge: "Real-Time Stealth Meeting Copilot · Invisible on Screen Share",
         h1: 'Never Say "Let Me Get Back to You" on a Live Call Again.',
         sub: "Press Cmd+Shift+Space mid-call: Dayglass reads the live transcript + what's on your screen and gives you the exact answer and follow-up draft in under 2 seconds.",
         cta: " Download Live Copilot Free (.dmg)"

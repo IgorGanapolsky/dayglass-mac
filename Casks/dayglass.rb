@@ -1,6 +1,6 @@
 cask "dayglass" do
-  version "2.1.0"
-  sha256 "769a66d2b6580f2ec36f348ec8524c1d7876ad55aecb9c25fe0b9b89c0abc877"
+  version "2.4.0"
+  sha256 "1e90b843bcd341374547494f1a099ee791dfb599d750e5e7a5668cdc099f4c51"
 
   url "https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v#{version}/Dayglass.dmg"
   name "Dayglass"
