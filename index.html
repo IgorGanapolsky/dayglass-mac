@@ -902,11 +902,11 @@
     let checkoutPlan = '';
     let licenseActivatedInModal = false;
     // One place to change checkout targets. Swapping a link is a one-line edit here.
-    // Until dedicated links exist, every plan routes to the current working Pro listing.
+    // Dayglass's own Stripe account. Lifetime sells at the $199 founding price (first 100).
     const PLANS = {
-      pro_monthly: { url: "https://iganapolsky.gumroad.com/l/dayglass-pro?wanted=true", price_usd: 19 },
-      pro_annual:  { url: "https://iganapolsky.gumroad.com/l/dayglass-pro?wanted=true", price_usd: 149 },
-      lifetime:    { url: "https://iganapolsky.gumroad.com/l/dayglass-pro?wanted=true", price_usd: 249 }
+      pro_monthly: { url: "https://buy.stripe.com/00w9AT0Ks0da18Ce6UeUU00", price_usd: 19 },
+      pro_annual:  { url: "https://buy.stripe.com/cNieVdbp64tq04y0g4eUU01", price_usd: 149 },
+      lifetime:    { url: "https://buy.stripe.com/7sY28r8cUcZWg3w0g4eUU02", price_usd: 199 }
     };
     let checkoutUrls = {
       pro_monthly: PLANS.pro_monthly.url,

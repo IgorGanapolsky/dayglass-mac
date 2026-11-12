@@ -21,12 +21,17 @@ BANNED = (
     "$249 Once",
     "v2.2.0",
     "meetings/week forever",
-    "buy.stripe.com",
     "Dayglass Ultra",
     "$9.99",
     "Roast Dayglass",
     "meetings a week",
     "Nothing leaves your laptop",
+)
+# Only Dayglass's own payment links may appear; any other Stripe link is a wiring mistake.
+ALLOWED_CHECKOUT = (
+    "https://buy.stripe.com/00w9AT0Ks0da18Ce6UeUU00",
+    "https://buy.stripe.com/cNieVdbp64tq04y0g4eUU01",
+    "https://buy.stripe.com/7sY28r8cUcZWg3w0g4eUU02",
 )
 LATEST_DMG = "https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg"
 
@@ -49,6 +54,9 @@ def main() -> int:
             if banned in text:
                 errors.append(f"{name} contains retired release copy")
                 break
+        for link in re.findall(r"https://buy\.stripe\.com/[A-Za-z0-9]+", text):
+            if link not in ALLOWED_CHECKOUT:
+                errors.append(f"{name} has a checkout link that is not Dayglass's own")
         for url in re.findall(
             r"https://github\.com/IgorGanapolsky/dayglass-mac/releases/(?:download|latest/download)/[^\"'\s)]+",
             text,
@@ -64,8 +72,8 @@ def main() -> int:
         if status not in (200, 302):
             errors.append(f"published disk image returned HTTP {status}")
     home = (ROOT / "index.html").read_text(encoding="utf-8")
-    if "https://iganapolsky.gumroad.com/l/dayglass-pro" not in home:
-        errors.append("Pro monthly checkout is missing")
+    if any(link not in home for link in ALLOWED_CHECKOUT):
+        errors.append("a Dayglass checkout link is missing")
     if "$19" not in home or "$149" not in home or "$249" not in home:
         errors.append("current prices are missing")
     if errors:
