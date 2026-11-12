@@ -1,4 +1,4 @@
-# Dayglass v2.1 for macOS
+# Dayglass for macOS
 
 > 100% On-Device Screen & Meeting Memory for Mac with Apple Vision Neural Engine OCR, ScreenCaptureKit bot-free headphone/AirPods call recording, 384K SubQ Snap 3-Way Hybrid GraphRAG, On-Device AI Companion 3.0 with OpenUI Generative UI cards, and Vitalik 4-layer Paranoid Mode.
 
@@ -6,11 +6,11 @@
 - Homepage & Interactive Demo: https://igorganapolsky.github.io/dayglass-mac/
 - 1-Line Terminal Installer: `curl -fsSL https://igorganapolsky.github.io/dayglass-mac/install.sh | bash`
 - Homebrew Cask: `brew install --cask igorganapolsky/dayglass/dayglass`
-- Direct Apple-Notarized DMG (v2.1.0): https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg
-- SHA-256 (v2.1.0 Dayglass.dmg): `769a66d2b6580f2ec36f348ec8524c1d7876ad55aecb9c25fe0b9b89c0abc877`
+- Direct Apple-Notarized DMG (latest release): https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg
+- SHA-256: listed in SHA256SUMS on the latest release page
 
 ## Plans & Direct Checkout Links
-- Dayglass Community ($0 install, 5 meetings a week): https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.1.0/Dayglass.dmg
+- Dayglass Community ($0 install, 5 meetings a week): https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg
 - AI Agent Cost & Local Memory Playbook ($9.99 one-time): https://iganapolsky.gumroad.com/l/odrkon
 - Dayglass Pro Monthly ($19/mo): https://iganapolsky.gumroad.com/l/dayglass-pro
 - Dayglass Ultra ($249/mo): https://iganapolsky.gumroad.com/l/dayglass-ultra
