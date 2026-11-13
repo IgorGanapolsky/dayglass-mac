@@ -135,6 +135,20 @@
     .hero p { font-size: 18px; color: var(--muted); max-width: 680px; margin: 0 auto 28px; }
 
     .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 26px; }
+    .cta-note { margin: -14px auto 20px; font-size: 14px; color: var(--muted); }
+    .hero-ask { max-width: 720px; margin: 0 auto 22px; text-align: left; background: var(--surface); border: 1px solid rgba(56,189,248,0.35); border-radius: 12px; padding: 14px 18px; font-size: 16px; line-height: 1.5; }
+    .hero-ask .dim { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 2px; }
+    .hero-ask-q { color: var(--text); margin-bottom: 10px; }
+    .hero-ask-a { color: var(--green); }
+    .where { max-width: 920px; margin: 0 auto 26px; text-align: left; }
+    .where h2 { font-size: 22px; margin-bottom: 12px; text-align: center; }
+    .where-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+    .where-col { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; }
+    .where-us { border-color: rgba(52,211,153,0.5); }
+    .where-col h3 { font-size: 15px; margin-bottom: 8px; }
+    .where-col ul { list-style: none; font-size: 14px; color: var(--text); line-height: 1.6; }
+    .where-col li { margin-bottom: 4px; }
+    .where-col a { color: var(--accent); }
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       padding: 13px 26px; border-radius: 10px; font-size: 15px; font-weight: 600;
@@ -351,6 +365,34 @@
         <a class="btn btn-primary" id="heroPrimaryCta" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {source: 'hero_primary'})">Download free for Mac</a>
         <a class="btn btn-secondary" href="#pricing" data-buy="pro_annual" onclick="trackPricingEvent('hero_pro_clicked', {source: 'hero_secondary'})">Get Pro</a>
       </div>
+      <p class="cta-note">10 meetings free, no card. macOS 13+, Apple Silicon.</p>
+
+      <div class="hero-ask" id="heroAsk">
+        <div class="hero-ask-q"><span class="dim">You ask Claude</span> &ldquo;What did Alex commit to on the call?&rdquo;</div>
+        <div class="hero-ask-a"><span class="dim">Dayglass answers from your Mac</span> Alex committed to having the retry change ready by Thursday 4 PM.</div>
+      </div>
+
+      <section class="where" id="where" aria-labelledby="whereTitle">
+        <h2 id="whereTitle">Where your meetings go</h2>
+        <div class="where-grid">
+          <div class="where-col where-us">
+            <h3>Dayglass</h3>
+            <ul>
+              <li>Audio, screen and notes stay on your Mac.</li>
+              <li>No bot joins your call.</li>
+              <li>You choose what, if anything, leaves the machine.</li>
+            </ul>
+          </div>
+          <div class="where-col">
+            <h3>Cloud notetakers</h3>
+            <ul>
+              <li>Audio is uploaded to the vendor's servers. Otter, for one, <a href="https://otter.ai/privacy-security" rel="noopener" target="_blank">says it stores data on AWS S3</a>.</li>
+              <li>Most send a bot into the call as a visible participant.</li>
+              <li>Your notes live in their account system.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
       <div class="split-hero" id="splitHero" aria-label="Illustration: a Zoom call with live captions on the left, Claude Code answering a question from the call on the right">
         <div class="split-grid">
@@ -677,7 +719,7 @@
             <li><span>After that, capture, transcripts, search and export stay free</span></li>
             <li><span>After that, Ask AI on older history, AI briefs and the Claude/Cursor live link need Pro</span></li>
           </ul>
-          <a class="btn btn-secondary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {plan: 'free'})">Download Free (.DMG)</a>
+          <a class="btn btn-secondary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {plan: 'free', source: 'pricing_card'})">Download Free (.DMG)</a>
           <p class="trial-note">macOS 13+. No credit card.</p>
         </div>
 
@@ -995,6 +1037,8 @@
       const utm_medium = params.get('utm_medium') || params.get('medium') || '';
       const utm_campaign = params.get('utm_campaign') || params.get('campaign') || '';
       const adcontent = params.get('adcontent') || '';
+      const utm_content = params.get('utm_content') || '';
+      const utm_term = params.get('utm_term') || '';
       const lnd_product = params.get('lnd_product') || 'dayglass';
       const lp_path = params.get('lp_path') || window.location.pathname;
       const referrer = document.referrer || '';
@@ -1012,6 +1056,8 @@
             utm_source,
             utm_medium,
             utm_campaign,
+            utm_content,
+            utm_term,
             source: utm_source,
             medium: utm_medium,
             campaign: utm_campaign,
@@ -1096,7 +1142,7 @@
       const camp = params.get('utm_campaign') || params.get('campaign') || 'dayglass_v2_2_viral';
       const clientRef = `${DISTINCT_ID}__${AB_VARIANT}__${utm}`.replace(/[^a-zA-Z0-9_-]/g, '_').slice(0, 190);
       const sep = base.includes('?') ? '&' : '?';
-      window.location.assign(`${base}${sep}client_reference_id=${encodeURIComponent(clientRef)}&utm_source=${encodeURIComponent(utm)}&utm_medium=${encodeURIComponent(med)}&utm_campaign=${encodeURIComponent(camp)}&utm_content=${encodeURIComponent(AB_VARIANT)}&ab_variant=${encodeURIComponent(AB_VARIANT)}`);
+      window.location.assign(`${base}${sep}client_reference_id=${encodeURIComponent(clientRef)}&utm_source=${encodeURIComponent(utm)}&utm_medium=${encodeURIComponent(med)}&utm_campaign=${encodeURIComponent(camp)}&utm_content=${encodeURIComponent(params.get('utm_content') || AB_VARIANT)}&ab_variant=${encodeURIComponent(AB_VARIANT)}`);
     }
 
     function updateRoiCalculator() {
