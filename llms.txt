@@ -21,3 +21,10 @@
 - 384,000-Token SubQ Snap Hybrid GraphRAG: Combines BM25 keyword search, 256-dim dense semantic vectors, and a 2-hop entity graph for cross-meeting recall in ~75ms.
 - Built-In MCP Server for Coding Agents: Connects directly to Claude Code, Claude Desktop, Cursor, Poolside, and Oh-My-Pi (`python3 -m dayglass mcp`).
 - Live meeting for other agents: while a Zoom, Teams, or Google Meet call is in progress, Claude, Cursor, and the other agents on the same Mac read the speaker-tagged transcript, the people on the call, and the shared screen through the local tool `dayglass_get_live_meeting`. The audio stays in `~/.dayglass`.
+
+## Comparison Pages
+- Otter alternative: https://dayglass.io/otter-alternative
+- Granola alternative: https://dayglass.io/granola-alternative
+- Fathom alternative: https://dayglass.io/fathom-alternative
+- Rewind alternative: https://dayglass.io/rewind-alternative
+- Limitless alternative: https://dayglass.io/limitless-alternative
