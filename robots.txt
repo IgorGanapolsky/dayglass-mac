@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://igorganapolsky.github.io/dayglass-mac/sitemap.xml
+Sitemap: https://dayglass.io/sitemap.xml
