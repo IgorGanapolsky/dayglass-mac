@@ -115,6 +115,13 @@
     /* Links that set no colour of their own read on the dark background (default blue did not). */
     :where(a) { color: var(--accent); }
     .price .price-note { display: block; margin-top: 4px; }
+    .hero-local { font-size: 16px; font-weight: 600; color: var(--text); margin: -14px auto 22px; }
+    .boundary { max-width: 920px; margin: 0 auto 24px; text-align: left; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px 22px; }
+    .boundary h2 { font-size: 18px; font-weight: 800; margin-bottom: 10px; }
+    .boundary dl > div { display: grid; grid-template-columns: 190px 1fr; gap: 12px; padding: 10px 0; border-top: 1px solid var(--border); }
+    .boundary dt { font-weight: 700; color: var(--accent); }
+    .boundary dd { color: var(--muted); }
+    @media (max-width: 640px) { .boundary dl > div { grid-template-columns: 1fr; gap: 4px; } }
     .brand-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
     .nav-links { display: flex; gap: 22px; align-items: center; font-size: 14px; flex-wrap: wrap; }
     .nav-links a { color: var(--muted); text-decoration: none; font-weight: 500; }
@@ -344,14 +351,24 @@
     </div>
 
     <section class="hero" id="install">
-      <h1 id="heroHeadline">Your private AI memory for work.</h1>
+      <h1 id="heroHeadline">Stop re-explaining client calls to Claude Code.</h1>
       <p id="heroSubheadline">
-        Meetings, decisions and commitments, remembered on your Mac, and readable by Claude and Cursor while the call is still happening. Free for your first 10 meetings, no card. Pro is $19 a month.
+        Dayglass gives Claude Code and Cursor context from your Mac meetings while the call is still happening, so you can turn decisions into an implementation plan.
       </p>
+      <p class="hero-local" id="heroLocal">Local recording and storage. No meeting bot. Try your next 10 meetings free.</p>
 
       <div class="cta-row">
         <a class="btn btn-primary" id="heroPrimaryCta" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {source: 'hero_primary'})">Download free for Mac</a>
         <a class="btn btn-secondary" href="#pricing" data-buy="pro_annual" onclick="trackPricingEvent('hero_pro_clicked', {source: 'hero_secondary'})">Get Pro</a>
+      </div>
+
+      <div class="boundary" id="privacyBoundary" aria-labelledby="boundaryTitle">
+        <h2 id="boundaryTitle">Where your meeting data goes</h2>
+        <dl>
+          <div><dt>Recording and storage</dt><dd>On your Mac. Audio, screen text and notes stay in <code>~/.dayglass</code>, and no bot joins the call.</dd></div>
+          <div><dt>Dayglass AI</dt><dd>Runs on a local model or a cloud model, whichever you pick. With a cloud model, your question and the relevant meeting text are sent to it, after emails, phone numbers and secrets are swapped for placeholders.</dd></div>
+          <div><dt>Claude and Cursor</dt><dd>Receive the context they ask for, and process it under their own policies.</dd></div>
+        </dl>
       </div>
 
       <div class="split-hero" id="splitHero" aria-label="Illustration: a Zoom call with live captions on the left, Claude Code answering a question from the call on the right">
