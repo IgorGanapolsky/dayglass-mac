@@ -16,7 +16,7 @@
 - Lifetime: $249 once (founding price $199 for the first 100 buyers).
 - 14-day money-back guarantee. Just email igor@dayglass.io.
 
-## Why Developers & Executives Choose Dayglass Over Cloud Bots (Fathom, Otter, Screenpipe, MacPaw Eney)
+## Why Developers & Executives Choose Dayglass Over Cloud Notetakers (Fathom, Otter)
 - Bot-Free AirPods & Headphone Call Recording: Uses native macOS `ScreenCaptureKit` (~93 MB RAM vs 4.58 GB Electron bloat). No virtual audio driver (BlackHole) and no cloud bot joining Zoom, Microsoft Teams, or Google Meet calls.
 - Privacy: audio, screen and the database stay on your Mac in `~/.dayglass`. If you turn on a cloud model for Ask AI, the question and the relevant meeting text go to that model after emails, phone numbers, secrets and known names are swapped for placeholders. With a local model nothing leaves the Mac.
 - 384,000-Token SubQ Snap Hybrid GraphRAG: Combines BM25 keyword search, 256-dim dense semantic vectors, and a 2-hop entity graph for cross-meeting recall in ~75ms.

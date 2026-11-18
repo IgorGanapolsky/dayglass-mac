@@ -60,7 +60,7 @@
         "name": "How does Dayglass compare to Granola, MacWhisper, and Screenpipe?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Like Granola, Dayglass captures calls without a meeting bot, but Dayglass keeps audio, screen and the database on your Mac, adds searchable screen OCR across slides and terminal windows, and includes a built-in MCP server so Claude, Cursor, and the other agents on your Mac can read the meeting while it is still in progress. The free trial covers your first 10 meetings with everything included, no card."
+          "text": "Like Granola, Dayglass captures calls without a meeting bot, and Granola also offers a hosted MCP server for your notes. Dayglass keeps audio, screen and the database on your Mac, adds searchable screen OCR across slides and terminal windows, and runs a local MCP server so Claude, Cursor, and the other agents on your Mac can read the meeting while it is still in progress. The free trial covers your first 10 meetings with everything included, no card."
         }
       },
       {
@@ -113,7 +113,7 @@
     }
     .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; color: var(--text); text-decoration: none; }
     /* Links that set no colour of their own read on the dark background (default blue did not). */
-    a:not(.btn):not(.brand) { color: var(--accent); }
+    :where(a) { color: var(--accent); }
     .price .price-note { display: block; margin-top: 4px; }
     .brand-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
     .nav-links { display: flex; gap: 22px; align-items: center; font-size: 14px; flex-wrap: wrap; }
@@ -388,8 +388,8 @@
           <div class="where-col">
             <h3>Cloud notetakers</h3>
             <ul>
-              <li>Audio is uploaded to the vendor's servers. Otter, for one, <a href="https://otter.ai/privacy-security" rel="noopener" target="_blank">says it stores data on AWS S3</a>.</li>
-              <li>Most send a bot into the call as a visible participant.</li>
+              <li>Recordings and notes are processed and stored on the vendor's servers. Otter, for one, <a href="https://otter.ai/privacy-security" rel="noopener" target="_blank">says it stores data on AWS S3</a>.</li>
+              <li>Many join the call as a bot by default; Fathom and Otter also offer bot-free modes now.</li>
               <li>Your notes live in their account system.</li>
             </ul>
           </div>
@@ -815,13 +815,13 @@
             <td><strong>Yes (native ScreenCaptureKit)</strong></td>
             <td>Yes (bot-free)</td>
             <td>Yes (manual/system audio)</td>
-            <td>Join as a bot by default. Fathom has bot-free capture on Mac (beta, every plan including Free); Otter lists a bot-free desktop mode</td>
+            <td>Join as a bot by default. Fathom has bot-free capture on Mac (beta, every plan including Free); Otter's desktop app records without a bot</td>
             <td>Yes (24/7 local capture)</td>
           </tr>
           <tr>
             <td><strong>Where Transcripts &amp; Notes Live</strong></td>
             <td><strong>Audio, screen and database stay on your Mac (`~/.dayglass`)</strong></td>
-            <td>Notes and transcripts stored in Granola's cloud; audio not stored</td>
+            <td>Notes and transcripts stored on Granola's cloud (AWS, US) and cached on your Mac; audio deleted after transcription</td>
             <td>Local on Mac</td>
             <td>Vendor cloud servers</td>
             <td>Local disk</td>
@@ -829,9 +829,9 @@
           <tr>
             <td><strong>Search Slides &amp; Shared Screens</strong></td>
             <td><strong>Yes (Apple Vision OCR + SQLite FTS5)</strong></td>
-            <td>Audio and notes; no screen search listed</td>
+            <td>Snapshots of screens other people share, attached to the note (Mac, macOS 14+)</td>
             <td>No (audio files only)</td>
-            <td>Meeting recordings and shared slides; no whole-screen search</td>
+            <td>Otter captures shared slides and screenshots in meetings</td>
             <td>Yes (OCR + audio search)</td>
           </tr>
           <tr>
@@ -884,7 +884,7 @@
         </div>
         <div class="story-card">
           <h3>Why choose Dayglass over Granola or MacWhisper?</h3>
-          <p>Granola is great for bot-free meeting notes, and MacWhisper is great for transcribing audio files. Dayglass combines <strong>bot-free meeting notes stored on your Mac</strong> with <strong>searchable meeting screen and slide capture</strong> and a <strong>built-in MCP server</strong> so Claude, Cursor, and the other agents on your Mac can read the meeting while it is still in progress.</p>
+          <p>Granola is great for bot-free meeting notes, and MacWhisper is great for transcribing audio files. Granola also has a hosted MCP server for your notes. Dayglass keeps <strong>meeting notes stored on your Mac</strong>, adds <strong>searchable meeting screen and slide capture</strong>, and runs a <strong>local MCP server</strong> so Claude, Cursor, and the other agents on your Mac can read the meeting while it is still in progress.</p>
         </div>
       </div>
     </section>
