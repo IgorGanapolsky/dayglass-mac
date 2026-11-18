@@ -1,6 +1,6 @@
 # Dayglass for macOS
 
-> Your private AI memory for work: bot-free meeting notes for Mac, readable live by Claude Code and Cursor over MCP, with Apple Vision Neural Engine OCR, ScreenCaptureKit bot-free headphone/AirPods call recording, 384K SubQ Snap 3-Way Hybrid GraphRAG, On-Device AI Companion 3.0 with OpenUI Generative UI cards, and Vitalik 4-layer Paranoid Mode.
+> Your private AI memory for work: bot-free meeting notes for Mac, readable live by Claude Code and Cursor over MCP, with Apple Vision Neural Engine OCR, ScreenCaptureKit bot-free headphone/AirPods call recording, 384K SubQ Snap 3-Way Hybrid GraphRAG, and On-Device AI Companion 3.0 with OpenUI Generative UI cards.
 
 ## Canonical Install & Download Links
 - Homepage & Interactive Demo: https://igorganapolsky.github.io/dayglass-mac/
@@ -18,7 +18,7 @@
 
 ## Why Developers & Executives Choose Dayglass Over Cloud Notetakers (Fathom, Otter)
 - Bot-Free AirPods & Headphone Call Recording: Uses native macOS `ScreenCaptureKit` (~93 MB RAM vs 4.58 GB Electron bloat). No virtual audio driver (BlackHole) and no cloud bot joining Zoom, Microsoft Teams, or Google Meet calls.
-- Privacy: transcripts, screen text and notes stay on your Mac in `~/.dayglass`. Audio is transcribed on the Mac and not kept by default. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model. Only your Never-share list is withheld by default; turn on Paranoid mode to replace emails, names, paths and secrets before anything leaves the Mac. With a local model nothing leaves the Mac.
+- Privacy: transcripts, screen text and notes stay on your Mac in `~/.dayglass`. Audio is transcribed on the Mac and not kept by default. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model. By default, only terms on your Never-share list are withheld before text goes to a cloud model you choose. With a local model nothing leaves the Mac.
 - 384,000-Token SubQ Snap Hybrid GraphRAG: Combines BM25 keyword search, 256-dim dense semantic vectors, and a 2-hop entity graph for cross-meeting recall in ~75ms.
 - Built-In MCP Server for Coding Agents: Connects directly to Claude Code, Claude Desktop, Cursor, Poolside, and Oh-My-Pi (`python3 -m dayglass mcp`).
 - Live meeting for other agents: while a Zoom, Teams, or Google Meet call is in progress, Claude, Cursor, and the other agents on the same Mac read the speaker-tagged transcript, the people on the call, and the shared screen through the local tool `dayglass_get_live_meeting`. The transcript stays in `~/.dayglass`.

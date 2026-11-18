@@ -24,7 +24,19 @@ PAGES = (
     "rewind-alternative.html",
     "llms.txt",
 )
-BANNED = ("Stealth", "Invisible on Screen Share", "No local MCP")
+BANNED = (
+    "Stealth",
+    "Invisible on Screen Share",
+    "No local MCP",
+    # Paranoid mode never runs on the cloud Ask AI path (chat_engine.py applies only the Never-share list).
+    "Paranoid Mode",
+    "Paranoid mode",
+    "swapped for placeholders",
+    "swapped out for placeholders",
+    # capture.py skips a keyword list of apps and titles, not private browser windows.
+    "private windows",
+    "private browser windows",
+)
 
 
 def load(name: str, base: str | None) -> str:

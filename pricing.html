@@ -52,7 +52,7 @@
         "name": "Where are my screen captures, audio transcripts, and meeting notes stored?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Transcripts, screen text and notes stay on your Mac in ~/.dayglass/dayglass.sqlite, and you can inspect that file directly. Audio is transcribed on the Mac and not kept by default. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model. Only your Never-share list is withheld by default; turn on Paranoid mode to replace emails, names, paths and secrets before anything leaves the Mac. With a local model nothing leaves the Mac."
+          "text": "Transcripts, screen text and notes stay on your Mac in ~/.dayglass/dayglass.sqlite, and you can inspect that file directly. Audio is transcribed on the Mac and not kept by default. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model. By default, only terms on your Never-share list are withheld before text goes to a cloud model you choose. With a local model nothing leaves the Mac."
         }
       },
       {
@@ -657,7 +657,7 @@
         <div class="story-card">
           <div>
             <h3>🛡️ Ask AI: cloud model or local model, your choice</h3>
-            <p>Audio is transcribed on the Mac and not kept by default. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model. Only your Never-share list is withheld by default; turn on Paranoid mode to replace emails, names, paths and secrets before anything leaves the Mac. Other text, such as company names and project names, goes as written. With a local model nothing leaves the Mac. Password managers and private windows are skipped during capture.</p>
+            <p>Audio is transcribed on the Mac and not kept by default. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model. By default, only terms on your Never-share list are withheld before text goes to a cloud model you choose. Other text, such as company names and project names, goes as written. With a local model nothing leaves the Mac. Windows of password managers such as 1Password and Bitwarden are skipped during capture.</p>
           </div>
           <span class="card-meta-tag">Cloud model is your choice</span>
         </div>
@@ -834,7 +834,7 @@
         </div>
         <div class="story-card">
           <h3>Does any screen or audio data leave my Mac?</h3>
-          <p>Transcripts, screen text and notes stay on your Mac in <code>~/.dayglass/dayglass.sqlite</code>. Audio is transcribed on the Mac and not kept by default. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model. Only your Never-share list is withheld by default; turn on Paranoid mode to replace emails, names, paths and secrets before anything leaves the Mac. Other text goes as written. With a local model nothing leaves the Mac. Password managers and private windows are skipped during capture.</p>
+          <p>Transcripts, screen text and notes stay on your Mac in <code>~/.dayglass/dayglass.sqlite</code>. Audio is transcribed on the Mac and not kept by default. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model. By default, only terms on your Never-share list are withheld before text goes to a cloud model you choose. Other text goes as written. With a local model nothing leaves the Mac. Windows of password managers such as 1Password and Bitwarden are skipped during capture.</p>
         </div>
         <div class="story-card">
           <h3>Can Claude and other agents see a meeting while it is still in progress?</h3>
@@ -848,7 +848,7 @@
     </section>
 
     <div class="consent-box">
-      <strong>🔒 Privacy Policy &amp; Participant Consent:</strong> Dayglass keeps your transcripts, screen text and database on your Mac under <code>~/.dayglass</code>, and we run no server that receives them. Audio is transcribed on the Mac and not kept by default. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model. Only your Never-share list is withheld by default; turn on Paranoid mode to replace emails, names, paths and secrets before anything leaves the Mac. With a local model nothing leaves the Mac. Use the built-in <strong>1-Click Call Consent Snippet</strong> to notify call participants and always follow applicable call-recording consent laws in your jurisdiction. Questions or security audits? Contact founder Igor Ganapolsky via <a href="https://github.com/IgorGanapolsky/dayglass-mac/issues" style="color: var(--accent);">GitHub Issues</a>.
+      <strong>🔒 Privacy Policy &amp; Participant Consent:</strong> Dayglass keeps your transcripts, screen text and database on your Mac under <code>~/.dayglass</code>, and we run no server that receives them. Audio is transcribed on the Mac and not kept by default. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model. By default, only terms on your Never-share list are withheld before text goes to a cloud model you choose. With a local model nothing leaves the Mac. Use the built-in <strong>1-Click Call Consent Snippet</strong> to notify call participants and always follow applicable call-recording consent laws in your jurisdiction. Questions or security audits? Contact founder Igor Ganapolsky via <a href="https://github.com/IgorGanapolsky/dayglass-mac/issues" style="color: var(--accent);">GitHub Issues</a>.
     </div>
 
     <section id="critique" class="story-section" style="margin-top: 44px;">

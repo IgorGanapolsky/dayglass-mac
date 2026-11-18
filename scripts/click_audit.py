@@ -72,6 +72,10 @@ def audit(base: str) -> list[tuple[str, str, str, str, str]]:
                         el.element_handle(),
                     )
                     href = el.get_attribute("href") or ""
+                    buy = el.get_attribute("data-buy")
+                    if ONLY and ONLY.lower() not in desc.lower():
+                        page.close()
+                        continue
                     if any(s in href for s in STRIPE):
                         rows.append((label, path, desc, href.split("?")[0], f"stripe link, HTTP GET {http_status(href)} (not opened in browser)"))
                         page.close()
@@ -100,6 +104,11 @@ def audit(base: str) -> list[tuple[str, str, str, str, str]]:
                         outcome = f"navigated to {after}" if page.url != before else ("same page, modal/panel opened" if modal else "same page (scroll, toggle or no visible change)")
                         rows.append((label, path, desc, href[:60], outcome))
                     except Exception as exc:  # noqa: BLE001
+                        if buy and blocked:
+                            # A buy button starts the Stripe flow; the audit aborts that request on purpose.
+                            rows.append((label, path, desc, href[:60], f"Stripe checkout (not opened); request to {blocked[0].split('/')[2]} aborted"))
+                            page.close()
+                            continue
                         rows.append((label, path, desc, href[:60], f"ERROR {type(exc).__name__}"))
                     page.close()
                 ctx.close()
@@ -107,10 +116,16 @@ def audit(base: str) -> list[tuple[str, str, str, str, str]]:
     return rows
 
 
+ONLY = ""
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--base")
+    parser.add_argument("--only", default="", help="audit only controls whose text contains this")
     args = parser.parse_args()
+    global ONLY
+    ONLY = args.only
     server = None
     base = args.base
     if not base:
