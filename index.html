@@ -115,6 +115,13 @@
     /* Links that set no colour of their own read on the dark background (default blue did not). */
     :where(a) { color: var(--accent); }
     .price .price-note { display: block; margin-top: 4px; }
+    .hero-local { font-size: 16px; font-weight: 600; color: var(--text); margin: -14px auto 22px; }
+    .boundary { max-width: 920px; margin: 0 auto 24px; text-align: left; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px 22px; }
+    .boundary h2 { font-size: 18px; font-weight: 800; margin-bottom: 10px; }
+    .boundary dl > div { display: grid; grid-template-columns: 190px 1fr; gap: 12px; padding: 10px 0; border-top: 1px solid var(--border); }
+    .boundary dt { font-weight: 700; color: var(--accent); }
+    .boundary dd { color: var(--muted); }
+    @media (max-width: 640px) { .boundary dl > div { grid-template-columns: 1fr; gap: 4px; } }
     .brand-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
     .nav-links { display: flex; gap: 22px; align-items: center; font-size: 14px; flex-wrap: wrap; }
     .nav-links a { color: var(--muted); text-decoration: none; font-weight: 500; }
@@ -358,22 +365,90 @@
     </div>
 
     <section class="hero" id="install">
-      <h1 id="heroHeadline">Your private AI memory for work.</h1>
+      <h1 id="heroHeadline">Stop re-explaining client calls to Claude Code.</h1>
       <p id="heroSubheadline">
-        Meetings, decisions and commitments, remembered on your Mac, and readable by Claude and Cursor while the call is still happening. Free for your first 10 meetings, no card. Pro is $19 a month.
+        Dayglass gives Claude Code and Cursor context from your Mac meetings while the call is still happening, so you can turn decisions into an implementation plan.
       </p>
+      <p class="hero-local" id="heroLocal">Local recording and storage. No meeting bot. Try your next 10 meetings free.</p>
 
       <div class="cta-row">
         <a class="btn btn-primary" id="heroPrimaryCta" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {source: 'hero_primary'})">Download free for Mac</a>
         <a class="btn btn-secondary" href="#pricing" data-buy="pro_annual" onclick="trackPricingEvent('hero_pro_clicked', {source: 'hero_secondary'})">Get Pro</a>
       </div>
-      <p class="cta-note">10 meetings free, no card. macOS 13+, Apple Silicon.</p>
+      <p class="cta-note">No card. macOS 13+, Apple Silicon.</p>
 
       <div class="hero-ask" id="heroAsk">
         <div class="hero-ask-q"><span class="dim">You ask Claude</span> &ldquo;What did Alex commit to on the call?&rdquo;</div>
         <div class="hero-ask-a"><span class="dim">Dayglass answers from your Mac</span> Alex committed to having the retry change ready by Thursday 4 PM.</div>
       </div>
 
+      <div class="split-hero" id="splitHero" aria-label="Illustration: a Zoom call with live captions on the left, Claude Code answering a question from the call on the right">
+        <div class="split-grid">
+          <div class="pane">
+            <div class="pane-bar"><span class="w-dot" style="background:#ef4444"></span><span class="w-dot" style="background:#f59e0b"></span><span class="w-dot" style="background:#10b981"></span><span class="pane-title">Zoom Meeting &bull; Q4 rollout sync</span></div>
+            <div class="tiles">
+              <div class="tile" id="tileMina"><div class="av" style="background:#38bdf8">M</div><span class="nm">Mina</span></div>
+              <div class="tile" id="tileAlex"><div class="av" style="background:#a78bfa">A</div><span class="nm">Alex</span></div>
+              <div class="tile" id="tileSam"><div class="av" style="background:#fbbf24">S</div><span class="nm">Sam</span></div>
+              <div class="tile" id="tileYou"><div class="av" style="background:#34d399">You</div><span class="nm">You (muted)</span></div>
+            </div>
+            <div class="captions" id="splitCaption" aria-live="off"></div>
+          </div>
+          <div class="pane">
+            <div class="pane-bar"><span class="w-dot" style="background:#ef4444"></span><span class="w-dot" style="background:#f59e0b"></span><span class="w-dot" style="background:#10b981"></span><span class="pane-title">Terminal &mdash; claude</span></div>
+            <div class="term" id="splitTerm"></div>
+          </div>
+        </div>
+        <div class="illus-tag">Illustration</div>
+      </div>
+      <!-- Real Explainer Video Player + Real High-DPI Product Screenshots Gallery -->
+      <div class="showcase-wrap" id="demo">
+        <div class="showcase-topbar">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="window-dots">
+              <span class="w-dot" style="background:#ef4444;"></span>
+              <span class="w-dot" style="background:#f59e0b;"></span>
+              <span class="w-dot" style="background:#10b981;"></span>
+            </div>
+            <span style="font-size: 12.5px; font-weight: 600; color: #e2e8f0;">Sample note — fictional</span>
+          </div>
+          <div class="showcase-tabs">
+            <button class="showcase-tab active" id="mediaTab0" onclick="switchMediaShowcase(0)">Sample note</button>
+          </div>
+        </div>
+        <div class="media-stage" id="mediaStage">
+          <video id="heroExplainerVideo" poster="dayglass-notes-sample.png" muted playsinline style="display:none"></video>
+          <img id="heroScreenshotImg" src="dayglass-notes-sample.png" alt="Fictional Dayglass meeting note with decisions and action items, stored on the Mac" />
+        </div>
+        <div class="showcase-footer">
+          <span id="mediaCaption">Sample note, written on the Mac after the call. The names in this example are fictional.</span>
+        </div>
+      </div>
+      <div class="outcomes" id="outcomes">
+        <div><strong>Decisions that don't get lost.</strong> Every call ends with who decided what.</div>
+        <div><strong>No follow-up email archaeology.</strong> Ask what was agreed instead of digging for it.</div>
+        <div><strong>Your agent already knows what was decided.</strong> Claude and Cursor read the call as it happens.</div>
+      </div>
+      <p style="margin: -8px 0 22px; font-size: 14px;"><a href="#pricing">Free for 10 meetings, then Pro is $149 a year or $19 a month.</a></p>
+      <div class="install-box">
+        <div class="install-box-title">
+          <span>🍺 Prefer Homebrew? Install the Apple-Notarized Cask</span>
+          <span style="color: var(--green);">~93 MB Idle Daemon RAM &bull; macOS 13+ (Apple Silicon)</span>
+        </div>
+        <div class="cmd-row" style="margin-bottom: 0;">
+          <span class="cmd-label">Homebrew:</span>
+          <code class="cmd-code" id="cmdBrew">brew install --cask igorganapolsky/dayglass/dayglass</code>
+          <button class="copy-btn" onclick="copyInstallCmd('cmdBrew', 'brew_install_copied')">Copy</button>
+        </div>
+      </div>
+      <div class="boundary" id="privacyBoundary" aria-labelledby="boundaryTitle">
+        <h2 id="boundaryTitle">Where your meeting data goes</h2>
+        <dl>
+          <div><dt>Recording and storage</dt><dd>On your Mac. Transcripts, screen text and notes stay in <code>~/.dayglass</code>, and audio is transcribed on the Mac and not kept by default. No bot joins the call.</dd></div>
+          <div><dt>Dayglass AI</dt><dd>Runs on a local model or a cloud model, whichever you pick. With a cloud model, your question and the relevant meeting text are sent to it. By default, only terms on your Never-share list are withheld before text goes to a cloud model you choose.</dd></div>
+          <div><dt>Claude and Cursor</dt><dd>Receive the context they ask for, and process it under their own policies.</dd></div>
+        </dl>
+      </div>
       <section class="where" id="where" aria-labelledby="whereTitle">
         <h2 id="whereTitle">Where your meetings go</h2>
         <div class="where-grid">
@@ -395,51 +470,6 @@
           </div>
         </div>
       </section>
-
-      <div class="split-hero" id="splitHero" aria-label="Illustration: a Zoom call with live captions on the left, Claude Code answering a question from the call on the right">
-        <div class="split-grid">
-          <div class="pane">
-            <div class="pane-bar"><span class="w-dot" style="background:#ef4444"></span><span class="w-dot" style="background:#f59e0b"></span><span class="w-dot" style="background:#10b981"></span><span class="pane-title">Zoom Meeting &bull; Q4 rollout sync</span></div>
-            <div class="tiles">
-              <div class="tile" id="tileMina"><div class="av" style="background:#38bdf8">M</div><span class="nm">Mina</span></div>
-              <div class="tile" id="tileAlex"><div class="av" style="background:#a78bfa">A</div><span class="nm">Alex</span></div>
-              <div class="tile" id="tileSam"><div class="av" style="background:#fbbf24">S</div><span class="nm">Sam</span></div>
-              <div class="tile" id="tileYou"><div class="av" style="background:#34d399">You</div><span class="nm">You (muted)</span></div>
-            </div>
-            <div class="captions" id="splitCaption" aria-live="off"></div>
-          </div>
-          <div class="pane">
-            <div class="pane-bar"><span class="w-dot" style="background:#ef4444"></span><span class="w-dot" style="background:#f59e0b"></span><span class="w-dot" style="background:#10b981"></span><span class="pane-title">Terminal &mdash; claude</span></div>
-            <div class="term" id="splitTerm"></div>
-          </div>
-        </div>
-        <div class="illus-tag">Illustration</div>
-      </div>
-
-
-      <div class="outcomes" id="outcomes">
-        <div><strong>Decisions that don't get lost.</strong> Every call ends with who decided what.</div>
-        <div><strong>No follow-up email archaeology.</strong> Ask what was agreed instead of digging for it.</div>
-        <div><strong>Your agent already knows what was decided.</strong> Claude and Cursor read the call as it happens.</div>
-      </div>
-      <!-- Testimonials: none verified yet. Add real, named quotes here when we have them.
-      <div class="testimonials" hidden></div>
-      -->
-
-      <p style="margin: -8px 0 22px; font-size: 14px;"><a href="#pricing">Free for 10 meetings, then Pro is $149 a year or $19 a month.</a></p>
-
-      <div class="install-box">
-        <div class="install-box-title">
-          <span>🍺 Prefer Homebrew? Install the Apple-Notarized Cask</span>
-          <span style="color: var(--green);">~93 MB Idle Daemon RAM &bull; macOS 13+ (Apple Silicon)</span>
-        </div>
-        <div class="cmd-row" style="margin-bottom: 0;">
-          <span class="cmd-label">Homebrew:</span>
-          <code class="cmd-code" id="cmdBrew">brew install --cask igorganapolsky/dayglass/dayglass</code>
-          <button class="copy-btn" onclick="copyInstallCmd('cmdBrew', 'brew_install_copied')">Copy</button>
-        </div>
-      </div>
-
       <!-- Clean Human-Readable Output Preview ("The After State") -->
       <div id="notes-preview" style="max-width: 920px; margin: 0 auto 24px; text-align: left; background: var(--surface); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 16px; padding: 20px 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.45);">
         <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding-bottom: 12px; border-bottom: 1px solid var(--border); margin-bottom: 14px;">
@@ -471,29 +501,16 @@
           </div>
         </div>
       </div>
-      <!-- Real Explainer Video Player + Real High-DPI Product Screenshots Gallery -->
-      <div class="showcase-wrap" id="demo">
-        <div class="showcase-topbar">
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <div class="window-dots">
-              <span class="w-dot" style="background:#ef4444;"></span>
-              <span class="w-dot" style="background:#f59e0b;"></span>
-              <span class="w-dot" style="background:#10b981;"></span>
-            </div>
-            <span style="font-size: 12.5px; font-weight: 600; color: #e2e8f0;">Sample note — fictional</span>
-          </div>
-          <div class="showcase-tabs">
-            <button class="showcase-tab active" id="mediaTab0" onclick="switchMediaShowcase(0)">Sample note</button>
-          </div>
-        </div>
-        <div class="media-stage" id="mediaStage">
-          <video id="heroExplainerVideo" poster="dayglass-notes-sample.png" muted playsinline style="display:none"></video>
-          <img id="heroScreenshotImg" src="dayglass-notes-sample.png" alt="Fictional Dayglass meeting note with decisions and action items, stored on the Mac" />
-        </div>
-        <div class="showcase-footer">
-          <span id="mediaCaption">Sample note, written on the Mac after the call. The names in this example are fictional.</span>
-        </div>
-      </div>
+
+
+
+
+      <!-- Testimonials: none verified yet. Add real, named quotes here when we have them.
+      <div class="testimonials" hidden></div>
+      -->
+
+
+
     </section>
 
     <!-- Core Capabilities with Custom Vector Illustrations -->
@@ -707,6 +724,78 @@
     </section>
 
     <!-- Pricing Section -->
+    <section id="compare" class="compare">
+      <div class="section-eyebrow">Honest Comparison</div>
+      <h2>How Dayglass compares to Granola, MacWhisper, Fathom &amp; Screenpipe</h2>
+      <div class="sub">Side-by-side comparison of macOS meeting and screen memory tools (as of October 2026).</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Capability</th>
+            <th>Dayglass</th>
+            <th>Granola</th>
+            <th>MacWhisper</th>
+            <th>Fathom / Otter</th>
+            <th>Screenpipe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Bot-Free Call Capture (AirPods + Mic)</strong></td>
+            <td><strong>Yes (native ScreenCaptureKit)</strong></td>
+            <td>Yes (bot-free)</td>
+            <td>Yes (manual/system audio)</td>
+            <td>Join as a bot by default. Fathom has bot-free capture on Mac (beta, every plan including Free); Otter's desktop app records without a bot</td>
+            <td>Yes (24/7 local capture)</td>
+          </tr>
+          <tr>
+            <td><strong>Where Transcripts &amp; Notes Live</strong></td>
+            <td><strong>Transcripts, screen text and database stay on your Mac (`~/.dayglass`); audio is not kept by default</strong></td>
+            <td>Notes and transcripts stored on Granola's cloud (AWS, US) and cached on your Mac; audio deleted after transcription</td>
+            <td>Local on Mac</td>
+            <td>Vendor cloud servers</td>
+            <td>Local disk</td>
+          </tr>
+          <tr>
+            <td><strong>Search Slides &amp; Shared Screens</strong></td>
+            <td><strong>Yes (Apple Vision OCR + SQLite FTS5)</strong></td>
+            <td>Snapshots of screens other people share, attached to the note (Mac, macOS 14+)</td>
+            <td>No (audio files only)</td>
+            <td>Otter captures shared slides and screenshots in meetings</td>
+            <td>Yes (OCR + audio search)</td>
+          </tr>
+          <tr>
+            <td><strong>Claude Code &amp; Cursor access (MCP)</strong></td>
+            <td><strong>Yes. Local MCP server. Claude and Cursor can read the live transcript while the call is in progress, plus screen text</strong></td>
+            <td>Yes. Hosted MCP server (launched Feb 2026); free plan covers 30 days of notes, no transcripts</td>
+            <td>No official MCP server. Official command-line tool and community wrappers</td>
+            <td>Yes. Hosted MCP servers (Fathom and Otter), connected with sign-in</td>
+            <td>Yes. Local MCP server (search and video export)</td>
+          </tr>
+          <tr>
+            <td><strong>Free Tier Includes Bot-Free Recording</strong></td>
+            <td><strong>Yes (first 10 meetings, no card)</strong></td>
+            <td>Free plan with limits</td>
+            <td>Free basic Whisper model</td>
+            <td>Free plans available</td>
+            <td>Open-source CLI / paid desktop</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin-top: 28px;">Other local, bot-free options</h3>
+      <table>
+        <thead>
+          <tr><th>Tool</th><th>Price (from each tool's own site)</th><th>MCP for Claude and Cursor</th><th>Where it runs</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Dayglass</strong></td><td>Free for 10 meetings, then Pro $19/month or $149/year</td><td>Local MCP server, live transcript during the call</td><td>Recording and storage on your Mac</td></tr>
+          <tr><td>Anarlog (formerly Hyprnote)</td><td>Free; Pro $14/person/month or $140/person/year</td><td>MCP included on the Free plan</td><td>On-device by default; cloud transcription and cloud model are Pro features</td></tr>
+          <tr><td>Meetily</td><td>Community edition free and open source; Pro $10/user/month billed annually</td><td>MCP on Pro</td><td>Transcription on your device by default</td></tr>
+        </tbody>
+      </table>
+    </section>
+
     <section id="pricing">
       <div class="section-eyebrow">Simple, Transparent Pricing</div>
       <h2 style="text-align: center; font-size: 30px; font-weight: 800; margin-bottom: 8px;">Try it on your next 10 meetings. Pay when it earns its place.</h2>
@@ -794,78 +883,6 @@
       </div>
     </section>
 
-    <section id="compare" class="compare">
-      <div class="section-eyebrow">Honest Comparison</div>
-      <h2>How Dayglass compares to Granola, MacWhisper, Fathom &amp; Screenpipe</h2>
-      <div class="sub">Side-by-side comparison of macOS meeting and screen memory tools (as of October 2026).</div>
-      <table>
-        <thead>
-          <tr>
-            <th>Capability</th>
-            <th>Dayglass</th>
-            <th>Granola</th>
-            <th>MacWhisper</th>
-            <th>Fathom / Otter</th>
-            <th>Screenpipe</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Bot-Free Call Capture (AirPods + Mic)</strong></td>
-            <td><strong>Yes (native ScreenCaptureKit)</strong></td>
-            <td>Yes (bot-free)</td>
-            <td>Yes (manual/system audio)</td>
-            <td>Join as a bot by default. Fathom has bot-free capture on Mac (beta, every plan including Free); Otter's desktop app records without a bot</td>
-            <td>Yes (24/7 local capture)</td>
-          </tr>
-          <tr>
-            <td><strong>Where Transcripts &amp; Notes Live</strong></td>
-            <td><strong>Audio transcribed on your Mac, not kept by default; transcripts, screen text and database stay on your Mac (`~/.dayglass`)</strong></td>
-            <td>Notes and transcripts stored on Granola's cloud (AWS, US) and cached on your Mac; audio deleted after transcription</td>
-            <td>Local on Mac</td>
-            <td>Vendor cloud servers</td>
-            <td>Local disk</td>
-          </tr>
-          <tr>
-            <td><strong>Search Slides &amp; Shared Screens</strong></td>
-            <td><strong>Yes (Apple Vision OCR + SQLite FTS5)</strong></td>
-            <td>Snapshots of screens other people share, attached to the note (Mac, macOS 14+)</td>
-            <td>No (audio files only)</td>
-            <td>Not checked</td>
-            <td>Yes (OCR + audio search)</td>
-          </tr>
-          <tr>
-            <td><strong>Claude Code &amp; Cursor access (MCP)</strong></td>
-            <td><strong>Yes. Local MCP server. Claude and Cursor can read the live transcript while the call is in progress, plus screen text</strong></td>
-            <td>Yes. Hosted MCP server (launched Feb 2026); free plan covers 30 days of notes, no transcripts</td>
-            <td>No MCP server we could find</td>
-            <td>Fathom: official hosted MCP server. Otter: hosted MCP reported by third parties</td>
-            <td>Yes. Local MCP server (search and video export)</td>
-          </tr>
-          <tr>
-            <td><strong>Free Tier Includes Bot-Free Recording</strong></td>
-            <td><strong>Yes (first 10 meetings, no card)</strong></td>
-            <td>Free plan with limits</td>
-            <td>Free basic Whisper model</td>
-            <td>Free plans available</td>
-            <td>Open-source CLI / paid desktop</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3 style="margin-top: 28px;">Other local, bot-free options</h3>
-      <table>
-        <thead>
-          <tr><th>Tool</th><th>Price (from each tool's own site)</th><th>MCP for Claude and Cursor</th><th>Where it runs</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Dayglass</strong></td><td>Free for 10 meetings, then Pro $19/month or $149/year</td><td>Local MCP server, live transcript during the call</td><td>Recording and storage on your Mac</td></tr>
-          <tr><td>Anarlog (formerly Hyprnote)</td><td>Free; Pro $14/person/month or $140/person/year</td><td>MCP included on the Free plan</td><td>On-device by default; cloud transcription and cloud model are Pro features</td></tr>
-          <tr><td>Meetily</td><td>Community edition free and open source; Pro $10/user/month billed annually</td><td>MCP on Pro</td><td>Transcription on your device by default</td></tr>
-        </tbody>
-      </table>
-    </section>
-
     <section id="faq" class="story-section" style="margin-top: 44px;">
       <div class="section-eyebrow">Frequently Asked Questions</div>
       <h2>Everything you need to know before installing</h2>
@@ -905,6 +922,12 @@
         <li>What did you expect to stay on the Mac?</li>
       </ul>
       <p><a class="btn btn-secondary" href="https://github.com/IgorGanapolsky/dayglass-mac/discussions/10">Leave a critique</a></p>
+    </section>
+
+    <section class="story-section" id="download" style="text-align: center;">
+      <h2>Download Dayglass</h2>
+      <p>Free for your next 10 meetings. No card. macOS 13+, Apple Silicon.</p>
+      <p><a class="btn btn-primary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {source: 'bottom_download'})">Download free for Mac</a></p>
     </section>
 
     <footer>
