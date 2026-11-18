@@ -66,9 +66,8 @@ class Hero(unittest.TestCase):
         for path in ("/", "/pricing.html"):
             text = self._open(path, 1280).locator("#privacyBoundary").inner_text()
             self.assertIn("audio is transcribed on the Mac and not kept by default", text)
-            self.assertIn("Only your Never-share list is withheld by default", text)
-            self.assertIn("turn on Paranoid mode to replace emails, names, paths and secrets", text)
-            for false_claim in ("Audio, screen text and notes stay", "phone numbers", "placeholders", "swapped"):
+            self.assertIn("only terms on your Never-share list are withheld before text goes to a cloud model you choose", text)
+            for false_claim in ("Audio, screen text and notes stay", "phone numbers", "placeholders", "swapped", "Paranoid", "paranoid"):
                 self.assertNotIn(false_claim, text)
 
     def test_section_order(self):
