@@ -4,8 +4,8 @@
   "name": "io.github.igorganapolsky/dayglass",
   "title": "Dayglass \u2014 macOS Screen & Meeting Memory + OpenUI MCP Server",
   "version": "2.4.0",
-  "description": "Local macOS ScreenCaptureKit AirPods call recorder, Apple Vision Neural Engine OCR, 384K SubQ Snap hybrid GraphRAG, and Universal 8-AI Omnibus & MCP Server for Cursor, Gemini, Claude, ChatGPT, Grok, Meta Muse Spark, Codex, and OMP.",
-  "homepage": "https://igorganapolsky.github.io/dayglass-mac/",
+  "description": "Bot-free macOS call recorder with Apple Vision OCR of your screen, and a local MCP server that Claude Code, Claude Desktop and Cursor can read while a call is happening.",
+  "homepage": "https://www.dayglass.io/",
   "repository": {
     "url": "https://github.com/IgorGanapolsky/dayglass-mac",
     "source": "github"
@@ -22,7 +22,7 @@
   ],
   "install": {
     "homebrew_cask": "brew install --cask igorganapolsky/dayglass/dayglass",
-    "curl_installer": "curl -fsSL https://igorganapolsky.github.io/dayglass-mac/install.sh | bash",
+    "curl_installer": "curl -fsSL https://www.dayglass.io/install.sh | bash",
     "dmg_url": "https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg",
     "mcp_command": "python3 -m dayglass mcp",
     "omnibus_cli": "python3 -m dayglass omnibus --install-connectors",
@@ -45,31 +45,5 @@
       "name": "MCPMarket",
       "submit_url": "https://mcpmarket.com/submit"
     }
-  ],
-  "monetization_tiers": {
-    "tier1_playbook_999": {
-      "id": "tier1_playbook_999",
-      "name": "2026 AI Agent Cost & Local Memory Playbook",
-      "price_usd": 9.99,
-      "billing_type": "one_time",
-      "url": "https://iganapolsky.gumroad.com/l/odrkon",
-      "sales_needed_for_100_per_day": 11
-    },
-    "tier2_pro_monthly_19": {
-      "id": "tier2_pro_monthly_19",
-      "name": "Dayglass Pro Monthly Subscription",
-      "price_usd": 19.0,
-      "billing_type": "subscription_monthly",
-      "url": "https://iganapolsky.gumroad.com/l/dayglass-pro",
-      "sales_needed_for_100_per_day": 6
-    },
-    "tier_ultra_249": {
-      "id": "tier_ultra_249",
-      "name": "Dayglass Ultra",
-      "price_usd": 249.0,
-      "billing_type": "subscription_monthly",
-      "url": "https://iganapolsky.gumroad.com/l/dayglass-ultra",
-      "sales_needed_for_100_per_day": 1
-    }
-  }
+  ]
 }

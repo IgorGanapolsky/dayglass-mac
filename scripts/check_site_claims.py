@@ -32,6 +32,20 @@ BANNED = (
     "Paranoid Mode",
     "Paranoid mode",
     "100% On-Device",
+    # Feature names the shipped app does not back up as written.
+    "SubQ Snap",
+    "384K",
+    "AI Companion 3.0",
+    # Unmeasured: the installed app idles near 86 MB here, not 93.
+    "93 MB",
+    # The savings calculator assumed most note-taking time disappears; it is gone.
+    "roi-calculator",
+    "of that time",
+    # One price story: Stripe only, no Gumroad listings, no Ultra tier.
+    "gumroad",
+    # The custom domain is the public address; the github.io mirror is not linked.
+    "igorganapolsky.github.io",
+    "Ultra",
     "swapped for placeholders",
     "swapped out for placeholders",
     # capture.py skips a keyword list of apps and titles, not private browser windows.
@@ -60,8 +74,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--base", help="fetch live pages from this origin instead of reading files")
     args = parser.parse_args(argv)
     errors = []
-    names = list(PAGES) + ["server.json"]
+    names = list(PAGES)
     if not args.base:
+        names += ["server.json", "README.md"]
         names += sorted(str(p.relative_to(ROOT)) for p in (ROOT / "Casks").glob("*.rb"))
     for name in names:
         if not args.base and not (ROOT / name).exists():

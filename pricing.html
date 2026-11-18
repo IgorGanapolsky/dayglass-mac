@@ -24,7 +24,7 @@
     "name": "Dayglass",
     "operatingSystem": "macOS 13.0+",
     "applicationCategory": "ProductivityApplication",
-        "screenshot": "https://igorganapolsky.github.io/dayglass-mac/dayglass-notes-sample.png",
+        "screenshot": "https://www.dayglass.io/dayglass-notes-sample.png",
     "downloadUrl": "https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg",
     "offers": [
       { "@type": "Offer", "name": "Dayglass Free Trial (first 10 meetings, no card)", "price": "0", "priceCurrency": "USD" },
@@ -339,7 +339,7 @@
         <a href="/privacy">Privacy</a>
         <a href="#pricing">Pricing</a>
         <a href="#compare">vs. Granola</a>
-        <a href="#pricing" data-buy="pro_annual" style="color: var(--accent); font-weight: 600;">Get Pro</a>
+        <a href="#pricing" style="color: var(--accent); font-weight: 600;">See plans</a>
       </div>
     </nav>
 
@@ -359,7 +359,7 @@
 
       <div class="cta-row">
         <a class="btn btn-primary" id="heroPrimaryCta" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {source: 'hero_primary'})">Download free for Mac</a>
-        <a class="btn btn-secondary" href="#pricing" data-buy="pro_annual" onclick="trackPricingEvent('hero_pro_clicked', {source: 'hero_secondary'})">Get Pro</a>
+        <a class="btn btn-secondary" href="#pricing" onclick="trackPricingEvent('hero_pro_clicked', {source: 'hero_secondary'})">See plans</a>
       </div>
 
       <div class="boundary" id="privacyBoundary" aria-labelledby="boundaryTitle">
@@ -406,7 +406,7 @@
       <div class="install-box">
         <div class="install-box-title">
           <span>🍺 Prefer Homebrew? Install the Apple-Notarized Cask</span>
-          <span style="color: var(--green);">~93 MB Idle Daemon RAM &bull; macOS 13+ (Apple Silicon)</span>
+          <span style="color: var(--green);">macOS 13+ (Apple Silicon)</span>
         </div>
         <div class="cmd-row" style="margin-bottom: 0;">
           <span class="cmd-label">Homebrew:</span>
@@ -722,7 +722,7 @@
         </div>
 
         <div class="card">
-          <div class="ribbon">Founding price $199 for the first 100 buyers</div>
+          <div class="ribbon">Founding price $199 for the first 100 buyers, then $249</div>
           <div class="plan-name">Lifetime</div>
           <div class="price">$199 <span class="price-note">once &middot; <s>$249</s> after the first 100</span></div>
           <div class="tagline">Pay once. Everything in Pro.</div>
@@ -736,36 +736,15 @@
           <p class="trial-note">One payment. No renewal.</p>
         </div>
       </div>
-      <!-- Interactive Time & Context Savings Estimator -->
-      <div id="roi-calculator" style="margin-top: 22px; background: linear-gradient(180deg, rgba(25, 28, 40, 0.95) 0%, rgba(18, 20, 29, 0.98) 100%); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 14px; padding: 22px 24px;">
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 16px;">
-          <div>
-            <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent);">⏱️ Meeting Follow-Up &amp; IDE Context Time Estimator</div>
-            <div style="font-size: 18px; font-weight: 800; color: var(--text);">See how much manual note-writing and context re-explaining you save each month</div>
-          </div>
-          <span id="roiMultipleBadge" style="background: rgba(52, 211, 153, 0.16); border: 1px solid rgba(52, 211, 153, 0.45); color: var(--green); padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 700;">~6.9 hrs/mo saved vs $19/mo Pro</span>
-        </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; align-items: end;">
-          <div>
-            <label for="roiTeamSize" style="display: block; font-size: 12px; font-weight: 600; color: var(--muted); margin-bottom: 6px;">Team Size: <strong id="roiTeamSizeVal" style="color: var(--text);">1</strong></label>
-            <input id="roiTeamSize" type="range" min="1" max="25" value="1" oninput="updateRoiCalculator()" style="width: 100%; accent-color: var(--accent);" />
-          </div>
-          <div>
-            <label for="roiHoursPerWeek" style="display: block; font-size: 12px; font-weight: 600; color: var(--muted); margin-bottom: 6px;">Manual Note &amp; Context Hrs / Wk: <strong id="roiHoursVal" style="color: var(--text);">2 hrs</strong></label>
-            <input id="roiHoursPerWeek" type="range" min="1" max="15" value="2" oninput="updateRoiCalculator()" style="width: 100%; accent-color: var(--accent);" />
-          </div>
-          <div>
-            <label for="roiHourlyRate" style="display: block; font-size: 12px; font-weight: 600; color: var(--muted); margin-bottom: 6px;">Hourly Rate ($/hr): <strong id="roiRateVal" style="color: var(--text);">$75/hr</strong></label>
-            <input id="roiHourlyRate" type="range" min="40" max="250" step="5" value="75" oninput="updateRoiCalculator()" style="width: 100%; accent-color: var(--accent);" />
-          </div>
-          <div style="background: #090a0f; border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; text-align: right;">
-            <div style="font-size: 11.5px; color: var(--muted); font-weight: 600;">Estimated Monthly Time Value</div>
-            <div id="roiMonthlySavings" style="font-size: 24px; font-weight: 800; color: var(--green); font-family: var(--mono);">6.9 hrs/mo ($520)</div>
-            <div id="roiAnnualSavings" style="font-size: 12px; color: var(--muted);">~83 hrs/yr back from manual follow-ups</div>
-            <button id="roiCheckout" class="btn btn-primary" type="button" style="margin-top: 10px;" onclick="startRoiCheckout()">Start Pro at $19/mo</button>
-            <div style="font-size: 11px; color: var(--muted); margin-top: 6px;">Estimate only. It uses the hours and rate you set, at 80% of that time.</div>
-          </div>
-        </div>
+      <div id="callToTask" style="margin-top: 22px; border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 14px; padding: 22px;">
+        <div class="section-eyebrow">An example, not a customer story</div>
+        <h3 style="margin: 4px 0 10px;">From a client call to a task</h3>
+        <ol style="color: var(--muted); line-height: 1.6; margin: 0 0 10px 18px;">
+          <li>On the call, the client changes a requirement: retry the payment webhook two times, not five.</li>
+          <li>While the call is still running, you ask Claude Code or Cursor to plan that change. It reads the live transcript from Dayglass over MCP.</li>
+          <li>It works from what was said, so you do not retype what the client asked for.</li>
+        </ol>
+        <p style="font-size: 12px; color: var(--muted); margin: 0;">An illustration with made-up details. Results depend on your call, your agent and your code.</p>
       </div>
     </section>
 
@@ -871,7 +850,7 @@
     <section id="critique" class="story-section" style="margin-top: 44px;">
       <div class="section-eyebrow">Tell us what is wrong</div>
       <h2>What would stop you from paying?</h2>
-      <p style="color: var(--muted); max-width: 68ch;">A reply on the public thread is the feedback we count. Pro is $149 a year or $19 a month, and the founding Lifetime is $199 once for the first 100 buyers.</p>
+      <p style="color: var(--muted); max-width: 68ch;">Email us and nothing is posted publicly. Pro is $149 a year or $19 a month, and the founding Lifetime is $199 once for the first 100 buyers, then $249.</p>
       <ul style="color: var(--muted); line-height: 1.6;">
         <li>What broke on your Mac?</li>
         <li>Why wouldn't you pay for Pro?</li>
@@ -879,15 +858,15 @@
         <li>Who else gets recorded, and how should the app ask them?</li>
         <li>What did you expect to stay on the Mac?</li>
       </ul>
-      <p><a class="btn btn-secondary" href="https://github.com/IgorGanapolsky/dayglass-mac/discussions/10">Leave a critique</a></p>
+      <p><a class="btn btn-secondary" id="feedbackMail" href="mailto:igor@dayglass.io?subject=What%20stopped%20me">Email us what stopped you</a></p>
     </section>
 
     <footer>
       Dayglass for macOS &bull; Signed &amp; Notarized by Apple (Developer ID 9GMM26JC5X) &bull;
       <a href="https://github.com/IgorGanapolsky/dayglass-mac/releases/latest" style="color: var(--accent);">Release Notes</a> &bull;
       <a href="https://github.com/IgorGanapolsky/homebrew-dayglass" style="color: var(--accent);">Homebrew Tap</a> &bull;
-      <a href="https://igorganapolsky.github.io/dayglass-mac/llms.txt" style="color: var(--accent);">llms.txt</a> &bull;
-      <a href="#critique" style="color: var(--accent);">What's wrong?</a>
+      <a href="https://www.dayglass.io/llms.txt" style="color: var(--accent);">llms.txt</a> &bull;
+      <a href="https://github.com/IgorGanapolsky/dayglass-mac/discussions/10" style="color: var(--accent); font-size: 0.85em;">Public feedback thread</a>
     </footer>
   </div>
 
@@ -934,8 +913,9 @@
 
     let checkoutStarted = false;
     let redirectingToStripe = false;
-    // Automated visits (headless browsers, local previews) must not add events to the production funnel.
-    const MACHINE_VISIT = navigator.webdriver === true || ['127.0.0.1', 'localhost', ''].includes(window.location.hostname);
+    // Only the real site sends events. Headless browsers, local previews, test servers and mirrors must not touch the production funnel.
+    const ANALYTICS_HOSTS = ['dayglass.io', 'www.dayglass.io'];
+    const MACHINE_VISIT = navigator.webdriver === true || !ANALYTICS_HOSTS.includes(window.location.hostname);
     let checkoutPlan = '';
     let licenseActivatedInModal = false;
     // One place to change checkout targets. Swapping a link is a one-line edit here.
@@ -951,7 +931,7 @@
       lifetime: PLANS.lifetime.url
     };
 
-    const POSTHOG_KEY = window.__DG_POSTHOG_KEY || "";
+    const POSTHOG_KEY = window.__DG_POSTHOG_KEY || "phc_ub5A4JPFsB2dm54Vaq2dWGeDh9zouzLL4Vb6TcicJxvf";
     const DISTINCT_ID = localStorage.getItem("dg_distinct_id") || ("dg-web-" + Math.random().toString(36).slice(2, 12));
     localStorage.setItem("dg_distinct_id", DISTINCT_ID);
 
@@ -994,7 +974,7 @@
       const utm_medium = params.get('utm_medium') || params.get('medium') || '';
       const utm_campaign = params.get('utm_campaign') || params.get('campaign') || '';
       const adcontent = params.get('adcontent') || '';
-      const lnd_product = params.get('lnd_product') || 'dayglass';
+      const lnd_product = 'dayglass';
       const lp_path = params.get('lp_path') || window.location.pathname;
       const referrer = document.referrer || '';
 
@@ -1016,6 +996,8 @@
             campaign: utm_campaign,
             adcontent: adcontent || AB_VARIANT,
             lnd_product,
+            product: 'dayglass',
+            app: 'dayglass',
             lp_path,
             referrer,
             surface: window.location.host
@@ -1023,54 +1005,23 @@
         }),
         keepalive: true
       }).catch(() => {});
-      if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
-        fetch('/api/analytics/track', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            event: eventName,
-            properties: { ...properties, ab_variant: AB_VARIANT, adcontent: adcontent || AB_VARIANT, lnd_product, lp_path },
-            utm_source,
-            utm_medium,
-            utm_campaign,
-            referrer,
-          }),
-          keepalive: true
-        }).catch(() => {});
-      } else {
-        const pingPayload = JSON.stringify({
-          event: 'dayglass_' + eventName,
-          page: '/dayglass-mac/',
-          source: utm_source,
-          visitorId: DISTINCT_ID,
-          props: {
-            ...properties,
-            ab_variant: AB_VARIANT,
-            utm_source,
-            utm_medium,
-            utm_campaign,
-            lnd_product
-          }
-        });
-        let sent = false;
-        try {
-          if (navigator.sendBeacon) {
-            sent = navigator.sendBeacon('https://thumbgate.ai/v1/telemetry/ping', new Blob([pingPayload], { type: 'application/json' }));
-          }
-        } catch (_) {}
-        if (!sent) {
-          fetch('https://thumbgate.ai/v1/telemetry/ping', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: pingPayload,
-            keepalive: true
-          }).catch(() => {});
-        }
-      }
     }
 
     async function initPricingAnalytics() {
-      trackPricingEvent('pricing_page_viewed');
+      // Arrival and pricing exposure are separate events. Seeing the pricing section starts no checkout.
+      trackPricingEvent('dayglass_site_arrival');
+      if (window.location.pathname.endsWith('/pricing.html') || window.location.pathname.endsWith('/pricing')) {
+        trackPricingEvent('pricing_page_viewed'); // legacy metric, kept separate from pricing_section_seen
+      }
+      const pricingHeading = document.querySelector('#pricing h2');
+      if (pricingHeading && 'IntersectionObserver' in window) {
+        const seen = new IntersectionObserver((entries) => {
+          if (!entries.some((e) => e.intersectionRatio >= 0.5)) return;
+          seen.disconnect();
+          trackPricingEvent('pricing_section_seen');
+        }, { threshold: 0.5 });
+        seen.observe(pricingHeading);
+      }
       if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
         try {
           const res = await fetch('/api/billing/status');
@@ -1099,41 +1050,6 @@
       // If the redirect fails or the page comes back, a later real abandon must still count.
       setTimeout(() => { redirectingToStripe = false; }, 5000);
       window.location.assign(`${base}${sep}client_reference_id=${encodeURIComponent(clientRef)}&utm_source=${encodeURIComponent(utm)}&utm_medium=${encodeURIComponent(med)}&utm_campaign=${encodeURIComponent(camp)}&utm_content=${encodeURIComponent(AB_VARIANT)}&ab_variant=${encodeURIComponent(AB_VARIANT)}`);
-    }
-
-    function updateRoiCalculator() {
-      const team = Number(document.getElementById('roiTeamSize')?.value || 1);
-      const hrs = Number(document.getElementById('roiHoursPerWeek')?.value || 2);
-      const rate = Number(document.getElementById('roiHourlyRate')?.value || 75);
-      const eff = 0.80;
-      const monthlyHrs = team * hrs * 4.3333333333 * eff;
-      const monthlyUsd = Math.round(monthlyHrs * rate);
-      const annualHrs = Math.round(monthlyHrs * 12);
-      const proCost = Math.max(19, team * 19);
-      const tEl = document.getElementById('roiTeamSizeVal');
-      const hEl = document.getElementById('roiHoursVal');
-      const rEl = document.getElementById('roiRateVal');
-      const mEl = document.getElementById('roiMonthlySavings');
-      const aEl = document.getElementById('roiAnnualSavings');
-      const bEl = document.getElementById('roiMultipleBadge');
-      if (tEl) tEl.textContent = String(team);
-      if (hEl) hEl.textContent = hrs + ' hrs';
-      if (rEl) rEl.textContent = '$' + rate + '/hr';
-      if (mEl) mEl.textContent = monthlyHrs.toFixed(1) + ' hrs/mo ($' + monthlyUsd.toLocaleString() + ')';
-      if (aEl) aEl.textContent = '~' + annualHrs.toLocaleString() + ' hrs/yr back from manual follow-ups';
-      if (bEl) bEl.textContent = '~' + monthlyHrs.toFixed(1) + ' hrs/mo saved vs $' + proCost + '/mo Pro';
-    }
-
-    function startRoiCheckout() {
-      const team = Number(document.getElementById('roiTeamSize')?.value || 1);
-      const hrs = Number(document.getElementById('roiHoursPerWeek')?.value || 2);
-      const rate = Number(document.getElementById('roiHourlyRate')?.value || 75);
-      trackPricingEvent('roi_calculator_interacted', {
-        team_size: team,
-        hours_per_week: hrs,
-        hourly_rate: rate,
-      });
-      beginStripeCheckout('pro_monthly', 19);
     }
 
     window.addEventListener('pageshow', (e) => { if (e.persisted) redirectingToStripe = false; });

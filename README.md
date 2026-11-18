@@ -2,11 +2,11 @@
 
 **Your private AI memory for work. Bot-free meeting notes that Claude Code and Cursor can read while the call is live.**
 
-![Dayglass Studio Live](https://igorganapolsky.github.io/dayglass-mac/dayglass-studio-live.png)
+![Dayglass Studio Live](https://www.dayglass.io/dayglass-studio-live.png)
 
-- **Website & Interactive Demo**: [https://igorganapolsky.github.io/dayglass-mac/](https://igorganapolsky.github.io/dayglass-mac/)
+- **Website & Interactive Demo**: [https://www.dayglass.io/](https://www.dayglass.io/)
 - **Direct Download (`.dmg`)**: [Download Dayglass for macOS](https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg) (SHA-256 is in `SHA256SUMS` on the release page)
-- **AI Search / LLM Manifest (`llms.txt`)**: [https://igorganapolsky.github.io/dayglass-mac/llms.txt](https://igorganapolsky.github.io/dayglass-mac/llms.txt)
+- **AI Search / LLM Manifest (`llms.txt`)**: [https://www.dayglass.io/llms.txt](https://www.dayglass.io/llms.txt)
 
 ---
 
@@ -15,8 +15,8 @@
 | Plan | Price | What is included | Get it |
 | :--- | :--- | :--- | :--- |
 | **Free trial** | **$0, no card** | Your first 10 meetings with everything included. After that, capture, transcripts, search and export stay free. Ask AI on older history, AI briefs and the Claude/Cursor live link need Pro. | [Download Free `.DMG`](https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg) |
-| **Pro** | **$149/year** (save 35%) or **$19/month** | Everything, on every meeting: the Claude Code/Cursor live link over MCP, Ask AI on older history, AI briefs, unlimited meetings. | [Pricing page](https://igorganapolsky.github.io/dayglass-mac/#pricing) |
-| **Lifetime** | **$249 once** (founding price $199 for the first 100 buyers) | Everything in Pro, no subscription. | [Pricing page](https://igorganapolsky.github.io/dayglass-mac/#pricing) |
+| **Pro** | **$149/year** (save 35%) or **$19/month** | Everything, on every meeting: the Claude Code/Cursor live link over MCP, Ask AI on older history, AI briefs, unlimited meetings. | [Pricing page](https://www.dayglass.io/#pricing) |
+| **Lifetime** | **$199 founding price for the first 100 buyers, then $249 once** | Everything in Pro, no subscription. | [Pricing page](https://www.dayglass.io/#pricing) |
 
 14-day money-back guarantee. Just email igor@dayglass.io.
 
@@ -41,18 +41,15 @@ brew install --cask igorganapolsky/dayglass/dayglass
 ### Option 3: 1-line terminal installer
 
 ```bash
-curl -fsSL https://igorganapolsky.github.io/dayglass-mac/install.sh | bash
+curl -fsSL https://www.dayglass.io/install.sh | bash
 ```
 
 ---
 
 ## What's Inside Dayglass
 
-- **384,000-Token SubQ Snap 3-Way Hybrid GraphRAG** (BM25 + 256d Dense Semantic + 2-Hop Episode Graph in local SQLite)
 - **Bot-free call recording** via macOS `ScreenCaptureKit` (records both your Mic and AirPods/Headphones without joining Zoom/Teams/Meet as a bot)
-- **On-Device AI Companion 3.0 & OpenUI Generative UI Cards** (answers *"is what they're pitching useful?"* in real time during calls)
-- **Starred Focus Sessions (`Cmd+Ctrl+B`)** -> compiles 15-minute work windows into reusable `SKILL.md` agent skills
-- **1-Click MCP Server** for Claude Desktop, Claude Code, Cursor, Poolside, and Oh-My-Pi
+- **Local MCP server** (`python3 -m dayglass mcp`) that Claude Code, Claude Desktop and Cursor can connect to
 - **Live meeting for other agents:** while a Zoom, Teams, or Meet call is in progress, Claude, Cursor, and the other agents on your Mac read the speaker-tagged transcript through the local tool `dayglass_get_live_meeting`. The transcript stays in `~/.dayglass`.
 
 ## Privacy
