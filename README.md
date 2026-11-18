@@ -26,11 +26,11 @@
 
 ## Install in 10 Seconds
 
-### Option 1: 1-Line Terminal Installer (Recommended — clears Gatekeeper quarantine automatically)
+### Option 1: Download the `.dmg` (recommended)
 
-```bash
-curl -fsSL https://igorganapolsky.github.io/dayglass-mac/install.sh | bash
-```
+1. Download [`Dayglass.dmg`](https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg)
+2. Open it and drag `Dayglass.app` into `/Applications`
+3. Open Dayglass. The app is signed with a Developer ID and notarized by Apple, so macOS opens it without a warning.
 
 ### Option 2: Homebrew Cask
 
@@ -38,14 +38,11 @@ curl -fsSL https://igorganapolsky.github.io/dayglass-mac/install.sh | bash
 brew install --cask igorganapolsky/dayglass/dayglass
 ```
 
-### Option 3: Direct `.dmg` Download
+### Option 3: 1-line terminal installer
 
-1. Download [`Dayglass.dmg`](https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg)
-2. Drag `Dayglass.app` into `/Applications`
-3. If macOS Gatekeeper prompts on first launch, run:
-   ```bash
-   xattr -dr com.apple.quarantine /Applications/Dayglass.app
-   ```
+```bash
+curl -fsSL https://igorganapolsky.github.io/dayglass-mac/install.sh | bash
+```
 
 ---
 
