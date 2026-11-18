@@ -62,6 +62,15 @@ class Hero(unittest.TestCase):
                 ["Recording and storage", "Dayglass AI", "Claude and Cursor"],
             )
 
+    def test_privacy_boundary_makes_only_true_claims(self):
+        for path in ("/", "/pricing.html"):
+            text = self._open(path, 1280).locator("#privacyBoundary").inner_text()
+            self.assertIn("audio is transcribed on the Mac and not kept by default", text)
+            self.assertIn("Only your Never-share list is withheld by default", text)
+            self.assertIn("turn on Paranoid mode to replace emails, names, paths and secrets", text)
+            for false_claim in ("Audio, screen text and notes stay", "phone numbers", "placeholders", "swapped"):
+                self.assertNotIn(false_claim, text)
+
     def test_section_order(self):
         page = self._open("/", 1280)
         tops = page.evaluate("ids => ids.map(i => document.getElementById(i).getBoundingClientRect().top + scrollY)", ORDER)

@@ -444,8 +444,8 @@
       <div class="boundary" id="privacyBoundary" aria-labelledby="boundaryTitle">
         <h2 id="boundaryTitle">Where your meeting data goes</h2>
         <dl>
-          <div><dt>Recording and storage</dt><dd>On your Mac. Audio, screen text and notes stay in <code>~/.dayglass</code>, and no bot joins the call.</dd></div>
-          <div><dt>Dayglass AI</dt><dd>Runs on a local model or a cloud model, whichever you pick. With a cloud model, your question and the relevant meeting text are sent to it, after emails, phone numbers and secrets are swapped for placeholders.</dd></div>
+          <div><dt>Recording and storage</dt><dd>On your Mac. Transcripts, screen text and notes stay in <code>~/.dayglass</code>, and audio is transcribed on the Mac and not kept by default. No bot joins the call.</dd></div>
+          <div><dt>Dayglass AI</dt><dd>Runs on a local model or a cloud model, whichever you pick. With a cloud model, your question and the relevant meeting text are sent to it. Only your Never-share list is withheld by default; turn on Paranoid mode to replace emails, names, paths and secrets before anything leaves the Mac.</dd></div>
           <div><dt>Claude and Cursor</dt><dd>Receive the context they ask for, and process it under their own policies.</dd></div>
         </dl>
       </div>
@@ -750,7 +750,7 @@
           </tr>
           <tr>
             <td><strong>Where Transcripts &amp; Notes Live</strong></td>
-            <td><strong>Audio, screen and database stay on your Mac (`~/.dayglass`)</strong></td>
+            <td><strong>Transcripts, screen text and database stay on your Mac (`~/.dayglass`); audio is not kept by default</strong></td>
             <td>Notes and transcripts stored on Granola's cloud (AWS, US) and cached on your Mac; audio deleted after transcription</td>
             <td>Local on Mac</td>
             <td>Vendor cloud servers</td>
