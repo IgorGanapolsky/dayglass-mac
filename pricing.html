@@ -6,7 +6,7 @@
   <link rel="apple-touch-icon" href="/icon-256.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dayglass for Mac — Your private AI memory for work</title>
-  <meta name="description" content="Bot-free meeting notes for Mac. Claude Code and Cursor read your live call over MCP. Audio, screen and the database stay on your Mac. Free for your first 10 meetings, no card." />
+  <meta name="description" content="Bot-free meeting notes for Mac. Claude Code and Cursor read your live call over MCP. Transcripts, screen text and notes stay on your Mac. Free for your first 10 meetings, no card." />
   <link rel="canonical" href="https://dayglass.io/pricing" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://dayglass.io/pricing" />
@@ -52,7 +52,7 @@
         "name": "Where are my screen captures, audio transcripts, and meeting notes stored?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Audio, screen text and the database stay on your Mac in ~/.dayglass/dayglass.sqlite, and you can inspect that file directly. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model, after emails, phone numbers, secrets and known names are swapped for placeholders. With a local model nothing leaves the Mac."
+          "text": "Transcripts, screen text and notes stay on your Mac in ~/.dayglass/dayglass.sqlite, and you can inspect that file directly. Audio is transcribed on the Mac and not kept by default. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model. By default, only terms on your Never-share list are withheld before text goes to a cloud model you choose. With a local model nothing leaves the Mac."
         }
       },
       {
@@ -60,7 +60,7 @@
         "name": "How does Dayglass compare to Granola, MacWhisper, and Screenpipe?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Like Granola, Dayglass captures calls without a meeting bot, but Dayglass keeps audio, screen and the database on your Mac, adds searchable screen OCR across slides and terminal windows, and includes a built-in MCP server so Claude, Cursor, and the other agents on your Mac can read the meeting while it is still in progress. The free trial covers your first 10 meetings with everything included, no card."
+          "text": "Like Granola, Dayglass captures calls without a meeting bot, and Granola also offers a hosted MCP server for your notes. Dayglass keeps transcripts, screen text and the database on your Mac, adds searchable screen OCR across slides and terminal windows, and runs a local MCP server so Claude, Cursor, and the other agents on your Mac can read the meeting while it is still in progress. The free trial covers your first 10 meetings with everything included, no card."
         }
       },
       {
@@ -112,6 +112,9 @@
       padding: 18px 0; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 12px;
     }
     .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; color: var(--text); text-decoration: none; }
+    /* Links that set no colour of their own read on the dark background (default blue did not). */
+    :where(a) { color: var(--accent); }
+    .price .price-note { display: block; margin-top: 4px; }
     .brand-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
     .nav-links { display: flex; gap: 22px; align-items: center; font-size: 14px; flex-wrap: wrap; }
     .nav-links a { color: var(--muted); text-decoration: none; font-weight: 500; }
@@ -329,7 +332,6 @@
         <a href="/privacy">Privacy</a>
         <a href="#pricing">Pricing</a>
         <a href="#compare">vs. Granola</a>
-        <a href="#critique">What's wrong</a>
         <a href="#pricing" data-buy="pro_annual" style="color: var(--accent); font-weight: 600;">Get Pro</a>
       </div>
     </nav>
@@ -337,14 +339,14 @@
     <div class="trust-strip">
       <span class="trust-badge">🎧 No bot in your calls</span>
       <span class="trust-badge">🔌 Claude Code and Cursor read your live call over MCP</span>
-      <span class="trust-badge">🔒 Audio, screen and database stay on your Mac</span>
+      <span class="trust-badge">🔒 Transcripts and screen text stay on your Mac</span>
       <span class="trust-badge">💬 1-click consent note for the other people on the call</span>
     </div>
 
     <section class="hero" id="install">
       <h1 id="heroHeadline">Your private AI memory for work.</h1>
       <p id="heroSubheadline">
-        Meetings, decisions and commitments, remembered on your Mac, and readable by Claude and Cursor while the call is still happening. Free for your first 10 meetings, no card.
+        Meetings, decisions and commitments, remembered on your Mac, and readable by Claude and Cursor while the call is still happening. Free for your first 10 meetings, no card. Pro is $19 a month.
       </p>
 
       <div class="cta-row">
@@ -456,7 +458,7 @@
     <section class="story-section" id="features">
       <div class="section-eyebrow">Core Capabilities</div>
       <h2>Meeting notes your coding agent can read while the call is live</h2>
-      <div class="sub">No bots in your calendar invites, audio and screen stay on your Mac, and no manual note-taking.</div>
+      <div class="sub">No bots in your calendar invites, transcripts and screen text stay on your Mac, and no manual note-taking.</div>
       <div class="story-grid">
         <!-- Card 5 -->
         <div class="story-card">
@@ -599,7 +601,7 @@
       <div class="section-eyebrow">How it works on your Mac</div>
       <h2 style="font-size: 26px; font-weight: 800; margin-bottom: 8px;">Capture, store and search on Apple Silicon</h2>
       <p style="color: var(--muted); font-size: 14.5px; max-width: 720px; margin: 0 auto 22px;">
-        Meeting audio, screen text and summaries are stored in <code>~/.dayglass/dayglass.sqlite</code> on your Mac. Optional setting: continuous screen memory, which captures your screen outside meetings too, so you can search what you saw last week. Turn it on or off in settings.
+        Meeting transcripts, screen text and summaries are stored in <code>~/.dayglass/dayglass.sqlite</code> on your Mac. Optional setting: continuous screen memory, which captures your screen outside meetings too, so you can search what you saw last week. Turn it on or off in settings.
       </p>
       <svg viewBox="0 0 960 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%; height: auto;">
         <rect x="12" y="24" width="205" height="102" rx="14" fill="#0b0e17" stroke="#38bdf8" stroke-opacity="0.55" stroke-width="1.5"/>
@@ -619,7 +621,7 @@
         <rect x="526" y="24" width="195" height="102" rx="14" fill="#0b0e17" stroke="#fbbf24" stroke-opacity="0.55" stroke-width="1.5"/>
         <text x="544" y="54" fill="#fbbf24" font-size="12" font-family="monospace" font-weight="700">3. PRIVACY GUARD</text>
         <text x="544" y="76" fill="#e2e8f0" font-size="12" font-family="sans-serif">Skips Password Managers</text>
-        <text x="544" y="96" fill="#94a3b8" font-size="11" font-family="sans-serif">&amp; Swaps PII for placeholders</text>
+        <text x="544" y="96" fill="#94a3b8" font-size="11" font-family="sans-serif">&amp; Withholds Never-share terms</text>
 
         <path d="M729 75 H759 M753 69 L759 75 L753 81" stroke="#34d399" stroke-width="2" stroke-linecap="round"/>
 
@@ -634,7 +636,7 @@
     <section class="story-section" id="trust"><span id="privacy"></span>
       <div class="section-eyebrow">Why Engineers &amp; Founders Trust Dayglass</div>
       <h2>What stays on your Mac, and what can leave</h2>
-      <div class="sub">Audio, screen and the database stay on your Mac. The one thing that can leave is text sent to a cloud model, and only if you turn one on for Ask AI.</div>
+      <div class="sub">Transcripts, screen text and notes stay on your Mac. The one thing that can leave is text sent to a cloud model, and only if you turn one on for Ask AI.</div>
       <div class="story-grid">
         <div class="story-card">
           <div>
@@ -655,7 +657,7 @@
         <div class="story-card">
           <div>
             <h3>🛡️ Ask AI: cloud model or local model, your choice</h3>
-            <p>If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model, after emails, phone numbers, secrets and known names are swapped out for placeholders. Other text, such as company names and project names, goes as written. With a local model nothing leaves the Mac. Password managers and private windows are skipped during capture.</p>
+            <p>Audio is transcribed on the Mac and not kept by default. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model. By default, only terms on your Never-share list are withheld before text goes to a cloud model you choose. Other text, such as company names and project names, goes as written. With a local model nothing leaves the Mac. Windows of password managers such as 1Password and Bitwarden are skipped during capture.</p>
           </div>
           <span class="card-meta-tag">Cloud model is your choice</span>
         </div>
@@ -682,7 +684,7 @@
         </div>
 
         <div class="card featured">
-          <span class="badge">Most Popular</span>
+          <span class="badge">Full access</span>
           <div class="plan-name">Pro</div>
           <div class="billing-toggle" role="group" aria-label="Billing period">
             <button type="button" id="billMonthly" aria-pressed="false">Monthly</button>
@@ -705,7 +707,7 @@
         <div class="card">
           <div class="ribbon">Founding price $199 for the first 100 buyers</div>
           <div class="plan-name">Lifetime</div>
-          <div class="price">$199 <span>once &middot; <s>$249</s> after the first 100</span></div>
+          <div class="price">$199 <span class="price-note">once &middot; <s>$249</s> after the first 100</span></div>
           <div class="tagline">Pay once. Everything in Pro.</div>
           <ul class="features">
             <li><span><strong>Everything in Pro</strong>, with no subscription</span></li>
@@ -771,13 +773,13 @@
             <td><strong>Yes (native ScreenCaptureKit)</strong></td>
             <td>Yes (bot-free)</td>
             <td>Yes (manual/system audio)</td>
-            <td>No — joins call as visible bot</td>
+            <td>Join as a bot by default. Fathom has bot-free capture on Mac (beta, every plan including Free); Otter's desktop app records without a bot</td>
             <td>Yes (24/7 local capture)</td>
           </tr>
           <tr>
             <td><strong>Where Transcripts &amp; Notes Live</strong></td>
-            <td><strong>Audio, screen and database stay on your Mac (`~/.dayglass`)</strong></td>
-            <td>Cloud LLM processing</td>
+            <td><strong>Audio transcribed on your Mac, not kept by default; transcripts, screen text and database stay on your Mac (`~/.dayglass`)</strong></td>
+            <td>Notes and transcripts stored on Granola's cloud (AWS, US) and cached on your Mac; audio deleted after transcription</td>
             <td>Local on Mac</td>
             <td>Vendor cloud servers</td>
             <td>Local disk</td>
@@ -785,27 +787,39 @@
           <tr>
             <td><strong>Search Slides &amp; Shared Screens</strong></td>
             <td><strong>Yes (Apple Vision OCR + SQLite FTS5)</strong></td>
-            <td>No (audio/notes only)</td>
+            <td>Snapshots of screens other people share, attached to the note (Mac, macOS 14+)</td>
             <td>No (audio files only)</td>
-            <td>No (meeting video only)</td>
+            <td>Not checked</td>
             <td>Yes (OCR + audio search)</td>
           </tr>
           <tr>
-            <td><strong>Built-In Claude Code &amp; Cursor MCP</strong></td>
-            <td><strong>Yes. Live transcript while the call is in progress</strong></td>
-            <td>No local MCP server</td>
-            <td>No</td>
-            <td>No local MCP server</td>
-            <td>Yes (via CLI/plugins)</td>
+            <td><strong>Claude Code &amp; Cursor access (MCP)</strong></td>
+            <td><strong>Yes. Local MCP server. Claude and Cursor can read the live transcript while the call is in progress, plus screen text</strong></td>
+            <td>Yes. Hosted MCP server (launched Feb 2026); free plan covers 30 days of notes, no transcripts</td>
+            <td>No MCP server we could find</td>
+            <td>Fathom: official hosted MCP server. Otter: hosted MCP reported by third parties</td>
+            <td>Yes. Local MCP server (search and video export)</td>
           </tr>
           <tr>
             <td><strong>Free Tier Includes Bot-Free Recording</strong></td>
             <td><strong>Yes (first 10 meetings, no card)</strong></td>
-            <td>Limited trial</td>
+            <td>Free plan with limits</td>
             <td>Free basic Whisper model</td>
-            <td>Free with visible call bot</td>
+            <td>Free plans available</td>
             <td>Open-source CLI / paid desktop</td>
           </tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin-top: 28px;">Other local, bot-free options</h3>
+      <table>
+        <thead>
+          <tr><th>Tool</th><th>Price (from each tool's own site)</th><th>MCP for Claude and Cursor</th><th>Where it runs</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Dayglass</strong></td><td>Free for 10 meetings, then Pro $19/month or $149/year</td><td>Local MCP server, live transcript during the call</td><td>Recording and storage on your Mac</td></tr>
+          <tr><td>Anarlog (formerly Hyprnote)</td><td>Free; Pro $14/person/month or $140/person/year</td><td>MCP included on the Free plan</td><td>On-device by default; cloud transcription and cloud model are Pro features</td></tr>
+          <tr><td>Meetily</td><td>Community edition free and open source; Pro $10/user/month billed annually</td><td>MCP on Pro</td><td>Transcription on your device by default</td></tr>
         </tbody>
       </table>
     </section>
@@ -820,7 +834,7 @@
         </div>
         <div class="story-card">
           <h3>Does any screen or audio data leave my Mac?</h3>
-          <p>Audio, screen text and the database stay on your Mac in <code>~/.dayglass/dayglass.sqlite</code>. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model, after emails, phone numbers, secrets and known names are swapped out for placeholders. Other text goes as written. With a local model nothing leaves the Mac. Password managers and private windows are skipped during capture.</p>
+          <p>Transcripts, screen text and notes stay on your Mac in <code>~/.dayglass/dayglass.sqlite</code>. Audio is transcribed on the Mac and not kept by default. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model. By default, only terms on your Never-share list are withheld before text goes to a cloud model you choose. Other text goes as written. With a local model nothing leaves the Mac. Windows of password managers such as 1Password and Bitwarden are skipped during capture.</p>
         </div>
         <div class="story-card">
           <h3>Can Claude and other agents see a meeting while it is still in progress?</h3>
@@ -828,13 +842,13 @@
         </div>
         <div class="story-card">
           <h3>Why choose Dayglass over Granola or MacWhisper?</h3>
-          <p>Granola is great for bot-free meeting notes, and MacWhisper is great for transcribing audio files. Dayglass combines <strong>bot-free meeting notes stored on your Mac</strong> with <strong>searchable meeting screen and slide capture</strong> and a <strong>built-in MCP server</strong> so Claude, Cursor, and the other agents on your Mac can read the meeting while it is still in progress.</p>
+          <p>Granola is great for bot-free meeting notes, and MacWhisper is great for transcribing audio files. Granola also has a hosted MCP server for your notes. Dayglass keeps <strong>meeting notes stored on your Mac</strong>, adds <strong>searchable meeting screen and slide capture</strong>, and runs a <strong>local MCP server</strong> so Claude, Cursor, and the other agents on your Mac can read the meeting while it is still in progress.</p>
         </div>
       </div>
     </section>
 
     <div class="consent-box">
-      <strong>🔒 Privacy Policy &amp; Participant Consent:</strong> Dayglass keeps your audio, screen capture and database on your Mac under <code>~/.dayglass</code>, and we run no server that receives them. If you turn on a cloud model for Ask AI, the question and the relevant meeting text go to that model, with emails, phone numbers, secrets and known names swapped for placeholders first. With a local model nothing leaves the Mac. Use the built-in <strong>1-Click Call Consent Snippet</strong> to notify call participants and always follow applicable call-recording consent laws in your jurisdiction. Questions or security audits? Contact founder Igor Ganapolsky via <a href="https://github.com/IgorGanapolsky/dayglass-mac/issues" style="color: var(--accent);">GitHub Issues</a>.
+      <strong>🔒 Privacy Policy &amp; Participant Consent:</strong> Dayglass keeps your transcripts, screen text and database on your Mac under <code>~/.dayglass</code>, and we run no server that receives them. Audio is transcribed on the Mac and not kept by default. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model. By default, only terms on your Never-share list are withheld before text goes to a cloud model you choose. With a local model nothing leaves the Mac. Use the built-in <strong>1-Click Call Consent Snippet</strong> to notify call participants and always follow applicable call-recording consent laws in your jurisdiction. Questions or security audits? Contact founder Igor Ganapolsky via <a href="https://github.com/IgorGanapolsky/dayglass-mac/issues" style="color: var(--accent);">GitHub Issues</a>.
     </div>
 
     <section id="critique" class="story-section" style="margin-top: 44px;">
@@ -855,7 +869,8 @@
       Dayglass for macOS &bull; Signed &amp; Notarized by Apple (Developer ID 9GMM26JC5X) &bull;
       <a href="https://github.com/IgorGanapolsky/dayglass-mac/releases/latest" style="color: var(--accent);">Release Notes</a> &bull;
       <a href="https://github.com/IgorGanapolsky/homebrew-dayglass" style="color: var(--accent);">Homebrew Tap</a> &bull;
-      <a href="https://igorganapolsky.github.io/dayglass-mac/llms.txt" style="color: var(--accent);">llms.txt</a>
+      <a href="https://igorganapolsky.github.io/dayglass-mac/llms.txt" style="color: var(--accent);">llms.txt</a> &bull;
+      <a href="#critique" style="color: var(--accent);">What's wrong?</a>
     </footer>
   </div>
 
@@ -901,6 +916,9 @@
     }
 
     let checkoutStarted = false;
+    let redirectingToStripe = false;
+    // Automated visits (headless browsers, local previews) must not add events to the production funnel.
+    const MACHINE_VISIT = navigator.webdriver === true || ['127.0.0.1', 'localhost', ''].includes(window.location.hostname);
     let checkoutPlan = '';
     let licenseActivatedInModal = false;
     // One place to change checkout targets. Swapping a link is a one-line edit here.
@@ -920,46 +938,8 @@
     const DISTINCT_ID = localStorage.getItem("dg_distinct_id") || ("dg-web-" + Math.random().toString(36).slice(2, 12));
     localStorage.setItem("dg_distinct_id", DISTINCT_ID);
 
-    const _AB_VARIANTS = {
-      A: {
-        name: "bot_free_privacy",
-        badge: "Native Swift Menu Bar + Studio · Apple Silicon",
-        h1: "Your private AI memory for work.",
-        sub: "Meetings, decisions and commitments, remembered on your Mac, and readable by Claude and Cursor while the call is still happening. Free for your first 10 meetings, no card.",
-        cta: " Download Free for Mac (.dmg)"
-      },
-      B: {
-        name: "total_screen_memory",
-        badge: "Meeting memory · Local SQLite",
-        h1: "Your private AI memory for work.",
-        sub: "Meetings, decisions and commitments, remembered on your Mac, and readable by Claude and Cursor while the call is still happening. Free for your first 10 meetings, no card.",
-        cta: " Get Total Mac Memory Free (.dmg)"
-      },
-      C: {
-        name: "live_meeting_copilot",
-        badge: "Real-Time Stealth Meeting Copilot · Invisible on Screen Share",
-        h1: "Your private AI memory for work.",
-        sub: "Meetings, decisions and commitments, remembered on your Mac, and readable by Claude and Cursor while the call is still happening. Free for your first 10 meetings, no card.",
-        cta: " Download Live Copilot Free (.dmg)"
-      }
-    };
-    const _AB_KEYS = Object.keys(_AB_VARIANTS);
-    const _urlParams = new URLSearchParams(window.location.search);
-    const _forcedVariant = _urlParams.get("variant") || _urlParams.get("ab_variant") || _urlParams.get("adcontent");
-    let _hash = 0;
-    for (let i = 0; i < DISTINCT_ID.length; i++) _hash = ((_hash << 5) - _hash + DISTINCT_ID.charCodeAt(i)) | 0;
-    const AB_VARIANT = (_forcedVariant && _AB_VARIANTS[_forcedVariant])
-      ? _forcedVariant
-      : (localStorage.getItem("dg_ab_variant") || _AB_KEYS[Math.abs(_hash) % _AB_KEYS.length]);
-    localStorage.setItem("dg_ab_variant", AB_VARIANT);
-    (function applyAbVariant() {
-      const v = _AB_VARIANTS[AB_VARIANT];
-      if (!v) return;
-      const h1 = document.getElementById("heroHeadline");
-      const sub = document.getElementById("heroSubheadline");
-      if (h1) h1.textContent = v.h1;
-      if (sub) sub.textContent = v.sub + " Pro is $19 a month.";
-    })();
+    // One page version. The A/B test was removed: every variant had the same headline and subhead.
+    const AB_VARIANT = "control";
 
     if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
       const brand = document.getElementById("navBrandLink");
@@ -990,6 +970,8 @@
       }
     }
     function trackPricingEvent(eventName, properties = {}) {
+      if (window.__DG_EVENT_SINK) window.__DG_EVENT_SINK(eventName, properties);
+      if (MACHINE_VISIT) return;
       const params = new URLSearchParams(window.location.search);
       const utm_source = params.get('utm_source') || params.get('source') || 'direct';
       const utm_medium = params.get('utm_medium') || params.get('medium') || '';
@@ -1096,6 +1078,9 @@
       const camp = params.get('utm_campaign') || params.get('campaign') || 'dayglass_v2_2_viral';
       const clientRef = `${DISTINCT_ID}__${AB_VARIANT}__${utm}`.replace(/[^a-zA-Z0-9_-]/g, '_').slice(0, 190);
       const sep = base.includes('?') ? '&' : '?';
+      redirectingToStripe = true; // leaving for Stripe is a checkout click (checkout_initiated), not an abandon
+      // If the redirect fails or the page comes back, a later real abandon must still count.
+      setTimeout(() => { redirectingToStripe = false; }, 5000);
       window.location.assign(`${base}${sep}client_reference_id=${encodeURIComponent(clientRef)}&utm_source=${encodeURIComponent(utm)}&utm_medium=${encodeURIComponent(med)}&utm_campaign=${encodeURIComponent(camp)}&utm_content=${encodeURIComponent(AB_VARIANT)}&ab_variant=${encodeURIComponent(AB_VARIANT)}`);
     }
 
@@ -1134,8 +1119,9 @@
       beginStripeCheckout('pro_monthly', 19);
     }
 
+    window.addEventListener('pageshow', (e) => { if (e.persisted) redirectingToStripe = false; });
     window.addEventListener('pagehide', () => {
-      if (checkoutStarted && !licenseActivatedInModal) {
+      if (checkoutStarted && !redirectingToStripe && !licenseActivatedInModal) {
         trackPricingEvent('checkout_abandoned', { abandonment_stage: 'stripe_redirect_opened_not_completed', plan: checkoutPlan });
       }
     });

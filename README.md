@@ -26,11 +26,11 @@
 
 ## Install in 10 Seconds
 
-### Option 1: 1-Line Terminal Installer (Recommended — clears Gatekeeper quarantine automatically)
+### Option 1: Download the `.dmg` (recommended)
 
-```bash
-curl -fsSL https://igorganapolsky.github.io/dayglass-mac/install.sh | bash
-```
+1. Download [`Dayglass.dmg`](https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg)
+2. Open it and drag `Dayglass.app` into `/Applications`
+3. Open Dayglass. The app is signed with a Developer ID and notarized by Apple, so macOS opens it without a warning.
 
 ### Option 2: Homebrew Cask
 
@@ -38,14 +38,11 @@ curl -fsSL https://igorganapolsky.github.io/dayglass-mac/install.sh | bash
 brew install --cask igorganapolsky/dayglass/dayglass
 ```
 
-### Option 3: Direct `.dmg` Download
+### Option 3: 1-line terminal installer
 
-1. Download [`Dayglass.dmg`](https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg)
-2. Drag `Dayglass.app` into `/Applications`
-3. If macOS Gatekeeper prompts on first launch, run:
-   ```bash
-   xattr -dr com.apple.quarantine /Applications/Dayglass.app
-   ```
+```bash
+curl -fsSL https://igorganapolsky.github.io/dayglass-mac/install.sh | bash
+```
 
 ---
 
@@ -54,11 +51,10 @@ brew install --cask igorganapolsky/dayglass/dayglass
 - **384,000-Token SubQ Snap 3-Way Hybrid GraphRAG** (BM25 + 256d Dense Semantic + 2-Hop Episode Graph in local SQLite)
 - **Bot-free call recording** via macOS `ScreenCaptureKit` (records both your Mic and AirPods/Headphones without joining Zoom/Teams/Meet as a bot)
 - **On-Device AI Companion 3.0 & OpenUI Generative UI Cards** (answers *"is what they're pitching useful?"* in real time during calls)
-- **Vitalik Buterin 4-Layer Paranoid Mode** (local reversible PII prompt rewriter, per-session circuit isolation, 4KB cover traffic padding, and SHA-256 zkAPI blind proofs)
 - **Starred Focus Sessions (`Cmd+Ctrl+B`)** -> compiles 15-minute work windows into reusable `SKILL.md` agent skills
 - **1-Click MCP Server** for Claude Desktop, Claude Code, Cursor, Poolside, and Oh-My-Pi
-- **Live meeting for other agents:** while a Zoom, Teams, or Meet call is in progress, Claude, Cursor, and the other agents on your Mac read the speaker-tagged transcript through the local tool `dayglass_get_live_meeting`. The audio stays in `~/.dayglass`.
+- **Live meeting for other agents:** while a Zoom, Teams, or Meet call is in progress, Claude, Cursor, and the other agents on your Mac read the speaker-tagged transcript through the local tool `dayglass_get_live_meeting`. The transcript stays in `~/.dayglass`.
 
 ## Privacy
 
-Audio, screen and the database stay on your Mac. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model, after emails, phone numbers, secrets and known names are swapped out for placeholders. With a local model nothing leaves the Mac.
+Transcripts, screen text and notes stay on your Mac. Audio is transcribed on the Mac and not kept by default. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model. By default, only terms on your Never-share list are withheld before text goes to a cloud model you choose. With a local model nothing leaves the Mac.
