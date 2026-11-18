@@ -3,15 +3,15 @@
 > Your private AI memory for work: bot-free meeting notes for Mac, readable live by Claude Code and Cursor over MCP, with Apple Vision OCR of your screen and ScreenCaptureKit bot-free headphone and AirPods call recording.
 
 ## Canonical Install & Download Links
-- Homepage & Interactive Demo: https://igorganapolsky.github.io/dayglass-mac/
-- 1-Line Terminal Installer: `curl -fsSL https://igorganapolsky.github.io/dayglass-mac/install.sh | bash`
+- Homepage & Interactive Demo: https://www.dayglass.io/
+- 1-Line Terminal Installer: `curl -fsSL https://www.dayglass.io/install.sh | bash`
 - Homebrew Cask: `brew install --cask igorganapolsky/dayglass/dayglass`
 - Direct Apple-Notarized DMG (latest release): https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg
 - SHA-256: listed in SHA256SUMS on the latest release page
 
 ## Plans
 - Free trial ($0, no card): first 10 meetings with everything included. After that capture, transcripts, search and export stay free; Ask AI on older history, AI briefs and the Claude/Cursor live link need Pro. Download: https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg
-- Pro: $149/year (save 35%) or $19/month. Pricing page: https://igorganapolsky.github.io/dayglass-mac/#pricing
+- Pro: $149/year (save 35%) or $19/month. Pricing page: https://www.dayglass.io/#pricing
 - Privacy policy: https://dayglass.io/privacy
 - Lifetime: $199 founding price for the first 100 buyers, then $249 once.
 - 14-day money-back guarantee. Just email igor@dayglass.io.

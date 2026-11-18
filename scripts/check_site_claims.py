@@ -43,6 +43,8 @@ BANNED = (
     "of that time",
     # One price story: Stripe only, no Gumroad listings, no Ultra tier.
     "gumroad",
+    # The custom domain is the public address; the github.io mirror is not linked.
+    "igorganapolsky.github.io",
     "Ultra",
     "swapped for placeholders",
     "swapped out for placeholders",

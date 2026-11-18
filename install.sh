@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Dayglass — 1-Command macOS Installer
-# Usage: curl -fsSL https://igorganapolsky.github.io/dayglass-mac/install.sh | bash
+# Usage: curl -fsSL https://www.dayglass.io/install.sh | bash
 set -euo pipefail
 
 BASE_URL="https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download"
