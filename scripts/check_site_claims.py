@@ -31,6 +31,7 @@ BANNED = (
     # Paranoid mode never runs on the cloud Ask AI path (chat_engine.py applies only the Never-share list).
     "Paranoid Mode",
     "Paranoid mode",
+    "100% On-Device",
     "swapped for placeholders",
     "swapped out for placeholders",
     # capture.py skips a keyword list of apps and titles, not private browser windows.
@@ -59,7 +60,10 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--base", help="fetch live pages from this origin instead of reading files")
     args = parser.parse_args(argv)
     errors = []
-    for name in PAGES:
+    names = list(PAGES) + ["server.json"]
+    if not args.base:
+        names += sorted(str(p.relative_to(ROOT)) for p in (ROOT / "Casks").glob("*.rb"))
+    for name in names:
         if not args.base and not (ROOT / name).exists():
             continue
         for hit in find_banned(load(name, args.base)):

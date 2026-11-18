@@ -2,7 +2,7 @@
   "ok": true,
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
   "name": "io.github.igorganapolsky/dayglass",
-  "title": "Dayglass \u2014 100% On-Device macOS Screen & Meeting Memory + OpenUI MCP Server",
+  "title": "Dayglass \u2014 macOS Screen & Meeting Memory + OpenUI MCP Server",
   "version": "2.4.0",
   "description": "Local macOS ScreenCaptureKit AirPods call recorder, Apple Vision Neural Engine OCR, 384K SubQ Snap hybrid GraphRAG, and Universal 8-AI Omnibus & MCP Server for Cursor, Gemini, Claude, ChatGPT, Grok, Meta Muse Spark, Codex, and OMP.",
   "homepage": "https://igorganapolsky.github.io/dayglass-mac/",
