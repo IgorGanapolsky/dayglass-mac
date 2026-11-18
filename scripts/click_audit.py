@@ -19,7 +19,7 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
-PAGES = ("/", "/pricing.html")
+PAGES = ("/", "/pricing.html", "/granola-alternative.html", "/fathom-alternative.html", "/otter-alternative.html")
 WIDTHS = {"phone": (390, 844), "desktop": (1280, 900)}
 STRIPE = ("buy.stripe.com", "checkout.stripe.com")
 # The audit must not add machine events to the production funnel.

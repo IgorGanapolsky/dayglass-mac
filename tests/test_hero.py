@@ -43,11 +43,11 @@ class Hero(unittest.TestCase):
     def test_hero_text(self):
         for path in ("/", "/pricing.html"):
             page = self._open(path, 1280)
-            self.assertEqual(page.inner_text("#heroHeadline"), "Stop re-explaining client calls to Claude Code.")
+            self.assertEqual(page.inner_text("#heroHeadline"), "After every call, Dayglass remembers what was decided.")
             self.assertEqual(
                 page.inner_text("#heroSubheadline").strip(),
-                "Dayglass gives Claude Code and Cursor context from your Mac meetings while the call is still happening, "
-                "so you can turn decisions into an implementation plan.",
+                "Summaries, decisions and follow-ups for every call, searchable and stored on your Mac. "
+                "Claude Code and Cursor can read them too. Live notes (beta) while the call runs.",
             )
             self.assertEqual(
                 page.inner_text("#heroLocal"),

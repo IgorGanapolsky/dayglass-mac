@@ -4,7 +4,7 @@
   "name": "io.github.igorganapolsky/dayglass",
   "title": "Dayglass \u2014 macOS Screen & Meeting Memory + OpenUI MCP Server",
   "version": "2.4.0",
-  "description": "Bot-free macOS call recorder with Apple Vision OCR of your screen, and a local MCP server that Claude Code, Claude Desktop and Cursor can read while a call is happening.",
+  "description": "Bot-free macOS call recorder with Apple Vision OCR of your screen, and a local MCP server that Claude Code, Claude Desktop and Cursor can use to read your past meetings.",
   "homepage": "https://www.dayglass.io/",
   "repository": {
     "url": "https://github.com/IgorGanapolsky/dayglass-mac",
