@@ -62,6 +62,33 @@ class SiteEvents(unittest.TestCase):
                 self.assertIn("checkout_initiated", names)
                 self.assertNotIn("checkout_abandoned", names)
 
+    def test_failed_redirect_does_not_hide_a_later_real_abandon(self):
+        for path in ("/", "/pricing.html"):
+            with self.subTest(path=path):
+                ctx = self.browser.new_context()
+                self.addCleanup(ctx.close)
+                ctx.route("**/*stripe.com/**", lambda r: r.fulfill(status=204))  # a 204 navigation leaves the page where it is: a redirect that did not happen
+                ctx.route("**/*posthog.com/**", lambda r: r.abort())
+                page = ctx.new_page()
+                page.add_init_script(SINK)
+                page.goto(self.base + path)
+                page.evaluate("beginStripeCheckout('pro_annual', 149)")
+                page.wait_for_timeout(5300)  # the redirect failed and the visitor is still here
+                page.evaluate("window.dispatchEvent(new Event('pagehide'))")
+                names = [e[0] for e in page.evaluate("window.__events")]
+                self.assertIn("checkout_abandoned", names)
+
+    def test_coming_back_from_the_back_button_resets_the_guard(self):
+        ctx = self.browser.new_context()
+        self.addCleanup(ctx.close)
+        ctx.route("**/*stripe.com/**", lambda r: r.fulfill(status=204))
+        page = ctx.new_page()
+        page.goto(self.base + "/")
+        page.evaluate("beginStripeCheckout('pro_annual', 149)")
+        self.assertTrue(page.evaluate("redirectingToStripe"))
+        page.evaluate("window.dispatchEvent(new PageTransitionEvent('pageshow', {persisted: true}))")
+        self.assertFalse(page.evaluate("redirectingToStripe"))
+
     def test_leaving_without_a_redirect_still_counts_as_abandon(self):
         page, _ = self._page("/")
         page.evaluate("checkoutStarted = true; checkoutPlan = 'pro_annual';")

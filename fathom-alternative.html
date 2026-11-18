@@ -14,7 +14,7 @@
 <meta property="og:description" content="Looking for a Fathom alternative that stays on device? Dayglass records Zoom, Meet and Teams on your Mac with no bot, and keeps audio, transcripts and screen text local." />
 <meta property="og:image" content="https://dayglass.io/dayglass-notes-sample.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does Dayglass use a bot like Fathom's notetaker?", "acceptedAnswer": {"@type": "Answer", "text": "No. Dayglass records from your Mac's audio, so nobody sees a bot in the participant list."}}, {"@type": "Question", "name": "Does Dayglass store my meetings in the cloud?", "acceptedAnswer": {"@type": "Answer", "text": "Audio, screen text and the database stay on your Mac in ~/.dayglass. If you turn on a cloud model for Ask AI, the question and the relevant meeting text go to that model after emails, phone numbers and secrets are swapped for placeholders. With a local model nothing leaves your Mac."}}, {"@type": "Question", "name": "Is Dayglass a team tool?", "acceptedAnswer": {"@type": "Answer", "text": "Dayglass is built for one person's private memory on one Mac. Fathom has team plans with shared features; Dayglass does not."}}, {"@type": "Question", "name": "Is Dayglass on the Mac App Store?", "acceptedAnswer": {"@type": "Answer", "text": "Not yet. Download the notarized DMG or install with Homebrew: brew install --cask igorganapolsky/dayglass/dayglass."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does Dayglass use a bot like Fathom's notetaker?", "acceptedAnswer": {"@type": "Answer", "text": "No. Dayglass records from your Mac's audio, so nobody sees a bot in the participant list."}}, {"@type": "Question", "name": "Does Dayglass store my meetings in the cloud?", "acceptedAnswer": {"@type": "Answer", "text": "Transcripts, screen text and notes stay on your Mac in ~/.dayglass. Audio is transcribed on the Mac and not kept by default. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model. Only your Never-share list is withheld by default; turn on Paranoid mode to replace emails, names, paths and secrets before anything leaves the Mac. With a local model nothing leaves your Mac."}}, {"@type": "Question", "name": "Is Dayglass a team tool?", "acceptedAnswer": {"@type": "Answer", "text": "Dayglass is built for one person's private memory on one Mac. Fathom has team plans with shared features; Dayglass does not."}}, {"@type": "Question", "name": "Is Dayglass on the Mac App Store?", "acceptedAnswer": {"@type": "Answer", "text": "Not yet. Download the notarized DMG or install with Homebrew: brew install --cask igorganapolsky/dayglass/dayglass."}}]}</script>
 <style>
 :root{--bg:#fbfaf7;--fg:#1d1d1f;--muted:#5f5f66;--card:#fff;--line:#e4e2dc;--accent:#2f5bea;--accent-fg:#fff}
 @media (prefers-color-scheme:dark){:root{--bg:#121214;--fg:#f2f2f4;--muted:#a3a3ad;--card:#1b1b1f;--line:#2c2c33;--accent:#7c9bff;--accent-fg:#0b0b0d}}
@@ -33,7 +33,7 @@ th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vert
 <main>
 <nav><a href="/">Dayglass</a><span class="links"><a href="/pricing">Pricing</a><a href="https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg?utm_source=seo&utm_content=fathom-alternative">Download</a></span></nav>
 <h1>A Fathom alternative that stays on your device</h1>
-<p class="lead">Fathom is a cloud service that summarizes your meetings. Dayglass is a Mac app that records the same calls without a bot and keeps the audio, transcript and screen text on your Mac.</p>
+<p class="lead">Fathom is a cloud service that summarizes your meetings. Dayglass is a Mac app that records the same calls without a bot and keeps the transcript and screen text on your Mac, with audio not kept by default.</p>
 <div class="cta"><a class="btn primary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg?utm_source=seo&utm_content=fathom-alternative">Download Dayglass free</a><a class="btn ghost" href="/pricing">See pricing</a></div>
 
 <h2>Dayglass compared with Fathom</h2>
@@ -51,7 +51,7 @@ th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vert
 <h2>What Dayglass does</h2>
 <ul>
 <li>Records Zoom, Google Meet and Microsoft Teams calls without a bot joining.</li>
-<li>Transcribes on your Mac. Audio, screen text and the database stay on your Mac.</li>
+<li>Transcribes on your Mac. Transcripts, screen text and notes stay on your Mac; audio is not kept by default.</li>
 <li>Reads the text on your screen with Apple Vision, so you can find what you saw.</li>
 <li>Lets Claude, Claude Code and Cursor ask it questions over MCP.</li>
 <li>Works on macOS 13 or later. Install from the DMG or with <code>brew install --cask igorganapolsky/dayglass/dayglass</code>.</li>
@@ -65,7 +65,7 @@ th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vert
 <h3>Does Dayglass use a bot like Fathom&#x27;s notetaker?</h3>
 <p>No. Dayglass records from your Mac&#x27;s audio, so nobody sees a bot in the participant list.</p>
 <h3>Does Dayglass store my meetings in the cloud?</h3>
-<p>Audio, screen text and the database stay on your Mac in ~/.dayglass. If you turn on a cloud model for Ask AI, the question and the relevant meeting text go to that model after emails, phone numbers and secrets are swapped for placeholders. With a local model nothing leaves your Mac.</p>
+<p>Transcripts, screen text and notes stay on your Mac in ~/.dayglass. Audio is transcribed on the Mac and not kept by default. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model. Only your Never-share list is withheld by default; turn on Paranoid mode to replace emails, names, paths and secrets before anything leaves the Mac. With a local model nothing leaves your Mac.</p>
 <h3>Is Dayglass a team tool?</h3>
 <p>Dayglass is built for one person&#x27;s private memory on one Mac. Fathom has team plans with shared features; Dayglass does not.</p>
 <h3>Is Dayglass on the Mac App Store?</h3>

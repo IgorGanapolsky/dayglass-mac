@@ -6,7 +6,7 @@
   <link rel="apple-touch-icon" href="/icon-256.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dayglass for Mac — Your private AI memory for work</title>
-  <meta name="description" content="Bot-free meeting notes for Mac. Claude Code and Cursor read your live call over MCP. Audio, screen and the database stay on your Mac. Free for your first 10 meetings, no card." />
+  <meta name="description" content="Bot-free meeting notes for Mac. Claude Code and Cursor read your live call over MCP. Transcripts, screen text and notes stay on your Mac. Free for your first 10 meetings, no card." />
   <link rel="canonical" href="https://dayglass.io/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://dayglass.io/" />
@@ -52,7 +52,7 @@
         "name": "Where are my screen captures, audio transcripts, and meeting notes stored?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Audio, screen text and the database stay on your Mac in ~/.dayglass/dayglass.sqlite, and you can inspect that file directly. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model, after emails, phone numbers, secrets and known names are swapped for placeholders. With a local model nothing leaves the Mac."
+          "text": "Transcripts, screen text and notes stay on your Mac in ~/.dayglass/dayglass.sqlite, and you can inspect that file directly. Audio is transcribed on the Mac and not kept by default. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model. Only your Never-share list is withheld by default; turn on Paranoid mode to replace emails, names, paths and secrets before anything leaves the Mac. With a local model nothing leaves the Mac."
         }
       },
       {
@@ -60,7 +60,7 @@
         "name": "How does Dayglass compare to Granola, MacWhisper, and Screenpipe?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Like Granola, Dayglass captures calls without a meeting bot, and Granola also offers a hosted MCP server for your notes. Dayglass keeps audio, screen and the database on your Mac, adds searchable screen OCR across slides and terminal windows, and runs a local MCP server so Claude, Cursor, and the other agents on your Mac can read the meeting while it is still in progress. The free trial covers your first 10 meetings with everything included, no card."
+          "text": "Like Granola, Dayglass captures calls without a meeting bot, and Granola also offers a hosted MCP server for your notes. Dayglass keeps transcripts, screen text and the database on your Mac, adds searchable screen OCR across slides and terminal windows, and runs a local MCP server so Claude, Cursor, and the other agents on your Mac can read the meeting while it is still in progress. The free trial covers your first 10 meetings with everything included, no card."
         }
       },
       {
@@ -353,7 +353,7 @@
     <div class="trust-strip">
       <span class="trust-badge">🎧 No bot in your calls</span>
       <span class="trust-badge">🔌 Claude Code and Cursor read your live call over MCP</span>
-      <span class="trust-badge">🔒 Audio, screen and database stay on your Mac</span>
+      <span class="trust-badge">🔒 Transcripts and screen text stay on your Mac</span>
       <span class="trust-badge">💬 1-click consent note for the other people on the call</span>
     </div>
 
@@ -380,7 +380,7 @@
           <div class="where-col where-us">
             <h3>Dayglass</h3>
             <ul>
-              <li>Audio, screen and notes stay on your Mac.</li>
+              <li>Audio is transcribed on your Mac and not kept by default. Transcripts, screen text and notes stay there.</li>
               <li>No bot joins your call.</li>
               <li>You choose what, if anything, leaves the machine.</li>
             </ul>
@@ -500,7 +500,7 @@
     <section class="story-section" id="features">
       <div class="section-eyebrow">Core Capabilities</div>
       <h2>Meeting notes your coding agent can read while the call is live</h2>
-      <div class="sub">No bots in your calendar invites, audio and screen stay on your Mac, and no manual note-taking.</div>
+      <div class="sub">No bots in your calendar invites, transcripts and screen text stay on your Mac, and no manual note-taking.</div>
       <div class="story-grid">
         <!-- Card 5 -->
         <div class="story-card">
@@ -643,7 +643,7 @@
       <div class="section-eyebrow">How it works on your Mac</div>
       <h2 style="font-size: 26px; font-weight: 800; margin-bottom: 8px;">Capture, store and search on Apple Silicon</h2>
       <p style="color: var(--muted); font-size: 14.5px; max-width: 720px; margin: 0 auto 22px;">
-        Meeting audio, screen text and summaries are stored in <code>~/.dayglass/dayglass.sqlite</code> on your Mac. Optional setting: continuous screen memory, which captures your screen outside meetings too, so you can search what you saw last week. Turn it on or off in settings.
+        Meeting transcripts, screen text and summaries are stored in <code>~/.dayglass/dayglass.sqlite</code> on your Mac. Optional setting: continuous screen memory, which captures your screen outside meetings too, so you can search what you saw last week. Turn it on or off in settings.
       </p>
       <svg viewBox="0 0 960 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%; height: auto;">
         <rect x="12" y="24" width="205" height="102" rx="14" fill="#0b0e17" stroke="#38bdf8" stroke-opacity="0.55" stroke-width="1.5"/>
@@ -663,7 +663,7 @@
         <rect x="526" y="24" width="195" height="102" rx="14" fill="#0b0e17" stroke="#fbbf24" stroke-opacity="0.55" stroke-width="1.5"/>
         <text x="544" y="54" fill="#fbbf24" font-size="12" font-family="monospace" font-weight="700">3. PRIVACY GUARD</text>
         <text x="544" y="76" fill="#e2e8f0" font-size="12" font-family="sans-serif">Skips Password Managers</text>
-        <text x="544" y="96" fill="#94a3b8" font-size="11" font-family="sans-serif">&amp; Swaps PII for placeholders</text>
+        <text x="544" y="96" fill="#94a3b8" font-size="11" font-family="sans-serif">&amp; Withholds Never-share terms</text>
 
         <path d="M729 75 H759 M753 69 L759 75 L753 81" stroke="#34d399" stroke-width="2" stroke-linecap="round"/>
 
@@ -678,7 +678,7 @@
     <section class="story-section" id="trust"><span id="privacy"></span>
       <div class="section-eyebrow">Why Engineers &amp; Founders Trust Dayglass</div>
       <h2>What stays on your Mac, and what can leave</h2>
-      <div class="sub">Audio, screen and the database stay on your Mac. The one thing that can leave is text sent to a cloud model, and only if you turn one on for Ask AI.</div>
+      <div class="sub">Transcripts, screen text and notes stay on your Mac. The one thing that can leave is text sent to a cloud model, and only if you turn one on for Ask AI.</div>
       <div class="story-grid">
         <div class="story-card">
           <div>
@@ -699,7 +699,7 @@
         <div class="story-card">
           <div>
             <h3>🛡️ Ask AI: cloud model or local model, your choice</h3>
-            <p>If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model, after emails, phone numbers, secrets and known names are swapped out for placeholders. Other text, such as company names and project names, goes as written. With a local model nothing leaves the Mac. Password managers and private windows are skipped during capture.</p>
+            <p>Audio is transcribed on the Mac and not kept by default. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model. Only your Never-share list is withheld by default; turn on Paranoid mode to replace emails, names, paths and secrets before anything leaves the Mac. Other text, such as company names and project names, goes as written. With a local model nothing leaves the Mac. Password managers and private windows are skipped during capture.</p>
           </div>
           <span class="card-meta-tag">Cloud model is your choice</span>
         </div>
@@ -820,7 +820,7 @@
           </tr>
           <tr>
             <td><strong>Where Transcripts &amp; Notes Live</strong></td>
-            <td><strong>Audio, screen and database stay on your Mac (`~/.dayglass`)</strong></td>
+            <td><strong>Audio transcribed on your Mac, not kept by default; transcripts, screen text and database stay on your Mac (`~/.dayglass`)</strong></td>
             <td>Notes and transcripts stored on Granola's cloud (AWS, US) and cached on your Mac; audio deleted after transcription</td>
             <td>Local on Mac</td>
             <td>Vendor cloud servers</td>
@@ -831,15 +831,15 @@
             <td><strong>Yes (Apple Vision OCR + SQLite FTS5)</strong></td>
             <td>Snapshots of screens other people share, attached to the note (Mac, macOS 14+)</td>
             <td>No (audio files only)</td>
-            <td>Otter captures shared slides and screenshots in meetings</td>
+            <td>Not checked</td>
             <td>Yes (OCR + audio search)</td>
           </tr>
           <tr>
             <td><strong>Claude Code &amp; Cursor access (MCP)</strong></td>
             <td><strong>Yes. Local MCP server. Claude and Cursor can read the live transcript while the call is in progress, plus screen text</strong></td>
             <td>Yes. Hosted MCP server (launched Feb 2026); free plan covers 30 days of notes, no transcripts</td>
-            <td>No official MCP server. Official command-line tool and community wrappers</td>
-            <td>Yes. Hosted MCP servers (Fathom and Otter), connected with sign-in</td>
+            <td>No MCP server we could find</td>
+            <td>Fathom: official hosted MCP server. Otter: hosted MCP reported by third parties</td>
             <td>Yes. Local MCP server (search and video export)</td>
           </tr>
           <tr>
@@ -876,7 +876,7 @@
         </div>
         <div class="story-card">
           <h3>Does any screen or audio data leave my Mac?</h3>
-          <p>Audio, screen text and the database stay on your Mac in <code>~/.dayglass/dayglass.sqlite</code>. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model, after emails, phone numbers, secrets and known names are swapped out for placeholders. Other text goes as written. With a local model nothing leaves the Mac. Password managers and private windows are skipped during capture.</p>
+          <p>Transcripts, screen text and notes stay on your Mac in <code>~/.dayglass/dayglass.sqlite</code>. Audio is transcribed on the Mac and not kept by default. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model. Only your Never-share list is withheld by default; turn on Paranoid mode to replace emails, names, paths and secrets before anything leaves the Mac. Other text goes as written. With a local model nothing leaves the Mac. Password managers and private windows are skipped during capture.</p>
         </div>
         <div class="story-card">
           <h3>Can Claude and other agents see a meeting while it is still in progress?</h3>
@@ -890,7 +890,7 @@
     </section>
 
     <div class="consent-box">
-      <strong>🔒 Privacy Policy &amp; Participant Consent:</strong> Dayglass keeps your audio, screen capture and database on your Mac under <code>~/.dayglass</code>, and we run no server that receives them. If you turn on a cloud model for Ask AI, the question and the relevant meeting text go to that model, with emails, phone numbers, secrets and known names swapped for placeholders first. With a local model nothing leaves the Mac. Use the built-in <strong>1-Click Call Consent Snippet</strong> to notify call participants and always follow applicable call-recording consent laws in your jurisdiction. Questions or security audits? Contact founder Igor Ganapolsky via <a href="https://github.com/IgorGanapolsky/dayglass-mac/issues" style="color: var(--accent);">GitHub Issues</a>.
+      <strong>🔒 Privacy Policy &amp; Participant Consent:</strong> Dayglass keeps your transcripts, screen text and database on your Mac under <code>~/.dayglass</code>, and we run no server that receives them. Audio is transcribed on the Mac and not kept by default. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model. Only your Never-share list is withheld by default; turn on Paranoid mode to replace emails, names, paths and secrets before anything leaves the Mac. With a local model nothing leaves the Mac. Use the built-in <strong>1-Click Call Consent Snippet</strong> to notify call participants and always follow applicable call-recording consent laws in your jurisdiction. Questions or security audits? Contact founder Igor Ganapolsky via <a href="https://github.com/IgorGanapolsky/dayglass-mac/issues" style="color: var(--accent);">GitHub Issues</a>.
     </div>
 
     <section id="critique" class="story-section" style="margin-top: 44px;">
@@ -1130,6 +1130,8 @@
       const clientRef = `${DISTINCT_ID}__${AB_VARIANT}__${utm}`.replace(/[^a-zA-Z0-9_-]/g, '_').slice(0, 190);
       const sep = base.includes('?') ? '&' : '?';
       redirectingToStripe = true; // leaving for Stripe is a checkout click (checkout_initiated), not an abandon
+      // If the redirect fails or the page comes back, a later real abandon must still count.
+      setTimeout(() => { redirectingToStripe = false; }, 5000);
       window.location.assign(`${base}${sep}client_reference_id=${encodeURIComponent(clientRef)}&utm_source=${encodeURIComponent(utm)}&utm_medium=${encodeURIComponent(med)}&utm_campaign=${encodeURIComponent(camp)}&utm_content=${encodeURIComponent(params.get('utm_content') || AB_VARIANT)}&ab_variant=${encodeURIComponent(AB_VARIANT)}`);
     }
 
@@ -1168,6 +1170,7 @@
       beginStripeCheckout('pro_monthly', 19);
     }
 
+    window.addEventListener('pageshow', (e) => { if (e.persisted) redirectingToStripe = false; });
     window.addEventListener('pagehide', () => {
       if (checkoutStarted && !redirectingToStripe && !licenseActivatedInModal) {
         trackPricingEvent('checkout_abandoned', { abandonment_stage: 'stripe_redirect_opened_not_completed', plan: checkoutPlan });

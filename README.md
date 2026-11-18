@@ -54,8 +54,8 @@ curl -fsSL https://igorganapolsky.github.io/dayglass-mac/install.sh | bash
 - **Vitalik Buterin 4-Layer Paranoid Mode** (local reversible PII prompt rewriter, per-session circuit isolation, 4KB cover traffic padding, and SHA-256 zkAPI blind proofs)
 - **Starred Focus Sessions (`Cmd+Ctrl+B`)** -> compiles 15-minute work windows into reusable `SKILL.md` agent skills
 - **1-Click MCP Server** for Claude Desktop, Claude Code, Cursor, Poolside, and Oh-My-Pi
-- **Live meeting for other agents:** while a Zoom, Teams, or Meet call is in progress, Claude, Cursor, and the other agents on your Mac read the speaker-tagged transcript through the local tool `dayglass_get_live_meeting`. The audio stays in `~/.dayglass`.
+- **Live meeting for other agents:** while a Zoom, Teams, or Meet call is in progress, Claude, Cursor, and the other agents on your Mac read the speaker-tagged transcript through the local tool `dayglass_get_live_meeting`. The transcript stays in `~/.dayglass`.
 
 ## Privacy
 
-Audio, screen and the database stay on your Mac. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model, after emails, phone numbers, secrets and known names are swapped out for placeholders. With a local model nothing leaves the Mac.
+Transcripts, screen text and notes stay on your Mac. Audio is transcribed on the Mac and not kept by default. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model. Only your Never-share list is withheld by default; turn on Paranoid mode to replace emails, names, paths and secrets before anything leaves the Mac. With a local model nothing leaves the Mac.
