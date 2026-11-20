@@ -1,6 +1,6 @@
 # Dayglass for macOS
 
-**Your private AI memory for work. Bot-free meeting notes that Claude Code and Cursor can read while the call is live.**
+**What happened today, private on your Mac. Bot-free meeting notes and screen memory, the way Rewind used to work. Claude Code and Cursor can read it too.**
 
 ![Dayglass Studio Live](https://www.dayglass.io/dayglass-studio-live.png)
 
@@ -14,9 +14,8 @@
 
 | Plan | Price | What is included | Get it |
 | :--- | :--- | :--- | :--- |
-| **Free trial** | **$0, no card** | Your first 10 meetings with everything included. After that, capture, transcripts, search and export stay free. Ask AI on older history, AI briefs and the Claude/Cursor live link need Pro. | [Download Free `.DMG`](https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg) |
+| **Free trial** | **$0, no card** | 14 days or 10 meetings, whichever lasts longer, with everything included. After that, capture, transcripts, search and export stay free. Ask AI on older history, AI briefs and the Claude/Cursor live link need Pro. | [Download Free `.DMG`](https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg) |
 | **Pro** | **$149/year** (save 35%) or **$19/month** | Everything, on every meeting: the Claude Code/Cursor live link over MCP, Ask AI on older history, AI briefs, unlimited meetings. | [Pricing page](https://www.dayglass.io/#pricing) |
-| **Lifetime** | **$199 founding price for the first 100 buyers, then $249 once** | Everything in Pro, no subscription. | [Pricing page](https://www.dayglass.io/#pricing) |
 
 14-day money-back guarantee. Just email igor@dayglass.io.
 
