@@ -21,6 +21,11 @@ if [[ "$(uname -s)" != "Darwin" ]]; then
   exit 1
 fi
 
+if [[ "$(uname -m)" != "arm64" ]]; then
+  echo "Error: Dayglass needs an Apple silicon Mac. Nothing was installed." >&2
+  exit 1
+fi
+
 echo "==> [1/4] Downloading the latest Dayglass for macOS..."
 curl -fL --progress-bar "${DMG_URL}" -o "${TMP_DMG}"
 
