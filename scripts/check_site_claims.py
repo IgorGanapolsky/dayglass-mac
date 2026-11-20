@@ -51,6 +51,24 @@ BANNED = (
     # capture.py skips a keyword list of apps and titles, not private browser windows.
     "private windows",
     "private browser windows",
+    # Live copilot and live speaker names: the live transcript fragments and labels remote speakers "Them" (live_api.py).
+    "read your live call",
+    "while the call is still",
+    "while the call is live",
+    "while a call is happening",
+    "in progress, claude",
+    "speaker-tagged",
+    "live link",
+    "live meeting for",
+    "dayglass_get_live_meeting",
+    "questions to ask next",
+    "live call assistant",
+    "catch me up",
+    "catch-me-up",
+    "what to say",
+    "real-time suggestion",
+    "during the call",
+    "stop re-explaining",
 )
 
 
