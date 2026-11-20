@@ -21,8 +21,13 @@ if [[ "$(uname -s)" != "Darwin" ]]; then
   exit 1
 fi
 
-if [[ "$(uname -m)" != "arm64" ]]; then
+if [[ "$(sysctl -n hw.optional.arm64 2>/dev/null)" != "1" ]]; then
   echo "Error: Dayglass needs an Apple silicon Mac. Nothing was installed." >&2
+  exit 1
+fi
+
+if [[ "$(sw_vers -productVersion | cut -d. -f1)" -lt 14 ]]; then
+  echo "Error: Dayglass needs macOS 14 (Sonoma) or later. Nothing was installed." >&2
   exit 1
 fi
 
