@@ -1,8 +1,8 @@
-<!-- Public copy of docs/PRIVACY-FACTS.md from the private IgorGanapolsky/dayglass repository. File and function references are to that source, as of commit 467a332 (the v2.4.1 build). -->
+<!-- Public copy of docs/PRIVACY-FACTS.md from the private IgorGanapolsky/dayglass repository. File and function references are to that source, as of commit 467a332 (version string 2.4.1; see the note below). -->
 
 # Dayglass privacy facts
 
-Code references in this page are to the private Dayglass source at commit `467a332`, the v2.4.1 build, by file and function or constant name. Where a name could not be checked at that commit, the claim says "not verified".
+Code references in this page are to the private Dayglass source at commit `467a332`, version string 2.4.1 in `__init__.py` and `pyproject.toml` (the tag `v2.4.1` is not in the private clone, so that this commit produced the shipped DMG is not shown here), by file and function or constant name. Where a name could not be checked at that commit, the claim says "not verified".
 
 **Summary (for Setapp or the website):** Dayglass turns your meetings and screen into searchable notes, and keeps them on your Mac. Screen text is read on the Mac, and AI chat uses Apple's on-device model by default. Nothing leaves your Mac unless you switch on a cloud AI with your own key, or turn on search by meaning, which downloads a model once. Windows such as password managers and banking are skipped. Each claim below names the file and function or constant behind it, at commit `467a332`; the few claims I could not trace are marked "not verified".
 
@@ -12,7 +12,7 @@ Code references in this page are to the private Dayglass source at commit `467a3
 - **Hourly context, all day.** Once an hour a snapshot saves, without a picture outside meetings: the front app and window title, the list of open windows, recently changed file paths under project folders, and the working folders of running terminal sessions (`build_context` and `take_snapshot_now` in `dayglass/snapshots.py`). A private or personal front window is saved as `(private)` (the string is in `dayglass/snapshots.py`; I did not trace which function writes it, so the rule for files and folders being left out is not verified).
 - **Screen text.** Apple's Vision framework reads the text on the Mac (`VNRecognizeTextRequest` in `macos/dayglass_ocr.swift`). The text body is stored as read: `_capture_once` in `dayglass/engine.py` inserts the raw OCR output. A separate headline and summary come from `sanitize_frame` (`dayglass/sanitizer.py`); what that function removes was not audited.
 - **Audio.** During a call it records the microphone and system audio in short chunks (`record_sources` and `record_chunk` in `dayglass/meetings.py`). A call is detected automatically (`detect_active_meeting` in `dayglass/meetings.py`) or started by hand ("Record Now" in the File menu, `macos/main.swift`).
-- **Transcript.** Each chunk is transcribed on the Mac, then its audio file is deleted unless a caller asks to keep it (`transcribe_recordings` in `dayglass/meetings.py`). If transcription raises, or the app is killed before that delete runs, the WAV stays in `~/.dayglass/audio` until a later pass removes it. I read this from the code and did not test it.
+- **Transcript.** Each chunk is transcribed on the Mac, then its audio file is deleted unless a caller asks to keep it (`transcribe_recordings` in `dayglass/meetings.py`). If transcription raises, or the app is killed before that delete runs, the file stays in the audio folder; nothing at 467a332 removes it except `dayglass forget-meetings` or deleting the folder. Read from the code, not tested.
 
 ## Where it is stored, and who can read it
 

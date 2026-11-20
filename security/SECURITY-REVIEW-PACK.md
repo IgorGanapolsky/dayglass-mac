@@ -4,7 +4,7 @@
 
 For a security reviewer deciding whether Dayglass may run on a managed Mac. Each claim points at the code, or at command output captured from the current public release, v2.4.1.
 
-v2.4.1 was built from dayglass commit `467a332`. Code references in this pack are to that commit, by file and function or constant name. Anything below marked **planned** is not in any release yet.
+Dayglass commit `467a332` carries version string 2.4.1 in `__init__.py` and `pyproject.toml`. The git tag `v2.4.1` is not in the private clone, so that this commit produced the shipped DMG is not shown here. Code references in this pack are to that commit, by file and function or constant name. Anything below marked **planned** is not in any release yet.
 
 The `dayglass` source repository is private. The public copy of this pack, the participant-data page and the SBOM are in the `dayglass-mac` repository under `security/`. Code references are to the private source, by file and function name.
 
@@ -27,7 +27,7 @@ These are the hosts found in the audited code paths. Other modules were not audi
 | `github.com` (`IgorGanapolsky/dayglass-mac` releases) | Install or update, by `install.sh` or Homebrew | Nothing beyond the download request |
 | `us.i.posthog.com` | As of 20 Nov 2026, `install.sh` makes no analytics request unless the person installing sets `DAYGLASS_INSTALL_PING=1` (the `DAYGLASS_INSTALL_PING` check in `install.sh`) | Event `app_installed_via_script`, a random 12-character id, the word `latest`, CPU type. In the app, analytics go out only if someone sets a PostHog key, and none ships (`DEFAULT_POSTHOG_PROJECT_KEY = ""` in `dayglass/analytics.py`) |
 | `api.anthropic.com`, `api.openai.com`, `generativelanguage.googleapis.com` | Only if the user picks a cloud AI, adds their own key and confirms (`dayglass/chat_engine.py`) | The question and the meeting notes that match it. `DAYGLASS_CHAT_LOCAL_ONLY=1` blocks it |
-| `huggingface.co` | Only if search by meaning or voice output is turned on | Model download request, once |
+| `huggingface.co` | Only if search by meaning or voice output is turned on | Model download request (pinned revision; no code records a completed download) |
 | `github.com` (`astral-sh/uv` release) | Only when voice output is first installed (`dayglass/tts.py`) | Download request |
 | `vendor-api.setapp.com` | Setapp build only | Setapp licence check (`dayglass/setapp_vendor.py`) |
 | `api.ipify.org` | Only when the user runs `dayglass privacy` or opens privacy status | Public IP lookup (`dayglass/privacy_routing.py`) |
@@ -60,7 +60,7 @@ All of it is in `~/.dayglass` (or `DAYGLASS_HOME`), mostly `dayglass.sqlite`. Th
 
 | Data | Kept | In 2.4.1 |
 | --- | --- | --- |
-| Meeting audio (WAV chunks) | Deleted right after its transcription step, unless a caller asks to keep it (`transcribe_recordings` in `dayglass/meetings.py`). `keep_audio` defaults to false and `keep_audio=True` appears nowhere in `dayglass/` at `467a332`. If transcription raises, or the app is killed before the delete, the WAV stays in the audio folder until a later successful pass (read from the code, not tested) | Yes |
+| Meeting audio (WAV chunks) | Deleted right after its transcription step, unless a caller asks to keep it (`transcribe_recordings` in `dayglass/meetings.py`). `keep_audio` defaults to false and `keep_audio=True` appears nowhere in `dayglass/` at `467a332`. If transcription raises, or the app is killed before the delete, the WAV stays in the audio folder; nothing at 467a332 removes it except `dayglass forget-meetings` or deleting the folder. Read from the code, not tested | Yes |
 | Transcripts, speaker names, Teams roster, captions, speaker samples | No limit. Kept until `dayglass forget-meetings --yes` or removal of `~/.dayglass`. A 90-day default is **planned**, not in any release | Yes, as described |
 | Screenshot images | Newest 400 kept | Yes |
 | Text read off screenshots | No limit, until `~/.dayglass` is removed | Yes |
