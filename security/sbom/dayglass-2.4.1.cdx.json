@@ -1,0 +1,1033 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-11-20T18:29:13Z",
+    "component": {
+      "type": "application",
+      "name": "Dayglass",
+      "version": "2.4.1",
+      "bom-ref": "dayglass-2.4.1-dmg",
+      "supplier": {
+        "name": "Igor Ganapolsky (Developer ID team 9GMM26JC5X)"
+      },
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v2.4.1/Dayglass.dmg"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f65644e1652f18884ce4708c03fe3a78b9fd031cdda42b7f456bfa939298e47a"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "CPython",
+      "version": "3.12.14",
+      "bom-ref": "cpython-3.12.14",
+      "description": "Bundled Python interpreter at Dayglass.app/Contents/Resources/python/arm64/bin/python3 (Mach-O arm64)",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3512653305729ea26e6d76da88592e764730504d2effbd942723fde2387b8c0e"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "version string '3.12.14' found with 'strings -a' on the mounted v2.4.1 DMG, nothing executed"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/MacOS/Dayglass",
+      "version": "2.4.1",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "bef8bd19e3361a8ef4312265ee35de68503204404ae182d050787f9f598d4a45"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "Dayglass first-party binary; version is the app version 2.4.1"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/bin/dayglass-framecapture",
+      "version": "2.4.1",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f172068823010232a59008c9f61c649eeccb5e2c51a615c0308c1102495aba4e"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "Dayglass first-party binary; version is the app version 2.4.1"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/bin/dayglass-livetranscribe",
+      "version": "2.4.1",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "721bba01ca3295be3e5497cd7d032740af7dbd105c247bda0f89049826baa44c"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "Dayglass first-party binary; version is the app version 2.4.1"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/bin/dayglass-localchat",
+      "version": "2.4.1",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2490c187b89eb93b115c6070aa50b16be82448545a6d3a8894f18cb1e66d48e6"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "Dayglass first-party binary; version is the app version 2.4.1"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/bin/dayglass-micinuse",
+      "version": "2.4.1",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "fc844b7084a45e52102326c629c411022035959b6444c74e8389f61401be1ba6"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "Dayglass first-party binary; version is the app version 2.4.1"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/bin/dayglass-ocr",
+      "version": "2.4.1",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ce9d594d4f634022ceb0d740d62e7d88fce11d555d81e129b95c3df9630150be"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "Dayglass first-party binary; version is the app version 2.4.1"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/bin/dayglass-snapmask",
+      "version": "2.4.1",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b9963b841ff4a8357304934a0251cd7cc9c568a56eacc6527e9111ace38196bc"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "Dayglass first-party binary; version is the app version 2.4.1"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/bin/dayglass-systemaudio",
+      "version": "2.4.1",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "50d13257efa6526adae778a7d07a632e93d263cee41f1596e7d50d58e8107262"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "Dayglass first-party binary; version is the app version 2.4.1"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/bin/dayglass-teamscaptions",
+      "version": "2.4.1",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1cb8a2a17ef25c87d44b00eb7c07a023675f9122e9f34b4abe9f74498d76b8b4"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "Dayglass first-party binary; version is the app version 2.4.1"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/bin/dayglass-windowlist",
+      "version": "2.4.1",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5689da7019d3ae899c1f4af122418677cfc58d5c1850bacad436642d6c1b06ee"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "Dayglass first-party binary; version is the app version 2.4.1"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/bin/ffmpeg",
+      "version": "8.0",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "018ebea6f5bf486ece7ed83b704a4dfdc3b836f034fa7d08516760f3894a3bfa"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "string 'FFmpeg version 8.0' found with 'strings -a' on the mounted v2.4.1 DMG, nothing executed"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/bin/libggml-blas.so",
+      "version": "0.28.0",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5b4e05a1f0634628327ba309a3b297ea0d6fd1f4e5ef0237d01a4087271531e3"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "ggml version 0.28.0 from the load command of the bundled libggml-base it links, otool -L / otool -D on the mounted v2.4.1 DMG, nothing executed; this file's own install-name version was not separately read"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/bin/libggml-cpu-apple_m1.so",
+      "version": "0.28.0",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c8820023ffa7333a84bd7d0f515d89c30da0d48ce17102ff93dc001ac030d505"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "ggml version 0.28.0 from the load command of the bundled libggml-base it links, otool -L / otool -D on the mounted v2.4.1 DMG, nothing executed; this file's own install-name version was not separately read"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/bin/libggml-cpu-apple_m2_m3.so",
+      "version": "0.28.0",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "54b74770c1a11b2594cee1eed7f79a416607beef6a0ae638114acfd786f6e6f1"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "ggml version 0.28.0 from the load command of the bundled libggml-base it links, otool -L / otool -D on the mounted v2.4.1 DMG, nothing executed; this file's own install-name version was not separately read"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/bin/libggml-cpu-apple_m4.so",
+      "version": "0.28.0",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "81346cd9a6cdf1982c93559b4ae2be82d95a47fb4527a6b2a93956a43343bc0a"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "ggml version 0.28.0 from the load command of the bundled libggml-base it links, otool -L / otool -D on the mounted v2.4.1 DMG, nothing executed; this file's own install-name version was not separately read"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/bin/libggml-metal.so",
+      "version": "0.28.0",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "bc6084cd57c56e2cdf49c55bba494815fa578adbad900b6338eefe61c3fd196d"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "ggml version 0.28.0 from the load command of the bundled libggml-base it links, otool -L / otool -D on the mounted v2.4.1 DMG, nothing executed; this file's own install-name version was not separately read"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/bin/whisper-cli",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7541e039e4a9570b07f5e74b13812a571491675db7b59f4aff3dd24483c336d8"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "Not determined without running it. It prints whisper_version() from libwhisper.1.dylib at run time; looked for with 'strings -a' on the mounted v2.4.1 DMG, nothing executed. It links ggml 0.26.0 at build time (otool -L) while the bundled ggml dylibs are 0.28.0."
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/dayglass/libdayglass_rust_core.dylib",
+      "version": "2.4.1",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "dbbf3ed48fb51023cdd48f0ffb6dc03649ec74b81f0fc7d76e5b173456f16b7e"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "Dayglass first-party binary; version is the app version 2.4.1"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/lib/libggml-base.0.dylib",
+      "version": "0.28.0",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7d1f021749561153a29efa29946220019bf9b3177d3e77c596e2b823ea27e6b8"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "ggml library version from the dylib load commands, otool -L / otool -D on the mounted v2.4.1 DMG, nothing executed (libggml-base string '0.28.0' agrees)"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/lib/libggml.0.dylib",
+      "version": "0.28.0",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2ade0768916c5c9309918645e7e76f6317e4caf677204830b1174cfaeb2a4b73"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "ggml library version from the dylib load commands, otool -L / otool -D on the mounted v2.4.1 DMG, nothing executed (libggml-base string '0.28.0' agrees)"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/lib/libomp.dylib",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ab17c8162a11e800f48e728cddeab2d5da24e244e58d879ec99fbf1f9c266975"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "Only the OpenMP API string 'LLVM OMP version: 5.0.20140926' is embedded (found with 'strings -a' on the mounted v2.4.1 DMG, nothing executed); that is the library's compatibility version, not an LLVM release, so the release version is unknown"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/lib/libwhisper.1.dylib",
+      "version": "1.9.5",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "33b09b7024c88a3989a6c23319cf90c6284edc1cc2d823123e60bf057f9ed34d"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "bare string '1.9.5' next to 'src/whisper.cpp' found with 'strings -a' on the mounted v2.4.1 DMG, nothing executed; not matched against an upstream tag, so treat as likely, not confirmed"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/bin/python3",
+      "version": "3.12.14",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3512653305729ea26e6d76da88592e764730504d2effbd942723fde2387b8c0e"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "CPython version string '3.12.14' found with 'strings -a' on the mounted v2.4.1 DMG, nothing executed"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/lib/python3.12/lib-dynload/_crypt.cpython-312-darwin.so",
+      "version": "3.12.14",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e942205592ec5d6b854c5cec5da75137274ff829639335937dd3ca8bf9967ea1"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "CPython standard-library extension module of the bundled CPython 3.12.14 (path cpython-312; patch version taken from the interpreter's strings)"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/lib/python3.12/lib-dynload/_dbm.cpython-312-darwin.so",
+      "version": "3.12.14",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6e2381a18416bfad3d4f9f8900979b77766ad9bc514de81fc727740d7b20f86d"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "CPython standard-library extension module of the bundled CPython 3.12.14 (path cpython-312; patch version taken from the interpreter's strings)"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/lib/python3.12/site-packages/google/_upb/_message.abi3.so",
+      "version": "7.36.2",
+      "description": "Mach-O x86_64 arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a039ad32915d54d3627f95fd411966ffdd4264e5ed35e241dcbd6e243f571c70"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "protobuf-7.36.2.dist-info in site-packages of the mounted DMG (google/_upb is protobuf's extension)"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/lib/python3.12/site-packages/numpy/_core/_multiarray_tests.cpython-312-darwin.so",
+      "version": "2.5.5",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f7f1933f522c576d12b0a7a4c2a0c676b7f23cbfbc5d5ff5638165603671450f"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "numpy-2.5.5.dist-info in site-packages of the mounted DMG"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/lib/python3.12/site-packages/numpy/_core/_multiarray_umath.cpython-312-darwin.so",
+      "version": "2.5.5",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0f1593fbfc6a4db2ad729d5258c4fd452b49cf8d7ae280b616f39e6d887e1e91"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "numpy-2.5.5.dist-info in site-packages of the mounted DMG"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/lib/python3.12/site-packages/numpy/_core/_operand_flag_tests.cpython-312-darwin.so",
+      "version": "2.5.5",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "03b3692c31f502972f80d4f01440979d5dc029952f29a43320c4f13307764f55"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "numpy-2.5.5.dist-info in site-packages of the mounted DMG"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/lib/python3.12/site-packages/numpy/_core/_rational_tests.cpython-312-darwin.so",
+      "version": "2.5.5",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f7df53148d2e0d7da294d38ddc9b083fc3b3b3d829caea5903137a878052f3f8"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "numpy-2.5.5.dist-info in site-packages of the mounted DMG"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/lib/python3.12/site-packages/numpy/_core/_simd.cpython-312-darwin.so",
+      "version": "2.5.5",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7cfab6e08c54ef0d1c621e1cff05ec28969bd459ee78c717f7ac0e06eb82b78d"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "numpy-2.5.5.dist-info in site-packages of the mounted DMG"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/lib/python3.12/site-packages/numpy/_core/_struct_ufunc_tests.cpython-312-darwin.so",
+      "version": "2.5.5",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d4c65d530064853166441a7c49c8a430261ab42b47ff90ee0814dd661d39fb20"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "numpy-2.5.5.dist-info in site-packages of the mounted DMG"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/lib/python3.12/site-packages/numpy/_core/_umath_tests.cpython-312-darwin.so",
+      "version": "2.5.5",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "cbab49c577946b4524ae73b6c62952ef48da7414afdb79d68a00b1297b3ca427"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "numpy-2.5.5.dist-info in site-packages of the mounted DMG"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/lib/python3.12/site-packages/numpy/fft/_pocketfft_umath.cpython-312-darwin.so",
+      "version": "2.5.5",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d89d6cd7cc90c63360c8019fbaaf62bcb73ce53cf0e66106d66ef923ec48c685"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "numpy-2.5.5.dist-info in site-packages of the mounted DMG"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/lib/python3.12/site-packages/numpy/linalg/_umath_linalg.cpython-312-darwin.so",
+      "version": "2.5.5",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ef8e2e3146d186bfe6b690e270745ae28c0297b8296c8baaa06958bb655e6152"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "numpy-2.5.5.dist-info in site-packages of the mounted DMG"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/lib/python3.12/site-packages/numpy/linalg/lapack_lite.cpython-312-darwin.so",
+      "version": "2.5.5",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ce6ec58fec1c2f52c1594042b5fca7919540282d211a442d984f6328ee97886a"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "numpy-2.5.5.dist-info in site-packages of the mounted DMG"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/lib/python3.12/site-packages/numpy/random/_bounded_integers.cpython-312-darwin.so",
+      "version": "2.5.5",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8233d64ba50ade0c7386f43aa92f1f822f207f4b890c4294b42103e765d10e02"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "numpy-2.5.5.dist-info in site-packages of the mounted DMG"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/lib/python3.12/site-packages/numpy/random/_common.cpython-312-darwin.so",
+      "version": "2.5.5",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "482deace1b83175ba64ecc07a868aaf397c47f3b01a9632df9f81c5e038a33c2"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "numpy-2.5.5.dist-info in site-packages of the mounted DMG"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/lib/python3.12/site-packages/numpy/random/_generator.cpython-312-darwin.so",
+      "version": "2.5.5",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "aae0382f682ae734e1a9a5ac71179cc69350caa49cca027e3ef586af4a689360"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "numpy-2.5.5.dist-info in site-packages of the mounted DMG"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/lib/python3.12/site-packages/numpy/random/_mt19937.cpython-312-darwin.so",
+      "version": "2.5.5",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9b8c61a44b82169b23879498216f5ccc834e178ac98ef15b2d038769752cefc4"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "numpy-2.5.5.dist-info in site-packages of the mounted DMG"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/lib/python3.12/site-packages/numpy/random/_pcg64.cpython-312-darwin.so",
+      "version": "2.5.5",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "444759a6dd32bdedaa6372643b7bc74f00498a9f0096daff3454672d413fbd14"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "numpy-2.5.5.dist-info in site-packages of the mounted DMG"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/lib/python3.12/site-packages/numpy/random/_philox.cpython-312-darwin.so",
+      "version": "2.5.5",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e51f4a5d9289a8f6f51e46eb2147c3bbdd7d511d5acbc05f56f37bd5eb99ff31"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "numpy-2.5.5.dist-info in site-packages of the mounted DMG"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/lib/python3.12/site-packages/numpy/random/_sfc64.cpython-312-darwin.so",
+      "version": "2.5.5",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "18d31ab8eb921d1f808d8e42b8487e9eae676ffa6b9c4c0172d683f710d81488"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "numpy-2.5.5.dist-info in site-packages of the mounted DMG"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/lib/python3.12/site-packages/numpy/random/bit_generator.cpython-312-darwin.so",
+      "version": "2.5.5",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0754b87952a70c1ee0f08a86d4c3ac1560f3f84ea2560890f9824bc5eaf5cb75"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "numpy-2.5.5.dist-info in site-packages of the mounted DMG"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/lib/python3.12/site-packages/numpy/random/mtrand.cpython-312-darwin.so",
+      "version": "2.5.5",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3893c69717213b33818ac16f79ac80792dfcd72b214c400cb242fc3be93ca925"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "numpy-2.5.5.dist-info in site-packages of the mounted DMG"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/lib/python3.12/site-packages/onnxruntime/capi/libonnxruntime.1.32.0.dylib",
+      "version": "1.32.0",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7160b8bb947b7e649649c76dd53f9b11fd0be77375510c1449c846b43f72440f"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "onnxruntime-1.32.0.dist-info in site-packages of the mounted DMG"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/lib/python3.12/site-packages/onnxruntime/capi/onnxruntime_pybind11_state.so",
+      "version": "1.32.0",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f20eaa35fff05f8ed9df0676d7e2520484cc840092f68e1de5fc7e3e55ac03e5"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "onnxruntime-1.32.0.dist-info in site-packages of the mounted DMG"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/arm64/lib/python3.12/site-packages/tokenizers/tokenizers.abi3.so",
+      "version": "0.23.3",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "63292d028e384ada1eb099668a85362cd1f84e3f59a9b56a613bfdde46e08016"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "tokenizers-0.23.3.dist-info in site-packages of the mounted DMG"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Dayglass.app/Contents/Resources/python/bin/python3",
+      "description": "Mach-O arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "12de101be41e6845aa700ee317c36bf356b9dcb9c10283457fe98afd5d5052dd"
+        }
+      ],
+      "properties": [
+        {
+          "name": "dayglass:version-note",
+          "value": "52 KB launcher that execv()s Resources/python/arm64/bin/python3 (strings -a on the mounted DMG); it carries no version string. Not CPython itself."
+        }
+      ]
+    },
+    {
+      "type": "machine-learning-model",
+      "name": "Dayglass.app/Contents/Resources/models/ggml-tiny.en.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "921e4cf8686fdd993dcd081a5da5b6c365bfde1162e72b08d75ac75289920b1f"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "flatbuffers",
+      "version": "25.12.19",
+      "purl": "pkg:pypi/flatbuffers@25.12.19",
+      "licenses": [
+        {
+          "expression": "Apache 2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "numpy",
+      "version": "2.5.5",
+      "purl": "pkg:pypi/numpy@2.5.5",
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "onnxruntime",
+      "version": "1.32.0",
+      "purl": "pkg:pypi/onnxruntime@1.32.0",
+      "licenses": [
+        {
+          "expression": "MIT License"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "packaging",
+      "version": "26.3",
+      "purl": "pkg:pypi/packaging@26.3",
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR BSD-2-Clause"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "pip",
+      "version": "26.2.1",
+      "purl": "pkg:pypi/pip@26.2.1",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "protobuf",
+      "version": "7.36.2",
+      "purl": "pkg:pypi/protobuf@7.36.2",
+      "licenses": [
+        {
+          "expression": "3-Clause BSD License"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "tokenizers",
+      "version": "0.23.3",
+      "purl": "pkg:pypi/tokenizers@0.23.3"
+    },
+    {
+      "type": "library",
+      "name": "dayglass (Python package source)",
+      "version": "2.4.1",
+      "description": "Contents/Resources/dayglass, 282 .py files; hash is SHA-256 over sorted 'path NUL sha256' lines",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f5f9b843173c9bf29006ed86c65c0c33982ffbcf63aa0a1262ef7f144b57a57d"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "Install CLI.command",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "163e2a12c042961088ec5c0e1c747059c5b010a1e9c64dd7ae8dbf9eab0001e0"
+        }
+      ]
+    }
+  ]
+}

@@ -63,10 +63,13 @@ hdiutil detach "${MOUNT_DIR}" -quiet || true
 echo "==> [4/4] Registering Dayglass with LaunchServices..."
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -f "${APP_DEST}" 2>/dev/null || true
 
-# Anonymous install telemetry ping to PostHog
-curl -fsS -m 3 -X POST "https://us.i.posthog.com/capture/" \
-  -H "Content-Type: application/json" \
-  -d "{\"api_key\":\"phc_ub5A4JPFsB2dm54Vaq2dWGeDh9zouzLL4Vb6TcicJxvf\",\"event\":\"app_installed_via_script\",\"distinct_id\":\"dg-cli-$(uuidgen | tr '[:upper:]' '[:lower:]' | cut -c1-12)\",\"properties\":{\"version\":\"${VERSION}\",\"arch\":\"$(uname -m)\",\"utm_source\":\"install_sh\"}}" >/dev/null 2>&1 || true
+# The only hosts this script contacts are the GitHub release downloads above. An install count is sent to
+# PostHog only when the person installing opts in with DAYGLASS_INSTALL_PING=1.
+if [[ "${DAYGLASS_INSTALL_PING:-0}" == "1" ]]; then
+  curl -fsS -m 3 -X POST "https://us.i.posthog.com/capture/" \
+    -H "Content-Type: application/json" \
+    -d "{\"api_key\":\"phc_ub5A4JPFsB2dm54Vaq2dWGeDh9zouzLL4Vb6TcicJxvf\",\"event\":\"app_installed_via_script\",\"distinct_id\":\"dg-cli-$(uuidgen | tr '[:upper:]' '[:lower:]' | cut -c1-12)\",\"properties\":{\"version\":\"${VERSION}\",\"arch\":\"$(uname -m)\",\"utm_source\":\"install_sh\"}}" >/dev/null 2>&1 || true
+fi
 
 echo ""
 echo "✅ Dayglass installed at ${APP_DEST}"
