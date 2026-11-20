@@ -24,10 +24,11 @@ Screenshots and their on-screen text can also show participants' names and faces
 
 ## How long audio and transcripts are kept
 
-- **Audio.** Each chunk is written as a WAV under `~/.dayglass/audio` (`dayglass/meetings.py:3338-3349`). It is deleted right after it is transcribed, unless a caller asks to keep it (`dayglass/meetings.py:3376-3392`). The background recorder never asks (`dayglass/daemon.py:134`), and no caller in `dayglass/` passes `keep_audio=True`. A chunk that failed to record is deleted too (`dayglass/meetings.py:3370-3372`).
-- **Transcripts, speaker names, Teams roster, speaker samples, and captions.** Kept for 90 days by default, then deleted (`DEFAULT_MEETING_RETENTION_DAYS` and `prune_meeting_data` in `dayglass/store.py`). The server runs this once a day from the same maintenance pass that prunes snapshot folders (`run_maintenance` in `dayglass/snapshots.py`). It deletes `meetings` rows whose start and end are both older than the window, `audio_chunks` older than the window with their `live_turn_speakers` names, `teams_captions` and `teams_speaker_samples` older than the window, and `teams_participants` names last seen before it, then runs `VACUUM`. `DAYGLASS_MEETING_RETENTION_DAYS` sets another number of days; `0` keeps everything until you delete it. Test: `tests/test_meeting_retention_delete.py`.
+- **Audio.** Each chunk is written as a WAV under `~/.dayglass/audio` (`dayglass/meetings.py:3338-3349`). It is deleted right after it is transcribed, unless a caller asks to keep it (`transcribe_recordings` in `dayglass/meetings.py`). The background recorder never asks (`dayglass/daemon.py:134`), and no caller in `dayglass/` passes `keep_audio=True`. A chunk that failed to record is deleted too (`dayglass/meetings.py:3370-3372`).
+- **Transcripts, speaker names, Teams roster, speaker samples, and captions.** No retention limit. In 2.4.1 and on `main` today they stay until you run `dayglass forget-meetings --yes` or remove `~/.dayglass`. A 90-day default is planned; it is not in any release yet.
 - The 30-day retention setting covers snapshot folders only (`prune_snapshots` in `dayglass/snapshots.py`). Meeting retention does not delete screen frames or their text; see [PRIVACY-FACTS.md](PRIVACY-FACTS.md).
-- This retention is on `main` after Dayglass 2.4.1. In 2.4.1 and earlier, transcripts and participant tables have no retention limit.
+- **Exported markdown copies.** When a meeting ends, Dayglass writes a markdown copy (summary, action items, full transcript) to `~/.dayglass/exports/meetings`, or to the folder in `DAYGLASS_EXPORT_DIR` if set. It may also write copies to `DAYGLASS_SECONDARY_EXPORT_DIR`, to `DAYGLASS_WORK_VAULT_DIR` (`Meetings/Recorded`), and to `Meetings` folders of Obsidian vaults it finds or is configured for (`_export_meeting_markdown` in `dayglass/meetings.py`). Nothing in Dayglass deletes these files, and `dayglass forget-meetings` does not touch them. Delete them yourself.
+- **Reactions.** Thumbs and other reactions on transcript turns are saved in the `turn_reactions` table with a short text snippet (`dayglass/store.py`). `dayglass forget-meetings` does not clear that table.
 
 ## Does speaker matching build a voice model?
 
@@ -42,15 +43,7 @@ Two caveats:
 
 ### One meeting
 
-Open the meeting in Dayglass and click **Delete meeting** next to **Copy Transcript**, then click again to confirm (`modalDeleteMeetingBtn` and `deleteCurrentModalMeeting` in `dayglass/web/index.html`). The same delete from the command line:
-
-```bash
-dayglass delete-meeting <meeting id> --yes
-```
-
-Both call `delete_meeting` in `dayglass/store.py`, through `POST /api/meetings/<id>/delete` with `{"confirm": true}` for the button (`dayglass/server.py`). It deletes the meeting row and, between that meeting's start and end: the transcript chunks and their audio files, speaker names, Teams captions and speaker samples, screen frames and their images, and hourly snapshots. A Teams roster name is deleted only if it was seen during this meeting and at no other time. It then runs `VACUUM`; if the running server holds the database at that moment, the rows are still gone and the next daily pass vacuums. A meeting that is still recording is refused. Test: `tests/test_meeting_retention_delete.py`.
-
-The button and `delete-meeting` are on `main` after Dayglass 2.4.1; they are not in 2.4.1.
+There is no way to delete a single meeting in 2.4.1 or on `main` today. A per-meeting delete (an app button and a command) is planned; it is not in any release yet. Until it exists, the only built-in deletes are the all-meetings command below and removing `~/.dayglass`.
 
 ### All meetings
 
@@ -91,8 +84,8 @@ The real `~/.dayglass/dayglass.sqlite` had the same modification time and size b
 
 ## Gaps
 
-- Retention and the per-meeting delete button are not in a released build yet (2.4.1 has only `dayglass forget-meetings`).
+- There is no retention limit and no per-meeting delete. A 90-day default and a per-meeting delete are planned and not in any release yet; 2.4.1 has only `dayglass forget-meetings`.
+- Exported markdown copies of meetings, and the `turn_reactions` table, are not removed by `dayglass forget-meetings`.
 - There is no in-app "delete all meetings" button; that is the CLI only.
-- Retention is set with an environment variable, not in Settings.
 - No notice to other participants. Teams captions are shown only to you, and Teams does not tell others (`macos/teamscaptions.swift:6`).
 - The database is not encrypted (see [PRIVACY-FACTS.md](PRIVACY-FACTS.md)).

@@ -4,7 +4,7 @@
 
 For a security reviewer deciding whether Dayglass may run on a managed Mac. Each claim points at the code, or at command output captured from the current public release, v2.4.1.
 
-v2.4.1 was built from dayglass commit `467a332`. Anything below marked **after 2.4.1** is on `main` but not in a released build yet.
+v2.4.1 was built from dayglass commit `467a332`. Anything below marked **planned** is not in any release yet.
 
 The `dayglass` source repository is private. The public copy of this pack, the participant-data page and the SBOM are in the `dayglass-mac` repository under `security/`. Code references are to the private source, by file and function name.
 
@@ -25,7 +25,7 @@ These are all the hosts outside the Mac that the code can reach. Hosts that appe
 | Host | When | What leaves the Mac |
 | --- | --- | --- |
 | `github.com` (`IgorGanapolsky/dayglass-mac` releases) | Install or update, by `install.sh` or Homebrew | Nothing beyond the download request |
-| `us.i.posthog.com` | Only if the person installing runs `install.sh` with `DAYGLASS_INSTALL_PING=1` ([dayglass-mac PR 30](https://github.com/IgorGanapolsky/dayglass-mac/pull/30); until it merges, the live `install.sh` still sends it on every install) | Event `app_installed_via_script`, a random 12-character id, the word `latest`, CPU type. The Homebrew cask sends nothing. In the app, analytics go out only if someone sets a PostHog key, and none ships (`DEFAULT_POSTHOG_PROJECT_KEY = ""` in `dayglass/analytics.py`) |
+| `us.i.posthog.com` | As of 20 Nov 2026, `install.sh` makes no analytics request unless the person installing sets `DAYGLASS_INSTALL_PING=1` (`install.sh` lines 66-72) | Event `app_installed_via_script`, a random 12-character id, the word `latest`, CPU type. In the app, analytics go out only if someone sets a PostHog key, and none ships (`DEFAULT_POSTHOG_PROJECT_KEY = ""` in `dayglass/analytics.py`) |
 | `api.anthropic.com`, `api.openai.com`, `generativelanguage.googleapis.com` | Only if the user picks a cloud AI, adds their own key and confirms (`dayglass/chat_engine.py`) | The question and the meeting notes that match it. `DAYGLASS_CHAT_LOCAL_ONLY=1` blocks it |
 | `huggingface.co` | Only if search by meaning or voice output is turned on | Model download request, once |
 | `github.com` (`astral-sh/uv` release) | Only when voice output is first installed (`dayglass/tts.py`) | Download request |
@@ -60,25 +60,27 @@ All of it is in `~/.dayglass` (or `DAYGLASS_HOME`), mostly `dayglass.sqlite`. Th
 
 | Data | Kept | In 2.4.1 |
 | --- | --- | --- |
-| Meeting audio (WAV chunks) | Deleted as soon as each chunk is transcribed | Yes |
-| Transcripts, speaker names, Teams roster, captions, speaker samples | 90 days by default, then deleted by a daily pass. `DAYGLASS_MEETING_RETENTION_DAYS` changes it; `0` keeps everything (`prune_meeting_data` in `dayglass/store.py`) | No: **after 2.4.1**. In 2.4.1 there is no limit |
+| Meeting audio (WAV chunks) | Deleted right after its transcription step, unless a caller asks to keep it (`transcribe_recordings` in `dayglass/meetings.py`). `keep_audio` defaults to false and `keep_audio=True` appears nowhere in `dayglass/` on `main` | Yes |
+| Transcripts, speaker names, Teams roster, captions, speaker samples | No limit. Kept until `dayglass forget-meetings --yes` or removal of `~/.dayglass`. A 90-day default is **planned**, not in any release | Yes, as described |
 | Screenshot images | Newest 400 kept | Yes |
-| Text read off screenshots | No limit, until its meeting is deleted or `~/.dayglass` is removed | Yes |
+| Text read off screenshots | No limit, until `~/.dayglass` is removed | Yes |
 | Hourly snapshot folders | 30 days | Yes |
 
 No voice model or voiceprint is built.
 
 ## Deleting data
 
-- **One meeting, in the app (after 2.4.1).** Open the meeting and click **Delete meeting**, then click again. It deletes the meeting and, between its start and end, the transcript, audio files, speaker names, Teams captions and samples, screen frames, their images and hourly snapshots (`delete_meeting` in `dayglass/store.py`, `POST /api/meetings/<id>/delete`). Also `dayglass delete-meeting <id> --yes`.
+- **One meeting.** Not possible yet. A per-meeting delete is planned and is not in any release.
 - **All meetings (in 2.4.1).** `dayglass forget-meetings --yes` deletes all meeting and participant data, rebuilds the search index and runs `VACUUM`. Screen history stays. Proof on a throwaway folder: `scripts/prove_forget_meetings.sh`.
 - **Everything.** Quit Dayglass and remove `~/.dayglass`.
 
-Tests: `tests/test_meeting_retention_delete.py`, `tests/test_edr_hardening.py::test_forget_meeting_data_clears_participants_and_audio`.
+- **Not removed by `forget-meetings`.** Exported markdown copies of meetings (`~/.dayglass/exports/meetings`, `DAYGLASS_EXPORT_DIR`, and any Obsidian or other vault folder Dayglass wrote to), and the `turn_reactions` table. Delete exported files yourself.
+
+Test: `tests/test_edr_hardening.py::test_forget_meeting_data_clears_participants_and_audio`.
 
 ## Uninstall
 
-With Homebrew: `brew uninstall --zap --cask dayglass` unloads the server agent, quits the app and removes the files below.
+The Homebrew cask lives in a separate repository (`homebrew-dayglass`) that this pack does not review. The manual steps below are what Dayglass itself installs.
 
 By hand:
 

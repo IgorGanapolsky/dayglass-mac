@@ -42,8 +42,8 @@ Nothing in normal use. The exceptions:
 - **Stop a recording.** File menu "Stop Recording", or `dayglass stop` (`macos/main.swift:2329-2333`, `dayglass/cli.py:432`).
 - **Pause capture.** Turning off Screen Recording in System Settings stops it (`dayglass/capture.py:278-279`).
 - **Delete.** Screenshots beyond the newest 400 are deleted, and their text stays (`prune_frame_images` in `dayglass/store.py`, `IMAGE_KEEP_NEWEST` in `dayglass/engine.py`). Snapshot folders older than the retention setting, 30 days by default, are deleted (`DEFAULT_RETENTION_DAYS` and `prune_snapshots` in `dayglass/snapshots.py`).
-- **Meetings.** Transcripts and participant data are deleted after 90 days by default, and a meeting can be deleted from its window with **Delete meeting**, which also removes the screen frames captured during it. Details in [MEETING-PARTICIPANT-DATA.md](MEETING-PARTICIPANT-DATA.md). On `main` after 2.4.1, not in 2.4.1.
-- **Screen text.** The text read off screenshots has no retention limit. It goes when its meeting is deleted, or when `~/.dayglass` is removed.
+- **Meetings.** In 2.4.1 and on `main` today, nothing deletes a meeting automatically and no per-meeting delete exists. Transcripts, speaker names, the Teams roster, captions and speaker samples stay until you run `dayglass forget-meetings --yes` or remove `~/.dayglass`. Screen frames and the text read off them are not touched by that command. Details in [MEETING-PARTICIPANT-DATA.md](MEETING-PARTICIPANT-DATA.md). A 90-day default and a per-meeting delete are planned; they are not in any release yet.
+- **Screen text.** The text read off screenshots has no retention limit. It goes only when `~/.dayglass` is removed.
 - **Exclude an app from search.** `DAYGLASS_SEARCH_EXCLUDE_APPS` replaces the hidden-apps list (`dayglass/store.py:688-691`, `dayglass/store.py:707-715`). It hides search results, not capture.
 
 ## What runs on the Mac
@@ -54,7 +54,7 @@ Nothing in normal use. The exceptions:
 ## Not covered here
 
 - **Private browser windows.** I found no code that skips them, though the pricing page says it does (`dayglass/web/pricing.html:590`).
-- **Pause and delete.** I found no in-app screen pause, "delete everything" action, or capture exclusion. Deleting one meeting is in the app (on `main`); deleting all meetings is `dayglass forget-meetings --yes`.
+- **Pause and delete.** I found no in-app screen pause, "delete everything" action, or capture exclusion. There is no in-app delete for a single meeting yet (planned, not in any release); deleting all meetings is `dayglass forget-meetings --yes`.
 - **Audio.** I did not find the skip list applied to audio recording.
 - **Encryption.** I found no database encryption in `dayglass/store.py`.
 - **Updates and crash reports.** I found no update check or crash upload.
