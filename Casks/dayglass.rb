@@ -1,13 +1,14 @@
 cask "dayglass" do
-  version "2.4.0"
-  sha256 "1e90b843bcd341374547494f1a099ee791dfb599d750e5e7a5668cdc099f4c51"
+  version "2.4.1"
+  sha256 "f65644e1652f18884ce4708c03fe3a78b9fd031cdda42b7f456bfa939298e47a"
 
   url "https://github.com/IgorGanapolsky/dayglass-mac/releases/download/v#{version}/Dayglass.dmg"
   name "Dayglass"
   desc "On-device meeting memory with no meeting bot"
   homepage "https://www.dayglass.io/"
 
-  depends_on macos: :ventura
+  depends_on arch: :arm64
+  depends_on macos: :sonoma
 
   app "Dayglass.app"
 
