@@ -4,7 +4,7 @@
 
 For a security reviewer deciding whether Dayglass may run on a managed Mac. Each claim points at the code, or at command output captured from the current public release, v2.4.1.
 
-v2.4.1 was built from dayglass commit `467a332`. Anything below marked **planned** is not in any release yet.
+v2.4.1 was built from dayglass commit `467a332`. Code references in this pack are to that commit, by file and function or constant name. Anything below marked **planned** is not in any release yet.
 
 The `dayglass` source repository is private. The public copy of this pack, the participant-data page and the SBOM are in the `dayglass-mac` repository under `security/`. Code references are to the private source, by file and function name.
 
@@ -20,12 +20,12 @@ Related: [PRIVACY-FACTS.md](PRIVACY-FACTS.md) (what is recorded), [MEETING-PARTI
 
 The app and its server listen on `127.0.0.1` only (`dayglass/server.py`). The server has no login or token, so any process on the Mac can call it; it refuses requests whose `Host` is not loopback and requests from other web origins (`local_request_allowed`, `DayglassHandler.parse_request`). The Swift app talks only to that server and to local Ollama or LM Studio. Screenshots, screen text, audio and transcripts stay in `~/.dayglass`.
 
-These are all the hosts outside the Mac that the code can reach. Hosts that appear in the code only as links a user can click are not listed.
+These are the hosts found in the audited code paths. Other modules were not audited, so this list is not proof that no other host can be reached. Two examples, both not audited: `dayglass/drex_max.py` reads `DREX_SYSTEMONE_URL`, a fifth configurable host beyond the four below; `dayglass/aaif_agent_standards.py` names `api.dayglass.io` fast and frontier endpoints, and whether it makes a call was not traced. Hosts that appear in the code only as links a user can click are not listed.
 
 | Host | When | What leaves the Mac |
 | --- | --- | --- |
 | `github.com` (`IgorGanapolsky/dayglass-mac` releases) | Install or update, by `install.sh` or Homebrew | Nothing beyond the download request |
-| `us.i.posthog.com` | As of 20 Nov 2026, `install.sh` makes no analytics request unless the person installing sets `DAYGLASS_INSTALL_PING=1` (`install.sh` lines 66-72) | Event `app_installed_via_script`, a random 12-character id, the word `latest`, CPU type. In the app, analytics go out only if someone sets a PostHog key, and none ships (`DEFAULT_POSTHOG_PROJECT_KEY = ""` in `dayglass/analytics.py`) |
+| `us.i.posthog.com` | As of 20 Nov 2026, `install.sh` makes no analytics request unless the person installing sets `DAYGLASS_INSTALL_PING=1` (the `DAYGLASS_INSTALL_PING` check in `install.sh`) | Event `app_installed_via_script`, a random 12-character id, the word `latest`, CPU type. In the app, analytics go out only if someone sets a PostHog key, and none ships (`DEFAULT_POSTHOG_PROJECT_KEY = ""` in `dayglass/analytics.py`) |
 | `api.anthropic.com`, `api.openai.com`, `generativelanguage.googleapis.com` | Only if the user picks a cloud AI, adds their own key and confirms (`dayglass/chat_engine.py`) | The question and the meeting notes that match it. `DAYGLASS_CHAT_LOCAL_ONLY=1` blocks it |
 | `huggingface.co` | Only if search by meaning or voice output is turned on | Model download request, once |
 | `github.com` (`astral-sh/uv` release) | Only when voice output is first installed (`dayglass/tts.py`) | Download request |
@@ -33,7 +33,7 @@ These are all the hosts outside the Mac that the code can reach. Hosts that appe
 | `api.ipify.org` | Only when the user runs `dayglass privacy` or opens privacy status | Public IP lookup (`dayglass/privacy_routing.py`) |
 | `itunes.apple.com` | Only when the revenue report endpoint is opened (`dayglass/analytics.py`) | The Dayglass App Store id |
 | `thumbgate.ai` | Only with consent and a key the user sets (`dayglass/feedback.py`) | The feedback vote |
-| A host the user configures | Only if set: `DAYGLASS_ADO_PROJECT_URL`, `DAYGLASS_FEEDBACK_WEBHOOK_URL`, `DAYGLASS_ULTRAMARINE_BASE_URL`, `DAYGLASS_LIVE_SUMMARY_URL` (loopback only) | What that feature sends to the host the user chose |
+| A host the user configures (the four audited) | Only if set: `DAYGLASS_ADO_PROJECT_URL`, `DAYGLASS_FEEDBACK_WEBHOOK_URL`, `DAYGLASS_ULTRAMARINE_BASE_URL`, `DAYGLASS_LIVE_SUMMARY_URL` (loopback only) | What that feature sends to the host the user chose |
 
 During a call, Dayglass no longer looks up or opens links it reads off a shared screen; that happens only with `DAYGLASS_VERIFY_SCREEN_URLS=1` (`_clean_and_verify_screen_url` in `dayglass/meetings.py`). Test: `tests/test_edr_hardening.py::test_screen_urls_are_not_fetched_unless_opted_in`.
 
@@ -60,7 +60,7 @@ All of it is in `~/.dayglass` (or `DAYGLASS_HOME`), mostly `dayglass.sqlite`. Th
 
 | Data | Kept | In 2.4.1 |
 | --- | --- | --- |
-| Meeting audio (WAV chunks) | Deleted right after its transcription step, unless a caller asks to keep it (`transcribe_recordings` in `dayglass/meetings.py`). `keep_audio` defaults to false and `keep_audio=True` appears nowhere in `dayglass/` on `main` | Yes |
+| Meeting audio (WAV chunks) | Deleted right after its transcription step, unless a caller asks to keep it (`transcribe_recordings` in `dayglass/meetings.py`). `keep_audio` defaults to false and `keep_audio=True` appears nowhere in `dayglass/` at `467a332`. If transcription raises, or the app is killed before the delete, the WAV stays in the audio folder until a later successful pass (read from the code, not tested) | Yes |
 | Transcripts, speaker names, Teams roster, captions, speaker samples | No limit. Kept until `dayglass forget-meetings --yes` or removal of `~/.dayglass`. A 90-day default is **planned**, not in any release | Yes, as described |
 | Screenshot images | Newest 400 kept | Yes |
 | Text read off screenshots | No limit, until `~/.dayglass` is removed | Yes |
@@ -71,10 +71,10 @@ No voice model or voiceprint is built.
 ## Deleting data
 
 - **One meeting.** Not possible yet. A per-meeting delete is planned and is not in any release.
-- **All meetings (in 2.4.1).** `dayglass forget-meetings --yes` deletes all meeting and participant data, rebuilds the search index and runs `VACUUM`. Screen history stays. Proof on a throwaway folder: `scripts/prove_forget_meetings.sh`.
+- **All meetings (in 2.4.1).** `dayglass forget-meetings --yes` deletes the six tables listed in `MEETING_DATA_TABLES` (`audio_chunks`, `meetings`, `live_turn_speakers`, `teams_participants`, `teams_speaker_samples`, `teams_captions`), the `audio/` folder and `meeting_profiles.json`, rebuilds the search index and runs `VACUUM`. Screen history stays. Proof on a throwaway folder: `scripts/prove_forget_meetings.sh`.
 - **Everything.** Quit Dayglass and remove `~/.dayglass`.
 
-- **Not removed by `forget-meetings`.** Exported markdown copies of meetings (`~/.dayglass/exports/meetings`, `DAYGLASS_EXPORT_DIR`, and any Obsidian or other vault folder Dayglass wrote to), and the `turn_reactions` table. Delete exported files yourself.
+- **Not removed by `forget-meetings`.** The `calendar_events` table (subject, organizer, link), the `latest-meeting.png` copy, exported markdown copies of meetings (`~/.dayglass/exports/meetings`, `DAYGLASS_EXPORT_DIR`, and any Obsidian or other vault folder Dayglass wrote to), and the `turn_reactions` table. Delete exported files yourself.
 
 Test: `tests/test_edr_hardening.py::test_forget_meeting_data_clears_participants_and_audio`.
 
@@ -94,13 +94,14 @@ By hand:
 
 ## SBOM
 
-[sbom/dayglass-2.4.1.cdx.json](sbom/dayglass-2.4.1.cdx.json) (CycloneDX 1.5), written by `scripts/sbom_from_dmg.py` from the mounted v2.4.1 DMG without running anything in it. 59 components:
+[sbom/dayglass-2.4.1.cdx.json](sbom/dayglass-2.4.1.cdx.json) (CycloneDX 1.5). Method: I mounted the v2.4.1 DMG without running anything in it, listed its Mach-O files and the Python `dist-info` folders, and hashed each file with SHA-256. Versions come from `dist-info` metadata or from strings and load commands in the binaries, as each component's note says. No script for this is published. 60 components: 50 `file`, 9 `library` and 1 `machine-learning-model`.
 
-- 49 Mach-O files with SHA-256, all arm64: the Swift app, nine Swift helpers (`dayglass-framecapture`, `-livetranscribe`, `-localchat`, `-micinuse`, `-ocr`, `-snapmask`, `-systemaudio`, `-teamscaptions`, `-windowlist`), the Rust core library, bundled Python 3.12.14, `ffmpeg` (a build configured with `--enable-gpl`), `whisper-cli` with its `ggml` and `libomp` libraries, and the native modules of the Python packages
-- The Whisper model `ggml-tiny.en.bin`, with SHA-256
-- Seven bundled Python packages with versions: `flatbuffers` 25.12.19, `numpy` 2.5.5, `onnxruntime` 1.32.0, `packaging` 26.3, `pip` 26.2.1, `protobuf` 7.36.2, `tokenizers` 0.23.3
-- The Dayglass Python source (282 files), as one hash over every file's hash
-- `Install CLI.command`
+- 49 Mach-O files with SHA-256, all arm64: the Swift app, nine Swift helpers (`dayglass-framecapture`, `-livetranscribe`, `-localchat`, `-micinuse`, `-ocr`, `-snapmask`, `-systemaudio`, `-teamscaptions`, `-windowlist`), the Rust core library, the bundled Python 3.12.14 interpreter, `ffmpeg` (a build configured with `--enable-gpl`), `whisper-cli` with its `ggml` and `libomp` libraries, and the native modules of the Python packages
+- `Install CLI.command` (the 50th `file` entry)
+- One `machine-learning-model` entry: the Whisper model `ggml-tiny.en.bin`, with SHA-256
+- Nine `library` entries: the CPython runtime 3.12.14, seven bundled Python packages with versions (`flatbuffers` 25.12.19, `numpy` 2.5.5, `onnxruntime` 1.32.0, `packaging` 26.3, `pip` 26.2.1, `protobuf` 7.36.2, `tokenizers` 0.23.3), and the Dayglass Python source (282 files), as one hash over every file's hash
+
+The `ffmpeg` in the DMG statically links other GPL-era codecs (x264, x265, libvpx, aom, libvvenc). They are not listed individually in the SBOM. That statement comes from the independent reviewer's inspection of the build configuration; I did not re-check it, and it is not in the SBOM.
 
 ## Signing and notarization, v2.4.1
 
