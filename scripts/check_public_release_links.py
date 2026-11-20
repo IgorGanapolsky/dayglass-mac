@@ -74,7 +74,8 @@ def main() -> int:
     home = (ROOT / "index.html").read_text(encoding="utf-8")
     if any(link not in home for link in ALLOWED_CHECKOUT):
         errors.append("a Dayglass checkout link is missing")
-    if "$19" not in home or "$149" not in home or "$249" not in home:
+    # The site sells Free and Pro only; Lifetime is no longer shown.
+    if "$19" not in home or "$149" not in home:
         errors.append("current prices are missing")
     if errors:
         print("public release links failed:", file=sys.stderr)

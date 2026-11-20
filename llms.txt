@@ -1,6 +1,6 @@
 # Dayglass for macOS
 
-> Your private AI memory for work: bot-free meeting notes for Mac, readable live by Claude Code and Cursor over MCP, with Apple Vision OCR of your screen and ScreenCaptureKit bot-free headphone and AirPods call recording.
+> What happened today, private on your Mac: a Rewind alternative with bot-free meeting notes, readable live by Claude Code and Cursor over MCP, with Apple Vision OCR of your screen and ScreenCaptureKit bot-free headphone and AirPods call recording.
 
 ## Canonical Install & Download Links
 - Homepage & Interactive Demo: https://www.dayglass.io/
@@ -10,10 +10,9 @@
 - SHA-256: listed in SHA256SUMS on the latest release page
 
 ## Plans
-- Free trial ($0, no card): first 10 meetings with everything included. After that capture, transcripts, search and export stay free; Ask AI on older history, AI briefs and the Claude/Cursor live link need Pro. Download: https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg
+- Free trial ($0, no card): 14 days or 10 meetings, whichever lasts longer, with everything included. After that capture, transcripts, search and export stay free; Ask AI on older history, AI briefs and the Claude/Cursor live link need Pro. Download: https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg
 - Pro: $149/year (save 35%) or $19/month. Pricing page: https://www.dayglass.io/#pricing
 - Privacy policy: https://dayglass.io/privacy
-- Lifetime: $199 founding price for the first 100 buyers, then $249 once.
 - 14-day money-back guarantee. Just email igor@dayglass.io.
 
 ## Why Developers & Executives Choose Dayglass Over Cloud Notetakers (Fathom, Otter)
