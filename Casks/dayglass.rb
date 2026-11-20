@@ -11,9 +11,10 @@ cask "dayglass" do
 
   app "Dayglass.app"
 
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Dayglass.app"],
-                   sudo: false
-  end
+  zap trash: [
+    "~/.dayglass",
+    "~/Library/Application Support/Dayglass",
+    "~/Library/LaunchAgents/com.iganapolsky.dayglass-server.plist",
+    "~/Library/Preferences/com.iganapolsky.dayglass.plist",
+  ]
 end

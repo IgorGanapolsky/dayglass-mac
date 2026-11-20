@@ -36,15 +36,21 @@ if [[ "${ACTUAL_SHA256}" != "${EXPECTED_SHA256}" ]]; then
   exit 1
 fi
 
-echo "==> [3/4] Installing Dayglass.app to ${APP_DEST}..."
+echo "==> [3/4] Checking Apple notarization and installing Dayglass.app to ${APP_DEST}..."
 rmdir "${MOUNT_DIR}" 2>/dev/null || true
 hdiutil attach "${TMP_DMG}" -nobrowse -readonly -mountpoint "${MOUNT_DIR}" -quiet
+# Gatekeeper decides, not this script: the app must be Developer ID signed and notarized by Apple.
+# Nothing is replaced when it is not.
+if ! codesign --verify --deep --strict "${MOUNT_DIR}/Dayglass.app" 2>/dev/null \
+  || ! spctl --assess --type execute "${MOUNT_DIR}/Dayglass.app" 2>/dev/null; then
+  echo "Error: this Dayglass build is not signed and notarized by Apple. Nothing was installed." >&2
+  exit 1
+fi
 rm -rf "${APP_DEST}"
 cp -R "${MOUNT_DIR}/Dayglass.app" "${APP_DEST}"
 hdiutil detach "${MOUNT_DIR}" -quiet || true
 
-echo "==> [4/4] Clearing macOS Gatekeeper quarantine & registering LaunchServices..."
-xattr -dr com.apple.quarantine "${APP_DEST}" 2>/dev/null || true
+echo "==> [4/4] Registering Dayglass with LaunchServices..."
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -f "${APP_DEST}" 2>/dev/null || true
 
 # Anonymous install telemetry ping to PostHog
