@@ -1,6 +1,6 @@
 # Dayglass for macOS
 
-> Your private AI memory for work: bot-free meeting notes for Mac, readable live by Claude Code and Cursor over MCP, with Apple Vision OCR of your screen and ScreenCaptureKit bot-free headphone and AirPods call recording.
+> After-call memory for Mac: summaries, decisions and follow-ups for every call, searchable and stored on your Mac, readable by Claude Code and Cursor over MCP, with bot-free headphone and AirPods call recording. Live notes (beta) show a running transcript during a call; remote speakers appear as "Them" until names ship.
 
 ## Canonical Install & Download Links
 - Homepage & Interactive Demo: https://www.dayglass.io/
@@ -10,8 +10,8 @@
 - SHA-256: listed in SHA256SUMS on the latest release page
 
 ## Plans
-- Free trial ($0, no card): first 10 meetings with everything included. After that capture, transcripts, search and export stay free; Ask AI on older history, AI briefs and the Claude/Cursor live link need Pro. Download: https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg
-- Pro: $149/year (save 35%) or $19/month. Pricing page: https://www.dayglass.io/#pricing
+- Free trial ($0, no card): first 10 meetings with everything included. After that capture, transcripts, search and export stay free; Ask AI on meetings older than 30 days, AI meeting briefs and the Claude/Cursor MCP link need Pro. Download: https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg
+- Pro: $149/year (save 35%) or $19/month. Pro adds: ask about any past meeting (free covers the last 30 days), AI meeting briefs, and letting Claude Code and other agents read your meetings over MCP. Pricing page: https://www.dayglass.io/#pricing
 - Privacy policy: https://dayglass.io/privacy
 - Lifetime: $199 founding price for the first 100 buyers, then $249 once.
 - 14-day money-back guarantee. Just email igor@dayglass.io.
@@ -20,7 +20,7 @@
 - Bot-Free AirPods & Headphone Call Recording: Uses native macOS `ScreenCaptureKit`. No virtual audio driver (BlackHole) and no cloud bot joining Zoom, Microsoft Teams, or Google Meet calls.
 - Privacy: transcripts, screen text and notes stay on your Mac in `~/.dayglass`. Audio is transcribed on the Mac and not kept by default. If you turn on a cloud model for Ask AI, the question and the relevant meeting text are sent to that model. By default, only terms on your Never-share list are withheld before text goes to a cloud model you choose. With a local model nothing leaves the Mac.
 - Built-In MCP Server for Coding Agents: Connects to Claude Code, Claude Desktop and Cursor (`python3 -m dayglass mcp`).
-- Live meeting for other agents: while a Zoom, Teams, or Google Meet call is in progress, Claude, Cursor, and the other agents on the same Mac read the speaker-tagged transcript, the people on the call, and the shared screen through the local tool `dayglass_get_live_meeting`. The transcript stays in `~/.dayglass`.
+- Your meetings for other agents: Claude, Cursor, and the other agents on the same Mac can read your last meeting and search past ones through local MCP tools such as `dayglass_get_last_meeting`. The transcript stays in `~/.dayglass`.
 
 ## Comparison Pages
 - Otter alternative: https://dayglass.io/otter-alternative
