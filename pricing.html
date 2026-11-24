@@ -934,6 +934,16 @@
     const POSTHOG_KEY = window.__DG_POSTHOG_KEY || "phc_ub5A4JPFsB2dm54Vaq2dWGeDh9zouzLL4Vb6TcicJxvf";
     const DISTINCT_ID = localStorage.getItem("dg_distinct_id") || ("dg-web-" + Math.random().toString(36).slice(2, 12));
     localStorage.setItem("dg_distinct_id", DISTINCT_ID);
+    // The owner's own browsers: opening any page with ?dg_owner=1 (or signing in at /admin) marks this browser,
+    // and its events carry dg_owner so the owner board drops them. ?dg_owner=0 clears the mark.
+    const OWNER_BROWSER = (() => {
+      try {
+        const mark = new URLSearchParams(window.location.search).get("dg_owner");
+        if (mark === "1") localStorage.setItem("dg_owner", "1");
+        if (mark === "0") localStorage.removeItem("dg_owner");
+        return localStorage.getItem("dg_owner") === "1";
+      } catch (e) { return false; }
+    })();
 
     // One page version. The A/B test was removed: every variant had the same headline and subhead.
     const AB_VARIANT = "control";
@@ -987,6 +997,7 @@
           distinct_id: DISTINCT_ID,
           properties: {
             ...properties,
+            dg_owner: OWNER_BROWSER,
             ab_variant: AB_VARIANT,
             utm_source,
             utm_medium,
