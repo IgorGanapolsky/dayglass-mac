@@ -43,15 +43,15 @@ class Hero(unittest.TestCase):
     def test_hero_text(self):
         for path in ("/", "/pricing.html"):
             page = self._open(path, 1280)
-            self.assertEqual(page.inner_text("#heroHeadline"), "Stop re-explaining client calls to Claude Code.")
+            self.assertEqual(page.inner_text("#heroHeadline"), "What happened today, private on your Mac.")
             self.assertEqual(
                 page.inner_text("#heroSubheadline").strip(),
-                "Dayglass gives Claude Code and Cursor context from your Mac meetings while the call is still happening, "
-                "so you can turn decisions into an implementation plan.",
+                "Dayglass records your calls without a bot and remembers what was on your screen, then answers "
+                "who decided what, who owes what, and what you saw. Claude Code and Cursor can read it too.",
             )
             self.assertEqual(
                 page.inner_text("#heroLocal"),
-                "Local recording and storage. No meeting bot. Try your next 10 meetings free.",
+                "The private memory Rewind used to be. Free for 14 days or 10 meetings, no card.",
             )
 
     def test_privacy_boundary_has_three_rows(self):
