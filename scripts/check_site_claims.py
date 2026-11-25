@@ -24,6 +24,8 @@ PAGES = (
     "rewind-alternative.html",
     "screenpipe-alternative.html",
     "claude-code-meeting-notes.html",
+    "faq.html",
+    "best-bot-free-meeting-notes-mac.html",
     "llms.txt",
 )
 BANNED = (

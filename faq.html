@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/png" href="/icon-256.png" />
+<link rel="apple-touch-icon" href="/icon-256.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dayglass FAQ: price, billing, Mac requirements, privacy | Dayglass</title>
+<meta name="description" content="Answers about Dayglass: free for 10 meetings, Pro $19 a month or $149 a year, macOS 14 on Apple silicon, notes stay on your Mac, and how Claude Code and Cursor read your meetings." />
+<link rel="canonical" href="https://dayglass.io/faq" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dayglass.io/faq" />
+<meta property="og:title" content="Dayglass questions and answers" />
+<meta property="og:description" content="Answers about Dayglass: free for 10 meetings, Pro $19 a month or $149 a year, macOS 14 on Apple silicon, notes stay on your Mac, and how Claude Code and Cursor read your meetings." />
+<meta property="og:image" content="https://dayglass.io/dayglass-notes-sample.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "url": "https://dayglass.io/faq", "name": "Dayglass FAQ", "dateModified": "2026-11-25", "mainEntity": [{"@type": "Question", "name": "Is Dayglass free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, to start. Your first 10 meetings include every feature, with no card. After that, capture, transcripts, search and export stay free for as long as you use the app. Ask AI on older meetings, AI meeting briefs and the Claude and Cursor live link need Pro."}}, {"@type": "Question", "name": "How much is Dayglass Pro?", "acceptedAnswer": {"@type": "Answer", "text": "$19 a month, or $149 a year (about 35% less than paying monthly). Pro has no meeting cap. A founding Lifetime license is $199 once for the first 100 buyers, then $249 once. Prices are in US dollars."}}, {"@type": "Question", "name": "What happens when the 10 free meetings run out?", "acceptedAnswer": {"@type": "Answer", "text": "Nothing is locked away. Dayglass keeps recording, transcribing and searching your meetings, and export still works. Only the Pro features (Ask AI on older history, AI briefs and the live link for Claude and Cursor) ask you to upgrade."}}, {"@type": "Question", "name": "How do I pay, and do I need an account?", "acceptedAnswer": {"@type": "Answer", "text": "Checkout is hosted by Stripe, so Dayglass never sees your card number. Your license key appears on the next screen. Paste it in Dayglass Settings with the email you paid with. There is no account to create, and the key is checked on your Mac."}}, {"@type": "Question", "name": "Can I cancel or get a refund?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Cancel Pro any time by emailing igor@dayglass.io. Every plan has a full refund within 14 days, with no form. If you stop paying, your meetings, transcripts, search and export stay on your Mac and keep working."}}, {"@type": "Question", "name": "Is there team or per-seat pricing?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Email igor@dayglass.io with your team size and you will get per-seat pricing. There is no shared team workspace, because each person's notes stay on their own Mac."}}, {"@type": "Question", "name": "What Mac do I need?", "acceptedAnswer": {"@type": "Answer", "text": "A Mac with Apple silicon (M1 or newer) running macOS 14 Sonoma or later. Intel Macs are not supported."}}, {"@type": "Question", "name": "How do I install Dayglass?", "acceptedAnswer": {"@type": "Answer", "text": "Download the Apple-notarized DMG, or run brew install --cask igorganapolsky/dayglass/dayglass, or run curl -fsSL https://www.dayglass.io/install.sh | bash in Terminal. The app is signed and notarized by Apple (Developer ID 9GMM26JC5X)."}}, {"@type": "Question", "name": "Which meeting apps does it work with?", "acceptedAnswer": {"@type": "Answer", "text": "Zoom, Google Meet and Microsoft Teams. Dayglass records with the macOS ScreenCaptureKit framework, so it works with AirPods and other headphones, and no bot joins the call. You do not need a virtual audio driver such as BlackHole."}}, {"@type": "Question", "name": "Where are my recordings and notes stored?", "acceptedAnswer": {"@type": "Answer", "text": "Transcripts, screen text and notes stay on your Mac in ~/.dayglass/dayglass.sqlite, a file you can open yourself. Audio is transcribed on the Mac and not kept by default. Dayglass runs no server that receives your meetings."}}, {"@type": "Question", "name": "Does anything leave my Mac?", "acceptedAnswer": {"@type": "Answer", "text": "Only if you turn on a cloud model for Ask AI. Then your question and the relevant meeting text go to the model you chose. By default, only terms on your Never-share list are withheld before that text is sent. With a local model, nothing leaves the Mac."}}, {"@type": "Question", "name": "Does it record my passwords?", "acceptedAnswer": {"@type": "Answer", "text": "Windows of password managers such as 1Password and Bitwarden are skipped during screen capture."}}, {"@type": "Question", "name": "How do I tell people on the call that I am taking notes?", "acceptedAnswer": {"@type": "Answer", "text": "Dayglass has a one-click consent snippet you can paste into the Zoom, Meet or Teams chat at the start of a call. Always follow the call-recording consent laws where you and the other people are."}}, {"@type": "Question", "name": "Can Claude Code or Cursor read my meetings?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Dayglass runs a local MCP server (python3 -m dayglass mcp) that Claude Code, Claude Desktop and Cursor can connect to. See the setup steps."}}, {"@type": "Question", "name": "Can an AI agent read a meeting while it is still happening?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. While a call is in progress, agents on your Mac can call the dayglass_get_live_meeting tool to get the speaker-tagged transcript, the people on the call and the shared screen."}}, {"@type": "Question", "name": "Does Dayglass send emails or file tickets by itself?", "acceptedAnswer": {"@type": "Answer", "text": "No. Dayglass writes the follow-up draft and action items on your Mac. If you have connected Gmail or Linear inside Claude, you can ask Claude to act on them, and you review before anything is sent."}}, {"@type": "Question", "name": "Does Dayglass run on Windows, Linux, iPhone or Android?", "acceptedAnswer": {"@type": "Answer", "text": "No. Dayglass is a Mac app only, and only for Apple silicon Macs on macOS 14 or later. There is no web app."}}, {"@type": "Question", "name": "Does Dayglass sync my notes to the cloud?", "acceptedAnswer": {"@type": "Answer", "text": "No. There is no Dayglass cloud and no sync between devices. Your notes live on the Mac that recorded them, and you can export them."}}, {"@type": "Question", "name": "Does Dayglass join meetings as a bot?", "acceptedAnswer": {"@type": "Answer", "text": "No. It never joins a call as a participant, so other people do not see a bot in the meeting. Use the consent snippet to let them know."}}]}</script>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1d1f;--muted:#5f5f66;--card:#fff;--line:#e4e2dc;--accent:#2f5bea;--accent-fg:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#121214;--fg:#f2f2f4;--muted:#a3a3ad;--card:#1b1b1f;--line:#2c2c33;--accent:#7c9bff;--accent-fg:#0b0b0d}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+main{max-width:760px;margin:0 auto;padding:32px 16px 64px}nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px}
+nav a{color:var(--fg);text-decoration:none;font-weight:600}nav .links a{font-weight:500;color:var(--muted);margin-left:18px}
+h1{font-size:clamp(30px,6vw,44px);line-height:1.15;margin:0 0 16px}h2{font-size:24px;margin:44px 0 12px}p.lead{font-size:19px;color:var(--muted)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0}.btn{display:inline-block;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:600}
+.btn.primary{background:var(--accent);color:var(--accent-fg)}.btn.ghost{border:1px solid var(--line);color:var(--fg)}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:15px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}th{font-weight:600}
+.wrap{overflow-x:auto}ul{padding-left:20px}footer{margin-top:56px;color:var(--muted);font-size:14px}footer a{color:var(--muted)}
+code{overflow-wrap:anywhere}
+.updated{font-size:14px;color:var(--muted);margin:-4px 0 20px}
+</style>
+<script src="/clarity.js" defer></script>
+</head>
+<body>
+<main>
+<nav><a href="/">Dayglass</a><span class="links"><a href="/pricing">Pricing</a><a href="/faq">FAQ</a><a href="https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg?utm_source=seo&utm_content=faq">Download</a></span></nav>
+<h1>Dayglass questions and answers</h1>
+<p class="updated">Updated November 25, 2026</p>
+<p class="lead">Dayglass is a Mac app that records your Zoom, Meet and Teams calls without a bot, keeps the notes on your Mac, and lets Claude Code and Cursor read the meeting. Here is everything about price, billing, requirements, privacy and limits in one place.</p>
+<div class="cta"><a class="btn primary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg?utm_source=seo&utm_content=faq">Download Dayglass free</a><a class="btn ghost" href="/pricing">See pricing</a></div>
+<h2>Prices at a glance</h2>
+<div class="wrap"><table>
+<tr><th>Plan</th><th>Price</th><th>What you get</th></tr>
+<tr><td>Free</td><td>$0, no card</td><td>Everything for your first 10 meetings. After that, capture, transcripts, search and export stay free</td></tr>
+<tr><td>Pro monthly</td><td>$19 a month</td><td>Ask AI on all past meetings, AI briefs, Claude and Cursor live link, no meeting cap</td></tr>
+<tr><td>Pro yearly</td><td>$149 a year</td><td>Same as Pro monthly</td></tr>
+<tr><td>Lifetime</td><td>$199 once for the first 100 buyers, then $249</td><td>Everything in Pro, no renewal</td></tr>
+</table></div>
+<p style="font-size:14px;color:var(--muted)">Every plan has a 14-day money-back guarantee. Full plan details are on the <a href="/pricing">pricing page</a>.</p>
+
+<h2>Plans and billing</h2>
+<h3>Is Dayglass free?</h3>
+<p>Yes, to start. Your first 10 meetings include every feature, with no card. After that, capture, transcripts, search and export stay free for as long as you use the app. Ask AI on older meetings, AI meeting briefs and the Claude and Cursor live link need Pro.</p>
+<h3>How much is Dayglass Pro?</h3>
+<p>$19 a month, or $149 a year (about 35% less than paying monthly). Pro has no meeting cap. A founding Lifetime license is $199 once for the first 100 buyers, then $249 once. Prices are in US dollars.</p>
+<h3>What happens when the 10 free meetings run out?</h3>
+<p>Nothing is locked away. Dayglass keeps recording, transcribing and searching your meetings, and export still works. Only the Pro features (Ask AI on older history, AI briefs and the live link for Claude and Cursor) ask you to upgrade.</p>
+<h3>How do I pay, and do I need an account?</h3>
+<p>Checkout is hosted by Stripe, so Dayglass never sees your card number. Your license key appears on the next screen. Paste it in Dayglass Settings with the email you paid with. There is no account to create, and the key is checked on your Mac.</p>
+<h3>Can I cancel or get a refund?</h3>
+<p>Yes. Cancel Pro any time by emailing igor@dayglass.io. Every plan has a full refund within 14 days, with no form. If you stop paying, your meetings, transcripts, search and export stay on your Mac and keep working.</p>
+<h3>Is there team or per-seat pricing?</h3>
+<p>Yes. Email igor@dayglass.io with your team size and you will get per-seat pricing. There is no shared team workspace, because each person's notes stay on their own Mac.</p>
+
+<h2>Requirements and install</h2>
+<h3>What Mac do I need?</h3>
+<p>A Mac with Apple silicon (M1 or newer) running macOS 14 Sonoma or later. Intel Macs are not supported.</p>
+<h3>How do I install Dayglass?</h3>
+<p>Download the Apple-notarized DMG, or run <code>brew install --cask igorganapolsky/dayglass/dayglass</code>, or run <code>curl -fsSL https://www.dayglass.io/install.sh | bash</code> in Terminal. The app is signed and notarized by Apple (Developer ID 9GMM26JC5X).</p>
+<h3>Which meeting apps does it work with?</h3>
+<p>Zoom, Google Meet and Microsoft Teams. Dayglass records with the macOS ScreenCaptureKit framework, so it works with AirPods and other headphones, and no bot joins the call. You do not need a virtual audio driver such as BlackHole.</p>
+
+<h2>Privacy and data</h2>
+<h3>Where are my recordings and notes stored?</h3>
+<p>Transcripts, screen text and notes stay on your Mac in ~/.dayglass/dayglass.sqlite, a file you can open yourself. Audio is transcribed on the Mac and not kept by default. Dayglass runs no server that receives your meetings.</p>
+<h3>Does anything leave my Mac?</h3>
+<p>Only if you turn on a cloud model for Ask AI. Then your question and the relevant meeting text go to the model you chose. By default, only terms on your Never-share list are withheld before that text is sent. With a local model, nothing leaves the Mac.</p>
+<h3>Does it record my passwords?</h3>
+<p>Windows of password managers such as 1Password and Bitwarden are skipped during screen capture.</p>
+<h3>How do I tell people on the call that I am taking notes?</h3>
+<p>Dayglass has a one-click consent snippet you can paste into the Zoom, Meet or Teams chat at the start of a call. Always follow the call-recording consent laws where you and the other people are.</p>
+
+<h2>Claude Code, Cursor and other AI tools</h2>
+<h3>Can Claude Code or Cursor read my meetings?</h3>
+<p>Yes. Dayglass runs a local MCP server (<code>python3 -m dayglass mcp</code>) that Claude Code, Claude Desktop and Cursor can connect to. <a href="/claude-code-meeting-notes">See the setup steps</a>.</p>
+<h3>Can an AI agent read a meeting while it is still happening?</h3>
+<p>Yes. While a call is in progress, agents on your Mac can call the dayglass_get_live_meeting tool to get the speaker-tagged transcript, the people on the call and the shared screen.</p>
+<h3>Does Dayglass send emails or file tickets by itself?</h3>
+<p>No. Dayglass writes the follow-up draft and action items on your Mac. If you have connected Gmail or Linear inside Claude, you can ask Claude to act on them, and you review before anything is sent.</p>
+
+<h2>What Dayglass does not do</h2>
+<h3>Does Dayglass run on Windows, Linux, iPhone or Android?</h3>
+<p>No. Dayglass is a Mac app only, and only for Apple silicon Macs on macOS 14 or later. There is no web app.</p>
+<h3>Does Dayglass sync my notes to the cloud?</h3>
+<p>No. There is no Dayglass cloud and no sync between devices. Your notes live on the Mac that recorded them, and you can export them.</p>
+<h3>Does Dayglass join meetings as a bot?</h3>
+<p>No. It never joins a call as a participant, so other people do not see a bot in the meeting. Use the consent snippet to let them know.</p>
+
+<p>Still have a question? Email <a href="mailto:igor@dayglass.io">igor@dayglass.io</a>.</p>
+<div class="cta"><a class="btn primary" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg?utm_source=seo&utm_content=faq">Download Dayglass free</a><a class="btn ghost" href="/pricing">See pricing</a></div>
+<footer><a href="/">Dayglass</a> · <a href="/pricing">Pricing</a> · <a href="/faq">FAQ</a> · <a href="/best-bot-free-meeting-notes-mac">Best bot-free note takers for Mac</a> · <a href="/claude-code-meeting-notes">Meeting notes for Claude Code</a> · <a href="/otter-alternative">Otter alternative</a> · <a href="/granola-alternative">Granola alternative</a> · <a href="/fathom-alternative">Fathom alternative</a> · <a href="/screenpipe-alternative">screenpipe alternative</a> · <a href="/rewind-alternative">Rewind alternative</a> · <a href="/limitless-alternative">Limitless alternative</a></footer>
+</main>
+</body>
+</html>
