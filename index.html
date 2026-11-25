@@ -339,6 +339,12 @@
     .outcomes { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; max-width: 980px; margin: 0 auto 22px; text-align: left; font-size: 14px; color: var(--muted); }
     .outcomes div { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; }
     .outcomes strong { color: var(--text); display: block; }
+    .buy-trust { max-width: 920px; margin: 18px auto 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+    .buy-trust div { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; font-size: 13.5px; color: var(--muted); line-height: 1.45; }
+    .buy-trust strong { display: block; color: var(--text); font-size: 14px; margin-bottom: 2px; }
+    .team-note { text-align: center; font-size: 14px; color: var(--muted); margin-top: 14px; }
+    .after-call { margin-top: 22px; border: 1px solid var(--border); border-radius: 14px; padding: 22px; }
+    .after-call ol { color: var(--muted); line-height: 1.6; margin: 0 0 8px 18px; }
     .guarantee { font-size: 12.5px; color: var(--green); text-align: center; margin-top: 8px; }
     .price #proPrice { font-size: 38px; font-weight: 800; color: var(--text); }
     .pricing-grid.three { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
@@ -851,6 +857,23 @@
           <p class="trial-note">One payment. No renewal.</p>
         </div>
       </div>
+      <div class="buy-trust" id="buyTrust" aria-label="What happens when you buy">
+        <div><strong>Checkout on Stripe</strong>Secure checkout hosted by Stripe. Dayglass never sees your card number.</div>
+        <div><strong>Key on the next screen</strong>Your license key appears right after you pay. Paste it in Dayglass Settings. No account to create.</div>
+        <div><strong>14-day money back</strong>Email <a href="mailto:igor@dayglass.io?subject=Dayglass%20refund">igor@dayglass.io</a> within 14 days for a full refund. No form.</div>
+        <div><strong>Your notes stay yours</strong>Transcripts and screen text stay on your Mac whether you pay or not. Export works on the free plan too.</div>
+      </div>
+      <p class="team-note">Buying for a team? Email <a href="mailto:igor@dayglass.io?subject=Dayglass%20for%20my%20team">igor@dayglass.io</a> with your team size for per-seat pricing.</p>
+      <div class="after-call" id="afterCall">
+        <div class="section-eyebrow">What you stop doing after every call</div>
+        <h3 style="margin: 4px 0 10px;">The call ends. The busywork is already done.</h3>
+        <ol>
+          <li>Dayglass writes the decisions, the action items by owner, and a follow-up email draft on your Mac.</li>
+          <li>You ask Claude Code or Cursor to plan the change that was agreed. It reads the meeting from Dayglass, so you do not retype it.</li>
+          <li>If Claude already has your Linear or Gmail connector, ask it to file the action items or save the follow-up as a draft. You review before anything is sent.</li>
+        </ol>
+        <p style="font-size: 12px; color: var(--muted); margin: 0;">Step 3 uses connectors you set up in Claude yourself. Dayglass does not send anything on its own.</p>
+      </div>
       <div id="callToTask" style="margin-top: 22px; border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 14px; padding: 22px;">
         <div class="section-eyebrow">An example, not a customer story</div>
         <h3 style="margin: 4px 0 10px;">From a client call to a task</h3>
@@ -867,6 +890,14 @@
       <div class="section-eyebrow">Frequently Asked Questions</div>
       <h2>Everything you need to know before installing</h2>
       <div class="story-grid" style="margin-top: 20px;">
+        <div class="story-card">
+          <h3>What happens after I pay?</h3>
+          <p>Stripe takes the payment, then the next screen shows your license key. Open Dayglass, go to Settings, and paste the key with the email you paid with. There is no account to create, and the key is checked on your Mac.</p>
+        </div>
+        <div class="story-card">
+          <h3>Can I cancel or get a refund?</h3>
+          <p>Yes. Pro is billed monthly or yearly, and you can cancel any time by emailing <a href="mailto:igor@dayglass.io?subject=Cancel%20Dayglass">igor@dayglass.io</a>. Any plan gets a full refund within 14 days. If you stop paying, your meetings, transcripts, search and export stay on your Mac and keep working.</p>
+        </div>
         <div class="story-card">
           <h3>How does Dayglass record AirPods calls without a bot?</h3>
           <p>Dayglass uses native macOS <code>ScreenCaptureKit</code> to record both your microphone and headphone/system audio directly on Apple Silicon. No bot joins your Zoom, Teams, or Meet call.</p>
