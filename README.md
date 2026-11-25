@@ -7,6 +7,7 @@
 - **Website & Interactive Demo**: [https://www.dayglass.io/](https://www.dayglass.io/)
 - **Direct Download (`.dmg`)**: [Download Dayglass for macOS](https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg) (SHA-256 is in `SHA256SUMS` on the release page)
 - **AI Search / LLM Manifest (`llms.txt`)**: [https://www.dayglass.io/llms.txt](https://www.dayglass.io/llms.txt)
+- **MCP directories**: [Official MCP Registry](https://registry.modelcontextprotocol.io/v0/servers?search=dayglass) · [Glama](https://glama.ai/mcp/connectors/io.github.IgorGanapolsky/dayglass)
 
 ---
 
