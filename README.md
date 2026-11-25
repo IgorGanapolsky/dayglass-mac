@@ -26,6 +26,8 @@
 
 ## Install in 10 Seconds
 
+Needs an Apple silicon Mac with macOS 14 or later.
+
 ### Option 1: Download the `.dmg` (recommended)
 
 1. Download [`Dayglass.dmg`](https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg)
@@ -51,6 +53,18 @@ curl -fsSL https://www.dayglass.io/install.sh | bash
 - **Bot-free call recording** via macOS `ScreenCaptureKit` (records both your Mic and AirPods/Headphones without joining Zoom/Teams/Meet as a bot)
 - **Local MCP server** (`python3 -m dayglass mcp`) that Claude Code, Claude Desktop and Cursor can connect to
 - **Live meeting for other agents:** while a Zoom, Teams, or Meet call is in progress, Claude, Cursor, and the other agents on your Mac read the speaker-tagged transcript through the local tool `dayglass_get_live_meeting`. The transcript stays in `~/.dayglass`.
+
+## Use it from Claude Code, Claude Desktop or Cursor
+
+```bash
+dayglass doctor --install-mcp   # adds the local Dayglass MCP server to Claude Code, Claude Desktop and Cursor
+```
+
+Then ask your agent things like "read the call I'm on and write the implementation plan for what we just agreed." During a call it uses `dayglass_get_live_meeting`; afterwards it can search past meetings. Full walkthrough: [dayglass.io/claude-code-meeting-notes](https://dayglass.io/claude-code-meeting-notes).
+
+## Comparisons
+
+[Otter](https://dayglass.io/otter-alternative) · [Granola](https://dayglass.io/granola-alternative) · [Fathom](https://dayglass.io/fathom-alternative) · [screenpipe](https://dayglass.io/screenpipe-alternative) · [Rewind](https://dayglass.io/rewind-alternative) · [Limitless](https://dayglass.io/limitless-alternative)
 
 ## Privacy
 

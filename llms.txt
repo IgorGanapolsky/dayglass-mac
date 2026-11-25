@@ -28,3 +28,5 @@
 - Fathom alternative: https://dayglass.io/fathom-alternative
 - Rewind alternative: https://dayglass.io/rewind-alternative
 - Limitless alternative: https://dayglass.io/limitless-alternative
+- screenpipe alternative: https://dayglass.io/screenpipe-alternative
+- Meeting notes for Claude Code and Cursor (MCP setup): https://dayglass.io/claude-code-meeting-notes

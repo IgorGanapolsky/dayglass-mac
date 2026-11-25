@@ -22,6 +22,8 @@ PAGES = (
     "fathom-alternative.html",
     "limitless-alternative.html",
     "rewind-alternative.html",
+    "screenpipe-alternative.html",
+    "claude-code-meeting-notes.html",
     "llms.txt",
 )
 BANNED = (
