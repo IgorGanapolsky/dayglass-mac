@@ -201,10 +201,6 @@ class AnalyticsHosts(unittest.TestCase):
                 self.assertEqual(page.locator("footer a[href$='/discussions/10']").count(), 1)
                 self.assertEqual(page.locator("section a[href$='/discussions/10']").count(), 0)
 
-
-if __name__ == "__main__":
-    unittest.main()
-
     def test_clarity_loads_only_for_real_visitors_on_dayglass_io(self):
         pages = ("/", "/pricing.html", "/privacy.html", "/otter-alternative.html")
         def clarity_requests(origin, path, robot=False, owner=False):
@@ -222,3 +218,6 @@ if __name__ == "__main__":
                 self.assertEqual(clarity_requests("https://dayglass.io", path, robot=True), [], "automated browsers")
                 self.assertEqual(clarity_requests("https://dayglass.io", path, owner=True), [], "owner browsers")
         self.assertIn("Microsoft Clarity", (ROOT / "privacy.html").read_text())
+
+if __name__ == "__main__":
+    unittest.main()
