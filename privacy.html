@@ -17,6 +17,7 @@ nav a{color:var(--fg);text-decoration:none;font-weight:600}nav .links a{font-wei
 h1{font-size:clamp(30px,6vw,44px);line-height:1.15;margin:0 0 16px}h2{font-size:24px;margin:44px 0 12px}p.lead{font-size:19px;color:var(--muted)}
 a{color:var(--accent)}code{font-size:15px}ul{padding-left:20px}footer{margin-top:56px;color:var(--muted);font-size:14px}footer a{color:var(--muted)}
 </style>
+<script src="/clarity.js" defer></script>
 </head>
 <body>
 <main>
@@ -33,6 +34,7 @@ a{color:var(--accent)}code{font-size:15px}ul{padding-left:20px}footer{margin-top
 <li><strong>Ask AI with a cloud model.</strong> The built-in answer engine is Apple's on-device model. If you add your own API key for a cloud model, your question and the relevant meeting text are sent to that provider under your account and its terms. By default, only terms on your Never-share list are withheld before text goes to a cloud model you choose. Other text, such as company and project names, is sent as written.</li>
 <li><strong>Tools you connect.</strong> If you connect Claude, Cursor or another assistant to Dayglass over MCP, that assistant can read what you ask it to search, and its own privacy policy applies to what it does with it.</li>
 <li><strong>Product analytics.</strong> The app can record usage events, such as opening the pricing page, in your local database. They are not sent anywhere unless analytics forwarding is configured, and they never include audio, transcripts or screen text. Set <code>DAYGLASS_ANALYTICS_DISABLED=1</code> to keep them local in every case.</li>
+<li><strong>Usage counts, only if you turn them on.</strong> Settings has a switch, off until you turn it on, that shares two anonymous counts with us through PostHog: that you summarized a first meeting, and, at most once a week, that you used Dayglass that week with a rough meeting count such as "2-5". Each count carries a random install id made only for this, and the app version. PostHog also receives your IP address. It never includes titles, transcripts, summaries, names, email addresses or screen text. Turn the switch off to stop.</li>
 </ul>
 
 <h2>Licenses and payments</h2>
@@ -40,6 +42,7 @@ a{color:var(--accent)}code{font-size:15px}ul{padding-left:20px}footer{margin-top
 
 <h2>This website</h2>
 <p>dayglass.io is hosted on GitHub Pages behind Cloudflare, which log standard request data such as IP address and browser. On dayglass.io the site sends usage events to PostHog. The events are: that you arrived, that you scrolled to the pricing section, a click on a pricing or download button, a click to start checkout, leaving the page after starting checkout without buying (checkout_abandoned), copying the consent note (consent_snippet_copied), and copying the Homebrew install command (brew_install_copied). Each event carries a random browser identifier stored in your browser, the page path, the referrer and the campaign tags in the link you followed. PostHog also receives your IP address with each event. Nothing is sent from other hosts, and no meeting audio, transcript or screen text is ever part of it. We use this only to understand which pages work. We do not sell it or use it for advertising.</p>
+<p>dayglass.io also uses Microsoft Clarity to see how visitors use the pages: how far people scroll, where they click, and clicks that go nowhere. Clarity records page sessions, including mouse movement, clicks and scrolling, and stores a cookie to recognize a returning browser. Anything typed into a field is masked before it leaves your browser. Clarity receives your IP address and browser details, and Microsoft's <a href="https://privacy.microsoft.com/privacystatement">privacy statement</a> applies to what it collects. Clarity runs only on dayglass.io, and visitors in the EEA, UK and Switzerland are tracked without cookies. It is never part of the Dayglass app.</p>
 <p>The install script (<code>curl -fsSL https://www.dayglass.io/install.sh | bash</code>) downloads the app and its checksum from GitHub and sends nothing else. It sends an install count to PostHog only if you run it with <code>DAYGLASS_INSTALL_PING=1</code>. The Homebrew cask sends nothing.</p>
 
 <h2>Deleting your data</h2>

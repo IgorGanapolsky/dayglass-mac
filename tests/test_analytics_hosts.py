@@ -20,7 +20,7 @@ from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parents[1]
 SINK = "window.__events = []; window.__DG_EVENT_SINK = (n, p) => window.__events.push([n, p]);"
 NOT_A_ROBOT = "Object.defineProperty(navigator, 'webdriver', {get: () => false});"
-OUTBOUND = ("posthog.com", "thumbgate.ai", "stripe.com")
+OUTBOUND = ("posthog.com", "thumbgate.ai", "stripe.com", "clarity.ms")
 
 
 class Quiet(http.server.SimpleHTTPRequestHandler):
@@ -83,6 +83,7 @@ class AnalyticsHosts(unittest.TestCase):
                     page.goto((origin or self.local) + path)
                     page.evaluate("trackPricingEvent('pricing_page_viewed'); trackPricingEvent('checkout_initiated');")
                     page.wait_for_timeout(300)
+                    page.wait_for_timeout(200)
                     analytics = [u for u, _ in sent if "stripe.com" not in u]
                     self.assertEqual(analytics, [])
 
@@ -101,7 +102,7 @@ class AnalyticsHosts(unittest.TestCase):
                     self.assertEqual((props["product"], props["app"], props["lnd_product"]), ("dayglass",) * 3)
 
     def test_page_talks_only_to_posthog_and_dayglass_io(self):
-        allowed = {"dayglass.io", "www.dayglass.io", "us.i.posthog.com"}
+        allowed = {"dayglass.io", "www.dayglass.io", "us.i.posthog.com", "www.clarity.ms"}
         for origin in ("https://dayglass.io", "https://www.dayglass.io"):
             for path in ("/", "/pricing.html"):
                 with self.subTest(origin=origin, path=path):
@@ -200,6 +201,23 @@ class AnalyticsHosts(unittest.TestCase):
                 self.assertEqual(page.locator("footer a[href$='/discussions/10']").count(), 1)
                 self.assertEqual(page.locator("section a[href$='/discussions/10']").count(), 0)
 
+    def test_clarity_loads_only_for_real_visitors_on_dayglass_io(self):
+        pages = ("/", "/pricing.html", "/privacy.html", "/otter-alternative.html")
+        def clarity_requests(origin, path, robot=False, owner=False):
+            ctx, sent = self._context(origin, robot=robot)
+            page = ctx.new_page()
+            page.goto((origin or self.local) + path + ("?dg_owner=1" if owner else ""))
+            page.wait_for_timeout(400)
+            return [u for u, _ in sent if "clarity.ms" in u]
+        for path in pages:
+            with self.subTest(path=path):
+                tags = clarity_requests("https://dayglass.io", path)
+                self.assertEqual(tags, ["https://www.clarity.ms/tag/zjac22a5n1"])
+                self.assertEqual(clarity_requests(None, path), [], "localhost must not load Clarity")
+                self.assertEqual(clarity_requests("https://dayglass.io.evil.test", path), [])
+                self.assertEqual(clarity_requests("https://dayglass.io", path, robot=True), [], "automated browsers")
+                self.assertEqual(clarity_requests("https://dayglass.io", path, owner=True), [], "owner browsers")
+        self.assertIn("Microsoft Clarity", (ROOT / "privacy.html").read_text())
 
 if __name__ == "__main__":
     unittest.main()
