@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/png" href="/icon-256.png" />
+<link rel="apple-touch-icon" href="/icon-256.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Watch Dayglass work: one day in 5 short chapters | Dayglass</title>
+<meta name="description" content="A 2-minute walkthrough of one workday with Dayglass on a Mac: a call with no bot, catch-me-up, Claude Code reading the live call, notes that write themselves, and asking what happened today." />
+<link rel="canonical" href="https://dayglass.io/demo" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://dayglass.io/demo" />
+<meta property="og:title" content="Watch Dayglass work: one day in 5 short chapters" />
+<meta property="og:description" content="A call with no bot, catch-me-up, Claude Code reading the live call, notes that write themselves, and asking what happened today. No sign-up to watch." />
+<meta property="og:image" content="https://dayglass.io/dayglass-notes-sample.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<style>
+:root{--bg:#090a0f;--surface:#12141d;--surface2:#191c28;--border:#262a3b;--text:#f1f5f9;--muted:#94a3b8;--accent:#38bdf8;--green:#34d399;--amber:#fbbf24;--purple:#a78bfa;--red:#ef4444;
+--font:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter",system-ui,sans-serif;--mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:radial-gradient(circle at 50% 0%,#15192d 0%,var(--bg) 60%);background-color:var(--bg);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+.container{max-width:1100px;margin:0 auto;padding:0 16px}
+nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;color:var(--text);text-decoration:none}
+.brand-dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}
+.nav-links{display:flex;gap:20px;font-size:14px;flex-wrap:wrap}
+.nav-links a{color:var(--muted);text-decoration:none;font-weight:500}
+.nav-links a:hover{color:var(--text)}
+.top{display:grid;grid-template-columns:1.25fr 1fr;gap:36px;align-items:start;padding:44px 0 28px}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.12;letter-spacing:-.02em;margin-bottom:14px}
+.lead{color:var(--muted);font-size:18px;margin-bottom:18px}
+.checks{list-style:none;display:grid;gap:10px;margin-bottom:18px}
+.checks li{display:flex;gap:10px;align-items:flex-start}
+.checks li::before{content:"✓";flex:0 0 22px;height:22px;border-radius:50%;background:rgba(56,189,248,.14);color:var(--accent);font-size:13px;font-weight:800;display:grid;place-items:center;margin-top:2px}
+.small{font-size:14px;color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px}
+.card h2{font-size:20px;margin-bottom:6px}
+.btn{display:block;text-align:center;padding:13px 18px;border-radius:11px;text-decoration:none;font-weight:700;font-size:15px;border:0;cursor:pointer;font-family:inherit}
+.btn-primary{background:var(--accent);color:#04121c}
+.btn-secondary{background:transparent;color:var(--text);border:1px solid var(--border)}
+.btn + .btn{margin-top:10px}
+.card ul{list-style:none;margin:14px 0 16px;display:grid;gap:6px;font-size:14px;color:var(--muted)}
+.card ul li::before{content:"• ";color:var(--green)}
+/* Player */
+.player{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:18px;margin-bottom:28px}
+.roles{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:16px}
+.roles .lbl{font-size:13px;color:var(--muted);margin-right:4px}
+.role{background:var(--surface2);border:1px solid var(--border);color:var(--muted);border-radius:999px;padding:7px 13px;font:600 13px var(--font);cursor:pointer}
+.role[aria-pressed="true"]{background:rgba(56,189,248,.14);border-color:var(--accent);color:var(--text)}
+.journey{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.journey .end{font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap}
+.steps{display:flex;flex:1;gap:3px;min-width:0}
+.step{flex:1;min-width:0;height:30px;border:0;cursor:pointer;background:var(--surface2);color:var(--muted);font:700 12px var(--font);clip-path:polygon(0 0,calc(100% - 9px) 0,100% 50%,calc(100% - 9px) 100%,0 100%,9px 50%);position:relative;overflow:hidden;padding:0 12px}
+.step:first-child{clip-path:polygon(0 0,calc(100% - 9px) 0,100% 50%,calc(100% - 9px) 100%,0 100%);border-radius:6px 0 0 6px}
+.step:last-child{clip-path:polygon(0 0,100% 0,100% 100%,0 100%,9px 50%);border-radius:0 6px 6px 0}
+.step.done{background:rgba(52,211,153,.35);color:var(--text)}
+.step.current{background:var(--accent);color:#04121c}
+.step .fill{position:absolute;left:0;top:0;bottom:0;background:rgba(255,255,255,.28);width:0}
+.step span{position:relative;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.chapter-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin:14px 0 10px}
+.chapter-head h2{font-size:22px}
+.chapter-head .time{font-family:var(--mono);font-size:13px;color:var(--amber)}
+.chapter-head p{color:var(--muted);font-size:15px;flex-basis:100%}
+.stage{background:#0c0e15;border:1px solid var(--border);border-radius:14px;min-height:330px;padding:16px;position:relative;overflow:hidden}
+.win-bar{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);margin-bottom:12px}
+.w-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.win-bar .title{margin-left:6px;font-weight:600;color:#cbd5e1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rec{margin-left:auto;color:var(--red);font-weight:700;white-space:nowrap}
+.line{opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s;margin-bottom:10px}
+.line.on{opacity:1;transform:none}
+.bubble{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:9px 12px;max-width:560px;font-size:14px}
+.bubble.me{margin-left:auto;background:rgba(56,189,248,.12);border-color:rgba(56,189,248,.35)}
+.bubble .who{display:block;font-size:11px;font-weight:700;color:var(--muted);margin-bottom:2px;text-transform:uppercase;letter-spacing:.04em}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.tile{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:10px 6px;text-align:center;font-size:12px;color:var(--muted)}
+.av{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;margin:0 auto 4px;font-weight:800;color:#0b0b0d;font-size:13px}
+.term{font-family:var(--mono);font-size:13px;color:#cbd5e1;white-space:pre-wrap;word-break:break-word}
+.term .p{color:var(--green)}.term .t{color:var(--purple)}.term .d{color:var(--muted)}
+.notes h4{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--green);margin-bottom:4px}
+.notes ul{list-style:none;font-size:14px;display:grid;gap:4px}
+.notes .owner{display:inline-block;font-size:11px;font-weight:700;background:rgba(167,139,250,.18);color:var(--purple);border-radius:6px;padding:1px 6px;margin-right:6px}
+.hud{background:rgba(25,28,40,.96);border:1px solid rgba(56,189,248,.4);border-radius:14px;padding:12px 14px;max-width:520px}
+.kbd{font-family:var(--mono);font-size:12px;background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:1px 6px}
+.pill{display:inline-block;font-size:11px;font-weight:700;border-radius:999px;padding:2px 8px;margin-left:6px;vertical-align:2px}
+.pill.pro{background:rgba(251,191,36,.16);color:var(--amber)}
+.pill.free{background:rgba(52,211,153,.16);color:var(--green)}
+.illus{position:absolute;right:10px;bottom:8px;font-size:11px;color:#64748b}
+.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}
+.controls .btn{display:inline-block;padding:10px 16px;font-size:14px}
+.controls .btn + .btn{margin-top:0}
+.controls .spacer{flex:1}
+.share{font-size:13px;color:var(--muted);background:none;border:0;cursor:pointer;text-decoration:underline;font-family:inherit}
+.endcard{display:none;margin-top:14px;background:linear-gradient(135deg,rgba(56,189,248,.14),rgba(167,139,250,.12));border:1px solid rgba(56,189,248,.35);border-radius:14px;padding:18px}
+.endcard.on{display:block}
+.endcard h3{font-size:20px;margin-bottom:6px}
+.endcard .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.endcard .row .btn{display:inline-block}
+.endcard .row .btn + .btn{margin-top:0}
+.faq{margin:10px 0 40px}
+.faq h2{font-size:22px;margin-bottom:12px}
+.faq details{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 16px;margin-bottom:8px}
+.faq summary{cursor:pointer;font-weight:600}
+.faq p{color:var(--muted);margin-top:8px;font-size:15px}
+footer{border-top:1px solid var(--border);padding:22px 0 40px;font-size:14px;color:var(--muted)}
+footer a{color:var(--muted)}
+@media (max-width:820px){.top{grid-template-columns:1fr;gap:22px;padding-top:28px}#demoCtaCard{display:none}body{padding-bottom:76px}}
+.mobilebar{display:none;position:fixed;left:0;right:0;bottom:0;gap:10px;align-items:center;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(9,10,15,.94);border-top:1px solid var(--border);backdrop-filter:blur(8px);z-index:10}
+.mobilebar .btn{flex:1;padding:11px 12px}.mobilebar .btn + .btn{margin-top:0}
+@media (max-width:820px){.mobilebar{display:flex}}
+@media (max-width:640px){
+  .step span{display:none}.step{height:22px;padding:0}
+  .journey .end{font-size:11px}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .stage{min-height:380px;padding:12px}
+}
+@media (prefers-reduced-motion:reduce){.line{transition:none}}
+</style>
+<script src="/clarity.js" defer></script>
+</head>
+<body>
+<div class="container">
+  <nav>
+    <a href="/" class="brand"><span class="brand-dot"></span> Dayglass</a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/faq">FAQ</a>
+      <a href="/#pricing" style="color:var(--accent);font-weight:600">See plans</a>
+    </div>
+  </nav>
+
+  <section class="top">
+    <div>
+      <h1>Watch one workday with Dayglass, in five short chapters.</h1>
+      <p class="lead">About two minutes in all, and no sign-up to watch. In this walkthrough, Dayglass:</p>
+      <ul class="checks">
+        <li>Records your Zoom, Meet or Teams call from your Mac, with no bot in the call</li>
+        <li>Lets Claude Code and Cursor read the call while it is still happening</li>
+        <li>Writes decisions, owners and the follow-up email as soon as the call ends</li>
+        <li>Answers “what happened today?” from notes that stay on your Mac</li>
+      </ul>
+      <p class="small">Questions? Email <a href="mailto:igor@dayglass.io?subject=Dayglass%20demo%20question" id="demoMail">igor@dayglass.io</a>. You will hear back from the person who builds it.</p>
+    </div>
+    <aside class="card" id="demoCtaCard">
+      <h2>Try it on your next call</h2>
+      <p class="small">Free for your first 10 meetings, every feature on. No card, no account.</p>
+      <ul>
+        <li>macOS 14+, Apple silicon</li>
+        <li>Signed and notarized by Apple</li>
+        <li>Pro after that: $19 a month or $149 a year</li>
+        <li>14-day money-back guarantee</li>
+      </ul>
+      <a class="btn btn-primary" id="demoDownloadTop" data-source="demo_card" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg">Download free for Mac</a>
+      <a class="btn btn-secondary" id="demoPlansTop" data-source="demo_card" href="/#pricing">See plans</a>
+    </aside>
+  </section>
+
+  <section class="player" id="player" aria-label="Dayglass demo in five chapters">
+    <div class="roles" role="group" aria-label="Show the demo for your job">
+      <span class="lbl">Show it for:</span>
+      <button class="role" data-role="engineer" aria-pressed="true">Engineer</button>
+      <button class="role" data-role="founder" aria-pressed="false">Founder</button>
+      <button class="role" data-role="consultant" aria-pressed="false">Consultant</button>
+      <button class="role" data-role="sales" aria-pressed="false">Sales</button>
+    </div>
+
+    <div class="journey">
+      <span class="end">9 AM</span>
+      <div class="steps" id="steps"></div>
+      <span class="end">6 PM</span>
+    </div>
+
+    <div class="chapter-head">
+      <h2 id="chapterTitle"></h2>
+      <span class="time" id="chapterTime"></span>
+      <p id="chapterBlurb"></p>
+    </div>
+
+    <div class="stage" id="stage" aria-live="polite"></div>
+
+    <div class="controls">
+      <button class="btn btn-secondary" id="prevBtn">Back</button>
+      <button class="btn btn-secondary" id="pauseBtn">Pause</button>
+      <button class="btn btn-primary" id="nextBtn">Next chapter</button>
+      <span class="spacer"></span>
+      <button class="share" id="shareBtn">Copy link to this chapter</button>
+    </div>
+
+    <div class="endcard" id="endcard">
+      <h3>That was one day. Try it on your own.</h3>
+      <p class="small">Your first 10 meetings are free with every feature on. After that, recording, transcripts, search and export stay free, and Pro adds Ask AI on older meetings, AI briefs and the Claude and Cursor live link.</p>
+      <div class="row">
+        <a class="btn btn-primary" id="demoDownloadEnd" data-source="demo_end" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg">Download free for Mac</a>
+        <a class="btn btn-secondary" id="demoPlansEnd" data-source="demo_end" href="/#pricing">See Pro plans</a>
+        <a class="btn btn-secondary" id="demoTeamEnd" data-source="demo_end" href="mailto:igor@dayglass.io?subject=Dayglass%20for%20my%20team">Ask about team pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <h2>Quick answers</h2>
+    <details><summary>Is this the real app?</summary><p>It is an illustration of the real features, with fictional names and companies. The app records on your Mac, writes the notes on your Mac, and runs a local MCP server that Claude Code and Cursor connect to.</p></details>
+    <details><summary>Do the other people on the call see a bot?</summary><p>No. Dayglass records from your Mac's system audio and microphone. Paste the 1-click consent note into the meeting chat so people know you are taking notes, and follow the recording laws where you and they are.</p></details>
+    <details><summary>Where does the meeting data go?</summary><p>Transcripts, screen text and notes stay in ~/.dayglass on your Mac. Audio is transcribed on the Mac and not kept by default. If you pick a cloud model for Ask AI, your question and the relevant meeting text go to that model.</p></details>
+    <details><summary>What is free and what is Pro?</summary><p>Your first 10 meetings include everything. After that, recording, transcripts, search and export stay free. Pro ($19 a month or $149 a year) adds Ask AI on older meetings, AI briefs and the live link for Claude and Cursor.</p></details>
+  </section>
+
+  <footer>
+    <a href="/">Home</a> · <a href="/pricing">Pricing</a> · <a href="/faq">FAQ</a> · <a href="/privacy">Privacy</a> · <a href="mailto:igor@dayglass.io">igor@dayglass.io</a>
+    <p style="margin-top:8px">Everything in this demo is an illustration. Names, companies and conversations are fictional.</p>
+  </footer>
+</div>
+
+<div class="mobilebar" id="mobileBar">
+  <a class="btn btn-primary" id="demoDownloadBar" data-source="demo_mobile_bar" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg">Download free</a>
+  <a class="btn btn-secondary" id="demoPlansBar" data-source="demo_mobile_bar" href="/#pricing">Plans</a>
+</div>
+
+<script>
+(function () {
+  // ---- Analytics: same rules as the home page. Only dayglass.io sends, robots and previews send nothing. ----
+  const ANALYTICS_HOSTS = ['dayglass.io', 'www.dayglass.io'];
+  const MACHINE_VISIT = navigator.webdriver === true || !ANALYTICS_HOSTS.includes(window.location.hostname);
+  const POSTHOG_KEY = window.__DG_POSTHOG_KEY || "phc_ub5A4JPFsB2dm54Vaq2dWGeDh9zouzLL4Vb6TcicJxvf";
+  let DISTINCT_ID = "dg-web-" + Math.random().toString(36).slice(2, 12);
+  let OWNER_BROWSER = false;
+  try {
+    DISTINCT_ID = localStorage.getItem("dg_distinct_id") || DISTINCT_ID;
+    localStorage.setItem("dg_distinct_id", DISTINCT_ID);
+    const mark = new URLSearchParams(location.search).get("dg_owner");
+    if (mark === "1") localStorage.setItem("dg_owner", "1");
+    if (mark === "0") localStorage.removeItem("dg_owner");
+    OWNER_BROWSER = localStorage.getItem("dg_owner") === "1";
+  } catch (e) {}
+  function track(event, props) {
+    props = props || {};
+    if (window.__DG_EVENT_SINK) window.__DG_EVENT_SINK(event, props);
+    if (MACHINE_VISIT || !POSTHOG_KEY) return;
+    const q = new URLSearchParams(location.search);
+    const src = q.get('utm_source') || q.get('source') || 'direct';
+    fetch('https://us.i.posthog.com/capture/', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, keepalive: true,
+      body: JSON.stringify({ api_key: POSTHOG_KEY, event: event, distinct_id: DISTINCT_ID, properties: Object.assign({}, props, {
+        dg_owner: OWNER_BROWSER, utm_source: src, source: src, utm_medium: q.get('utm_medium') || '', utm_campaign: q.get('utm_campaign') || '',
+        utm_content: q.get('utm_content') || '', lnd_product: 'dayglass', product: 'dayglass', app: 'dayglass',
+        lp_path: location.pathname, referrer: document.referrer || '', surface: location.host }) })
+    }).catch(function () {});
+  }
+  window.__dgDemoTrack = track;
+
+  // ---- Scenarios. Each job gets its own fictional call; the chapters stay the same. ----
+  const ROLES = {
+    engineer: {
+      call: 'Q4 rollout sync', app: 'Zoom',
+      people: [['M', 'Mina', '#38bdf8'], ['A', 'Alex', '#a78bfa'], ['S', 'Sam', '#fbbf24']],
+      said: [['Mina', 'Can we get the staging rollout out this week?'], ['Alex', 'I can have the retry change ready by Thursday 4 PM.'], ['Sam', 'Then prod Monday, if error rates stay under 0.5%.']],
+      catchup: ['Staging rollout this week, prod Monday', 'Alex owns the retry change, due Thursday 4 PM', 'Open question: who watches error rates over the weekend?'],
+      ask: 'Turn what we just agreed into an implementation plan for the retry change.',
+      answer: ['1. Add backoff with jitter to the upload client (Alex, by Thu 4 PM)', '2. Feature-flag it for staging first', '3. Alert if error rate goes above 0.5% (Sam’s condition for Monday)'],
+      decisions: ['Staging rollout ships Thursday', 'Prod on Monday if error rate stays under 0.5%'],
+      actions: [['Alex', 'Retry change ready, Thu 4:00 PM'], ['Sam', 'Error-rate dashboard before Monday'], ['You', 'Weekend on-call note to the team']],
+      email: 'Hi all, quick recap of the Q4 rollout sync: staging ships Thursday, prod Monday if errors stay under 0.5%. Alex has the retry change by Thursday 4 PM…',
+      today: ['9:30 AM Q4 rollout sync: staging Thursday, prod Monday. Alex owns the retry change.', '1:00 PM Design review: the team kept the current settings page; Mina sends mocks Friday.', '3:15 PM 1:1 with Sam: Sam wants to own on-call alerts next quarter.'],
+      search: ['"p95 latency"', 'Slide shared in the 9:30 AM call: p95 latency 410 ms, target 300 ms']
+    },
+    founder: {
+      call: 'Northwind weekly check-in', app: 'Google Meet',
+      people: [['D', 'Dana', '#38bdf8'], ['R', 'Raj', '#a78bfa'], ['L', 'Lee', '#fbbf24']],
+      said: [['Dana', 'If you add SSO, we would roll this out to 40 seats.'], ['Raj', 'Our security review takes about two weeks.'], ['Lee', 'Can we start a pilot with my team before then?']],
+      catchup: ['Northwind would expand to 40 seats once SSO ships', 'Their security review takes about two weeks', 'Lee asked for a pilot with their team first'],
+      ask: 'Write a one-page SSO spec from what Dana and Raj asked for on this call.',
+      answer: ['1. SAML sign-in for Okta and Google Workspace', '2. Admin can require SSO for all 40 seats', '3. Security packet ready for Raj’s two-week review'],
+      decisions: ['Pilot with Lee’s team starts next week', 'Expansion to 40 seats waits on SSO'],
+      actions: [['You', 'Send SSO timeline to Dana by Friday'], ['Raj', 'Share the security questionnaire'], ['Lee', 'Pick 5 pilot users']],
+      email: 'Hi Dana, thanks for today. Here is what we agreed: a pilot with Lee’s team next week, and 40 seats once SSO is live. I will send the SSO timeline by Friday…',
+      today: ['9:30 AM Northwind check-in: 40 seats once SSO ships. Pilot with Lee next week.', '11:00 AM Investor call: they asked for monthly numbers by the 5th.', '4:00 PM Hiring sync: second interview for the backend role on Tuesday.'],
+      search: ['"security questionnaire"', 'Raj’s screen in the 9:30 AM call: questionnaire, 42 questions, due in 10 days']
+    },
+    consultant: {
+      call: 'Brightline workshop', app: 'Microsoft Teams',
+      people: [['P', 'Priya', '#38bdf8'], ['O', 'Omar', '#a78bfa'], ['K', 'Kim', '#fbbf24']],
+      said: [['Priya', 'Our board deck is due on the 12th.'], ['Omar', 'Phase one should cover intake and scheduling only.'], ['Kim', 'Billing can wait until phase two.']],
+      catchup: ['Board deck due on the 12th', 'Phase one scope: intake and scheduling', 'Billing moved to phase two'],
+      ask: 'Draft a statement-of-work summary from the scope we agreed on this call.',
+      answer: ['Scope: intake and scheduling (phase one)', 'Out of scope: billing (phase two)', 'Milestone: board-ready summary by the 11th, a day before the deck'],
+      decisions: ['Phase one is intake and scheduling', 'Billing moves to phase two'],
+      actions: [['You', 'SOW draft to Priya by Wednesday'], ['Omar', 'Send current intake forms'], ['Kim', 'Billing requirements for phase two']],
+      email: 'Hi Priya, thank you for the workshop. To confirm: phase one covers intake and scheduling, billing moves to phase two, and I will send the SOW draft by Wednesday…',
+      today: ['9:30 AM Brightline workshop: phase one is intake and scheduling. SOW due Wednesday.', '12:30 PM Internal staffing call: Jo joins the Brightline team Monday.', '3:00 PM Harbor Bank review: they approved the change request.'],
+      search: ['"intake form"', 'Omar’s shared screen at 9:52 AM: intake form v3, 14 fields']
+    },
+    sales: {
+      call: 'Acme Retail discovery', app: 'Zoom',
+      people: [['J', 'Jordan', '#38bdf8'], ['T', 'Tess', '#a78bfa'], ['N', 'Nico', '#fbbf24']],
+      said: [['Jordan', 'Budget is approved for Q1.'], ['Tess', 'We need a security review before we sign.'], ['Nico', 'Our main problem is reps re-typing call notes.']],
+      catchup: ['Budget approved for Q1', 'Security review needed before signing', 'Main pain: reps re-typing call notes'],
+      ask: 'Draft my follow-up with next steps and the list of security documents Tess needs.',
+      answer: ['Next steps: security review, then a 2-week pilot', 'Docs for Tess: security overview, data flow, privacy policy', 'Pain to lead with: reps re-typing call notes (Nico)'],
+      decisions: ['Security review starts this week', 'Pilot follows the review'],
+      actions: [['You', 'Security packet to Tess by Friday'], ['Jordan', 'Confirm Q1 budget owner'], ['Nico', 'Name 3 pilot reps']],
+      email: 'Hi Jordan, great talking today. Next steps: I will send Tess the security packet by Friday, then we start a two-week pilot with Nico’s reps…',
+      today: ['9:30 AM Acme discovery: budget approved for Q1, security review first.', '11:30 AM Pipeline review: two deals moved to next quarter.', '2:00 PM Globex demo: they asked for a price for 25 seats.'],
+      search: ['"25 seats"', 'Said at 2:14 PM in the Globex demo: “What would 25 seats cost per year?”']
+    }
+  };
+
+  const CHAPTERS = [
+    { key: 'record', short: 'Record', time: '9:28 AM', title: 'Start the call. No bot joins.',
+      blurb: 'Dayglass records from your Mac. Only people are in the meeting, and a 1-click note tells them you are taking notes.' },
+    { key: 'catchup', short: 'Catch up', time: '9:41 AM', title: 'Drifted for a minute? Catch up.',
+      blurb: 'Press ⌘⇧Space during the call to see what was just proposed and what is still open.' },
+    { key: 'agent', short: 'Agent', time: '9:47 AM', title: 'Claude Code reads the live call.',
+      blurb: 'Claude Code, Cursor and Claude Desktop call a local MCP tool and get who said what, while the call is still going.' },
+    { key: 'notes', short: 'Notes', time: '10:02 AM', title: 'The notes write themselves.',
+      blurb: 'When the call ends, you get the decisions, action items by owner, and a follow-up email ready to edit.' },
+    { key: 'today', short: 'Today', time: '5:45 PM', title: 'Ask what happened today.',
+      blurb: 'Every call and everything shared on screen is searchable on your Mac, so the end of the day takes one question.' }
+  ];
+
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const bar = (title, extra) => '<div class="win-bar"><span class="w-dot" style="background:#ef4444"></span><span class="w-dot" style="background:#f59e0b"></span><span class="w-dot" style="background:#10b981"></span><span class="title">' + esc(title) + '</span>' + (extra || '') + '</div>';
+
+  function render(ch, r) {
+    const s = ROLES[r];
+    const L = (html) => '<div class="line">' + html + '</div>';
+    if (ch === 'record') {
+      const tiles = s.people.map((p) => '<div class="tile"><div class="av" style="background:' + p[2] + '">' + p[0] + '</div>' + esc(p[1]) + '</div>').join('') +
+        '<div class="tile"><div class="av" style="background:#34d399">You</div>You</div>';
+      return bar(s.app + ' • ' + s.call, '<span class="rec">● Dayglass recording on this Mac</span>') +
+        L('<div class="tiles">' + tiles + '</div>') +
+        L('<div class="bubble me"><span class="who">You, in the meeting chat</span>Heads up: I take private notes on my Mac with Dayglass. No bot is joining.</div>') +
+        L('<div class="bubble"><span class="who">' + esc(s.said[0][0]) + '</span>' + esc(s.said[0][1]) + '</div>') +
+        L('<div class="bubble"><span class="who">' + esc(s.said[1][0]) + '</span>' + esc(s.said[1][1]) + '</div>') +
+        L('<p class="small">4 people in the call. 0 bots. <span class="pill free">Free</span></p>');
+    }
+    if (ch === 'catchup') {
+      return bar(s.app + ' • ' + s.call, '<span class="rec">● Recording</span>') +
+        L('<div class="bubble"><span class="who">' + esc(s.said[2][0]) + '</span>' + esc(s.said[2][1]) + '</div>') +
+        L('<p class="small">You press <span class="kbd">⌘⇧Space</span></p>') +
+        L('<div class="hud"><strong>✨ Catch me up</strong><div class="notes" style="margin-top:6px"><ul>' +
+          s.catchup.map((c) => '<li>• ' + esc(c) + '</li>').join('') + '</ul></div></div>') +
+        L('<p class="small">Only you see this panel. Nothing is posted in the call.</p>');
+    }
+    if (ch === 'agent') {
+      return bar('Terminal — claude') +
+        L('<div class="term"><span class="p">&gt;</span> ' + esc(s.ask) + '</div>') +
+        L('<div class="term"><span class="t">⏺ dayglass_get_live_meeting</span> <span class="d">(local MCP, on this Mac)</span>\n<span class="d">  └ ' + esc(s.call) + ' • 4 people • live transcript, speaker-tagged</span></div>') +
+        s.answer.map((a) => L('<div class="term">' + esc(a) + '</div>')).join('') +
+        L('<p class="small">The call is still going. Nobody re-explained anything. <span class="pill pro">Pro live link</span></p>');
+    }
+    if (ch === 'notes') {
+      return bar('Dayglass — ' + s.call + ' notes') +
+        L('<div class="notes"><h4>✓ Decisions</h4><ul>' + s.decisions.map((d) => '<li>' + esc(d) + '</li>').join('') + '</ul></div>') +
+        L('<div class="notes"><h4>Action items</h4><ul>' + s.actions.map((a) => '<li><span class="owner">' + esc(a[0]) + '</span>' + esc(a[1]) + '</li>').join('') + '</ul></div>') +
+        L('<div class="bubble"><span class="who">Follow-up email draft</span>' + esc(s.email) + '</div>') +
+        L('<p class="small">Written on your Mac. Export to Markdown in one click. <span class="pill free">Free</span></p>');
+    }
+    return bar('Dayglass — Ask') +
+      L('<div class="bubble me"><span class="who">You</span>What happened today?</div>') +
+      L('<div class="bubble"><span class="who">Dayglass</span>' + s.today.map(esc).join('<br>') + '</div>') +
+      L('<div class="bubble me"><span class="who">You search</span>' + esc(s.search[0]) + '</div>') +
+      L('<div class="bubble"><span class="who">Found in screen text</span>' + esc(s.search[1]) + '</div>') +
+      L('<p class="small">Answered from the notes stored on your Mac. <span class="pill pro">Ask AI on older meetings is Pro</span></p>');
+  }
+
+  // ---- Player ----
+  const REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const LINE_MS = 1100, HOLD_MS = 2600;
+  const q = new URLSearchParams(location.search);
+  let role = ROLES[q.get('role')] ? q.get('role') : 'engineer';
+  let idx = Math.min(Math.max(parseInt(q.get('chapter') || '1', 10) || 1, 1), CHAPTERS.length) - 1;
+  let paused = REDUCED, timers = [], seen = new Set();
+
+  const $ = (id) => document.getElementById(id);
+  const stepsEl = $('steps');
+  CHAPTERS.forEach((c, i) => {
+    const b = document.createElement('button');
+    b.className = 'step';
+    b.setAttribute('aria-label', 'Chapter ' + (i + 1) + ': ' + c.title);
+    b.innerHTML = '<div class="fill"></div><span>' + (i + 1) + '. ' + c.short + '</span>';
+    b.addEventListener('click', () => { go(i, 'step'); });
+    stepsEl.appendChild(b);
+  });
+
+  function clear() { timers.forEach(clearTimeout); timers = []; }
+  function syncUrl() {
+    const u = new URL(location.href);
+    u.searchParams.set('chapter', String(idx + 1));
+    u.searchParams.set('role', role);
+    history.replaceState(null, '', u.pathname + u.search + u.hash);
+  }
+  function play() {
+    clear();
+    const c = CHAPTERS[idx];
+    $('chapterTitle').textContent = (idx + 1) + '. ' + c.title;
+    $('chapterTime').textContent = c.time;
+    $('chapterBlurb').textContent = c.blurb;
+    $('stage').innerHTML = render(c.key, role) + '<span class="illus">Illustration • fictional names</span>';
+    [...stepsEl.children].forEach((b, i) => {
+      b.classList.toggle('done', i < idx);
+      b.classList.toggle('current', i === idx);
+      b.setAttribute('aria-current', i === idx ? 'step' : 'false');
+    });
+    $('prevBtn').disabled = idx === 0;
+    $('nextBtn').textContent = idx === CHAPTERS.length - 1 ? 'Watch again' : 'Next chapter';
+    $('endcard').classList.toggle('on', idx === CHAPTERS.length - 1);
+    syncUrl();
+    const tag = role + ':' + idx;
+    if (!seen.has(tag)) { seen.add(tag); track('demo_chapter_viewed', { chapter: idx + 1, chapter_key: c.key, role: role }); }
+
+    const lines = [...$('stage').querySelectorAll('.line')];
+    if (REDUCED) { lines.forEach((l) => l.classList.add('on')); onChapterDone(); return; }
+    lines.forEach((l, i) => timers.push(setTimeout(() => l.classList.add('on'), 250 + i * LINE_MS)));
+    timers.push(setTimeout(onChapterDone, 250 + lines.length * LINE_MS));
+  }
+  function onChapterDone() {
+    if (idx === CHAPTERS.length - 1) { track('demo_completed', { role: role }); return; }
+    if (paused) return;
+    timers.push(setTimeout(() => go(idx + 1, 'auto'), HOLD_MS));
+  }
+  function go(i, how) {
+    if (i < 0 || i >= CHAPTERS.length) return;
+    if (how !== 'auto' && how !== 'load') { paused = true; $('pauseBtn').textContent = 'Play'; }
+    idx = i;
+    play();
+  }
+
+  document.querySelectorAll('.role').forEach((b) => b.addEventListener('click', () => {
+    role = b.dataset.role;
+    document.querySelectorAll('.role').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    track('demo_role_selected', { role: role });
+    play();
+  }));
+  document.querySelectorAll('.role').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.role === role)));
+  $('prevBtn').addEventListener('click', () => go(idx - 1, 'button'));
+  $('nextBtn').addEventListener('click', () => {
+    if (idx === CHAPTERS.length - 1) { paused = false; $('pauseBtn').textContent = 'Pause'; idx = 0; play(); return; }
+    go(idx + 1, 'button');
+  });
+  $('pauseBtn').addEventListener('click', () => {
+    paused = !paused;
+    $('pauseBtn').textContent = paused ? 'Play' : 'Pause';
+    if (!paused) { if (idx === CHAPTERS.length - 1) idx = 0; play(); } else clear();
+  });
+  $('shareBtn').addEventListener('click', () => {
+    const url = 'https://dayglass.io/demo?chapter=' + (idx + 1) + '&role=' + role;
+    const done = () => { $('shareBtn').textContent = 'Link copied'; setTimeout(() => { $('shareBtn').textContent = 'Copy link to this chapter'; }, 1800); };
+    if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, done); else done();
+    track('demo_link_copied', { chapter: idx + 1, role: role });
+  });
+  document.querySelectorAll('[data-source]').forEach((a) => a.addEventListener('click', () => {
+    const dl = a.href.indexOf('Dayglass.dmg') !== -1;
+    track(dl ? 'dmg_download_clicked' : (a.href.indexOf('mailto:') === 0 ? 'team_pricing_clicked' : 'hero_pro_clicked'),
+      { source: a.dataset.source, chapter: idx + 1, role: role });
+  }));
+  $('demoMail').addEventListener('click', () => track('demo_question_clicked', { chapter: idx + 1, role: role }));
+
+  if (REDUCED) $('pauseBtn').textContent = 'Play';
+  track('demo_viewed', { chapter: idx + 1, role: role, deep_link: q.has('chapter') });
+  go(idx, 'load');
+})();
+</script>
+</body>
+</html>

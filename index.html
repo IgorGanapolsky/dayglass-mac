@@ -356,6 +356,7 @@
     <nav>
       <a href="#install" class="brand" id="navBrandLink"><span class="brand-dot"></span> Dayglass</a>
       <div class="nav-links">
+        <a href="/demo" onclick="trackPricingEvent('demo_link_clicked', {source: 'nav'})">Watch demo</a>
         <a href="#features">Features</a>
         <a href="/privacy">Privacy</a>
         <a href="#pricing">Pricing</a>
@@ -382,7 +383,7 @@
         <a class="btn btn-primary" id="heroPrimaryCta" href="https://github.com/IgorGanapolsky/dayglass-mac/releases/latest/download/Dayglass.dmg" onclick="trackPricingEvent('dmg_download_clicked', {source: 'hero_primary'})">Download free for Mac</a>
         <a class="btn btn-secondary" href="#pricing" onclick="trackPricingEvent('hero_pro_clicked', {source: 'hero_secondary'})">See plans</a>
       </div>
-      <p class="cta-note">No card. macOS 14+, Apple Silicon.</p>
+      <p class="cta-note">No card. macOS 14+, Apple Silicon. <a href="/demo" id="heroDemoLink" onclick="trackPricingEvent('demo_link_clicked', {source: 'hero'})">Watch the 2-minute demo &rarr;</a></p>
 
       <div class="hero-ask" id="heroAsk">
         <div class="hero-ask-q"><span class="dim">You ask Claude</span> &ldquo;What did Alex commit to on the call?&rdquo;</div>

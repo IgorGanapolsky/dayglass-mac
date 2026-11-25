@@ -25,6 +25,7 @@ PAGES = (
     "screenpipe-alternative.html",
     "claude-code-meeting-notes.html",
     "faq.html",
+    "demo.html",
     "best-bot-free-meeting-notes-mac.html",
     "llms.txt",
 )
