@@ -20,7 +20,7 @@ from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parents[1]
 SINK = "window.__events = []; window.__DG_EVENT_SINK = (n, p) => window.__events.push([n, p]);"
 NOT_A_ROBOT = "Object.defineProperty(navigator, 'webdriver', {get: () => false});"
-OUTBOUND = ("posthog.com", "thumbgate.ai", "stripe.com", "clarity.ms")
+OUTBOUND = ("posthog.com", "thumbgate.ai", "stripe.com", "clarity.ms", "paradigmmachines.ai")
 
 
 class Quiet(http.server.SimpleHTTPRequestHandler):
@@ -102,7 +102,7 @@ class AnalyticsHosts(unittest.TestCase):
                     self.assertEqual((props["product"], props["app"], props["lnd_product"]), ("dayglass",) * 3)
 
     def test_page_talks_only_to_posthog_and_dayglass_io(self):
-        allowed = {"dayglass.io", "www.dayglass.io", "us.i.posthog.com", "www.clarity.ms"}
+        allowed = {"dayglass.io", "www.dayglass.io", "us.i.posthog.com", "www.clarity.ms", "t.paradigmmachines.ai"}
         for origin in ("https://dayglass.io", "https://www.dayglass.io"):
             for path in ("/", "/pricing.html"):
                 with self.subTest(origin=origin, path=path):
@@ -218,6 +218,26 @@ class AnalyticsHosts(unittest.TestCase):
                 self.assertEqual(clarity_requests("https://dayglass.io", path, robot=True), [], "automated browsers")
                 self.assertEqual(clarity_requests("https://dayglass.io", path, owner=True), [], "owner browsers")
         self.assertIn("Microsoft Clarity", (ROOT / "privacy.html").read_text())
+
+    def test_orion_loads_only_for_real_visitors_and_its_agent_link_on_dayglass_io(self):
+        tag = "https://t.paradigmmachines.ai/86vwvzk3zm3tvthbghw3.js"
+        def orion_requests(origin, path, robot=False, query=""):
+            ctx, sent = self._context(origin, robot=robot)
+            page = ctx.new_page()
+            page.goto((origin or self.local) + path + query)
+            page.wait_for_timeout(400)
+            return [u for u, _ in sent if "paradigmmachines.ai" in u]
+        for path in ("/", "/pricing.html", "/privacy.html", "/otter-alternative.html", "/demo.html", "/faq.html"):
+            with self.subTest(path=path):
+                self.assertEqual(orion_requests("https://dayglass.io", path), [tag])
+                self.assertEqual(orion_requests(None, path), [], "localhost must not load Orion")
+                self.assertEqual(orion_requests("https://dayglass.io.evil.test", path), [])
+                self.assertEqual(orion_requests("https://dayglass.io", path, robot=True), [], "automated browsers")
+                self.assertEqual(orion_requests("https://dayglass.io", path, query="?dg_owner=1"), [], "owner browsers")
+                self.assertEqual(orion_requests("https://dayglass.io", path, robot=True, query="?orion_agent=test"), [tag], "Orion agent link")
+        for page in ROOT.glob("*.html"):
+            self.assertIn('src="/orion.js"', page.read_text(), page.name)
+        self.assertIn("Orion", (ROOT / "privacy.html").read_text())
 
 if __name__ == "__main__":
     unittest.main()
